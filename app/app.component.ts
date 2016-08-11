@@ -11,10 +11,10 @@ import { QuestionService } from './question.service';
     	<router-outlet></router-outlet>
     `,
     styles: [`
-    .w3-container {
-    	color: white;
-    	background-color: #CC0000;
-    }
+	    .w3-container {
+	    	color: white;
+	    	background-color: #CC0000;
+	    }
     `
     ],
     providers: [QuestionService]
