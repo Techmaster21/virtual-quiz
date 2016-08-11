@@ -9,7 +9,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class TimerComponent {
 	@Output() onStarted = new EventEmitter<boolean>();
 	mseconds: number = 0;
-	timer: any; // correct class, what is?
+	timer: number;
 
 	startTimer() {
 	if (!this.timer) {

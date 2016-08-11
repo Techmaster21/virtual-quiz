@@ -5,6 +5,7 @@ import { Question } from './question';
 import { QuestionService } from './question.service';
 
 import { TimerComponent } from './timer.component';
+import { ProgressBarComponent } from './progress-bar.component';
 
 
 @Component({
@@ -25,12 +26,8 @@ import { TimerComponent } from './timer.component';
             (click)="onClick(answerElement)"
             [style.backgroundColor]="color(answer)">{{answer}}</button>
         </div>
-    	<div class="w3-progress-container">
-        <div id="myBar" class="w3-progressbar w3-red" [style.width]="percentComplete()">
-          <div class="w3-center w3-text-black">{{index}}/{{questions.length}}</div>
-        </div>
+      <vq-progress-bar [completed]="index" [outOf]="questions.length"></vq-progress-bar>
       </div>
-
     `,
     styles: [`
     .question button {
@@ -85,9 +82,6 @@ export class QuestionsComponent implements OnInit, AfterViewInit {
           this.loadQuestion();
         }
     }, 60000);
-  }
-  percentComplete() {
-    return this.index/this.questions.length*100 + '%';
   }
   loadQuestion() {
     ++this.index;
