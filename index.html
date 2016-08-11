@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <base href='/'>
+    <title>Virtual Quiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+  </head>
+
+  <body>
+    <my-app>Loading...</my-app>
+  </body>
+</html>
+<!-- Order to implement things probably:
+  Make it serverside
+  time lock - 
+    can't just timelock signup bc could manually go to questions - but don't want people going to questions regardless without first going through signup - need some way to enforce order and prevent manual going to (same for gameover) - GUARDS
+  Game specific rules - 
+    breaks
+  Prevent 2 registered users from competing at same time or twice
+  logging to text file or something
+  Signup
+  Game end screen - overview or something
+  Fixes and tweaks
+    - Should not be modifying DOM elements directly. Should be using Angular 2 animations to animate. Don't know how to do so effectively though, despite best efforts, so will power through, and if see a good way to do this, will implement.
+-->
