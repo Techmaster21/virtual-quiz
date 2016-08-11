@@ -6,6 +6,7 @@ import { AppComponent }  from './app.component';
 import { QuestionsComponent } from './questions.component';
 import { SignupComponent } from './signup.component';
 import { GameOverComponent } from './game-over.component';
+import { TimerComponent } from './timer.component';
 
 @NgModule({
   imports: [ BrowserModule, routing ],
@@ -13,7 +14,8 @@ import { GameOverComponent } from './game-over.component';
   AppComponent,
   QuestionsComponent,
   SignupComponent,
-  GameOverComponent
+  GameOverComponent,
+  TimerComponent
    ],
   bootstrap: [ AppComponent ]
 })
