@@ -1,0 +1,15 @@
+TODO Websocket instead of HTTP?
+Fixes and tweaks
+  TODO Beautification
+  TODO Conform totally with style guide guidelines
+TODO Offline version in case of emergencies?
+TODO Error handling and testing
+TODO The way the Timer works with the OnStarted and constant resets is non obvious and kind of confusing.
+TODO The progress bar shows questions completed. Should there also be a question # on to avoid confusion?
+TODO Add polyfill for Angular 2 Animations
+
+TODO WHAT IF BACK BUTTON HIT?
+
+TODO Fix up index.js and the like to make it more suitable for deployment. Stuff like making paths for server make more sense,
+ looking into better ways to force angular 2 routes to go to index.html, etc. https://github.com/vladotesanovic/angular2-express-starter
+ is a good place to look for ideas

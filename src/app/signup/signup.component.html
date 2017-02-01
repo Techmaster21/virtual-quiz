@@ -1,0 +1,50 @@
+<div *ngIf="registrationAllowed">
+  <div class="w3-container w3-margin-top">
+    <div class="w3-card-4">
+      <div class="w3-container isu-gold">
+        <h2>Signup</h2>
+      </div>
+      <form (ngSubmit)="onSubmit()" class="w3-container" #signupForm="ngForm">
+        <p>
+          <label class="w3-label" for="name">School Name</label>
+          <input class="w3-input" type="text" id="name" [disabled]="submitted"
+                 required
+                 [(ngModel)]="result.schoolName" name="name">
+        </p>
+        <p>
+          <label class="w3-label" for="team">Team Number</label>
+          <input class="w3-input" type="number" id="team" [disabled]="submitted"
+                 required
+                 [(ngModel)]="result.team" name="team">
+        </p>
+
+        <div [hidden]="!schoolExists" class="w3-container w3-red">
+          <p>School name and team already registered</p>
+        </div>
+        <button class="w3-btn w3-section w3-round" type="submit" [disabled]="!signupForm.form.valid || submitted">Submit</button>
+      </form>
+      <div [hidden]="!submitted" class="w3-container">
+        <button class="w3-btn w3-section w3-round" (click)="onClick()">Start Game</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!registrationAllowed">
+  <div class="w3-container w3-margin-top">
+    <div class="w3-card-4">
+      <div class="w3-container isu-gold">
+        <h2>Signup</h2>
+      </div>
+      <div class="w3-container">
+        <p>
+          Sorry, Registration is not available at this time, however, feel free to play a practice set
+        </p>
+      </div>
+      <div class="w3-container">
+        <p>
+          <button class="w3-btn w3-section w3-round" (click)="onClickPractice()">Play practice set</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

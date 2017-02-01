@@ -1,0 +1,16 @@
+<div class="w3-container w3-margin-top">
+  <div class="w3-card-4">
+    <div class="w3-container isu-gold">
+      <h2>Results</h2>
+    </div>
+    <div *ngIf="result">
+      <ul class="w3-ul w3-border">
+        <li>School Name: {{result.schoolName}}</li>
+        <li>Team number: {{result.team}}</li>
+        <li>Points: {{result.points}}</li>
+        <li>Time played: {{msToTime()}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
