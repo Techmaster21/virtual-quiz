@@ -9,7 +9,7 @@ var db;
 /**
  * Database URL
  */
-var url = 'mongodb://localhost:27017/vq';
+var url = process.env.MONGODB_URI;
 
 // TODO Pull from config file
 var year = 2016;
@@ -22,6 +22,8 @@ app.use( bodyParser.json() );
 //app.use(express.static(__dirname));
 
 var answers = require('./answers.json');
+var questions = require('./questions.json');
+var practiceQuestions = require('./practiceQuestions.json');
 
 /**
  * Connects to database and starts server
@@ -32,7 +34,7 @@ MongoClient.connect(url, function(err, database) {
   db = database;
 
   // Starts server
-  app.listen(8080, function () {
+  app.listen(process.env.PORT || 8080, function () {
     console.log('Virtual Quiz app listening on port 8080');
   });
 });
@@ -175,16 +177,22 @@ app.get('/gameover', function (req, res) {
 
 app.get('/questions', function (req, res) {
   console.log('Questions request received');
+  res.json(questions);
+  /*
   findQuestions(db, function (questions) {
     res.json(questions);
   });
+  */
 });
 
 app.get('/practiceQuestions', function (req, res) {
   console.log('Practice questions request received');
+  res.json(practiceQuestions);
+  /*
   findPracticeQuestions(db, function (questions) {
     res.json(questions);
   });
+  */
 });
 
 app.get('/dateNow', function (req, res) {
