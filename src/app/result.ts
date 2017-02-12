@@ -8,6 +8,7 @@ export class Result {
     public timeStarted?: number,
     public timeEnded?: number,
     public points?: number,
+    public currentQuestion?: number,
     public _id?: string
   ) {  }
 }

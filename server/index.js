@@ -12,14 +12,14 @@ var db;
 var url = process.env.MONGODB_URI;
 
 // TODO Pull from config file
+// The date and time of the start of the competition. Before this time, users will only be able to access practiceQuestions.
 var year = 2016;
 var month = 7;
 var day = 17;
-var hour = 20;
+var hour = 21;
 var dateStart = new Date(year, month, day, hour);
 
 app.use( bodyParser.json() );
-//app.use(express.static(__dirname));
 
 var answers = require('./answers.json');
 var questions = require('./questions.json');
@@ -40,58 +40,21 @@ MongoClient.connect(url, function(err, database) {
 });
 
 /**
- * Gets the current Date and time according to the server
+ * Gets the current date and time according to the server
  * @param callback
  */
 var getDateNow = function(callback) {
   console.log("Got the date");
   callback(new Date());
-
 };
 
 /**
- * Gets the Date and time that the competition will start
+ * Gets the date and time that the competition will start
  * @param callback
  */
 var getDateStart = function(callback) {
   console.log("Got the start date");
   callback(dateStart);
-};
-
-/**
- * Grabs questions from the questions collection
- * @param db
- *  - the mongodb database
- * @param callback
- *  - function to execute after completion
- */
-var findQuestions = function(db, callback) {
-  // Get the questions collection
-  var collection = db.collection('questions');
-  // Find the questions
-  collection.find({}).toArray(function(err, questions) {
-    assert.equal(err, null);
-    console.log("Found the questions");
-    callback(questions);
-  });
-};
-
-/**
- * Grabs practice questions from the practiceQuestions collection
- * @param db
- *  - the mongodb database
- * @param callback
- *  - function to execute after completion
- */
-var findPracticeQuestions = function(db, callback) {
-  // Get the practiceQuestions collection
-  var collection = db.collection('practiceQuestions');
-  // Find the practice questions
-  collection.find({}).toArray(function(err, questions) {
-    assert.equal(err, null);
-    console.log("Found the questions");
-    callback(questions);
-  });
 };
 
 /**
@@ -131,6 +94,7 @@ var updateResult = function(db, result, callback) {
       team: result.team,
       schoolName: result.schoolName,
       points: result.points,
+      currentQuestion: result.currentQuestion,
       timeStarted: result.timeStarted,
       timeEnded: result.timeEnded
     }
@@ -160,8 +124,10 @@ var getResult = function(db, result, callback) {
   });
 };
 
+// Allows the client access to any files located in /../dist without having to explicitly declare so.
 app.use(express.static(path.join(__dirname, '/../dist')));
 
+// Redirects all these paths to the base index html file. Angular 2 handles the routing from there.
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname+'/../dist/index.html'));
 });
@@ -178,21 +144,11 @@ app.get('/gameover', function (req, res) {
 app.get('/questions', function (req, res) {
   console.log('Questions request received');
   res.json(questions);
-  /*
-  findQuestions(db, function (questions) {
-    res.json(questions);
-  });
-  */
 });
 
 app.get('/practiceQuestions', function (req, res) {
   console.log('Practice questions request received');
   res.json(practiceQuestions);
-  /*
-  findPracticeQuestions(db, function (questions) {
-    res.json(questions);
-  });
-  */
 });
 
 app.get('/dateNow', function (req, res) {
@@ -226,7 +182,12 @@ app.put('/results', function (req, res) {
 app.put('/getResult', function (req, res) {
   console.log('get Result put received');
   getResult(db, req.body, function (result) {
-    res.json(result);
+    if (result.length === 0) {
+      res.json({});
+    }
+    else {
+      res.json(result[0]);
+    }
   });
 });
 

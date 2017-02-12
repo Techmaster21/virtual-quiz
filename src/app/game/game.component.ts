@@ -102,6 +102,12 @@ export class GameComponent implements OnInit, AfterViewInit {
    * occur roughly after 1/3 of the total questions are completed.
    */
   loadQuestion() {
+    // save result
+    this.result.currentQuestion = this.index + 1;
+    this.result.points = this.points;
+    if (!this.practice) {
+      this.resultService.save(this.result);
+    }
     ++this.index;
     if (this.questions[this.index]) {
       if (this.index % Math.floor(this.questions.length/3) === 0) {
@@ -131,7 +137,15 @@ export class GameComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     // Necessarily executed in order?
     this.result = this.resultService.getResult();
-    this.result.timeStarted = Date.now();
+    if (!this.result.timeStarted) {
+      this.result.timeStarted = Date.now();
+    }
+    if (this.result.currentQuestion) {
+      this.index = this.result.currentQuestion;
+    }
+    if (this.result.points) {
+      this.points = this.result.points;
+    }
     this.practice = this.result._id === 'practice';
     if (!this.practice) {
       this.getQuestions();

@@ -79,24 +79,15 @@ export class ResultService {
     }
     return this.post(result);
   }
-  // TODO Proper way to do this, on server side as well.
-  /**
-   * Checks if the result already exists in the server database
-   * @param result
-   *  - result to search for
-   * @returns {Promise<boolean>}
-   *  - true if exists; false otherwise
-   */
-  checkResult(result: Result): Promise<boolean> {
+  getResultFromServer(result: Result): Promise<Result> {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http
       .put(resultsCheckURL, JSON.stringify(result), {headers: headers})
       .toPromise()
-      .then((res) =>
-        !(res.json().length === 0 || res.json()[0].timeStarted == null)
-      )
+      .then (res => res.json())
+      .then((res)=> new Result(res.schoolName, res.team, res.timeStarted, res.timeEnded, res.points, res.currentQuestion, res._id))
       .catch(this.handleError);
   }
   private handleError(error: any) {

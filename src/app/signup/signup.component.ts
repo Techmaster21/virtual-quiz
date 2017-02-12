@@ -67,12 +67,22 @@ export class SignupComponent implements OnInit {
    * Called on submission of form
    */
   onSubmit() {
-    this.resultService.checkResult(this.result)
-      .then((result)=>this.schoolExists = result)
-      .then(()=> !this.schoolExists ? this.submitted = true: this.submitted = false)
-      .then(()=> this.resultService.save(this.result)
-                                     .then((result)=>this.result=result)
-      )
-      .then(()=> this.resultService.setResult(this.result));
+    this.resultService.getResultFromServer(this.result)
+      .then((result)=> {
+        if (result._id == null) {
+          this.submitted = true;
+          this.resultService.save(this.result)
+            .then((result)=>this.result=result)
+            .then(()=> this.resultService.setResult(this.result));
+        }
+        else if (result.timeEnded) {
+          this.submitted = false;
+        }
+        else {
+          this.submitted = true;
+          this.result = result;
+          this.resultService.setResult(this.result);
+        }
+      })
   }
 }
