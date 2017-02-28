@@ -62,7 +62,6 @@ export class SignupComponent implements OnInit {
     this.resultService.setResult(this.result);
     this.router.navigate(['/game']);
   }
-  // TODO More forgiving - checkResult now checks if timeStarted. Is that its job though or should it leave that to this?
   /**
    * Called on submission of form
    */
