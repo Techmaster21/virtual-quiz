@@ -1,4 +1,4 @@
-{{question.category}}
+Category: {{question.category}}
 <div class="w3-panel w3-light-grey w3-border">
 	<h5>{{question.question}}</h5>
 </div>
@@ -8,6 +8,6 @@
 		(click)="onClick(answer)"
     [style.pointerEvents]="answer.state != 'inactive' ? 'none' : ''"
     [@answerState]="answer.state">
-    {{answer.text}}
+    {{answer.text}} <div *ngIf="answer.state == 'correct'">+{{pointsGained}}</div>
   </button>
 </div>

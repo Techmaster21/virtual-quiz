@@ -64,6 +64,7 @@ export class GameComponent implements OnInit, AfterViewInit {
    * @type {boolean}
    */
 	secondTryAllowed: boolean = true;
+	pointsGained: number = 0;
 
 	constructor(private router: Router,
 		private questionService: QuestionService,
@@ -103,6 +104,7 @@ export class GameComponent implements OnInit, AfterViewInit {
    */
   loadQuestion() {
     // save result
+    this.pointsGained = 0;
     this.result.currentQuestion = this.index + 1;
     this.result.points = this.points;
     if (!this.practice) {
@@ -163,14 +165,15 @@ export class GameComponent implements OnInit, AfterViewInit {
       this.finished = true;
       this.stopTimer();
       if (!this.secondTryAllowed) {
-        this.points += 1;
+        this.pointsGained = 1;
       } else if (this.seconds() < 8) {
-        this.points += 4;
+        this.pointsGained = 4;
       } else if (this.seconds() < 15) {
-        this.points += 3;
+        this.pointsGained = 3;
       } else {
-        this.points += 2;
+        this.pointsGained = 2;
       }
+      this.points += this.pointsGained;
       setTimeout(()=>this.loadQuestion(), questionLoadDelay);
     } else {
       if (this.secondTryAllowed) {

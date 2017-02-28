@@ -33,6 +33,7 @@ export class QuestionsComponent implements OnChanges {
    */
 	@Input() finished: boolean;
   @Input() index;
+  @Input() pointsGained;
   /**
    * Event that fires when an answer is clicked
    * @type {EventEmitter<string>}
