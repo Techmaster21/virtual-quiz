@@ -76,10 +76,8 @@ export class GameComponent implements OnInit, AfterViewInit {
   gameOver() {
     this.result.points = this.points;
     this.result.timeEnded = Date.now();
+    this.resultService.setPractice(this.practice);
     this.resultService.setResult(this.result);
-    if (!this.practice) {
-      this.resultService.save(this.result);
-    }
     this.router.navigate(['/gameover']);
   }
   /**
@@ -100,7 +98,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
   /**
    * Loads the next question if it exists, and if not, calls gameOver(). Also in charge of initiating breaks, which
-   * occur roughly after 1/3 of the total questions are completed.
+   * occur roughly after 1/3 of the total questions are completed (but only twice).
    */
   loadQuestion() {
     // save result
@@ -112,7 +110,7 @@ export class GameComponent implements OnInit, AfterViewInit {
     }
     ++this.index;
     if (this.questions[this.index]) {
-      if (this.index % Math.floor(this.questions.length/3) === 0) {
+      if (this.index % Math.floor(this.questions.length/3) === 0 && this.index != Math.floor(this.questions.length/3)*3) {
         this.breakStarted = true;
         this.restartTimer();
         // Prevents on breakStarted menu from continuing to reset after 60 seconds. Essentially undoes onStarted()

@@ -14,9 +14,9 @@ var url = process.env.MONGODB_URI;
 // TODO Pull from config file
 // The date and time of the start of the competition. Before this time, users will only be able to access practiceQuestions.
 var year = 2016;
-var month = 7;
-var day = 17;
-var hour = 21;
+var month = 3;
+var day = 6;
+var hour = 12;
 var dateStart = new Date(year, month, day, hour);
 
 app.use( bodyParser.json() );

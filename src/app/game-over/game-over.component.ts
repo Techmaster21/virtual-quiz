@@ -13,6 +13,7 @@ export class GameOverComponent implements OnInit {
    * The Result object which contains identifying information about the user
    */
   result: Result;
+  saving: boolean;
 
   constructor(private resultService: ResultService) { }
 
@@ -33,8 +34,19 @@ export class GameOverComponent implements OnInit {
     return hrs + ':' + mins + ':' + secs + '.' + ms;
   }
   ngOnInit() {
+    this.saving = true;
     this.result = this.resultService.getResult();
-    // Wipes out copy of result in resultService to prevent user from playing again and modifying their results
-    this.resultService.setResult(undefined);
+    if (!this.resultService.getPractice()) {
+      this.resultService.save(this.result).then(
+        // Wipes out copy of result in resultService to prevent user from playing again and modifying their results
+        () => {
+          this.resultService.setResult(undefined);
+          this.saving = false;
+        }
+      );
+    }
+    if (this.resultService.getPractice()) {
+      this.saving = false;
+    }
   }
 }

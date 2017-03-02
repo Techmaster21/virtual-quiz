@@ -15,6 +15,7 @@ export class ResultService {
    * The Result object which contains identifying information about the user
    */
   private result: Result;
+  private practice: boolean;
 
   /**
    * Sets the result
@@ -32,6 +33,14 @@ export class ResultService {
    */
   getResult() {
     return this.result;
+  }
+
+  setPractice(practice: boolean) {
+    this.practice = practice;
+  }
+
+  getPractice() {
+    return this.practice;
   }
 
   /**

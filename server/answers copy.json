@@ -1,0 +1,1202 @@
+[
+	{
+		"category": "﻿History",
+		"question": "Which Romanov Tsar (sometimes written as Czar) of Russia is known as the \"Tsar Liberator\" for freeing the serfs in 1861?",
+		"answers": ["Peter the Great","Nicholas II","Rasputin","Alexander II","Ivan the Terrible"],
+		"correctAnswer": "Alexander II"
+	},
+	{
+		"category": "Current Events",
+		"question": "What major Syrian city has been a fiercely contested battlefront in 2016 between government and rebel forces in the ongoing civil war?",
+		"answers": ["Baghdad","Damascus","Amman","Beirut","Aleppo"],
+		"correctAnswer": "Aleppo"
+	},
+	{
+		"category": "Music",
+		"question": "This artist is known as one of the fathers of IDM, and pioneered ambient music starting in the 90s. His artist symbol resembles a lambda. He has a self-titled album - the Richard D James album.",
+		"answers": ["Brian Eno","Aphex Twin","Tycho","Boards of Canada","Burial"],
+		"correctAnswer": "Aphex Twin"
+	},
+	{
+		"category": "History",
+		"question": "Who was the chancellor of Germany during the country's unification process but was removed from office in 1890 by Kaiser Wilhelm II?",
+		"answers": ["Angela Merkel","Otto von Bismark","Fredrick the Great","Gerhard Schroder","Fredrick Barbarossa"],
+		"correctAnswer": "Otto von Bismark"
+	},
+	{
+		"category": "Animal Science",
+		"question": "How many compartments does a ruminant's stomach have?",
+		"answers": ["1","2","3","4","5"],
+		"correctAnswer": "4"
+	},
+	{
+		"category": "Film",
+		"question": "Which actor who starred in Jumanji, Mrs. Doubtfire, and Flubber passed away in 2014?",
+		"answers": ["Robin Williams","Alan Rickman","Steve Martin","Chris Farley","Ben Stiller"],
+		"correctAnswer": "Robin Williams"
+	},
+	{
+		"category": "History",
+		"question": "Which Roman leader was abducted by pirates at the age of twenty-five, convinced them to raise his own ransom because he assured them he was worth more, and would return to destroy the pirates after he was released?",
+		"answers": ["Pompey","Agustus","Mark Antony","Ciecro","Julius Caesar"],
+		"correctAnswer": "Julius Caesar"
+	},
+	{
+		"category": "World Politics",
+		"question": "As of 2016, which European nation is the most recent addition to the European Union, admitted in 2013?",
+		"answers": ["Belgium","Poland","Italy","Croatia","Greece"],
+		"correctAnswer": "Croatia"
+	},
+	{
+		"category": "Fun and Games",
+		"question": "What is the highest scoring hand in the card game Cribbage?",
+		"answers": ["5","13","29","42","250"],
+		"correctAnswer": "29"
+	},
+	{
+		"category": "History",
+		"question": "The more famous position of Pontifex Maximus was the highest ranking elected religious position in Roman government. Which of the following unelected positions held the most power? (Though this position's main purpose was to serve as a figurehead)",
+		"answers": ["Pontiff","Consul","Promagistrate","Rex Sacrorum","Praefectus"],
+		"correctAnswer": "Rex Sacrorum"
+	},
+	{
+		"category": "History",
+		"question": "Which World War II German military leader led the crossing of German troops over the Meuse River in France in 1940 and later commanded the Afrika Korps?",
+		"answers": ["Alfred von Schieffen","Erwin Rommel","Hermann Goring","Heinrich Himmler","Heinz Guderian"],
+		"correctAnswer": "Erwin Rommel"
+	},
+	{
+		"category": "Archaeology",
+		"question": "What archaeological site is located at the base of the Palatine and Capitoline hills of Rome and was the major center of government and trade in the Roman Republic?",
+		"answers": ["Forum","Acropolis","Colosseum","Theater of Marcellus","Circus Maximus"],
+		"correctAnswer": "Forum"
+	},
+	{
+		"category": "Art",
+		"question": "Which renaissance artist, who painted many Christian scenes including the Transfiguration, is perhaps most famous for his School of Athens which is currently on display in the Vatican Museums?",
+		"answers": ["Michelangelo","Raphael","Titian","Jan van Eyck","Leonardo da Vinci"],
+		"correctAnswer": "Raphael"
+	},
+	{
+		"category": "Television",
+		"question": "Who is the gullible salesman from the T.V. show The Office who constantly falls for pranks, such as fighting himself in a martial arts demonstration and believing an artificial intelligence was created with the sole purpose of getting more paper sales than him.",
+		"answers": ["Michael Scott","Pam Beesly","Jim Halpert","Dwight Schrute","Andy Bernard"],
+		"correctAnswer": "Dwight Schrute"
+	},
+	{
+		"category": "Economics",
+		"question": "This meeting was held in 1944 to set up a new international monetary and financial order in preparation for the end of World War II and its namesake system would last up to 1970.",
+		"answers": ["Yalta Conference","Bretton Woods Conference","Geneva Round","Postdam Conference","Versailles Conference"],
+		"correctAnswer": "Bretton Woods Conference"
+	},
+	{
+		"category": "History",
+		"question": "The 2000 film Thirteen Days specifically refers to which October event that is considered the closest the United States and the USSR ever got to a nuclear exchange during the Cold War?",
+		"answers": ["Berlin Airlift","Cuban Missile Crisis","Building of the Berlin Wall","Hungarian Revolution of 1956","U-2 Incident"],
+		"correctAnswer": "Cuban Missile Crisis"
+	},
+	{
+		"category": "Food",
+		"question": "Which type of cylinder-shaped pasta noodle is traditionally cooked with pesto or marinara sauce and is also popularly used in pasta salads?",
+		"answers": ["Rotini","Spaghetti","Lasagne","Fettuccine","Penne"],
+		"correctAnswer": "Penne"
+	},
+	{
+		"category": "Music",
+		"question": "Which band, formed in 1996, is known for its alternative rock style with songs such as Yellow, The Scientist, and Viva La Vida?",
+		"answers": ["Coldplay","Fun.","Red Hot Chili Peppers","Black Eyed Peas","Green Day"],
+		"correctAnswer": "Coldplay"
+	},
+	{
+		"category": "U.S. History",
+		"question": "In the 1960 presidential election, the Democratic nominee John F. Kennedy barely defeated this Republican nominee, the former vice president, in one of the closest presidential elections in U.S. history.",
+		"answers": ["Dwight Eisenhower","Gerald Ford","Richard Nixon","Douglas MacArthur","Agnew Spiro"],
+		"correctAnswer": "Richard Nixon"
+	},
+	{
+		"category": "The Bible",
+		"question": "Which Saint is credited for writing the majority of the epistles in the New Testament, including First and Second Corinthians along with the letters to the Philippians?",
+		"answers": ["St. Matthew","St. Paul","St. Luke","St. Peter","St. John"],
+		"correctAnswer": "St. Paul"
+	},
+	{
+		"category": "History",
+		"question": "Which Latin American country celebrates its Independence Day on September 16th when in 1810 Father Hidalgo gave his \"Grito de Dolores\" speech?",
+		"answers": ["Brazil","Mexico","Colombia","Haiti","Panama"],
+		"correctAnswer": "Mexico"
+	},
+	{
+		"category": "Literature",
+		"question": "Which book by Rudyard Kipling includes characters like Kaa, an Indian Python, and Rikki-Tikki-Tavi, a Mongoose, and was adopted into a movie by Disney in 1967?",
+		"answers": ["Alice in Wonderland","Bambi","The Lion, the Witch, and the Wardrobe","Dumbo","The Jungle Book"],
+		"correctAnswer": "The Jungle Book"
+	},
+	{
+		"category": "Animal Science",
+		"question": "Which bird of prey has an average diving speed of over 200 mph, with a record of 242 mph, which makes it the fastest known animal under its own power?",
+		"answers": ["Peregrine Falcon","Red-tailed Hawk","Bald Eagle","Cheetah Hawk","Golden Eagle"],
+		"correctAnswer": "Peregrine Falcon"
+	},
+	{
+		"category": "Sports",
+		"question": "Which college won the 2016 NCAA men's basketball tournament as the number two seed of the South division after defeating the number one seed of the East, North Carolina?",
+		"answers": ["Villanova","Kansas","Iowa State","Syracuse","Notre Dame"],
+		"correctAnswer": "Villanova"
+	},
+	{
+		"category": "Music",
+		"question": "Many prominent figures passed away in 2016, but which English singer and songwriter of \"Let's Dance\" and \"Fame\" was among the first victims of 2016 who died on January 10th?",
+		"answers": ["Prince","Paul McCarthy","Elvis Presley","Michael Jackson","David Bowie"],
+		"correctAnswer": "David Bowie"
+	},
+	{
+		"category": "Literature",
+		"question": "Characters such as Jim Hawkins, Billy Bones, and Long John Silver are all from which novel?",
+		"answers": ["Twenty Thousand Leagues Under the Sea","Treasure Island","Dracula","On Stranger Tides","Frankenstein"],
+		"correctAnswer": "Treasure Island"
+	},
+	{
+		"category": "History",
+		"question": "The Yom Kippur war of 1973 was fought primarily by which two countries?",
+		"answers": ["Iraq and Iran","Pakistan and India","Israel and Egypt","Saudi Arabia and Iran","Afghanistan and the USSR"],
+		"correctAnswer": "Israel and Egypt"
+	},
+	{
+		"category": "History",
+		"question": "Who was the king of the United Kingdom during the time of the American Revolution, from 1775 to 1783?",
+		"answers": ["Charles I","Charles II","William III","George III","George V"],
+		"correctAnswer": "George III"
+	},
+	{
+		"category": "Sports and Leisure",
+		"question": "On a classic Monopoly board, what is the second most expensive property available for purchase?",
+		"answers": ["Park Place","Mediterranean Avenue","Boardwalk","Marvin Gardens","St. James Place"],
+		"correctAnswer": "Park Place"
+	},
+	{
+		"category": "2000's",
+		"question": "Apple released its first iPhone, beginning the smart phone trend, and the Indianapolis Colts won the Super Bowl in what year?",
+		"answers": ["2000","2003","2004","2007","2010"],
+		"correctAnswer": "2007"
+	},
+	{
+		"category": "Geography",
+		"question": "Which European Union country shares boarders with nine other countries?",
+		"answers": ["France","Germany","Italy","Norway","Switzerland"],
+		"correctAnswer": "Germany"
+	},
+	{
+		"category": "Movies",
+		"question": "Which actor won his very first Oscar in 2016 despite having appeared in the blockbusters Inception and Titanic in 2010 and 1997 respectively?",
+		"answers": ["Matthew McConaughey","Tom Hardy","Matt Damon","Christoph Waltz","Leonardo Dicaprio"],
+		"correctAnswer": "Leonardo Dicaprio"
+	},
+	{
+		"category": "The Bible",
+		"question": "The land of Canaan is promised to the descendants of Abraham in the book of Genesis is also known by what name used by God when speaking to Moses in the book of Exodus?",
+		"answers": ["The Land of Milk and Oreos","The Land of Bread and Wine","The Land of Wheat and Grapes","The Land of Olives and Salt","The Land of Milk and Honey"],
+		"correctAnswer": "The Land of Milk and Honey"
+	},
+	{
+		"category": "College Sports",
+		"question": "Which college has a special license to use the Disney character Donald Duck as inspiration for their own mascot?",
+		"answers": ["Univeristy of Kansas","Wichita State","University of Oregon","Temple","Iowa State University"],
+		"correctAnswer": "University of Oregon"
+	},
+	{
+		"category": "Books",
+		"question": "Which author has written a number of books following the character Jack Ryan, such as Patriot Games, and has inspired a line of video games including The Division released in 2016?",
+		"answers": ["Orson Scott Card","Tom Clancy","Jacques Brain","J.R.R. Tolkien","C.S. Lewis"],
+		"correctAnswer": "Tom Clancy"
+	},
+	{
+		"category": "History",
+		"question": "Who lead the Nationalist Party against the Communist Party during the Chinese Civil War from 1946 to 1950 but was ultimately defeated and forced to retreat to the island of Taiwan?",
+		"answers": ["Sun Tzu","Sun Yat Sen","Kangxi","Mao Zedong","Chiang Kai-shek"],
+		"correctAnswer": "Chiang Kai-shek"
+	},
+	{
+		"category": "Food",
+		"question": "The United States Department of Agriculture (USDA) states that ground beef needs to be heated to what internal temperature, in Fahrenheit, to ensure safe consumption?",
+		"answers": ["160 degrees","175 degrees","200 degrees","275 degrees","350 degrees"],
+		"correctAnswer": "160 degrees"
+	},
+	{
+		"category": "Space",
+		"question": "Which planet in our solar system is the densest?",
+		"answers": ["Mercury","Venus","Earth","Mars","Jupiter"],
+		"correctAnswer": "Earth"
+	},
+	{
+		"category": "Space",
+		"question": "Which noble gas is most commonly used in ion thrusters?",
+		"answers": ["Freon","Boron","Krypton","Helium","Xenon"],
+		"correctAnswer": "Xenon"
+	},
+	{
+		"category": "Psychology",
+		"question": "Which psychologist was shunned from the scientific community for having an affair with a graduate student who worked with them?",
+		"answers": ["Freud","Watson","Bowlby","Piaget","Erickson"],
+		"correctAnswer": "Watson"
+	},
+	{
+		"category": "Psychology",
+		"question": "What famous psychologist was known for being addicted to cocaine and frequently promoted its use in treating mental health patients as well as other health issues?",
+		"answers": ["Bronfenbrenner","Erickson","Freud","Watson","Ainsworth"],
+		"correctAnswer": "Freud"
+	},
+	{
+		"category": "Statistics",
+		"question": "What is another name for a right skewed distribution of data?",
+		"answers": ["Positive","Negative","Normal","South","North"],
+		"correctAnswer": "Positive"
+	},
+	{
+		"category": "Human Development",
+		"question": "What is the first stage in Piaget's theory for cognitive development?",
+		"answers": ["Pre-operational","Sensorimotor","Concrete operational","Formal operational","Pre-sensorimotor"],
+		"correctAnswer": "Sensorimotor"
+	},
+	{
+		"category": "Human Development",
+		"question": "Which theorist believed that people must overcome stages of crisis during every part of their life?",
+		"answers": ["Erickson","Piaget","Ainsworth","Bowlby","Watson"],
+		"correctAnswer": "Erickson"
+	},
+	{
+		"category": "Chemistry",
+		"question": "What is the name of the chemical element with the chemical symbol At?",
+		"answers": ["Astatine","Aluminum","Argon","Silver","Gold"],
+		"correctAnswer": "Astatine"
+	},
+	{
+		"category": "Movies",
+		"question": "Which girl got hit by a bus in the movie Mean Girls?",
+		"answers": ["Regina","Damian","Katy","Gretchen","Haley"],
+		"correctAnswer": "Regina"
+	},
+	{
+		"category": "Chemistry",
+		"question": "Which naturally occurring element is the densest?",
+		"answers": ["Tungsten","Osmium","Uranium","Mercury","Lawrencium"],
+		"correctAnswer": "Osmium"
+	},
+	{
+		"category": "Biology",
+		"question": "Barnacles belong to which phylum?",
+		"answers": ["Porifera","Mollusca","Arthropoda","Annelida","Bryozoa"],
+		"correctAnswer": "Arthropoda"
+	},
+	{
+		"category": "Geography",
+		"question": "What US territory is the southernmost and largest of the Mariana Islands?",
+		"answers": ["Fiji","Guam","Hawaii","American Somoa","Virgin Islands"],
+		"correctAnswer": "Guam"
+	},
+	{
+		"category": "Paleontology",
+		"question": "What mass extinction occurred 248 million years ago and killed 96% of species on Earth (very different from a similarly named explosion)?",
+		"answers": ["Permian","Ordovician","Devonian","Triassic-Jurassic","Cretaceous-Tertiary"],
+		"correctAnswer": "Permian"
+	},
+	{
+		"category": "History",
+		"question": "Which Greek is known as \"the Father of History\" and recorded the events of the Persian war?",
+		"answers": ["Herodotus","Thucydides","Plato","Homer","Cicero"],
+		"correctAnswer": "Herodotus"
+	},
+	{
+		"category": "Food Science",
+		"question": "What food does not spoil?",
+		"answers": ["Cane Sugar","Milk","Molasses","Flour","Honey"],
+		"correctAnswer": "Honey"
+	},
+	{
+		"category": "US History",
+		"question": "Which State has had the flags of six different nations flown over it?",
+		"answers": ["New York","California","Texas","Alaska","Hawaii"],
+		"correctAnswer": "Texas"
+	},
+	{
+		"category": "Biology",
+		"question": "What organism is the result of a symbiotic relationship between algae and fungi?",
+		"answers": ["Bryophyta","Lichen","Mosses","Liverworts","Ascomycota"],
+		"correctAnswer": "Lichen"
+	},
+	{
+		"category": "History",
+		"question": "Who invented Calculus?",
+		"answers": ["Bohr","Newton","Hawking","Einstein","Da Vinci"],
+		"correctAnswer": "Newton"
+	},
+	{
+		"category": "Measurements",
+		"question": "Which of the following is not a unit of measurement?",
+		"answers": ["Jiffy","Pinch","Barrel","Imperial Meter","Barn"],
+		"correctAnswer": "Imperial Meter"
+	},
+	{
+		"category": "Math",
+		"question": "This constant is represented with a Greek lowercase gamma and is defined with the improper integral from 1 to infinity of 1 over the floor of x minus 1 over x. It is the first term of the Taylor series expansion for the Riemann zeta function.",
+		"answers": ["Euler's constant","floor intergral constant","De Morgan's constant","Euler-mascheroni constant","Sunnier's number"],
+		"correctAnswer": "Euler-mascheroni constant"
+	},
+	{
+		"category": "Computer science",
+		"question": "This data type found in Java represents a single bit of information. Named after a prominent 19th century British mathematician, this data type has its own field of algebra.",
+		"answers": ["char","boolean","String","long","int"],
+		"correctAnswer": "boolean"
+	},
+	{
+		"category": "History",
+		"question": "At only 38 minutes, this African war is known as the shortest war in history.",
+		"answers": ["Anglo-Zanzabar War","Sudenese Butter War","French Conquest of West Angola","Berber-Egyptian War","Zulu-Boer War"],
+		"correctAnswer": "Anglo-Zanzabar War"
+	},
+	{
+		"category": "linguistics",
+		"question": "This south Asian language is much like it's parent language, Bahasa Malaysia, but is characterized by its heavy use of English and Portuguese loan words.",
+		"answers": ["Bahasa Javanese","Bahasa Sudanese","Bahasa Indonesia","Buginese","Bahasa Melayu"],
+		"correctAnswer": "Bahasa Indonesia"
+	},
+	{
+		"category": "Trash",
+		"question": "9 out of 10 doctors agree that Sensodyne is best for sensitive teeth, but who played the 10th doctor from the BBC show Doctor Who?",
+		"answers": ["Tom Baker","David Tennant","Matt Smith","John Barrowman","Peter Capaldi"],
+		"correctAnswer": "David Tennant"
+	},
+	{
+		"category": "Chemistry",
+		"question": "Apart from mercury, which chemical element is a liquid at room temperature (assuming standard conditions)?",
+		"answers": ["Arsenic","Bromine","Iodine","Astatine","Bismuth"],
+		"correctAnswer": "Bromine"
+	},
+	{
+		"category": "Authors",
+		"question": "Which of these authors' works includes the novels Babbitt, Main Street, and It Can't Happen Here?",
+		"answers": ["Lew Wallace","Lewis Carroll","Sinclair Lewis","Upton Sinclair","C. S. Lewis"],
+		"correctAnswer": "Sinclair Lewis"
+	},
+	{
+		"category": "Food",
+		"question": "What is it called when you cut vegetables into thin strips?",
+		"answers": ["Shred","Peel","Cut","Julienne","Strip"],
+		"correctAnswer": "Julienne"
+	},
+	{
+		"category": "Animals",
+		"question": "How long do cows stay pregnant before they give birth?",
+		"answers": ["283 days","300 days","157 days","200 days","290 days"],
+		"correctAnswer": "283 days"
+	},
+	{
+		"category": "Biology",
+		"question": "Which is not a lineage of Archaea?",
+		"answers": ["Thaumarchaeota","Crenarchaeota","Korarchaeote","Euryarchaeota","Methanogens"],
+		"correctAnswer": "Methanogens"
+	},
+	{
+		"category": "Natural Resources",
+		"question": "Which of these is considered a nonrenewable resource?",
+		"answers": ["Water","Soil","Wind","Sun","Lumber"],
+		"correctAnswer": "Soil"
+	},
+	{
+		"category": "History",
+		"question": "Which island was home to the Minoan Civilization as well as the dwarf hippopotamus?",
+		"answers": ["Sicily","Crete","Seychelles.","Madagascar","Borneo"],
+		"correctAnswer": "Crete"
+	},
+	{
+		"category": "Biology",
+		"question": "Which group contains only 5,000 living species?",
+		"answers": ["Birds","Reptiles","Bacteria","Mammels","Insects"],
+		"correctAnswer": "Mammels"
+	},
+	{
+		"category": "Literature",
+		"question": "\"Marley was dead to begin with\" is the first line of which book?",
+		"answers": ["Great Expectation","Hamlet","Jane Eyre","1984","A Christmas Carol"],
+		"correctAnswer": "A Christmas Carol"
+	},
+	{
+		"category": "US History",
+		"question": "During World War II, in which branch of the military were women NOT allowed to serve in, in auxiliary position?",
+		"answers": ["Army","Navy","Airforce","All of the above","None of the above"],
+		"correctAnswer": "None of the above"
+	},
+	{
+		"category": "History",
+		"question": "The creator of the Nobel Prize was also the inventor of?",
+		"answers": ["dynamite","penicillin","Radio","Radar","Cheeseburger"],
+		"correctAnswer": "dynamite"
+	},
+	{
+		"category": "History",
+		"question": "Which English Monarch holds the record for the longest reign?",
+		"answers": ["Elizabeth I","Elizabeth II","Victoria","Henry VIII","Edward I"],
+		"correctAnswer": "Elizabeth II"
+	},
+	{
+		"category": "Biochemistry",
+		"question": "Which of these in not considered a class of macro molecules?",
+		"answers": ["Lipids","Carbohydrates","Nucleic Acids","Proteins","Fatty Acids"],
+		"correctAnswer": "Fatty Acids"
+	},
+	{
+		"category": "Statistics",
+		"question": "What statistical error is made when there is found to be a relationship between the independent variable and the dependent variable, but in reality, there is no relationship at all?",
+		"answers": ["Alpha error","Type I error","Beta","Type II error","T-test error"],
+		"correctAnswer": "Type I error"
+	},
+	{
+		"category": "Statistics",
+		"question": "What is probability of making a type II error given that experiment failed to find an effect of IV on DV called?",
+		"answers": ["Alpha","Beta","Statistical power","Validity","Nuisance variables"],
+		"correctAnswer": "Beta"
+	},
+	{
+		"category": "Movies",
+		"question": "Who has a lightning shaped scar on their forehead in the popular novels written by J.K. Rowling?",
+		"answers": ["Fred Wesley","Harry Potter","Hermione Granger","Ginny Wesley","Draco Malfoy"],
+		"correctAnswer": "Harry Potter"
+	},
+	{
+		"category": "History",
+		"question": "Who was the 17th president of the United States?",
+		"answers": ["George Washington","Andrew Johnson","Abraham Lincoln","Ulysses S. Grant","Rutherford B. Hayes"],
+		"correctAnswer": "Andrew Johnson"
+	},
+	{
+		"category": "Animals",
+		"question": "What is the average number of whiskers for a cat to have on its face?",
+		"answers": ["12","24","13","26","8"],
+		"correctAnswer": "24"
+	},
+	{
+		"category": "Animals",
+		"question": "What is the average number of whiskers that dogs have on their muzzles?",
+		"answers": ["20","18","40","50","80"],
+		"correctAnswer": "40"
+	},
+	{
+		"category": "US Presidents",
+		"question": "This US president was impeached for violating the Tenure of Office Act by trying to replace the US Secretary of War.",
+		"answers": ["Andrew Jackson","Andrew Johnson","Chester Alan Arthur","Millard Fillmore","Ulysses S. Grant"],
+		"correctAnswer": "Andrew Johnson"
+	},
+	{
+		"category": "Television",
+		"question": "In what city is the television show Shameless set?",
+		"answers": ["New York","Chicago","Seattle","Indianapolis","Los Angeles"],
+		"correctAnswer": "Chicago"
+	},
+	{
+		"category": "Music History",
+		"question": "Which Austrian composer wrote the London Symphonies?",
+		"answers": ["Beethoven","Mozart","Grieg","Handel","Haydn"],
+		"correctAnswer": "Haydn"
+	},
+	{
+		"category": "Literature",
+		"question": "In which Zora Neale Hurston novel is Tea Cake a character?",
+		"answers": ["The Grapes of Wrath","Mules and Men","Their Eyes Were Watching God","Dust Tracks on a Road","A Tree Grow in Brooklyn"],
+		"correctAnswer": "Their Eyes Were Watching God"
+	},
+	{
+		"category": "Surgery",
+		"question": "In patients with certain severe cases of sight impairment, doctors may use tissue from another part of the patient's body to help restore sight in an OOKP procedure. From which part of the body does this tissue come?",
+		"answers": ["Esophagus","Tongue","Toe","Tooth","Fingernail"],
+		"correctAnswer": "Tooth"
+	},
+	{
+		"category": "Art",
+		"question": "What is the English title of this Italian painting that is housed at the Louvre and known in French as La Joconde?",
+		"answers": ["The Scream","Starry Night","American Gothic","Mona Lisa","The Last Supper"],
+		"correctAnswer": "Mona Lisa"
+	},
+	{
+		"category": "Place Names",
+		"question": "During the time of the Soviet Union, Saint Petersburg, Russia was known as Leningrad. However, it had a different name during World War 1. What was it?",
+		"answers": ["Volgograd","Petrograd","Gorki","Putinsburg","Berlin"],
+		"correctAnswer": "Petrograd"
+	},
+	{
+		"category": "American History",
+		"question": "Who was the enslaved African American who led a rebellion of slaves and free blacks in Southampton County, Virginia on August 21, 1831? This rebellion is named for him.",
+		"answers": ["Frederick Douglas","Nat Turner","Harriet Tubman","John Brown","Gabriel Prosser"],
+		"correctAnswer": "Nat Turner"
+	},
+	{
+		"category": "Geography",
+		"question": "Which of the following modern-day countries does NOT make up part of the Fertile Crescent?",
+		"answers": ["Turkey","Syria","Kuwait","Greece","Jordan"],
+		"correctAnswer": "Greece"
+	},
+	{
+		"category": "Computer Science",
+		"question": "This programming language, created in 1972 by Dennis Ritchie, is one of the most widely used programming languages of all time and likely helps run the operating system you are using right now.",
+		"answers": ["C","Java","Perl","PHP","C++"],
+		"correctAnswer": "C"
+	},
+	{
+		"category": "The Answer is \"Red-Bellied Pacu\"",
+		"question": "This South American freshwater fish is similar to the piranha. However, it is known for having teeth that resemble those of humans.",
+		"answers": ["Red-Bellied Pacu","Largemouth Bass","Chichlid","Catfish","Perch"],
+		"correctAnswer": "Red-Bellied Pacu"
+	},
+	{
+		"category": "Sports",
+		"question": "This Australian tennis player is currently ranked #1 in the world for men's singles.",
+		"answers": ["Novak Djokovic","Milos Raonic","Rafael Nadal","Roger Federer","Andy Murray"],
+		"correctAnswer": "Andy Murray"
+	},
+	{
+		"category": "Television",
+		"question": "The season 3 trailer for this Netflix show features Titus Andromedon recreating Beyoncé’s \"Hold Up\" music video.",
+		"answers": ["Stranger Things","Unbreakable Kimmy Schmidt","Arrested Development","Fuller House","Grace and Frankie"],
+		"correctAnswer": "Unbreakable Kimmy Schmidt"
+	},
+	{
+		"category": "Calculation History",
+		"question": "The first abacus, a device used to count and do simple calculations, was first used in which civilization?",
+		"answers": ["China","Persia","Greece","Sumer","Japan"],
+		"correctAnswer": "Sumer"
+	},
+	{
+		"category": "Music History",
+		"question": "Which first movement of Gustav Holst's The Planets is known for being in a 5/4 time signature?",
+		"answers": ["Venus, the Bringer of Peace","Mercury, the Winged Messenger","Mars, the Bringer of War","Jupiter, the Bringer of Jollity","Uranus, the Magician"],
+		"correctAnswer": "Mars, the Bringer of War"
+	},
+	{
+		"category": "American Literature",
+		"question": "Ariel was the second book of this author's poetry to be published. It was published in 1965 two years before she committed suicide. She is famous for only having published one novel.",
+		"answers": ["Virgina Woolf","Emily Dickinson","Freida Hughes","Anne Sexton","Sylvia Plath"],
+		"correctAnswer": "Sylvia Plath"
+	},
+	{
+		"category": "Math History",
+		"question": "It is generally acknowledged that two individuals simultaneously developed the theory of calculus, giving rise to the two different notations we use today. Which of the individuals listed invented calculus (only one is correct)?",
+		"answers": ["Euclid","David Hilbert","Carl Gauss","Pythagoras","Gottfried Leibniz"],
+		"correctAnswer": "Gottfried Leibniz"
+	},
+	{
+		"category": "Art",
+		"question": "This artist painted a famous work that reads \"This is not a pipe\" in French and is also known for including bowler hats in many of his paintings.",
+		"answers": ["Salvador Dali","Rene Magritte","Pablo Picasso","Henri Matisse","Marc Chagall"],
+		"correctAnswer": "Rene Magritte"
+	},
+	{
+		"category": "History",
+		"question": "This monarch was beheaded in 1587 for treason after it was revealed that she was plotting to murder Queen Elizabeth I.",
+		"answers": ["Marie Antoinette","Isabella I","Mary Queen of Scots","Catherine of Aragon","Margaret Tudor"],
+		"correctAnswer": "Mary Queen of Scots"
+	},
+	{
+		"category": "Cryptography",
+		"question": "Widely used public-key cryptographic methods, such as RSA, use these types of numbers to encrypt data.",
+		"answers": ["Roots of Polynomials","Prime Numbers","Perfect Numbers","Imaginary Numbers","Transcendental Numbers"],
+		"correctAnswer": "Prime Numbers"
+	},
+	{
+		"category": "U.S. Geography",
+		"question": "Which of the following states does NOT contain part of the Rocky Mountains?",
+		"answers": ["Idaho","Utah","New Mexico","Arizona","Wyoming"],
+		"correctAnswer": "Arizona"
+	},
+	{
+		"category": "Science",
+		"question": "What part of the ear is a spiral-shaped cavity filled with fluid that moves in response to sound vibrations?",
+		"answers": ["Tympanic Membrane","Cochlea","Pinnae","Eustachian Tube","Ear Canal"],
+		"correctAnswer": "Cochlea"
+	},
+	{
+		"category": "Sports",
+		"question": "Which NFL team won the first Super Bowl in 1967 when they defeated the AFL's Kansas City Chiefs?",
+		"answers": ["Chicago Bears","Miami Dolphins","New York Giants","Detroit Lions","Green Bay Packers"],
+		"correctAnswer": "Green Bay Packers"
+	},
+	{
+		"category": "Webcomics",
+		"question": "Asteroid 4942 Munroe is an asteroid named after an author of a popular series of webcomics whose name is a unpronounceable acronym. What is the name of the webcomic?",
+		"answers": ["NKVD","PFZD","SMFW","XKCD","LMNS"],
+		"correctAnswer": "XKCD"
+	},
+	{
+		"category": "Technological History",
+		"question": "This computer, in 1997, faced off against and defeated Gary Kasparov in a game of chess.",
+		"answers": ["MANIAC","Deepblue","HiTech","Deep Thought","Deep Fritz"],
+		"correctAnswer": "Deepblue"
+	},
+	{
+		"category": "Weird World",
+		"question": "This state's official state vegetable is the watermelon, a fruit.",
+		"answers": ["Missouri","Kentucky","Oklahoma","Washington","Alabama"],
+		"correctAnswer": "Oklahoma"
+	},
+	{
+		"category": "Pop Culture",
+		"question": "Which of these was NOT nominated for Record of the Year at the 2017 Grammy Awards?",
+		"answers": ["Formation-Beyonce","Hello-Adele","7 Years- Lukas Graham","Stressed Out- 21 Pilots","Love Yourself- Justin Bieber"],
+		"correctAnswer": "Love Yourself- Justin Bieber"
+	},
+	{
+		"category": "Music History",
+		"question": "Which John Cage piece is famous for containing no music?",
+		"answers": ["0.588888889","Rhapsody in Blue","4'33\"","Take the A-Train","Dressed Like An Egg"],
+		"correctAnswer": "4'33\""
+	},
+	{
+		"category": "Philosophy",
+		"question": "Which law states that \"Anything that can go wrong, will go wrong?\"",
+		"answers": ["Blake's","Infinite Monkey theorem","Murphy's","Law on Infernal Dynamics","Unintended Consequences"],
+		"correctAnswer": "Murphy's"
+	},
+	{
+		"category": "Math",
+		"question": "This operation applied to the monomial x^n is equal to n*x^(n-1).",
+		"answers": ["Derivitive","Integral","Polynomial","Limit","Series"],
+		"correctAnswer": "Derivitive"
+	},
+	{
+		"category": "Philosophy",
+		"question": "Descartes may be best known for this three-word Latin phrase, a single undeniable truth that he used as a foundation for his theory of knowledge.",
+		"answers": ["Cogito ergo sum","Veni, Vidi, Vici","quod erat demonstrandum","E Pluribus Unum","Acta non verba"],
+		"correctAnswer": "Cogito ergo sum"
+	},
+	{
+		"category": "Literature",
+		"question": "In what classic children's book recounted by an aviator does a fox tell the titular character that \"It's only with the heart that one can see rightly. What's important is invisible to the eyes.\"?",
+		"answers": ["Where the Wild Things Are","Alice's Adventures in Wonderland","Charlotte's Web","The Little Prince","The Giving Tree"],
+		"correctAnswer": "The Little Prince"
+	},
+	{
+		"category": "Literature",
+		"question": "Kafka wrote this novel which includes the short story Before the Law. In it, Josef K. is arrested for an unspecified crime, and forced to undergo the title legal proceedings.",
+		"answers": ["Amerika","The Trial","The Castle","The Metamorphosis","The Refusal"],
+		"correctAnswer": "The Trial"
+	},
+	{
+		"category": "Art History",
+		"question": "Which Mexican artist known for Man and Controller of The Universe was married to Frida Kahlo?",
+		"answers": ["Diego Rivera","Pablo Picasso","Henri Matisse","Amedo Modigliani","Georges Braque"],
+		"correctAnswer": "Diego Rivera"
+	},
+	{
+		"category": "History",
+		"question": "In what year did the Salem Witch Trials begin?",
+		"answers": ["1654","1762","1692","1588","1687"],
+		"correctAnswer": "1692"
+	},
+	{
+		"category": "Sports",
+		"question": "In the 1980's, this high school athlete was subject to arguably the most intense recruiting war seen in college athletics, which led to the creation of many of the NCAA's current rules and regulations of recruiting.",
+		"answers": ["Herschel Walker","Marcus Dupree","Brian Bosworth","Hakeem Olajuwon","Christian Laettner"],
+		"correctAnswer": "Marcus Dupree"
+	},
+	{
+		"category": "Rocks",
+		"question": "They're a 6 on the Mohs hardness scale and make up around 40% of the Earth's continental crust.",
+		"answers": ["Feldspar","Rheniite","Quartz","Mica","Sandstone"],
+		"correctAnswer": "Feldspar"
+	},
+	{
+		"category": "Music",
+		"question": "Can you spot the one that didn't play clarinet?",
+		"answers": ["Benny Goodman","Sabine Meyer","Woody Herman","Rosalind Franklin","Julian Bliss"],
+		"correctAnswer": "Rosalind Franklin"
+	},
+	{
+		"category": "Science English",
+		"question": "Which of the following words would be best associated with Graham's Law and gas?",
+		"answers": ["Superfluid","Criticality","Locality","Effusion","Sublimation"],
+		"correctAnswer": "Effusion"
+	},
+	{
+		"category": "Bee's-ness",
+		"question": "Sterile worker bees are a good example of what biological concept? They die after losing their stingers.",
+		"answers": ["Cladogram","Altruism","Koinophilia","Cheating","Variation"],
+		"correctAnswer": "Altruism"
+	},
+	{
+		"category": "Probability",
+		"question": "Suppose P and Q are mutually exclusive. The probability of P and Q are 1/4 and 1/8 respectively. What's the chance of P or Q in terms of a date?",
+		"answers": ["Jan-32","Jan-4","Mar-8","Jan-2","Jan-1"],
+		"correctAnswer": "Mar-8"
+	},
+	{
+		"category": "Book Colors",
+		"question": "What's the color of Crane's 'Badge of Courage'?",
+		"answers": ["Purple","Amber","Tan","Dodger Blue","Red"],
+		"correctAnswer": "Red"
+	},
+	{
+		"category": "Fish Anatomy",
+		"question": "Primitive fish often have this organ. You may like to know that it's also called the forekidney.",
+		"answers": ["Caudal Kidney","Head Kidney","Atrial Kidney","Kidney Bean","Dorsal Kidney"],
+		"correctAnswer": "Head Kidney"
+	},
+	{
+		"category": "American History",
+		"question": "Can you spot the leader who was a winner at the Battle of Little Bighorn?",
+		"answers": ["Powhatan","Red Cloud","American Horse","Sitting Bull","Crazy Horse"],
+		"correctAnswer": "Sitting Bull"
+	},
+	{
+		"category": "Popular Music",
+		"question": "According to Billboard, the top selling album of 2014 featured which of the following women?",
+		"answers": ["Taylor Swift","Idina Menzel","Katy Perry","Miranda Lambert","Adele"],
+		"correctAnswer": "Taylor Swift"
+	},
+	{
+		"category": "Historical Places",
+		"question": "You might know that the Edmund Pettus Bridge is located in this city, the site of the United State's second \"Bloody Sunday\".",
+		"answers": ["Selma","Chicago","Memphis","Nicodemus","Boston"],
+		"correctAnswer": "Selma"
+	},
+	{
+		"category": "U.S. History",
+		"question": "Which president signed the Indian Removal Act of 1830 and forcibly relocated Native Americans during the trail of tears?",
+		"answers": ["Martin Van Buren","Franklin Pierce","Andrew Jackson","John Quincy Adams","James Monroe"],
+		"correctAnswer": "Andrew Jackson"
+	},
+	{
+		"category": "U.S. History",
+		"question": "This president is the second most wealthy president behind Donald Trump with an estimated adjusted net worth of $1 billion.",
+		"answers": ["George Washington","Andrew Jackson","James Madison","John F. Kennedy","Bill Clinton"],
+		"correctAnswer": "John F. Kennedy"
+	},
+	{
+		"category": "U.S. Geography",
+		"question": "The First Transcontinental Railroad met at Promontory Summit in which U.S. state?",
+		"answers": ["Colorado","Illinois","California","Oklahoma","Utah"],
+		"correctAnswer": "Utah"
+	},
+	{
+		"category": "Areas of Study",
+		"question": "Alexis de Tocqueville, Emile Durkheim, and Max Weber can all be classified as....",
+		"answers": ["Geologists","Sociologists","Anthropologists","Astronomers","Psycologists"],
+		"correctAnswer": "Sociologists"
+	},
+	{
+		"category": "Math",
+		"question": "Suppose x^2 + 2x - 50 = 0. Then the positive root of x is closest to...",
+		"answers": ["0","2","4","6","12"],
+		"correctAnswer": "6"
+	},
+	{
+		"category": "National Icons",
+		"question": "Which of the following parks can be found in California?",
+		"answers": ["Yosemite","Acadia","Capitol Reef","The Everglades","Mesa Verde"],
+		"correctAnswer": "Yosemite"
+	},
+	{
+		"category": "Physics",
+		"question": "According to Hooke, as a spring is compressed, the force it exerts varies...",
+		"answers": ["Not at all","Quadratically","Inversely","Linearly","Stepwise"],
+		"correctAnswer": "Linearly"
+	},
+	{
+		"category": "History Words",
+		"question": "The Zoot Suit Riots followed a murder at which of the following locales?",
+		"answers": ["World's Fair","Whiskey Point","Sleepy Lagoon","Cape Canaveral","West Pier"],
+		"correctAnswer": "Sleepy Lagoon"
+	},
+	{
+		"category": "Spelling",
+		"question": "Can you spot the correct spelling for a broad knife originating in Central America?",
+		"answers": ["Machetti","Machetee","Moseti","Machete","Muchetti"],
+		"correctAnswer": "Machete"
+	},
+	{
+		"category": "In the Body",
+		"question": "Immunoglobulins, i.e. antibodies, are Y-shaped proteins produced by...",
+		"answers": ["T cells","B cells","S cells","D cells","P cells"],
+		"correctAnswer": "B cells"
+	},
+	{
+		"category": "Foreign Words",
+		"question": "Which of the following pairs of words, in various languages, do not correspond?",
+		"answers": ["haar - hair","maison - home","light - lux","vida - life","cani - trees"],
+		"correctAnswer": "cani - trees"
+	},
+	{
+		"category": "In the Lab",
+		"question": "Nitric acid is produced via the...",
+		"answers": ["Otswald process","Dow process","Vulcanization","Haber process","Steam reforming"],
+		"correctAnswer": "Otswald process"
+	},
+	{
+		"category": "Myth",
+		"question": "Which of the following figures is part of Celtic mythology?",
+		"answers": ["Ra","Lugh","Hera","Loki","Zaria"],
+		"correctAnswer": "Lugh"
+	},
+	{
+		"category": "Weather",
+		"question": "One of these states is probably not part of 'Tornado Alley'. Which is it?",
+		"answers": ["Texas","New Mexico","Nebraska","Mississippi","Kansas"],
+		"correctAnswer": "New Mexico"
+	},
+	{
+		"category": "On Paper",
+		"question": "What amendment to the United States Constitution was enabled by the Volstead Act?",
+		"answers": ["12th","14th","18th","20th","24th"],
+		"correctAnswer": "18th"
+	},
+	{
+		"category": "Geography",
+		"question": "Select the country that doesn't border Turkey.",
+		"answers": ["Moldova","Greece","Bulgaria","Iran","Syria"],
+		"correctAnswer": "Moldova"
+	},
+	{
+		"category": "In the News",
+		"question": "Beginning in Oct. 2016, the battle for this city was covered prominently throughout Feb. 2017. The operation was dubbed 'We Are Coming, Nineveh'.",
+		"answers": ["Tel Aviv","Aleppo","Baghdad","Tehran","Mosul"],
+		"correctAnswer": "Mosul"
+	},
+	{
+		"category": "Presidents",
+		"question": "The president who campaigned on the \"It's Morning Again in America\" slogan was nearly assassinated by...",
+		"answers": ["George Atzerodt","Sara Moore","John Booth","John Hinckley Jr.","Lynette Fromme"],
+		"correctAnswer": "John Hinckley Jr."
+	},
+	{
+		"category": "Art",
+		"question": "Which famous Picasso painting depicted a scene from the Spanish Civil War and displayed at the 1937 Paris World's Fair?",
+		"answers": ["The Old Guitarist","Portrait of Gertrude Stein","Guernica","Les Desmoiselles d'Avignon","Massacre in Korea"],
+		"correctAnswer": "Guernica"
+	},
+	{
+		"category": "Chronology",
+		"question": "Which of the following events occurred during \"The Little Ice Age\"?",
+		"answers": ["Charlemagne is crowned","The Fall of Babylon","Vladimir Putin takes office","The most famous eruption of Mt. Vesuvius","The Boston Tea Party"],
+		"correctAnswer": "The Boston Tea Party"
+	},
+	{
+		"category": "U.S. History",
+		"question": "3.3 square miles of this city was destroyed by fire in October of 1871 when it is believed that Mrs. O'Leary's cow knocked over a lantern.",
+		"answers": ["Indianapolis","Seattle","Des Moines","Chicago","Milwauke"],
+		"correctAnswer": "Chicago"
+	},
+	{
+		"category": "Museums",
+		"question": "This was the most visited museum in 2015 with 6,900,000 visitors.",
+		"answers": ["National Museum of Natural History","Metropolitan Museum of Art","National Gallery of Art","Houston Museum of Natural Science","The Field Museum"],
+		"correctAnswer": "National Museum of Natural History"
+	},
+	{
+		"category": "Yes Madame",
+		"question": "Marie Curie won 2 Noble Prizes and was born in what city? You may like to know her last name is only French by marriage.",
+		"answers": ["Prague","Lyon","Moscow","Warsaw","Berlin"],
+		"correctAnswer": "Warsaw"
+	},
+	{
+		"category": "Sports",
+		"question": "Ibtihaj Muhammad won a Bronze medal in the 2016 Summer Olympics. More notably, she as the first U.S. athlete to compete wearing a hijab. What sport did she compete in?",
+		"answers": ["Gymnastics","Polo","Equestrian","Boxing","Fencing"],
+		"correctAnswer": "Fencing"
+	},
+	{
+		"category": "Film",
+		"question": "This director's most popular movies include Fantastic Mr. Fox, The Grand Budapest Hotel, and Moonrise Kingdom.",
+		"answers": ["James Cameron","Roman Coppola","Woody Allen","Wes Anderson","Michael Bay"],
+		"correctAnswer": "Wes Anderson"
+	},
+	{
+		"category": "Musical Theater",
+		"question": "This musical broke records when it was nominated for 16 Tony awards, the most in Broadway history. It won 11 of these nominations. Notably, Leslie Odom, Jr. won Best Actor in a Musical and Daveed Diggs won Best Feature Actor in a Musical.",
+		"answers": ["Phantom of the Opera","Hamilton","Newsies","The Producers","Les Miserables"],
+		"correctAnswer": "Hamilton"
+	},
+	{
+		"category": "Notable Humans",
+		"question": "This woman is the youngest person ever to win a Nobel Prize. She became a prominent author and education activist after she was shot in the head by the Taliban in a failed assassination attempt in 2012.",
+		"answers": ["Tawakkol Karmen","Benazir Bhutto","Atal Yousafzai","Malala Yousafzai","Shantha Sinha"],
+		"correctAnswer": "Malala Yousafzai"
+	},
+	{
+		"category": "American Literature",
+		"question": "In which Toni Morrison novel is Sethe haunted by the two-year-old daughter she killed to avoid raising her in slavery?",
+		"answers": ["The Bluest Eye","Beloved","Song of Solomon","Tar Baby","God Help the Child"],
+		"correctAnswer": "Beloved"
+	},
+	{
+		"category": "Questionable Art",
+		"question": "This artist is famous for his involvement in cubism and the avant-garde Dada art movement. He created a found-object piece called Fontain that was actually just a urinal with the words \"R. Mutt 2017\" painted on it.",
+		"answers": ["Henri Matisse","Pablo Picasso","Andy Warhol","Salvador Dali","Marcel Duchamp"],
+		"correctAnswer": "Marcel Duchamp"
+	},
+	{
+		"category": "Female Figures",
+		"question": "This woman was assassinated in 1984 after being elected in 1966. She is the world's longest serving female Prime Minister to this day.",
+		"answers": ["Margaret Thatcher","Golda Meir","Indira Gandhi","Benazir Bhutto","Sylvie Kinigi"],
+		"correctAnswer": "Indira Gandhi"
+	},
+	{
+		"category": "Geography",
+		"question": "Lubaantun is a Maya ruin where the first of the Crystal Skulls was believed to be found. It is not located in Mexico but in the Toledo district of this country.",
+		"answers": ["Colombia","Brazil","Guatemala","Belize","Panama"],
+		"correctAnswer": "Belize"
+	},
+	{
+		"category": "Sports",
+		"question": "Until 2016, this baseball team had not won a World Series since 1908.",
+		"answers": ["Chicago White Sox","Chicago Cubs","Boston Red Sox","St. Louis Cardinals","Cleveland Indians"],
+		"correctAnswer": "Chicago Cubs"
+	},
+	{
+		"category": "Pop Culture",
+		"question": "This YouTuber famous for her alter ego released the show Haters Back Off on Netflix in 2016.",
+		"answers": ["Bethany Mota","Jenna Marbles","Glozell","iJustine","Miranda Sings"],
+		"correctAnswer": "Miranda Sings"
+	},
+	{
+		"category": "Opera",
+		"question": "The opera Carmen was written by which French composer?",
+		"answers": ["Handel","Rossini","Bizet","Puccini","Berlioz"],
+		"correctAnswer": "Bizet"
+	},
+	{
+		"category": "American Literature",
+		"question": "Which Nathaniel Hawthorne novel was inspired by Hawthorne's ancestors who played a part in the Salem Witch Trials?",
+		"answers": ["Young Goodman Brown","The Blithedale Romance","The Crucible","The House of Seven Gables","The Scarlet Letter"],
+		"correctAnswer": "The House of Seven Gables"
+	},
+	{
+		"category": "Classical Art",
+		"question": "Which Spanish Baroque artist painted Las Meninas and a Portrait of Innocent X?",
+		"answers": ["Peter Paul Rubens","Francisco Goya","Diego Velazquez","Pablo Picasso","El Greco"],
+		"correctAnswer": "Diego Velazquez"
+	},
+	{
+		"category": "Seismic Activity",
+		"question": "The world's largest earthquake had a magnitude of 9.5 and occurred in this country.",
+		"answers": ["Chile","United States","Thailand","Haiti","Venezuela"],
+		"correctAnswer": "Chile"
+	},
+	{
+		"category": "Extinction",
+		"question": "If we do not count the current accelerated extinction, how many mass extinction have occurred on Earth?",
+		"answers": ["1","7","3","6","5"],
+		"correctAnswer": "5"
+	},
+	{
+		"category": "Sports",
+		"question": "What was the nickname of the high-flying, high paced Houston men's college basketball team of the early 1980's featuring Hakeem Olajuwon, Clyde Drexler, and Benny Anders?",
+		"answers": ["Gang Green","Basket Hounds","High-Top Hoopsters","Phi Slamma Jamma","Monstars"],
+		"correctAnswer": "Phi Slamma Jamma"
+	},
+	{
+		"category": "Modern Music",
+		"question": "This singer released an album entitled A Seat at the Table in 2016. She is also Beyonce's sister.",
+		"answers": ["Nicki Minaj","Solange Knowles","Sia","Ciara","Kelly Rowland"],
+		"correctAnswer": "Solange Knowles"
+	},
+	{
+		"category": "Classical Music",
+		"question": "Water Music and Messiah were written by which German composer?",
+		"answers": ["Mendelssohn","Mozart","Bach","Handel","Schubert"],
+		"correctAnswer": "Handel"
+	},
+	{
+		"category": "Architecture",
+		"question": "This architect is famous for his Fallingwater house in Pennsylvania as well as living in and designing many buildings in the Chicago suburb of Oak Park, Illinois.",
+		"answers": ["Louis Sullivan","Eero Saarinen","John Lautner","Frank Lloyd Wright","William Van Alen"],
+		"correctAnswer": "Frank Lloyd Wright"
+	},
+	{
+		"category": "Brit Lit",
+		"question": "In which Jane Austen story does a girl decide to try matchmaking and finding a husband for her friend Harriet?",
+		"answers": ["Sense and Sensibility","Emma","Pride and Prejudice","Northanger Abbey","Persuasion"],
+		"correctAnswer": "Emma"
+	},
+	{
+		"category": "Nautical Nonsense",
+		"question": "What was the name of the Swedish vessel from the 17th century that famously sank within a few miles of shore on its maiden voyage due to the large amounts of gold used to decorate the hull?",
+		"answers": ["Vasa","Ark Royal","Dreadnought","Moon","Due Repulse"],
+		"correctAnswer": "Vasa"
+	},
+	{
+		"category": "British Literature",
+		"question": "What novel (the only one written by its author) features such characters as Heathcliff, Mr. Earnshaw, and Catherine?",
+		"answers": ["Jane Eyre","Great Expectations","Wuthering Heights","The Tenant of Wildfell Hall","The Picture of Dorian Gray"],
+		"correctAnswer": "Wuthering Heights"
+	},
+	{
+		"category": "Leaders",
+		"question": "According to tradition, Jimmu was the ruler of this country in 660 B.C. and it's home to the Shinto kami.",
+		"answers": ["Vietnam","China","India","Serbia","Japan"],
+		"correctAnswer": "Japan"
+	},
+	{
+		"category": "Poetry",
+		"question": "Finish this line from The Lovesong of J. Alfred Prufrock: \"Till human voices wake us...\"",
+		"answers": ["from our slumber.","and we drown.","midst our anguish.","yet again.","along the road."],
+		"correctAnswer": "and we drown."
+	},
+	{
+		"category": "Art and Artists",
+		"question": "Can you spot that painting that's not one of Monet's?",
+		"answers": ["The Lunch","Water Lily Pond","Fall Plowing","Poppies","Wheatstacks"],
+		"correctAnswer": "Fall Plowing"
+	},
+	{
+		"category": "Scandal",
+		"question": "Which of the following people was involved in the Watergate scandal?",
+		"answers": ["Ford","Nixon","Truman","Eisenhower","Clinton"],
+		"correctAnswer": "Nixon"
+	},
+	{
+		"category": "Physics",
+		"question": "One of the pioneers of quantum theory, which physicist proposed the exclusion principle for fermions?",
+		"answers": ["Pauli","Einstein","Faraday","Pauling","Newton"],
+		"correctAnswer": "Pauli"
+	},
+	{
+		"category": "Lit Cat",
+		"question": "Which of the following is not a book written by Fyodor Dostoevsky?",
+		"answers": ["The Brothers Karamazov","The Idiot","The Gambler","War and Peace","Crime and Punishment"],
+		"correctAnswer": "War and Peace"
+	},
+	{
+		"category": "Math",
+		"question": "Do unit conversions or make an estimate. 34 meters is closest in inches to...",
+		"answers": ["488","601","1204","1338","1842"],
+		"correctAnswer": "1338"
+	},
+	{
+		"category": "Geography",
+		"question": "Which of the following countries lies along the equator?",
+		"answers": ["Haiti","Uganda","Australia","Spain","India"],
+		"correctAnswer": "Uganda"
+	},
+	{
+		"category": "Econ 101",
+		"question": "This concept measures the sensitivity of supply or demand to changes in price.",
+		"answers": ["Elasticity","Mobility","Utility","Marginal Shift","Substitution Effect"],
+		"correctAnswer": "Elasticity"
+	},
+	{
+		"category": "Supreme Court",
+		"question": "A famous SCOTUS case defining the constitutional rights of students in public schools was Tinker vs what city's school district?",
+		"answers": ["New York","Santa Fe","Chicago","Minneapolis","Des Moines"],
+		"correctAnswer": "Des Moines"
+	},
+	{
+		"category": "Gaming",
+		"question": "Can you spot the video game that was not published by Activision?",
+		"answers": ["Pitfall!","Blur","Galaga","Star Craft II","Call of Duty: Black Ops"],
+		"correctAnswer": "Galaga"
+	},
+	{
+		"category": "Geography",
+		"question": "What percent of the world's population lives in the Northern Hemisphere?",
+		"answers": ["10%","40%","100%","60%","90%"],
+		"correctAnswer": "90%"
+	},
+	{
+		"category": "Space Rocks",
+		"question": "What was the name of the meteorite that fell to Earth in 1969 and was instrumental in the study of amino acids?",
+		"answers": ["Hoba meteorite","Murchison meteorite","Cape York meteorite","Allende meteorite","Willamette meteorite"],
+		"correctAnswer": "Murchison meteorite"
+	},
+	{
+		"category": "Olympians",
+		"question": "This U.S. Olympic figure skater won the gold medal in men's singles in 2010 despite not doing a quadruple toe, the most difficult jump, which was successfully executed by the silver medal winner.",
+		"answers": ["Evgeni Plushenko","Charlie White","Johnny Weir","Evan Lysacek","Patrick Chan"],
+		"correctAnswer": "Evan Lysacek"
+	},
+	{
+		"category": "Olympics",
+		"question": "Where did the 2000 Winter Olympics take place?",
+		"answers": ["Sochi, Russia","Vancouver, Canada","Salt Lake City, Utah","Torino, Italy","Lillehammer, Norway"],
+		"correctAnswer": "Salt Lake City, Utah"
+	},
+	{
+		"category": "Civil Rights",
+		"question": "This organization was founded in 1920 \"to defend and preserve the individual rights and liberties guaranteed to every person in this country by the Constitution and laws of the United States.\"",
+		"answers": ["ACLU","NAACP","Amnesty International","AARP","Sierra Club"],
+		"correctAnswer": "ACLU"
+	},
+	{
+		"category": "90's T.V.",
+		"question": "In the Fresh Prince of Bel-Air, what was the name of the oldest daughter of the Banks family?",
+		"answers": ["Ashley","Hattie","Vivian","Hilary","Vy"],
+		"correctAnswer": "Hilary"
+	},
+	{
+		"category": "Classical Music",
+		"question": "Pictures at an Exhibition is a suite of ten pieces composed for piano by this Russian composer in 1874.",
+		"answers": ["Mussorgsky","Tchaikovsky","Romsky-Korsakov","Prokofiev","Rachmaninoff"],
+		"correctAnswer": "Mussorgsky"
+	},
+	{
+		"category": "World Lit",
+		"question": "Nigerian author Chinua Achebe wrote this 1958 novel about pre- and post-colonial life in late nineteenth century Nigeria.",
+		"answers": ["Half of a Yellow Sun","Americanah","The Concubine","Things Fall Apart","The Thing Around Your Neck"],
+		"correctAnswer": "Things Fall Apart"
+	},
+	{
+		"category": "Art",
+		"question": "The Gates of Hell, The Thinker, The Kiss, and The Burghers of Calais are all sculptures by this French artist.",
+		"answers": ["Degas","Rembrandt","Renoir","Cezanne","Rodin"],
+		"correctAnswer": "Rodin"
+	},
+	{
+		"category": "U.S. Geography",
+		"question": "What is the capital of California?",
+		"answers": ["Los Angeles","San Francisco","Sacramento","San Diego","Oakland"],
+		"correctAnswer": "Sacramento"
+	},
+	{
+		"category": "Mathematics",
+		"question": "This Swiss mathematician is known for inventing graph theory with the Seven Bridges of Konigsberg problem.",
+		"answers": ["Gauss","Euclid","Fermat","Godel","Euler"],
+		"correctAnswer": "Euler"
+	},
+	{
+		"category": "Language",
+		"question": "Les Pays-Bas is the French name for which country?",
+		"answers": ["Iceland","The Netherlands","Switzerland","Poland","Belgium"],
+		"correctAnswer": "The Netherlands"
+	},
+	{
+		"category": "College Sports",
+		"question": "Which team won the Big 10 football conference title in 2016?",
+		"answers": ["Michigan","Michigan State","Ohio State","Penn State","Indiana"],
+		"correctAnswer": "Penn State"
+	},
+	{
+		"category": "Film",
+		"question": "Which movie actually won Best Picture at the 2017 Oscars?",
+		"answers": ["Fences","Hell or High Water","Moonlight","La La Land","Hidden Figures"],
+		"correctAnswer": "Moonlight"
+	},
+	{
+		"category": "Musical Theater",
+		"question": "Which musical is based on Puccini's opera Madame Butterfly and set set during the Vietnam War?",
+		"answers": ["The King and I","South Pacific","Miss Saigon","The Pirates of Penzance","The Pirate Queen"],
+		"correctAnswer": "Miss Saigon"
+	},
+	{
+		"category": "Musical Theater",
+		"question": "What musical is set in 1931 Berlin at the Kit Kat Klub?",
+		"answers": ["Rent","Cabaret","A Chorus Line","Anything Goes","Guys and Dolls"],
+		"correctAnswer": "Cabaret"
+	},
+	{
+		"category": "Assasinations",
+		"question": "Which of the following people was NOT assassinated?",
+		"answers": ["Lee Harvey Oswald","John Lennon","Mohandas Gandhi","Princess Diana","Robert F. Kennedy"],
+		"correctAnswer": "Princess Diana"
+	},
+	{
+		"category": "Intl Politics",
+		"question": "Who is France's current Incumbent President who decided he would not re-election in 2017?",
+		"answers": ["Francois Fillon","Nicolas Sarkozy","Jean-Marie Le Pen","Francois Hollande","Jacques Chirac"],
+		"correctAnswer": "Francois Hollande"
+	}
+]

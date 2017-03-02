@@ -16,4 +16,7 @@ TODO Fix up index.js and the like to make it more suitable for deployment. Stuff
 
 TODO need to ensure that PracticeQuestions still work properly.
 
-TODO Make sure break time is not calculated into time taken
+TODO need to account for internet failures and outages. Continue sending save requests.
+TODO Categories before loading of question?
+TODO Lag for answer check/end check?
+TODO fix questions
