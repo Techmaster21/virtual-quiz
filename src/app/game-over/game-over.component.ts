@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Result } from '../result';
-import { ResultService } from '../result.service';
+import { Team } from '../team';
+import { TeamService } from '../team.service';
 
 @Component({
-  selector: 'vq-game-over',
+  selector: 'app-game-over',
   templateUrl: 'game-over.component.html',
   styleUrls: ['game-over.component.css']
 })
@@ -12,10 +12,10 @@ export class GameOverComponent implements OnInit {
   /**
    * The Result object which contains identifying information about the user
    */
-  result: Result;
+  team: Team;
   saving: boolean;
 
-  constructor(private resultService: ResultService) { }
+  constructor(private teamService: TeamService) { }
 
   /**
    * Converts miliseconds to human readable time
@@ -23,7 +23,7 @@ export class GameOverComponent implements OnInit {
    *  human readable time string
    */
   msToTime() {
-    let s = this.result.timeEnded-this.result.timeStarted;
+    let s = this.team.timeEnded - this.team.timeStarted;
     let ms = s % 1000;
     s = (s - ms) / 1000;
     let secs = s % 60;
@@ -35,17 +35,17 @@ export class GameOverComponent implements OnInit {
   }
   ngOnInit() {
     this.saving = true;
-    this.result = this.resultService.getResult();
-    if (!this.resultService.getPractice()) {
-      this.resultService.save(this.result).then(
+    this.team = this.teamService.getTeam();
+    if (!this.teamService.getPractice()) {
+      this.teamService.save(this.team).subscribe(
         // Wipes out copy of result in resultService to prevent user from playing again and modifying their results
         () => {
-          this.resultService.setResult(undefined);
+          this.teamService.setTeam(undefined);
           this.saving = false;
         }
       );
     }
-    if (this.resultService.getPractice()) {
+    if (this.teamService.getPractice()) {
       this.saving = false;
     }
   }

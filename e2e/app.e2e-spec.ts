@@ -1,14 +1,14 @@
-import { VirtualQuizPage } from './app.po';
+import { AppPage } from './app.po';
 
-describe('virtual-quiz App', function() {
-  let page: VirtualQuizPage;
+describe('virtual-quiz App', () => {
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new VirtualQuizPage();
+    page = new AppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });

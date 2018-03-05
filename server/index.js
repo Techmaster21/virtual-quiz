@@ -5,19 +5,21 @@ var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient
   , assert = require('assert');
 var ObjectId = require('mongodb').ObjectId;
+var moment = require('moment-timezone');
 var db;
 /**
  * Database URL
  */
-var url = process.env.MONGODB_URI;
+// var url = process.env.MONGODB_URI;
+  var url = 'mongodb://heroku_whlj8cct:i2k7ued2lj5duem2trvtbievf7@ds253918.mlab.com:53918/heroku_whlj8cct';
 
 // TODO Pull from config file
 // The date and time of the start of the competition. Before this time, users will only be able to access practiceQuestions.
-var year = 2016;
+var year = 2018;
 var month = 3;
-var day = 6;
-var hour = 12;
-var dateStart = new Date(year, month, day, hour);
+var day = 4;
+var hour = 7;
+var dateStart = moment.tz([year, month - 1, day, hour], 'America/Chicago');
 
 app.use( bodyParser.json() );
 
@@ -31,7 +33,7 @@ var practiceQuestions = require('./practiceQuestions.json');
 MongoClient.connect(url, function(err, database) {
   assert.equal(null, err);
   console.log("Connected successfully to server");
-  db = database;
+  db = database.db('heroku_tqg687mx');
 
   // Starts server
   app.listen(process.env.PORT || 8080, function () {
@@ -39,12 +41,15 @@ MongoClient.connect(url, function(err, database) {
   });
 });
 
+// app.listen(process.env.PORT || 8080, function () {
+//     console.log('Virtual Quiz app listening on port 8080');
+//   });
 /**
  * Gets the current date and time according to the server
  * @param callback
  */
 var getDateNow = function(callback) {
-  console.log("Got the date");
+  console.log("Got the date: " + (new Date()).valueOf());
   callback(new Date());
 };
 
@@ -53,7 +58,7 @@ var getDateNow = function(callback) {
  * @param callback
  */
 var getDateStart = function(callback) {
-  console.log("Got the start date");
+  console.log("Got the start date: " + dateStart.valueOf());
   callback(dateStart);
 };
 
@@ -67,11 +72,11 @@ var getDateStart = function(callback) {
  */
 var addResult = function(db, result, callback) {
   // Get the results collection
-  var collection = db.collection('results');
+  var collection = db.collection('teams');
   // Add a Result
   collection.insertOne(result, function(err, res) {
     assert.equal(err, null);
-    console.log("Inserted result");
+    //console.log("Inserted result");
     callback(res.ops[0]);
   });
 };
@@ -87,7 +92,7 @@ var addResult = function(db, result, callback) {
  */
 var updateResult = function(db, result, callback) {
   // Get the results collection
-  var collection = db.collection('results');
+  var collection = db.collection('teams');
   // Update a Result
   collection.updateOne({_id: ObjectId(result._id)}, {
     $set: {
@@ -100,7 +105,7 @@ var updateResult = function(db, result, callback) {
     }
   }, function(err, res) {
     assert.equal(err, null);
-    console.log("Updated result");
+    //console.log("Updated result");
     callback(result);
   });
 };
@@ -115,11 +120,11 @@ var updateResult = function(db, result, callback) {
  */
 var getResult = function(db, result, callback) {
   // Get the results collection
-  var collection = db.collection('results');
+  var collection = db.collection('teams');
   // Add a Result
   collection.find({schoolName: result.schoolName, team: result.team}).toArray(function(err, res) {
     assert.equal(err, null);
-    console.log("Got result");
+    //console.log("Got result");
     callback(res);
   });
 };
@@ -142,45 +147,54 @@ app.get('/gameover', function (req, res) {
 });
 
 app.get('/questions', function (req, res) {
-  console.log('Questions request received');
+  //console.log('Questions request received');
   res.json(questions);
 });
 
 app.get('/practiceQuestions', function (req, res) {
-  console.log('Practice questions request received');
+  //console.log('Practice questions request received');
   res.json(practiceQuestions);
 });
 
 app.get('/dateNow', function (req, res) {
-  console.log('Date now request received');
+  //console.log('Date now request received');
   getDateNow(function (now) {
-    res.json({year: now.getFullYear(), month: now.getMonth(), day: now.getDay(), hour: now.getHours()});
+    res.json(now);
   });
 });
 
 app.get('/dateStart', function (req, res) {
-  console.log('Date start request received');
+  //console.log('Date start request received');
   getDateStart(function (start) {
-    res.json({year: start.getFullYear(), month: start.getMonth(), day: start.getDay(), hour: start.getHours()});
+    res.json(start);
+  });
+});
+
+app.get('/canStart', function (req, res) {
+  //console.log('Can start request received');
+  getDateStart(function (start) {
+  	getDateNow(function (now) {
+  		res.json(now >= start);
+  	})
   });
 });
 
 app.post('/results', function (req, res) {
-  console.log('Results post received');
+  //console.log('Results post received');
   addResult(db, req.body, function (result) {
     res.json(result);
   });
 });
 
 app.put('/results', function (req, res) {
-  console.log('Results put received');
+  //console.log('Results put received');
   updateResult(db, req.body, function (result) {
     res.json(result);
   });
 });
 
 app.put('/getResult', function (req, res) {
-  console.log('get Result put received');
+  //console.log('get Result put received');
   getResult(db, req.body, function (result) {
     if (result.length === 0) {
       res.json({});
@@ -192,11 +206,11 @@ app.put('/getResult', function (req, res) {
 });
 
 app.put('/answerCheck', function (req, res) {
-  console.log('answer check request received');
+  //console.log('answer check request received');
   if (answers[req.body.index].correctAnswer === req.body.answer) {
-    res.json({correct: true});
+    res.json(true);
   }
   else {
-    res.json({correct: false});
+    res.json(false);
   }
 });

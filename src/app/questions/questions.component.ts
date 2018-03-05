@@ -1,16 +1,15 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, trigger,
-  state,
-  style,
-  transition,
-  animate  } from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 
 import { Answer } from '../answer';
 import { correctColor, incorrectColor } from '../constants';
 import { Question } from '../question';
 import { QuestionService } from '../question.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import {Observable} from 'rxjs/Observable';
+import {forkJoin} from 'rxjs/observable/forkJoin';
 
 @Component({
-  selector: 'vq-questions',
+  selector: 'app-questions',
   templateUrl: 'questions.component.html',
   styleUrls: ['questions.component.css'],
   animations: [
@@ -31,14 +30,14 @@ export class QuestionsComponent implements OnChanges {
    * or chose the correct answer; false otherwise
    * @type {boolean}
    */
-	@Input() finished: boolean;
+  @Input() finished: boolean;
   @Input() index;
   @Input() pointsGained;
   /**
    * Event that fires when an answer is clicked
    * @type {EventEmitter<string>}
    */
-	@Output() onAnswerClicked = new EventEmitter<string>();
+  @Output() onAnswerClicked = new EventEmitter<string>();
   /**
    * The current question
    */
@@ -49,22 +48,27 @@ export class QuestionsComponent implements OnChanges {
   /**
    * Sets all answers to their respective colors once a user's tries have been exhausted.
    */
-	finishAnimation() {
-    for (let i = 0; i < this.question.answers.length; ++i) {
-      let answer: Answer = this.question.answers[i];
-      if (answer.state === 'inactive') {
-        this.questionService.checkAnswer(answer, this.index)
-          .then((result) => {
-            if (result) {
+  finishAnimation() {
+    let answers = [];
+    for (let answer of this.question.answers) {
+      answers.push(this.questionService.checkAnswer(answer, this.index));
+    }
+    forkJoin(answers).subscribe(
+      results => {
+        for (let i = 0; i < results.length; ++i) {
+          let answer: Answer = this.question.answers[i];
+          if (answer.state === 'inactive') {
+            if (results[i]) {
               answer.correct();
-            }
-            else {
+            } else {
               answer.incorrect();
             }
-          });
+          }
+        }
       }
-    }
-	}
+    );
+  }
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes['finished'] && changes['finished'].currentValue === true) {
       this.finishAnimation();
@@ -77,9 +81,9 @@ export class QuestionsComponent implements OnChanges {
    *  the answer as Answer
    */
   onClick(answer: Answer) {
-    if (!this.finished){
+    if (!this.finished) {
       this.questionService.checkAnswer(answer, this.index)
-        .then(result => {
+        .subscribe(result => {
           if (result) {
             this.onAnswerClicked.emit('correct');
             answer.correct();

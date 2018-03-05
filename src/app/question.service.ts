@@ -1,10 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { catchError, map, tap } from 'rxjs/operators';
 
-import { Answer } from './answer';
 import { key, practiceQuestionsUrl, questionsUrl, answerCheckURL } from './constants';
 import { Question } from './question';
+import {Answer} from './answer';
+import {switchMap} from 'rxjs/operator/switchMap';
+import {from} from 'rxjs/observable/from';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/toArray';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 /**
  * Serves Questions and adds and updates Results
@@ -12,46 +24,55 @@ import { Question } from './question';
 @Injectable()
 export class QuestionService {
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   /**
-   * Requests practice questions from the server
-   * @returns {Promise<Question[]>}
-   *  - A Promise to return the Questions
+   * Retrieves practice questions from the server
+   * @returns {Observable<Question[]>}
    */
-  getPracticeQuestions() {
-    return this.http.get(practiceQuestionsUrl)
-      .toPromise()
-      .then(response => response.json()
-        .map(question => new Question(question.question, question.category, question.answers.map(text=> new Answer(text)))))
-      .catch(this.handleError);
+  getPracticeQuestions(): Observable<Question[]> {
+    return this.http.get<Question[]>(practiceQuestionsUrl).pipe(
+      map(questions => questions
+        .map(question =>
+          new Question(question.question, question.category, question.answers.map(answer => new Answer(answer.text)))
+        )),
+      catchError(this.handleError('getPracticeQuestions', []))
+    );
   }
   /**
-   * Requests questions from the server
-   * @returns {Promise<Question[]>}
-   *  - A Promise to return the Questions
+   * Retrieves questions from the server
+   * @returns {Observable<Question[]>}
    */
-  getQuestions() {
-    return this.http.get(questionsUrl)
-      .toPromise()
-      .then(response => response.json()
-        .map(question => new Question(question.question, question.category, question.answers.map(text=> new Answer(text)))))
-      .catch(this.handleError);
+  getQuestions(): Observable<Question[]> {
+    return this.http.get<Question[]>(questionsUrl).pipe(
+        map(questions => questions
+          .map(question =>
+            new Question(question.question, question.category, question.answers.map(answer => new Answer(answer.text)))
+          )),
+        catchError(this.handleError('getQuestions', []))
+    );
   }
 
-  checkAnswer(answer: Answer, index): Promise<boolean> {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
-    return this.http
-      .put(answerCheckURL, JSON.stringify({"answer": answer.text, "index": index}), {headers: headers})
-      .toPromise()
-      .then(res => res.json().correct)
-      .catch(this.handleError);
+  checkAnswer(answer: Answer, index: number): Observable<boolean> {
+    return this.http.put<boolean>(answerCheckURL, {answer: answer.text, index: index}, httpOptions).pipe(
+      catchError(this.handleError<boolean>('checkAnswer'))
+    );
   }
 
-	private handleError(error: any) {
-	  console.error('An error occurred', error);
-	  return Promise.reject(error.message || error);
-	}
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
 }

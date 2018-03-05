@@ -1,7 +1,7 @@
 /**
  * Used to store Team Results in database
  */
-export class Result {
+export class Team {
   constructor(
     public schoolName: string,
     public team: number,

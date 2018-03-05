@@ -1,13 +1,13 @@
 Category: {{question.category}}
-<div class="w3-panel w3-light-grey w3-border">
-	<h5>{{question.question}}</h5>
-</div>
-<div class="questions">
-	<button class="w3-btn-block w3-round"
-		*ngFor="let answer of question.answers"
-		(click)="onClick(answer)"
-    [style.pointerEvents]="answer.state != 'inactive' ? 'none' : ''"
-    [@answerState]="answer.state">
-    {{answer.text}} <div *ngIf="answer.state == 'correct'">+{{pointsGained}}</div>
+<mat-card>
+  <h5>{{question.question}}</h5>
+</mat-card>
+<div>
+  <button mat-raised-button
+          *ngFor="let answer of question.answers"
+          (click)="onClick(answer)"
+          [style.pointerEvents]="answer.state != 'inactive' ? 'none' : ''"
+          [@answerState]="answer.state">
+    {{answer.text}} <span *ngIf="answer.state == 'correct'">+{{pointsGained}}</span>
   </button>
 </div>

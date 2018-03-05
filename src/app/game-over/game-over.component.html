@@ -1,19 +1,17 @@
-<div class="w3-container w3-margin-top">
-  <div class="w3-card-4">
-    <div *ngIf="!saving">
-      <div class="w3-container isu-gold">
-        <h2>Results</h2>
-      </div>
-      <div *ngIf="result">
-        <ul class="w3-ul w3-border">
-          <li>School Name: {{result.schoolName}}</li>
-          <li>Team number: {{result.team}}</li>
-          <li>Points: {{result.points}}</li>
-          <li>Time played: {{msToTime()}}</li>
-        </ul>
-      </div>
+<mat-card>
+  <div *ngIf="!saving">
+    <div>
+      <h2>Results</h2>
     </div>
-    <div *ngIf="saving"> Saving results. Please do not close the browser.</div>
+    <div *ngIf="team">
+      <mat-list>
+        <mat-list-item>School Name: {{team.schoolName}}</mat-list-item>
+        <mat-list-item>Team number: {{team.team}}</mat-list-item>
+        <mat-list-item>Points: {{team.points}}</mat-list-item>
+        <mat-list-item>Time played: {{msToTime()}}</mat-list-item>
+      </mat-list>
+    </div>
   </div>
-</div>
+  <div *ngIf="saving"> Saving results. Please do not close the browser.</div>
+</mat-card>
 

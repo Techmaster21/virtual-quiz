@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'vq-timer',
+  selector: 'app-timer',
   templateUrl: 'timer.component.html',
   styleUrls: ['timer.component.css']
 })
@@ -14,16 +14,16 @@ export class TimerComponent {
    * Emitted when timer is started
    * @type {EventEmitter<any>}
    */
-	@Output() started = new EventEmitter<any>();
+  @Output() started = new EventEmitter<any>();
   /**
    * Current milliseconds on timer
    * @type {number}
    */
-	mseconds: number = 0;
+  mseconds = 0;
   /**
    * Holds variable for setInterval()
    */
-	timer: number;
+  timer: number;
 
   /**
    * Function to call every interval
@@ -69,37 +69,37 @@ export class TimerComponent {
   /**
    * Starts the Timer.
    */
-	startTimer() {
-		if (!this.timer) {
-		    let time = Date.now();
-		    this.timer = window.setInterval(()=> {
-				this.mseconds += Date.now()-time;
-				time = Date.now();
-				if (this.callback) {
-					this.checkInterval();
-				}
-			}, 100);
-		}
-		this.started.emit(null);
-	}
+  startTimer() {
+    if (!this.timer) {
+      let time = Date.now();
+      this.timer = window.setInterval(() => {
+        this.mseconds += Date.now() - time;
+        time = Date.now();
+        if (this.callback) {
+          this.checkInterval();
+        }
+      }, 100);
+    }
+    this.started.emit(null);
+  }
   /**
    * Stops the Timer
    */
-	stopTimer() {
-	    window.clearInterval(this.timer);
-	    this.timer = undefined;
-	}
+  stopTimer() {
+    window.clearInterval(this.timer);
+    this.timer = undefined;
+  }
 
-	get seconds() {
-	  return (this.mseconds/1000).toFixed(1);
+  get seconds() {
+    return (this.mseconds / 1000).toFixed(1);
   }
 
   /**
    * Checks if it's time to call the function, and if so, calls it.
    */
-	private checkInterval() {
-		if (this.mseconds >= this.msecondsTimeout) {
-			this.callback();
-		}
-	}
+  private checkInterval() {
+    if (this.mseconds >= this.msecondsTimeout) {
+      this.callback();
+    }
+  }
 }

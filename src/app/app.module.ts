@@ -1,46 +1,42 @@
-import { ApplicationRef, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { AppComponent } from './app.component';
-import { appRoutingProviders, routing  } from './app.routing';
+import { SignupComponent } from './signup/signup.component';
+import { TimeService } from './time.service';
+import { AppRoutingModule } from './app-routing.module';
 import { GameComponent } from './game/game.component';
 import { GameOverComponent } from './game-over/game-over.component';
-import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { FormsModule } from '@angular/forms';
 import { QuestionsComponent } from './questions/questions.component';
-import { QuestionService } from './question.service';
-import { ResultService } from './result.service';
-import { SignupComponent } from './signup/signup.component';
 import { TimerComponent } from './timer/timer.component';
-import { TimeService } from './time.service';
+import {QuestionService} from './question.service';
+import {TeamService} from './team.service';
+import {RegisterGuard} from './register-guard.service';
+import {MaterialModule} from './material/material.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    SignupComponent,
     GameComponent,
     GameOverComponent,
-    ProgressBarComponent,
     QuestionsComponent,
-    SignupComponent,
     TimerComponent
   ],
   imports: [
     BrowserModule,
-    CommonModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     FormsModule,
-    HttpModule,
-    routing
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [
-    appRoutingProviders,
-    QuestionService,
-    ResultService,
-    TimeService
-  ],
-  entryComponents: [AppComponent],
+  providers: [TimeService, QuestionService, TeamService, RegisterGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

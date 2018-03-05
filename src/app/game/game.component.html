@@ -1,21 +1,18 @@
-<div class="w3-container w3-margin-top">
-  <div class="w3-card-4">
-    Current Time: <vq-timer (started)="onStarted($event)"></vq-timer>
+<mat-card>
+    Current Time: <app-timer (started)="onStarted()"></app-timer>
     <div *ngIf="!breakStarted">
-          Point total: {{points}}
-          <div *ngIf="questions">
-            <vq-questions (onAnswerClicked)="onAnswerClicked($event)"
-              [finished]="finished"
-              [question]="currentQuestion"
-              [index]="index"
-              [pointsGained]="pointsGained">
-            </vq-questions>
-            <vq-progress-bar [completed]="index"
-              [outOf]="questions.length"></vq-progress-bar>
-          </div>
+      Point total: {{points}}
+      <div *ngIf="questions">
+        <app-questions (onAnswerClicked)="onAnswerClicked($event)"
+                      [finished]="finished"
+                      [question]="currentQuestion"
+                      [index]="index"
+                      [pointsGained]="pointsGained">
+        </app-questions>
+        <mat-progress-bar color="accent" [value]="100*index/questions.length"></mat-progress-bar>
+      </div>
     </div>
     <div *ngIf="breakStarted">
-          <button (click)="onBreakEnd()">End break</button>
+      <button color="accent" (click)="onBreakEnd()">End break</button>
     </div>
-  </div>
-</div>
+</mat-card>

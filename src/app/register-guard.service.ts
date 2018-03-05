@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router }    from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 
-import { ResultService } from './result.service';
+import { TeamService } from './team.service';
 
 @Injectable()
-export class RegisterGuard implements CanActivate{
+export class RegisterGuard implements CanActivate {
 
-  constructor(private resultService: ResultService, private router: Router) { }
+  constructor(private teamService: TeamService, private router: Router) {
+  }
 
   /**
    * Prevents user from accessing game or gameOver pages before signing up
@@ -14,11 +15,10 @@ export class RegisterGuard implements CanActivate{
    *  whether or not the user is allowed to navigate here
    */
   canActivate() {
-    if (this.resultService.getResult() == undefined) {
+    if (this.teamService.getTeam() === undefined) {
       this.router.navigate(['/signup']);
       return false;
-    }
-    else {
+    } else {
       return true;
     }
   }

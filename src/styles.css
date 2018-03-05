@@ -1,13 +1,2 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("w3.css");
-.isu-gold {
-  color: white;
-  background-color: #F1BE48;
-}
-.w3-label {
-  color: #524727;
-}
-.w3-btn {
-  color: white;
-  background-color: #716444;
-}
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
