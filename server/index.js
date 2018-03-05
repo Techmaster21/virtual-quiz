@@ -17,7 +17,7 @@ var db;
 // The date and time of the start of the competition. Before this time, users will only be able to access practiceQuestions.
 var year = 2018;
 var month = 3;
-var day = 4;
+var day = 5;
 var hour = 7;
 var dateStart = moment.tz([year, month - 1, day, hour], 'America/Chicago');
 
@@ -33,7 +33,7 @@ var practiceQuestions = require('./practiceQuestions.json');
 MongoClient.connect(url, function(err, database) {
   assert.equal(null, err);
   console.log("Connected successfully to server");
-  db = database.db('heroku_tqg687mx');
+  db = database.db('heroku_whlj8cct'); // if db changes, this will need to change
 
   // Starts server
   app.listen(process.env.PORT || 8080, function () {
