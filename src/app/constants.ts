@@ -5,11 +5,6 @@ export const autoWrongGuess = 60000;
 export const correctColor = '#009900';
 export const incorrectColor = '#e50000';
 
-/**
- * Key that was used to encrypt the questions
- * @type {string}
- */
-export const key = 'password';
 export const practiceQuestionsUrl = 'practiceQuestions';
 export const answerCheckURL = 'answerCheck';
 export const questionsUrl = 'questions';

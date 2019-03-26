@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { key, practiceQuestionsUrl, questionsUrl, answerCheckURL } from './constants';
+import { practiceQuestionsUrl, questionsUrl, answerCheckURL } from './constants';
 import { Question } from './question';
 import {Answer} from './answer';
 import {switchMap} from 'rxjs/operator/switchMap';
