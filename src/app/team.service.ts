@@ -3,8 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { resultsCheckURL, resultsURL } from './constants';
 import { Team } from './team';
-import {Observable} from 'rxjs/Observable';
-import {of} from 'rxjs/observable/of';
+import {Observable, of} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 
 const httpOptions = {

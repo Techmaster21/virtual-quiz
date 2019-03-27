@@ -5,8 +5,7 @@ import { correctColor, incorrectColor } from '../constants';
 import { Question } from '../question';
 import { QuestionService } from '../question.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import {Observable} from 'rxjs/Observable';
-import {forkJoin} from 'rxjs/observable/forkJoin';
+import {Observable, forkJoin} from 'rxjs';
 
 @Component({
   selector: 'app-questions',

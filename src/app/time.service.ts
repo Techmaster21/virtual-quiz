@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable ,  of } from 'rxjs';
 
 import { dateNowURL, dateStartURL, canStartURL } from './constants';
 import { catchError } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
 
 
 @Injectable()

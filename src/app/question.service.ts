@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import { Observable ,  of , from} from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { practiceQuestionsUrl, questionsUrl, answerCheckURL } from './constants';
 import { Question } from './question';
 import {Answer} from './answer';
-import {switchMap} from 'rxjs/operator/switchMap';
-import {from} from 'rxjs/observable/from';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/toArray';
+
+
+
 
 
 const httpOptions = {
