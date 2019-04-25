@@ -1,22 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
-import { TimeService } from './time.service';
+import { SignupComponent } from './pages/signup/signup.component';
 import { AppRoutingModule } from './app-routing.module';
-import { GameComponent } from './game/game.component';
-import { GameOverComponent } from './game-over/game-over.component';
+import { GameComponent } from './pages/game/game.component';
+import { GameOverComponent } from './pages/game-over/game-over.component';
 import { FormsModule } from '@angular/forms';
-import { QuestionsComponent } from './questions/questions.component';
-import { TimerComponent } from './timer/timer.component';
-import {QuestionService} from './question.service';
-import {TeamService} from './team.service';
-import {RegisterGuard} from './register-guard.service';
-import {MaterialModule} from './material/material.module';
+import { QuestionsComponent } from './components/questions/questions.component';
+import { TimerComponent } from './components/timer/timer.component';
+import { MaterialModule } from './components/material/material.module';
+import { AdminComponent } from './pages/admin/admin.component';
+import { AuthInterceptor } from './interceptors/auth-interceptor.service';
 
 
 @NgModule({
@@ -26,7 +24,8 @@ import {MaterialModule} from './material/material.module';
     GameComponent,
     GameOverComponent,
     QuestionsComponent,
-    TimerComponent
+    TimerComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +33,13 @@ import {MaterialModule} from './material/material.module';
     MaterialModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [TimeService, QuestionService, TeamService, RegisterGuard],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

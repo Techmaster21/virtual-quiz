@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { SignupComponent } from './signup/signup.component';
-import {RouterModule, Routes} from '@angular/router';
-import {RegisterGuard} from './register-guard.service';
-import {GameOverComponent} from './game-over/game-over.component';
-import {GameComponent} from './game/game.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { RouterModule, Routes} from '@angular/router';
+import { RegisterGuard } from './register-guard.service';
+import { GameOverComponent } from './pages/game-over/game-over.component';
+import { GameComponent } from './pages/game/game.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,16 @@ const routes: Routes = [
     canActivate: [RegisterGuard]
   },
   {
+    path: 'admin',
+    component: AdminComponent
+  },
+  {
     path: '',
+    redirectTo: '/signup',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
     redirectTo: '/signup',
     pathMatch: 'full'
   }

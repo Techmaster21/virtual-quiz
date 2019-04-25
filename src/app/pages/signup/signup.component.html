@@ -1,0 +1,67 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Instructions
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title >
+        Game Instructions
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>The game will consist of 200 questions. Each question has a time limit of 60 seconds for the first guess, and if
+    that guess isn't correct, another 60 seconds for the second. Guesses are scored based on how long it takes the team to
+    answer them and whether or not this is their first guess:
+    </p>
+    <ul>
+      <li>Under 8 seconds: 4 points</li>
+      <li>Between 8 and 15 seconds: 3 points</li>
+      <li>Over 15 seconds: 2 points</li>
+      <li>On a second guess: 1 point</li>
+    </ul>
+    <p>There will also be a break of 5 minutes once roughly a third of the questions have been completed.
+      And then another after the next third. Teams can choose to end this break early if they wish to keep playing.</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title >
+        Signup Instructions
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>Signup is simple. Once you have registered to play and sent in your payment, you are essentially done! You don't
+    need to do anything else until the time of the competition. At the time of the competition, simply have each of your
+    teams enter in the name of their school, and a unique number to that team. For example, if you have two teams competing,
+    you might have one team enter 1 as their number, and the other team enter 2.</p>
+  </mat-expansion-panel>
+</mat-expansion-panel>
+<mat-card *ngIf="registrationAllowed">
+      <h2>Signup</h2>
+      <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+        <mat-form-field>
+          <input matInput type="text" id="name" [disabled]="submitted"
+                 required
+                 [(ngModel)]="team.schoolName" name="name" placeholder="School Name">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="number" id="team" [disabled]="submitted"
+                 required
+                 [(ngModel)]="team.teamNumber" name="team" placeholder="Team Number">
+        </mat-form-field>
+        <div [hidden]="!schoolExists">
+          <p>School name and team already registered</p>
+        </div>
+        <button color="accent" mat-raised-button type="submit"
+                [disabled]="!signupForm.form.valid || submitted">Submit</button>
+      </form>
+      <div [hidden]="!submitted">
+        <button color="accent" mat-raised-button (click)="onClick()">Start Game</button>
+      </div>
+</mat-card>
+<mat-card *ngIf="!registrationAllowed">
+  <h2>Signup</h2>
+  <p>
+    Sorry, Registration is not available at this time, however, feel free to play a practice set
+  </p>
+  <button color="accent" mat-raised-button (click)="onClickPractice()">Play practice set</button>
+</mat-card>
