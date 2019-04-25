@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 
-import { TeamService } from './team.service';
+import { TeamService } from './services/team.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class RegisterGuard implements CanActivate {
 
   constructor(private teamService: TeamService, private router: Router) {
@@ -11,7 +13,7 @@ export class RegisterGuard implements CanActivate {
 
   /**
    * Prevents user from accessing game or gameOver pages before signing up
-   * @returns {boolean}
+   * @returns
    *  whether or not the user is allowed to navigate here
    */
   canActivate() {

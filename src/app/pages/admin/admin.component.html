@@ -1,0 +1,39 @@
+<div *ngIf="admin.loggedIn()">
+  <mat-card>
+    <div>
+      <label for="fileUpload">Upload the csv file containing the questions</label>
+      <div>
+        <button type="button" id="fileUpload" mat-raised-button color="accent" (click)="fileInput.click()">
+          Choose File
+        </button>
+        <input #fileInput
+               hidden
+               type="file"
+               name="File Upload"
+               (change)="fileUpload($event)"
+               accept=".csv"/>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card>
+    <div>
+      <textarea cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="3"
+                cdkAutosizeMaxRows="3"
+                readonly>{{consoleOutput}}</textarea>
+    </div>
+    <button mat-raised-button color="accent" (click)="consoleOutput = ''">Clear Output</button>
+  </mat-card>
+</div>
+<div *ngIf="!admin.loggedIn()">
+  <mat-card>
+    <form (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input matInput type="text" id="password" required
+        [(ngModel)]="password" name="password" placeholder="Password">
+      </mat-form-field>
+      <button color="accent" mat-raised-button type="submit">Login</button>
+    </form>
+  </mat-card>
+</div>

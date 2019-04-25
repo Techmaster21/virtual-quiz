@@ -41,3 +41,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Questions
+/server/answers.json
+/server/questions.csv
+/server/questions.json
+/server/download_url

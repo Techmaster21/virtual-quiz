@@ -1,0 +1,17 @@
+<mat-card>
+  <div *ngIf="!saving">
+    <div>
+      <h2>Results</h2>
+    </div>
+    <div *ngIf="team">
+      <mat-list>
+        <mat-list-item>School Name: {{team.schoolName}}</mat-list-item>
+        <mat-list-item>Team number: {{team.teamNumber}}</mat-list-item>
+        <mat-list-item>Points: {{team.points}}</mat-list-item>
+        <mat-list-item>Time played: {{msToTime()}}</mat-list-item>
+      </mat-list>
+    </div>
+  </div>
+  <div *ngIf="saving"> Saving results. Please do not close the browser.</div>
+</mat-card>
+

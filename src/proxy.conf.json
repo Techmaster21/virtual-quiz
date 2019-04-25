@@ -1,21 +1,5 @@
 {
-  "/getResult": {
-    "target": "http://localhost:8080",
-    "secure": false
-  },
-  "/results": {
-    "target": "http://localhost:8080",
-    "secure": false
-  },
-  "/answerCheck": {
-    "target": "http://localhost:8080",
-    "secure": false
-  },
-  "/canStart": {
-    "target": "http://localhost:8080",
-    "secure": false
-  },
-  "/questions": {
+  "/api": {
     "target": "http://localhost:8080",
     "secure": false
   }
