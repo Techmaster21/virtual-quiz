@@ -8,6 +8,7 @@ import { dbURL, Path, secret } from './constants';
 import { router as apiRouter } from './api';
 import { router as userRoutes } from './user-api';
 import { router as adminRoutes } from './admin-api';
+
 // const requestStats = require('request-stats');
 //
 // let reqbytes = [];
@@ -57,6 +58,7 @@ MongoClient.connect(dbURL, { useNewUrlParser: true }, (err: MongoError, client: 
   const server = app.listen(port, () => {
     console.log('Virtual Quiz app listening on port ' + port);
   });
+
   // requestStats(server, stats => {
   //   // this function will be called every time a request to the server completes
   //   reqbytes.push(stats.req.bytes);
