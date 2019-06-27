@@ -12,7 +12,7 @@
     "e2e": "ng e2e",
     "server": "npm-run-all server:build server:watchAndRun",
     "server:watchAndRun": "npm-run-all -r --parallel server:watch server:run",
-    "server:build": "tsc -p ./server",
+    "server:build": "tsc -p server",
     "server:watch": "tsc -p server/tsconfig.dev.json",
     "server:run": "nodemon --watch dist/server dist/server/server.js"
   },
@@ -57,6 +57,7 @@
     "@types/moment-timezone": "^0.5.12",
     "@types/mongodb": "^3.1.28",
     "@types/node": "~8.9.4",
+    "@types/papaparse": "^4.5.11",
     "codelyzer": "^5.0.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",

@@ -1,12 +1,25 @@
 import { TestBed } from '@angular/core/testing';
 
 import { AdminService } from './admin.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('AdminService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let adminService: AdminService;
+  let httpClientSpy: { get: jasmine.Spy };
+  let http: HttpTestingController;
+
+  beforeEach(() => {
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule ],
+      providers: [ AdminService ]
+    });
+
+    adminService = TestBed.get(AdminService);
+    http = TestBed.get(HttpTestingController);
+  });
 
   it('should be created', () => {
-    const service: AdminService = TestBed.get(AdminService);
-    expect(service).toBeTruthy();
+    expect(adminService).toBeTruthy();
   });
 });

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SignupComponent } from './pages/signup/signup.component';
 import { RouterModule, Routes} from '@angular/router';
-import { RegisterGuard } from './register-guard.service';
+import { RegisterGuard } from './register.guard';
 import { GameOverComponent } from './pages/game-over/game-over.component';
 import { GameComponent } from './pages/game/game.component';
 import { AdminComponent } from './pages/admin/admin.component';

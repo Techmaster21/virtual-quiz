@@ -1,13 +1,15 @@
-Category: {{currentQuestion.category}}
-<mat-card>
-  <h5>{{currentQuestion.question}}</h5>
-</mat-card>
-<div>
-  <button mat-raised-button
-          *ngFor="let answer of currentQuestion.answers; let i = index"
-          (click)="onClick(answer, i)"
-          [style.pointerEvents]="state[i] != 'inactive' ? 'none' : ''"
-          [@answerState]="state[i]">
-    {{answer}} <span *ngIf="state[i] == 'correct'">+{{pointsGained}}</span>
-  </button>
+<div *ngIf="currentQuestion">
+  Category: {{currentQuestion.category}}
+  <mat-card>
+    <h5>{{currentQuestion.question}}</h5>
+  </mat-card>
+  <div>
+    <button mat-raised-button
+            *ngFor="let answer of currentQuestion.answers; let i = index"
+            (click)="onClick(answer, i)"
+            [style.pointerEvents]="state[i] != 'inactive' ? 'none' : ''"
+            [@answerState]="state[i]">
+      {{answer}} <span *ngIf="state[i] == 'correct'">+{{pointsGained}}</span>
+    </button>
+  </div>
 </div>

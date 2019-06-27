@@ -14,7 +14,7 @@ import { QuestionsComponent } from './components/questions/questions.component';
 import { TimerComponent } from './components/timer/timer.component';
 import { MaterialModule } from './components/material/material.module';
 import { AdminComponent } from './pages/admin/admin.component';
-import { AuthInterceptor } from './interceptors/auth-interceptor.service';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 @NgModule({

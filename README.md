@@ -27,12 +27,16 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-##Questions and answers
-####Why don't you remove the database?
+## Questions and answers
+
+#### Why don't you remove the database?
+
 A database is really overkill for the amount of data that the program has to store. It would probably be better to remove the dependency on a database and just use files to store results
 and the questions. The reason why this is not possible is because Heroku's file system is ephemeral - meaning that on every restart of the app, the file system is reset to the state it was at
 when the last successful deploy took place. Meaning all our files will be deleted. Thus, we need somewhere to store our persistent data and a database is as good as anything.
-####Why is the npm server script so weird?
+
+#### Why is the npm server script so weird?
+
 npm run server is really weird because it uses npm-run-all to synchronously build, then run a script which uses npm-run-all to launch two scripts in parallel which both watch the ts files
 and recompile when they are changed and watch the js files and re-run them when they are changed. This is necessary because for some reason if there is no dist/server folder and nothing in it
 nodemon for some reason decides that the right command to use is the one from npm start - which is ng serve. However that is not the correct command to use in this instance.

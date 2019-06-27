@@ -3,8 +3,7 @@
 // Most importantly, it assumes that it has a header, that is, a row before the rows containing data.
 // Most common errors:
 // The lines containing a quote character(") have not been properly escaped by the csv exporter (should look like "")
-
-import * as Papa from 'papaparse';
+import { parse as papaparse } from 'papaparse';
 
 // todo should probably import but this messes up dist folder
 class Question {
@@ -17,7 +16,12 @@ class Question {
 export class QuestionPreparer {
   static prepare(csv: string): [Question[], any[]] {
     // todo check errors from papa
-    const rows = Papa.parse(csv, {skipEmptyLines: true}).data
+    const parsed = papaparse(csv, {skipEmptyLines: true});
+    const errors = parsed.errors;
+    if (errors) {
+      console.log(errors);
+    }
+    const rows = parsed.data
       .slice(1); // remove header
     const indices = Array.from(Array(rows.length).keys()); // creates list of rows.length numbers 0 to rows.length
     this.shuffle(indices);
