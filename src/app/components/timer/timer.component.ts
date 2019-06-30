@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
+/** Displays a simple clock with seconds and tenths of seconds */
 @Component({
   selector: 'app-timer',
   templateUrl: 'timer.component.html',
@@ -11,63 +12,39 @@ export class TimerComponent {
       function to prevent it from calling the callback function more than once. If so, this is not good.
    */
 
-  /**
-   * Emitted when timer is started
-   */
+  /** Emitted when timer is started */
   @Output() started = new EventEmitter<any>();
-  /**
-   * Current milliseconds on timer
-   */
+  /** Current milliseconds on timer */
   milliseconds = 0;
-  /**
-   * Holds variable for setInterval()
-   */
+  /** Holds variable for setInterval() */
   timer: number;
 
-  /**
-   * Function to call every interval
-   */
+  /** Function to call every interval */
   private callback: () => void;
-  /**
-   * Time between intervals
-   */
+  /** Time between intervals */
   private millisecondsTimeout: number;
 
-  /**
-   * Clears the current interval.
-   */
+  /** Clears the current interval */
   clearInterval() {
     this.callback = undefined;
     this.millisecondsTimeout = undefined;
   }
-  /**
-   * Resets the Timer
-   */
+  /** Resets the timer */
   reset() {
     this.milliseconds = 0.0;
   }
-  /**
-   * Stops, resets and starts the Timer
-   */
+  /** Stops, resets and starts the timer */
   restart() {
     this.stop();
     this.reset();
     this.start();
   }
-  /**
-   * After the given interval in milliseconds, calls the given function.
-   * @param callback
-   *  given function
-   * @param mseconds
-   *  interval in milliseconds
-   */
+  /** After the given interval in milliseconds, calls the given function */
   setInterval(callback: () => void, mseconds: number) {
     this.callback = callback;
     this.millisecondsTimeout = mseconds;
   }
-  /**
-   * Starts the Timer.
-   */
+  /** Starts the timer */
   start() {
     if (!this.timer) {
       let time = Date.now();
@@ -81,22 +58,19 @@ export class TimerComponent {
     }
     this.started.emit(null);
   }
-  /**
-   * Stops the Timer
-   */
+  /** Stops the timer */
   stop() {
     window.clearInterval(this.timer);
     this.timer = undefined;
   }
 
+  /** Returns seconds */
   // find a way to have this return a number instead
   get seconds(): string {
     return (this.milliseconds / 1000).toFixed(1);
   }
 
-  /**
-   * Checks if it's time to call the function, and if so, calls it.
-   */
+  /** Checks if it's time to call the function, and if so, calls it */
   private checkInterval() {
     if (this.milliseconds >= this.millisecondsTimeout) {
       this.callback();

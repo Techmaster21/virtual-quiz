@@ -1,17 +1,22 @@
 // All time is in milliseconds
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { throwError } from 'rxjs';
 
+/** The amount of time to wait between loading each question, in milliseconds */
 export const questionLoadDelay = 2 * 1000;
+/** The amount of time each break lasts, in milliseconds */
 export const breakTime = 300 * 1000;
+/** The amount of time before no answer is counted as an automatic incorrect guess, in milliseconds */
 export const autoWrongGuess = 60 * 1000;
+/** The color of a correct answer */
 export const correctColor = '#009900';
+/** The color of an incorrect answer */
 export const incorrectColor = '#e50000';
 
 // reexports HTTP request URIs
 export { URI } from '../../server/uri';
 
-
+/** The default error handling method for HTTP requests */
 export function handleError(error: HttpErrorResponse) {
   if (error.error instanceof ErrorEvent) {
     // A client-side or network error occurred. Handle it accordingly.
@@ -27,3 +32,8 @@ export function handleError(error: HttpErrorResponse) {
   return throwError(
     'Something bad happened; please try again later.');
 }
+
+/** Default json headers for put and post requests */
+export const httpOptionsJSON = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};

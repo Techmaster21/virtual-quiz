@@ -8,6 +8,7 @@ import { Team } from '../../models/team';
 import { TeamService } from '../../services/team.service';
 import { TimerComponent } from '../../components/timer/timer.component';
 
+/** The main page of the game. Contains the game logic */
 @Component({
   selector: 'app-game',
   templateUrl: 'game.component.html',
@@ -15,64 +16,44 @@ import { TimerComponent } from '../../components/timer/timer.component';
 })
 export class GameComponent implements OnInit, AfterViewInit {
 
+  /** A reference to the timer portion of the game page */
   @ViewChild(TimerComponent, { static: true })
   private timer: TimerComponent;
 
-  /**
-   * Whether or not a breakStarted is currently in progress. True if in progress; false otherwise
-   */
+  /** Whether or not a breakStarted is currently in progress */
   breakStarted = false;
-  /**
-   * Used to store the setTimeout() variable so that we can later call clearTimeout()
-   */
+  /** Used to store the setTimeout() variable so that we can later call clearTimeout() */
   breakEnd;
-  /**
-   * The current Question
-   */
+  /** The current question */
   currentQuestion: Question;
-  /**
-   * Whether or not this question has been completed. True when user has either exhauseted both tries,
-   * or chose the correct answer; false otherwise
-   */
+  /** Whether or not this question has been completed */
   finished = false;
-  /**
-   * Index of the current Question
-   */
+  /** Index of the current question */
   index = 0;
-  /**
-   * The user's current point score
-   */
+  /** The user's current point score */
   points = 0;
-  /**
-   * The Questions to display
-   */
+  /** The questions to display */
   questions: Question[];
-  /**
-   * The Team object which contains identifying information about the user
-   */
+  /** The Team object which contains identifying information about the user */
   team: Team;
-  /**
-   * Whether or not the user is allowed a second guess on the current question. True when allowed; false otherwise
-   */
+  /** Whether or not the user is allowed a second guess on the current question */
   secondTryAllowed = true;
+  /** How many points the user gained from this question */
   pointsGained = 0;
 
+  /** @ignore */
   constructor(private router: Router,
               private questionService: QuestionService,
               private teamService: TeamService) { }
 
-  /**
-   * Called when there are no more questions to serve, i.e. when the game is over.
-   */
+  /** Called when there are no more questions to serve, i.e. when the game is over */
   gameOver() {
     this.team.points = this.points;
     this.team.timeEnded = Date.now();
     this.teamService.setTeam(this.team);
     this.router.navigate(['/gameover']);
   }
-  /**
-   * Retrieves the questions through QuestionService
-   */
+  /** Retrieves the questions */
   getQuestions() {
     this.questionService.getQuestions().subscribe(questions => {
         this.questions = questions;
@@ -81,7 +62,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
   /**
    * Loads the next question if it exists, and if not, calls gameOver(). Also in charge of initiating breaks, which
-   * occur after roughly 1/3 of the total questions are completed (but only twice).
+   * occur after roughly 1/3 of the total questions are completed (but only twice)
    */
   loadQuestion() {
     // save result
@@ -107,14 +88,15 @@ export class GameComponent implements OnInit, AfterViewInit {
       this.gameOver();
     }
   }
+  /** Starts the timer */
   ngAfterViewInit() {
     // sets up the seconds() method to actually get the time from the TimerComponent
     // Dubious if this should actually be in AfterViewInit()
     setTimeout(() => this.seconds = () => this.timer.milliseconds / 1000, 0);
     this.timer.start();
   }
+  /** Perform various actions necessary to start up the game */
   ngOnInit() {
-    // Necessarily executed in order?
     this.team = this.teamService.getTeam();
     if (!this.team.timeStarted) {
       this.team.timeStarted = Date.now();
@@ -158,9 +140,7 @@ export class GameComponent implements OnInit, AfterViewInit {
       }
     }
   }
-  /**
-   * Called when the current breakStarted ends by the user pressing the End Break button
-   */
+  /** Called when the current breakStarted ends by the user pressing the End Break button */
   onBreakEnd() {
     clearTimeout(this.breakEnd);
     this.breakEnd = undefined;
@@ -168,8 +148,8 @@ export class GameComponent implements OnInit, AfterViewInit {
     this.questionHelper();
   }
   /**
-   * Method that runs when the Timer is started. Sets a limit as defined in constants as the maximum time one can take before it's
-   * counted as an automatic wrong guess.
+   * Method that runs when the Timer is started. Sets a limit as defined in constants as the maximum time one can take
+   * before it's counted as an automatic wrong guess
    */
   onStarted() {
     this.timer.setInterval(() => {
@@ -184,16 +164,10 @@ export class GameComponent implements OnInit, AfterViewInit {
     }, autoWrongGuess);
   }
 
-  /**
-   * The current number of seconds on the timer
-   * @returns number
-   *  Current number of seconds on timer
-   */
+  /** The current number of seconds on the timer */
   seconds() { return 0; }
 
-  /**
-   * A little helper that loads the next question.
-   */
+  /** A little helper that loads the next question */
   private questionHelper() {
     this.currentQuestion = this.questions[this.index];
     this.timer.restart();

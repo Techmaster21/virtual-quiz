@@ -8,6 +8,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
 
+/** Material modules to include */
 const modules = [
   MatButtonModule,
   MatCheckboxModule,
@@ -19,6 +20,7 @@ const modules = [
   MatExpansionModule
 ];
 
+/** A module which is for all the material stuff */
 @NgModule({
   imports: modules,
   exports: modules

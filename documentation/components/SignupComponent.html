@@ -1,0 +1,753 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>virtual-quiz documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">virtual-quiz documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>SignupComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/signup/signup.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Page on which users sign up and initiate game play </p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-signup</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>signup.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>signup.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#registrationAllowed">registrationAllowed</a>
+                            </li>
+                            <li>
+                                <a href="#submitted">submitted</a>
+                            </li>
+                            <li>
+                                <a href="#team">team</a>
+                            </li>
+                            <li>
+                                <a href="#teamExists">teamExists</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onClick">onClick</a>
+                            </li>
+                            <li>
+                                <a href="#onClickPractice">onClickPractice</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit">onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/pages/signup/signup.component.ts:31</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Checks to see if the user is allowed to compete yet </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onClick"></a>
+                    <span class="name">
+                        <b>
+                            onClick
+                        </b>
+                        <a href="#onClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onClick()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/app/pages/signup/signup.component.ts:36</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Called when Start Game button is pressed </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onClickPractice"></a>
+                    <span class="name">
+                        <b>
+                            onClickPractice
+                        </b>
+                        <a href="#onClickPractice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onClickPractice()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/pages/signup/signup.component.ts:41</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Called when Play Practice Set button is pressed </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <b>
+                            onSubmit
+                        </b>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/pages/signup/signup.component.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Called on submission of the form </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="registrationAllowed"></a>
+                        <span class="name">
+                            <b>
+                            registrationAllowed</b>
+                            <a href="#registrationAllowed"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/signup/signup.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Whether or not users are allowed to register </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="submitted"></a>
+                        <span class="name">
+                            <b>
+                            submitted</b>
+                            <a href="#submitted"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/signup/signup.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Whether or not the form has been successfully submitted </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="team"></a>
+                        <span class="name">
+                            <b>
+                            team</b>
+                            <a href="#team"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Team.html" target="_self" >Team</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Team(&#x27;&#x27;, undefined)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/signup/signup.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The Team object which contains identifying information about the user </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="teamExists"></a>
+                        <span class="name">
+                            <b>
+                            teamExists</b>
+                            <a href="#teamExists"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/signup/signup.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Whether or not the given team already exists </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+import { TimeService } from &#x27;../../services/time.service&#x27;;
+import { TeamService } from &#x27;../../services/team.service&#x27;;
+import { Team } from &#x27;../../models/team&#x27;;
+
+/** Page on which users sign up and initiate game play */
+@Component({
+  selector: &#x27;app-signup&#x27;,
+  templateUrl: &#x27;signup.component.html&#x27;,
+  styleUrls: [&#x27;signup.component.css&#x27;]
+})
+export class SignupComponent implements OnInit {
+  /** Whether or not users are allowed to register */
+  registrationAllowed &#x3D; false;
+  /** The Team object which contains identifying information about the user */
+  team: Team &#x3D; new Team(&#x27;&#x27;, undefined);
+  /** Whether or not the given team already exists */
+  teamExists &#x3D; false;
+  /** Whether or not the form has been successfully submitted */
+  submitted &#x3D; false;
+
+  /** @ignore */
+  constructor(private router: Router,
+              private teamService: TeamService,
+              private timeService: TimeService
+  ) { }
+
+  /** Checks to see if the user is allowed to compete yet */
+  ngOnInit() {
+    this.timeService.getCanStart().subscribe(canStart &#x3D;&gt; this.registrationAllowed &#x3D; canStart);
+  }
+
+  /** Called when Start Game button is pressed */
+  onClick() {
+    this.router.navigate([&#x27;/game&#x27;]);
+  }
+
+  /** Called when Play Practice Set button is pressed */
+  onClickPractice() {
+    this.team.schoolName &#x3D; &#x27;School of practice&#x27;;
+    this.team.teamNumber &#x3D; 1337;
+    this.team._id &#x3D; &#x27;practice&#x27;;
+    this.teamService.setPractice(true);
+    this.teamService.setTeam(this.team);
+    this.router.navigate([&#x27;/game&#x27;]);
+  }
+
+  /** Called on submission of the form */
+  onSubmit() {
+    this.teamService.getTeamFromServer(this.team).subscribe(
+      team &#x3D;&gt; {
+        if (team._id &#x3D;&#x3D; null) {
+          this.submitted &#x3D; true;
+          this.teamService.save(this.team).subscribe(
+            newTeam &#x3D;&gt; {
+              this.team &#x3D; newTeam;
+              this.teamService.setTeam(newTeam);
+            }
+          );
+        } else if (team.timeEnded) {
+          this.submitted &#x3D; false;
+        } else {
+          this.submitted &#x3D; true;
+          this.team &#x3D; team;
+          this.teamService.setTeam(this.team);
+        }
+      }
+    );
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-expansion-panel&gt;
+  &lt;mat-expansion-panel-header&gt;
+    &lt;mat-panel-title&gt;
+      Instructions
+    &lt;/mat-panel-title&gt;
+  &lt;/mat-expansion-panel-header&gt;
+  &lt;mat-expansion-panel&gt;
+    &lt;mat-expansion-panel-header&gt;
+      &lt;mat-panel-title &gt;
+        Game Instructions
+      &lt;/mat-panel-title&gt;
+    &lt;/mat-expansion-panel-header&gt;
+    &lt;p&gt;The game will consist of 200 questions. Each question has a time limit of 60 seconds for the first guess, and if
+    that guess isn&#x27;t correct, another 60 seconds for the second. Guesses are scored based on how long it takes the team to
+    answer them and whether or not this is their first guess:
+    &lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Under 8 seconds: 4 points&lt;/li&gt;
+      &lt;li&gt;Between 8 and 15 seconds: 3 points&lt;/li&gt;
+      &lt;li&gt;Over 15 seconds: 2 points&lt;/li&gt;
+      &lt;li&gt;On a second guess: 1 point&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;There will also be a break of 5 minutes once roughly a third of the questions have been completed.
+      And then another after the next third. Teams can choose to end this break early if they wish to keep playing.&lt;/p&gt;
+  &lt;/mat-expansion-panel&gt;
+  &lt;mat-expansion-panel&gt;
+    &lt;mat-expansion-panel-header&gt;
+      &lt;mat-panel-title &gt;
+        Signup Instructions
+      &lt;/mat-panel-title&gt;
+    &lt;/mat-expansion-panel-header&gt;
+    &lt;p&gt;Signup is simple. Once you have registered to play and sent in your payment, you are essentially done! You don&#x27;t
+    need to do anything else until the time of the competition. At the time of the competition, simply have each of your
+    teams enter in the name of their school, and a unique number to that team. For example, if you have two teams competing,
+    you might have one team enter 1 as their number, and the other team enter 2.&lt;/p&gt;
+  &lt;/mat-expansion-panel&gt;
+&lt;/mat-expansion-panel&gt;
+&lt;mat-card *ngIf&#x3D;&quot;registrationAllowed&quot;&gt;
+      &lt;h2&gt;Signup&lt;/h2&gt;
+      &lt;form (ngSubmit)&#x3D;&quot;onSubmit()&quot; #signupForm&#x3D;&quot;ngForm&quot;&gt;
+        &lt;mat-form-field&gt;
+          &lt;input matInput type&#x3D;&quot;text&quot; id&#x3D;&quot;name&quot; [disabled]&#x3D;&quot;submitted&quot;
+                 required
+                 [(ngModel)]&#x3D;&quot;team.schoolName&quot; name&#x3D;&quot;name&quot; placeholder&#x3D;&quot;School Name&quot;&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field&gt;
+          &lt;input matInput type&#x3D;&quot;number&quot; id&#x3D;&quot;team&quot; [disabled]&#x3D;&quot;submitted&quot;
+                 required
+                 [(ngModel)]&#x3D;&quot;team.teamNumber&quot; name&#x3D;&quot;team&quot; placeholder&#x3D;&quot;Team Number&quot;&gt;
+        &lt;/mat-form-field&gt;
+        &lt;div [hidden]&#x3D;&quot;!teamExists&quot;&gt;
+          &lt;p&gt;School name and team already registered&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;button color&#x3D;&quot;accent&quot; mat-raised-button type&#x3D;&quot;submit&quot;
+                [disabled]&#x3D;&quot;!signupForm.form.valid || submitted&quot;&gt;Submit&lt;/button&gt;
+      &lt;/form&gt;
+      &lt;div [hidden]&#x3D;&quot;!submitted&quot;&gt;
+        &lt;button color&#x3D;&quot;accent&quot; mat-raised-button (click)&#x3D;&quot;onClick()&quot;&gt;Start Game&lt;/button&gt;
+      &lt;/div&gt;
+&lt;/mat-card&gt;
+&lt;mat-card *ngIf&#x3D;&quot;!registrationAllowed&quot;&gt;
+  &lt;h2&gt;Signup&lt;/h2&gt;
+  &lt;p&gt;
+    Sorry, Registration is not available at this time, however, feel free to play a practice set
+  &lt;/p&gt;
+  &lt;button color&#x3D;&quot;accent&quot; mat-raised-button (click)&#x3D;&quot;onClickPractice()&quot;&gt;Play practice set&lt;/button&gt;
+&lt;/mat-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>signup.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-expansion-panel>  <mat-expansion-panel-header>    <mat-panel-title>      Instructions    </mat-panel-title>  </mat-expansion-panel-header>  <mat-expansion-panel>    <mat-expansion-panel-header>      <mat-panel-title >        Game Instructions      </mat-panel-title>    </mat-expansion-panel-header>    <p>The game will consist of 200 questions. Each question has a time limit of 60 seconds for the first guess, and if    that guess isn\'t correct, another 60 seconds for the second. Guesses are scored based on how long it takes the team to    answer them and whether or not this is their first guess:    </p>    <ul>      <li>Under 8 seconds: 4 points</li>      <li>Between 8 and 15 seconds: 3 points</li>      <li>Over 15 seconds: 2 points</li>      <li>On a second guess: 1 point</li>    </ul>    <p>There will also be a break of 5 minutes once roughly a third of the questions have been completed.      And then another after the next third. Teams can choose to end this break early if they wish to keep playing.</p>  </mat-expansion-panel>  <mat-expansion-panel>    <mat-expansion-panel-header>      <mat-panel-title >        Signup Instructions      </mat-panel-title>    </mat-expansion-panel-header>    <p>Signup is simple. Once you have registered to play and sent in your payment, you are essentially done! You don\'t    need to do anything else until the time of the competition. At the time of the competition, simply have each of your    teams enter in the name of their school, and a unique number to that team. For example, if you have two teams competing,    you might have one team enter 1 as their number, and the other team enter 2.</p>  </mat-expansion-panel></mat-expansion-panel><mat-card *ngIf="registrationAllowed">      <h2>Signup</h2>      <form (ngSubmit)="onSubmit()" #signupForm="ngForm">        <mat-form-field>          <input matInput type="text" id="name" [disabled]="submitted"                 required                 [(ngModel)]="team.schoolName" name="name" placeholder="School Name">        </mat-form-field>        <mat-form-field>          <input matInput type="number" id="team" [disabled]="submitted"                 required                 [(ngModel)]="team.teamNumber" name="team" placeholder="Team Number">        </mat-form-field>        <div [hidden]="!teamExists">          <p>School name and team already registered</p>        </div>        <button color="accent" mat-raised-button type="submit"                [disabled]="!signupForm.form.valid || submitted">Submit</button>      </form>      <div [hidden]="!submitted">        <button color="accent" mat-raised-button (click)="onClick()">Start Game</button>      </div></mat-card><mat-card *ngIf="!registrationAllowed">  <h2>Signup</h2>  <p>    Sorry, Registration is not available at this time, however, feel free to play a practice set  </p>  <button color="accent" mat-raised-button (click)="onClickPractice()">Play practice set</button></mat-card></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'GameComponent', 'selector': 'app-game'},{'name': 'GameOverComponent', 'selector': 'app-game-over'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TimerComponent', 'selector': 'app-timer'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SignupComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SignupComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

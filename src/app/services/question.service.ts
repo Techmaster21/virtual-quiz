@@ -1,30 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { handleError, URI } from '../constants';
+import { handleError, httpOptionsJSON, URI } from '../constants';
 import { Question } from '../models/question';
 import { TeamService } from './team.service';
 
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
-/**
- * Serves Questions and adds and updates Results
- */
+/** Provides functionality related to the question class */
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionService {
 
+  /** @ignore */
   constructor(private http: HttpClient, private teamService: TeamService) { }
 
-  /**
-   * Retrieves questions from the server
-   */
+  /** Retrieves questions from the server */
   getQuestions(): Observable<Question[]> {
     if (this.teamService.getPractice()) {
       return this.http.get<Question[]>(URI.PRACTICE_QUESTIONS.GET).pipe(
@@ -37,13 +29,20 @@ export class QuestionService {
     }
   }
 
+  /**
+   * Checks whether the selected answer is the correct one
+   * @param answer
+   *  The selected answer
+   * @param index
+   *  The index of the current question
+   */
   checkAnswer(answer: string, index: number): Observable<boolean> {
     if (this.teamService.getPractice()) {
-      return this.http.put<boolean>(URI.PRACTICE_QUESTIONS.CHECK, {answer, index}, httpOptions).pipe(
+      return this.http.put<boolean>(URI.PRACTICE_QUESTIONS.CHECK, {answer, index}, httpOptionsJSON).pipe(
         catchError(handleError)
       );
     } else {
-      return this.http.put<boolean>(URI.ANSWER.CHECK, {answer, index}, httpOptions).pipe(
+      return this.http.put<boolean>(URI.ANSWER.CHECK, {answer, index}, httpOptionsJSON).pipe(
         catchError(handleError)
       );
     }

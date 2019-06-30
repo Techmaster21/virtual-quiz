@@ -59,17 +59,6 @@ router.put(URI.PRACTICE_QUESTIONS.CHECK, (req: Request, res: Response) => {
   }
 });
 
-router.get(URI.DATE.NOW, (req: Request, res: Response) => {
-  const now = new Date();
-  console.log('Got the date: ' + now.valueOf());
-  res.json(now);
-});
-
-router.get(URI.DATE.START, (req: Request, res: Response) => {
-  console.log('Got the start date: ' + startDate.valueOf());
-  res.json(startDate);
-});
-
 router.get(URI.DATE.CAN_START, async (req: Request, res: Response) => {
   try {
     // makes sure that we currently have a set of answers and questions.

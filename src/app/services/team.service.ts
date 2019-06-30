@@ -1,55 +1,51 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
-import { handleError, URI } from '../constants';
+import { handleError, httpOptionsJSON, URI } from '../constants';
 import { Team } from '../models/team';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
+/** Provides server functionality related to the team class */
 @Injectable({
   providedIn: 'root'
 })
 export class TeamService {
 
+  /** @ignore */
   constructor(private http: HttpClient) { }
 
-  /**
-   * The Team object which contains identifying information about the user
-   */
+  /** The Team object which contains identifying information about the user */
   private team: Team;
+  /** Whether or not this is a practice game */
   private practice: boolean;
 
-  /**
-   * Sets the number
-   * @param team
-   *  the number to be stored
-   */
+  /** Sets the [team]{@link #team} */
   setTeam(team: Team) {
     this.team = team;
   }
 
-  /**
-   * Gets the number from storage
-   * @returns
-   *  Team to be got
-   */
-  getTeam() {
+  /** Gets the [team]{@link #team} from storage */
+  getTeam(): Team {
     return this.team;
   }
 
+  /** Sets the value of the [practice]{@link #practice} variable */
   setPractice(practice: boolean) {
     this.practice = practice;
   }
 
-  getPractice() {
+  /** Gets the value of the [practice]{@link #practice} variable. */
+  getPractice(): boolean {
     return this.practice;
   }
 
-  getToken() {
+  /**
+   * Gets the value of the authorization token from the currently loaded team
+   * @returns
+   *  The token if it exists; otherwise an empty string
+   */
+  getToken(): string {
     const token = this.team.token;
     if (token) {
       return token;
@@ -59,35 +55,23 @@ export class TeamService {
   }
 
   /**
-   * Requests server add a new number to the database
-   * @param team
-   *  - The number to add
+   * Requests the server to add a new team
    * @returns
-   *  - the number with a new _id
+   *  The team with a new _id
    */
   private post(team: Team): Observable<Team> {
-    return this.http.post<Team>(URI.TEAM.SAVE, team, httpOptions).pipe(
+    return this.http.post<Team>(URI.TEAM.SAVE, team, httpOptionsJSON).pipe(
       catchError(handleError)
     );
   }
 
-  /**
-   * Requests server update a number in the database
-   * @param team
-   *  - The number data to update
-   */
+  /** Requests the server to update a team */
   private put(team: Team): Observable<Team> {
-    return this.http.put<Team>(URI.TEAM.SAVE, team, httpOptions).pipe(
+    return this.http.put<Team>(URI.TEAM.SAVE, team, httpOptionsJSON).pipe(
       catchError(handleError)
     );
   }
-  /**
-   * Saves the number data to the database
-   * @param team
-   *  - Team data to save
-   * @returns
-   *  - The saved number data
-   */
+  /** Requests the server to save team data */
   save(team: Team): Observable<Team>  {
     if (this.practice) {
       return of(team);
@@ -98,8 +82,9 @@ export class TeamService {
     return this.post(team);
   }
 
+  /** Retrieves the team from the server */
   getTeamFromServer(team: Team): Observable<Team> {
-    return this.http.put<Team>(URI.TEAM.GET, team, httpOptions).pipe(
+    return this.http.put<Team>(URI.TEAM.GET, team, httpOptionsJSON).pipe(
       catchError(handleError)
     );
   }

@@ -3,11 +3,11 @@
     <div *ngIf="!breakStarted">
       Point total: {{points}}
       <div *ngIf="questions">
-        <app-questions (onAnswerClicked)="onAnswerClicked($event)"
-                      [finished]="finished"
-                      [question]="currentQuestion"
-                      [index]="index"
-                      [pointsGained]="pointsGained">
+        <app-questions (answerClicked)="onAnswerClicked($event)"
+                       [finished]="finished"
+                       [question]="currentQuestion"
+                       [index]="index"
+                       [pointsGained]="pointsGained">
         </app-questions>
         <mat-progress-bar color="accent" [value]="100*index/questions.length"></mat-progress-bar>
       </div>

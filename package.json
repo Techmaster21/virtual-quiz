@@ -14,7 +14,8 @@
     "server:watchAndRun": "npm-run-all -r --parallel server:watch server:run",
     "server:build": "tsc -p server",
     "server:watch": "tsc -p server/tsconfig.dev.json",
-    "server:run": "nodemon --watch dist/server dist/server/server.js"
+    "server:run": "nodemon --watch dist/server dist/server/server.js",
+    "compodoc": "npx compodoc -p src/tsconfig.app.json"
   },
   "engines": {
     "node": "^10.15.3",
@@ -50,6 +51,7 @@
     "@angular/cli": "~8.0.4",
     "@angular/compiler-cli": "~8.0.2",
     "@angular/language-service": "~8.0.2",
+    "@compodoc/compodoc": "^1.1.9",
     "@types/express": "^4.17.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",

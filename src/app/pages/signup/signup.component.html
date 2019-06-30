@@ -48,7 +48,7 @@
                  required
                  [(ngModel)]="team.teamNumber" name="team" placeholder="Team Number">
         </mat-form-field>
-        <div [hidden]="!schoolExists">
+        <div [hidden]="!teamExists">
           <p>School name and team already registered</p>
         </div>
         <button color="accent" mat-raised-button type="submit"

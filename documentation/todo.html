@@ -1,0 +1,175 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>virtual-quiz documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	      <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">virtual-quiz documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<p>Fixes and tweaks
+  TODO Beautification
+  TODO Conform totally with style guide guidelines
+Non-essential, Long term:
+  TODO Error handling and testing
+  TODO Offline version in case of emergencies?
+  TODO Categories before loading of question?
+  TODO would be nice to have an offline version for testing purposes - this mostly refers to database.
+  todo add unit tests. (why though? what can unit tests tell you here?)
+  todo add integration tests.
+TODO The progress bar shows questions completed. Should there also be a question # on to avoid confusion?
+TODO need to account for internet failures and outages. Continue sending save requests.
+TODO Develop vq prescribed distribution (distribution of questions that is, so that we dont end up with a million pop
+  culture or chemistry questions)
+TODO Keep backlog of questions in google drive
+TODO Keep backlog of useful statistics on questions
+TODO Automatically generate useful statistics on current questions</p>
+<p>TODO improve readme</p>
+<p>TODO add compodoc for documentation</p>
+<p>TODO make it so that teams actually need a code or something to play?
+TODO thoroughly test new features
+TODO create admin interface that has the following functionality:
+  Button to download/view error logging
+  Built in documentation
+    - common potential issues with csv parsing; caveats; etc.
+  Store token in localStorage?</p>
+<p>TODO There are a lot of new ways to do things that might be worth looking in to</p>
+<p>todo only send one question at a time, and only allow each user to see each question once. If already seen,
+    and not currently looking at in game, then dont accept answers or new requests for it from that user. (would also fix
+    back button issue)
+     - this of course can still be exploited by creating a different user to look at the questions
+  - Can you use route guards to help secure api?</p>
+<p>TODO make sure admin console always auto scrolls to bottom when new input comes in</p>
+<p>todo what if connection to db fails?</p>
+<p>TODO finish converting server side to typescript
+    Add types
+    maybe make async? Look at https://developer.okta.com/blog/2018/10/30/basic-crud-angular-and-node or possibly newer examples</p>
+<p>TODO maybe some issues with strings and weird stuff in services in angular can fix with res.send() instead of res.json</p>
+<p>todo may want to look into using webpack to package backend into a single file (be sure to minify). Last time tried though
+  there was an issue with the code not using the proper directory to look for things (specifically the practice questions)
+  this may not be an issue now that you have eliminated file io in favor of database transactions</p>
+<p>todo could make one command to do it all: pipe output away to focus on errors (syntax works on DOS)</p>
+<p>todo look into morgan for logging on server side</p>
+<p>todo inform people not to sign up until ready to play (and include faq in admin to say this too and how to fix it) (tokens
+  may expire)</p>
+<p>todo slight problem with reexporting URI in ts - it isn&#39;t watched by ng serve so if a new thing is changed or added you
+  have to restart ng for it to recognize it</p>
+<p>todo in order for the routes&#39; middleware to be separate, the namespaces have to be separate: https://expressjs.com/en/4x/api.html#router
+   fixed by instead providing middleware that authorizes user to every endpoint that requires it. May be a better solution</p>
+<p>todo encryption for admin password</p>
+<p>todo it appears that formBuilders are now the standard way to do forms in angular. Might be worth converting.</p>
+<p>todo observable based timer component? Or just look at timer component to see if good practices
+ -- look at timers built in angular</p>
+<p>todo exponential backoff for api requests perhaps? https://angular.io/guide/practical-observable-usage#exponential-backoff</p>
+<p>todo read https://angular.io/guide/router#milestone-4-crisis-center-feature</p>
+<p>todo download endpoints from server via config? This may help with the reexporting URI stuff - or it might not</p>
+<p>todo add error handlers for http requests (res =&gt; {}, err =&gt; {})</p>
+<p>todo make sure app automatically restarts</p>
+<p>todo do you really have to include token in every user request? - no. You can reduce the amount of data by only including
+  the token in necessary requests - like check answer and get answers. Right now you are also sending it with save team
+  which occurs after every question.</p>
+<p>todo maybe make question parser a little more answer-number-agnostic</p>
+<p>todo should you be using ignore for the constructors? What could you document about them that would be at all helpful?</p>
+<p>todo if team service wasn&#39;t injected as much as it is, would it lose access to the team object? Should probably have a single
+  method that returns the cached team if it is available, and gets it from the server if not (but how can it get it without
+  knowing which team it is?).</p>
+<p>todo consider adding minutes to the timer for use for breaks</p>
+<p>todo I feel like question component has to know a little too much from game component -&gt; maybe it shouldn&#39;t be separate,
+  or it should somehow reduce its dependency on game component</p>
+<p>todo could generate own ID for teams based on name + number</p>
+<p>Checked the difference if you were to send two indices instead of the answer string - difference in average byte amount
+was about 7 or so bytes. Wasn&#39;t terribly worth it. In theory the byte difference should be a little greater than this.
+The greatest increase in byte amount was brought about by the addition of a token to every answerCheck request. However,
+bandwidth at this point is really not a concern, especially when requests average under a kilobyte. Since there are 200
+questions and 5 answers per question, this averages to around 1 megabyte per game session. This is minuscule.</p>
+<p>size of vq before upgrade - 7.2 mb after - 1.3</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'todo.html';
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

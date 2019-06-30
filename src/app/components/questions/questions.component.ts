@@ -6,6 +6,7 @@ import { QuestionService } from '../../services/question.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { forkJoin } from 'rxjs';
 
+/** Component used to display the questions and answers and to animate them */
 @Component({
   selector: 'app-questions',
   templateUrl: 'questions.component.html',
@@ -24,33 +25,28 @@ import { forkJoin } from 'rxjs';
   ]
 })
 export class QuestionsComponent implements OnChanges {
-  /** Whether or not this currentQuestion has been completed. True when user has either exhausted both tries,
-   * or chose the correct answer; false otherwise
-   */
+  /** Whether or not this currentQuestion has been completed */
   @Input() finished: boolean;
+  /** The index of the current question */
   @Input() index;
+  /** The number of points gained from this question */
   @Input() pointsGained;
-  /**
-   * Event that fires when an answer is clicked
-   */
-  @Output() onAnswerClicked = new EventEmitter<string>();
-  /**
-   * The current question
-   */
+  /** Event that fires when an answer is clicked */
+  @Output() answerClicked = new EventEmitter<string>();
+  /** The current question (used in part to facilitate animations) */
   @Input() set question(given: Question) {
-    this.state = new Array(given.answers.length).fill('inactive');
+    this.state = new Array(given.answers.length).fill('inactive'); // todo should do instead with lifecycle hooks
     this.currentQuestion = given;
   }
-
+  /** The current question */
   currentQuestion: Question;
-
+  /** The state of each answer, used for animations */
   state: Array<string>;
 
+  /** @ignore */
   constructor(private questionService: QuestionService) { }
 
-  /**
-   * Sets all answers to their respective colors once a user's tries have been exhausted.
-   */
+  /** Sets all answers to their respective colors once a user's tries have been exhausted */
   finishAnimation() {
     // todo more efficient (less requests) but kinda confusing
     const [answers, indices] = this.currentQuestion.answers.reduce((result, answer, i) => {
@@ -71,8 +67,8 @@ export class QuestionsComponent implements OnChanges {
     );
   }
 
+  /** Called when there is a change in the variable [finished]{@link #finished} */
   ngOnChanges(changes: SimpleChanges) {
-    // changed from using strings
     if (changes.finished && changes.finished.currentValue === true) {
       this.finishAnimation();
     }
@@ -81,19 +77,17 @@ export class QuestionsComponent implements OnChanges {
   /**
    * Called when an answer is clicked. Emits an event which contains a string saying whether the answer was 'correct'
    * or 'incorrect' and changes the answer object's state so that it is properly animated
-   * @param answer - the answer that was clicked
-   * @param i - the index of the answer
    */
-  onClick(answer: string, i: number) {
+  onClick(answer: string, answerIndex: number) {
     if (!this.finished) {
       this.questionService.checkAnswer(answer, this.index)
         .subscribe(result => {
           if (result) {
-            this.onAnswerClicked.emit('correct');
-            this.state[i] = 'correct';
+            this.answerClicked.emit('correct');
+            this.state[answerIndex] = 'correct';
           } else {
-            this.onAnswerClicked.emit('incorrect');
-            this.state[i] = 'incorrect';
+            this.answerClicked.emit('incorrect');
+            this.state[answerIndex] = 'incorrect';
           }
         });
     }
