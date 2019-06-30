@@ -162,8 +162,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">src/app/services/admin.service.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">src/app/services/admin.service.ts:61</a></div>
                 </td>
             </tr>
 
@@ -597,7 +597,7 @@
 import {
   HttpClient,
   HttpEvent,
-  HttpEventType,
+  HttpEventType, HttpHeaders,
   HttpRequest
 } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
@@ -644,7 +644,8 @@ export class AdminService {
 
   /** Uploads questions to the server */
   uploadQuestions(questions: File) {
-    const req &#x3D; new HttpRequest(&#x27;POST&#x27;, URI.QUESTIONS.SAVE, questions, { reportProgress: true });
+    const httpOptions &#x3D; { reportProgress: true, headers: new HttpHeaders({ authorization: this.getToken() })  };
+    const req &#x3D; new HttpRequest(&#x27;POST&#x27;, URI.QUESTIONS.SAVE, questions, httpOptions);
     return this.http.request(req).pipe(
       map(event &#x3D;&gt; this.getEventMessage(event, questions)),
       catchError(handleError)

@@ -9,8 +9,7 @@ import { start, secret, adminPassword } from './constants';
 
 export const router: Router = Router();
 
-// The date and time of the start of the competition. Before this time, users will only be able to access
-// practiceQuestions.
+/** The date and time of the start of the competition. Before this time, users can only play with practiceQuestions. */
 export const startDate: Moment = tz(start, 'MM-DD-YYYY hhA', 'America/Chicago');
 
 export let practiceQuestions;
@@ -52,7 +51,9 @@ router.get(URI.PRACTICE_QUESTIONS.GET, (req: Request, res: Response) => {
 });
 
 router.put(URI.PRACTICE_QUESTIONS.CHECK, (req: Request, res: Response) => {
-  if (practiceQuestions[req.body.index].correctAnswer.trim() === req.body.answer.trim()) {
+  // if (practiceQuestions[req.body.index].correctAnswer.trim() === req.body.answer.trim()) {
+  const question = practiceQuestions[req.body.questionIndex];
+  if (question.correctAnswer === question.answers[req.body.answerIndex]) {
     res.json(true);
   } else {
     res.json(false);

@@ -1,6 +1,4 @@
-/**
- * The URIs for all the various http requests. Used by both the server and the client
- */
+/** The URIs for all the various http requests. Used by both the server and the client */
 export const URI = {
   PRACTICE_QUESTIONS: {
     GET: '/api/practiceQuestions/get',

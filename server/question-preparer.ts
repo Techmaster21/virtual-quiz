@@ -18,7 +18,7 @@ export class QuestionPreparer {
     // todo check errors from papa
     const parsed = papaparse(csv, {skipEmptyLines: true});
     const errors = parsed.errors;
-    if (errors) {
+    if (errors.length) {
       console.log(errors);
     }
     const rows = parsed.data

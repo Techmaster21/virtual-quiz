@@ -6,7 +6,7 @@
   <div>
     <button mat-raised-button
             *ngFor="let answer of currentQuestion.answers; let i = index"
-            (click)="onClick(answer, i)"
+            (click)="onClick(i)"
             [style.pointerEvents]="state[i] != 'inactive' ? 'none' : ''"
             [@answerState]="state[i]">
       {{answer}} <span *ngIf="state[i] == 'correct'">+{{pointsGained}}</span>

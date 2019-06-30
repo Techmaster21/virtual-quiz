@@ -88,9 +88,6 @@ TODO create admin interface that has the following functionality:
 <p>todo download endpoints from server via config? This may help with the reexporting URI stuff - or it might not</p>
 <p>todo add error handlers for http requests (res =&gt; {}, err =&gt; {})</p>
 <p>todo make sure app automatically restarts</p>
-<p>todo do you really have to include token in every user request? - no. You can reduce the amount of data by only including
-  the token in necessary requests - like check answer and get answers. Right now you are also sending it with save team
-  which occurs after every question.</p>
 <p>todo maybe make question parser a little more answer-number-agnostic</p>
 <p>todo should you be using ignore for the constructors? What could you document about them that would be at all helpful?</p>
 <p>todo if team service wasn&#39;t injected as much as it is, would it lose access to the team object? Should probably have a single
@@ -100,12 +97,7 @@ TODO create admin interface that has the following functionality:
 <p>todo I feel like question component has to know a little too much from game component -&gt; maybe it shouldn&#39;t be separate,
   or it should somehow reduce its dependency on game component</p>
 <p>todo could generate own ID for teams based on name + number</p>
-<p>Checked the difference if you were to send two indices instead of the answer string - difference in average byte amount
-was about 7 or so bytes. Wasn&#39;t terribly worth it. In theory the byte difference should be a little greater than this.
-The greatest increase in byte amount was brought about by the addition of a token to every answerCheck request. However,
-bandwidth at this point is really not a concern, especially when requests average under a kilobyte. Since there are 200
-questions and 5 answers per question, this averages to around 1 megabyte per game session. This is minuscule.</p>
-<p>size of vq before upgrade - 7.2 mb after - 1.3</p>
+<p>todo consider moving the server folder inside the src folder</p>
 
 
 

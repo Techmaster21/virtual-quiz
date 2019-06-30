@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   HttpClient,
   HttpEvent,
-  HttpEventType,
+  HttpEventType, HttpHeaders,
   HttpRequest
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -49,7 +49,8 @@ export class AdminService {
 
   /** Uploads questions to the server */
   uploadQuestions(questions: File) {
-    const req = new HttpRequest('POST', URI.QUESTIONS.SAVE, questions, { reportProgress: true });
+    const httpOptions = { reportProgress: true, headers: new HttpHeaders({ authorization: this.getToken() })  };
+    const req = new HttpRequest('POST', URI.QUESTIONS.SAVE, questions, httpOptions);
     return this.http.request(req).pipe(
       map(event => this.getEventMessage(event, questions)),
       catchError(handleError)

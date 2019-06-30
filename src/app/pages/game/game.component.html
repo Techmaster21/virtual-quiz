@@ -2,10 +2,10 @@
     Current Time: <app-timer (started)="onStarted()"></app-timer>
     <div *ngIf="!breakStarted">
       Point total: {{points}}
-      <div *ngIf="questions">
+      <div *ngIf="currentQuestion">
         <app-questions (answerClicked)="onAnswerClicked($event)"
                        [finished]="finished"
-                       [question]="currentQuestion"
+                       [currentQuestion]="currentQuestion"
                        [index]="index"
                        [pointsGained]="pointsGained">
         </app-questions>

@@ -1262,10 +1262,10 @@ export class GameComponent implements OnInit, AfterViewInit {
     Current Time: &lt;app-timer (started)&#x3D;&quot;onStarted()&quot;&gt;&lt;/app-timer&gt;
     &lt;div *ngIf&#x3D;&quot;!breakStarted&quot;&gt;
       Point total: {{points}}
-      &lt;div *ngIf&#x3D;&quot;questions&quot;&gt;
+      &lt;div *ngIf&#x3D;&quot;currentQuestion&quot;&gt;
         &lt;app-questions (answerClicked)&#x3D;&quot;onAnswerClicked($event)&quot;
                        [finished]&#x3D;&quot;finished&quot;
-                       [question]&#x3D;&quot;currentQuestion&quot;
+                       [currentQuestion]&#x3D;&quot;currentQuestion&quot;
                        [index]&#x3D;&quot;index&quot;
                        [pointsGained]&#x3D;&quot;pointsGained&quot;&gt;
         &lt;/app-questions&gt;
@@ -1311,7 +1311,7 @@ export class GameComponent implements OnInit, AfterViewInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-card>    Current Time: <app-timer (started)="onStarted()"></app-timer>    <div *ngIf="!breakStarted">      Point total: {{points}}      <div *ngIf="questions">        <app-questions (answerClicked)="onAnswerClicked($event)"                       [finished]="finished"                       [question]="currentQuestion"                       [index]="index"                       [pointsGained]="pointsGained">        </app-questions>        <mat-progress-bar color="accent" [value]="100*index/questions.length"></mat-progress-bar>      </div>    </div>    <div *ngIf="breakStarted">      <button mat-raised-button color="accent" (click)="onBreakEnd()">End break</button>    </div></mat-card></div>'
+        var COMPONENT_TEMPLATE = '<div><mat-card>    Current Time: <app-timer (started)="onStarted()"></app-timer>    <div *ngIf="!breakStarted">      Point total: {{points}}      <div *ngIf="currentQuestion">        <app-questions (answerClicked)="onAnswerClicked($event)"                       [finished]="finished"                       [currentQuestion]="currentQuestion"                       [index]="index"                       [pointsGained]="pointsGained">        </app-questions>        <mat-progress-bar color="accent" [value]="100*index/questions.length"></mat-progress-bar>      </div>    </div>    <div *ngIf="breakStarted">      <button mat-raised-button color="accent" (click)="onBreakEnd()">End break</button>    </div></mat-card></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'GameComponent', 'selector': 'app-game'},{'name': 'GameOverComponent', 'selector': 'app-game-over'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TimerComponent', 'selector': 'app-timer'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'GameComponent'};

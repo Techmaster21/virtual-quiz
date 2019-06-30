@@ -33,13 +33,8 @@ export class QuestionsComponent implements OnChanges {
   @Input() pointsGained;
   /** Event that fires when an answer is clicked */
   @Output() answerClicked = new EventEmitter<string>();
-  /** The current question (used in part to facilitate animations) */
-  @Input() set question(given: Question) {
-    this.state = new Array(given.answers.length).fill('inactive'); // todo should do instead with lifecycle hooks
-    this.currentQuestion = given;
-  }
   /** The current question */
-  currentQuestion: Question;
+  @Input() currentQuestion: Question;
   /** The state of each answer, used for animations */
   state: Array<string>;
 
@@ -51,7 +46,7 @@ export class QuestionsComponent implements OnChanges {
     // todo more efficient (less requests) but kinda confusing
     const [answers, indices] = this.currentQuestion.answers.reduce((result, answer, i) => {
       if (this.state[i] === 'inactive') {
-        result[0].push(this.questionService.checkAnswer(answer, this.index));
+        result[0].push(this.questionService.checkAnswer(i, this.index));
         result[1].push(i);
       }
       return result;
@@ -67,10 +62,12 @@ export class QuestionsComponent implements OnChanges {
     );
   }
 
-  /** Called when there is a change in the variable [finished]{@link #finished} */
+  /** Called when there is a change in [finished]{@link #finished} or [currentQuestion]{@link #currentQuestion} */
   ngOnChanges(changes: SimpleChanges) {
     if (changes.finished && changes.finished.currentValue === true) {
       this.finishAnimation();
+    } else if (changes.currentQuestion) {
+      this.state = new Array(this.currentQuestion.answers.length).fill('inactive');
     }
   }
 
@@ -78,9 +75,9 @@ export class QuestionsComponent implements OnChanges {
    * Called when an answer is clicked. Emits an event which contains a string saying whether the answer was 'correct'
    * or 'incorrect' and changes the answer object's state so that it is properly animated
    */
-  onClick(answer: string, answerIndex: number) {
+  onClick(answerIndex: number) {
     if (!this.finished) {
-      this.questionService.checkAnswer(answer, this.index)
+      this.questionService.checkAnswer(answerIndex, this.index)
         .subscribe(result => {
           if (result) {
             this.answerClicked.emit('correct');

@@ -60,13 +60,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AppModule-605a7768c44c5f975dc9f5da7c571de7"' : 'data-target="#xs-components-links-module-AppModule-605a7768c44c5f975dc9f5da7c571de7"' }>
+                                            'data-target="#components-links-module-AppModule-8ac74c769b6546b3b054ef355794b07d"' : 'data-target="#xs-components-links-module-AppModule-8ac74c769b6546b3b054ef355794b07d"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-605a7768c44c5f975dc9f5da7c571de7"' :
-                                            'id="xs-components-links-module-AppModule-605a7768c44c5f975dc9f5da7c571de7"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-8ac74c769b6546b3b054ef355794b07d"' :
+                                            'id="xs-components-links-module-AppModule-8ac74c769b6546b3b054ef355794b07d"' }>
                                             <li class="link">
                                                 <a href="components/AdminComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AdminComponent</a>
@@ -144,19 +144,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                             </ul>
                         </li>
-                    <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#interceptors-links"' :
-                            'data-target="#xs-interceptors-links"' }>
-                            <span class="icon ion-ios-swap"></span>
-                            <span>Interceptors</span>
-                            <span class="icon ion-ios-arrow-down"></span>
-                        </div>
-                        <ul class="links collapse" ${ isNormalMode ? 'id="interceptors-links"' : 'id="xs-interceptors-links"' }>
-                            <li class="link">
-                                <a href="interceptors/AuthInterceptor.html" data-type="entity-link">AuthInterceptor</a>
-                            </li>
-                        </ul>
-                    </li>
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#guards-links"' :
                             'data-target="#xs-guards-links"' }>

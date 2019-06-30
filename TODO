@@ -80,10 +80,6 @@ todo add error handlers for http requests (res => {}, err => {})
 
 todo make sure app automatically restarts
 
-todo do you really have to include token in every user request? - no. You can reduce the amount of data by only including
-  the token in necessary requests - like check answer and get answers. Right now you are also sending it with save team
-  which occurs after every question.
-
 todo maybe make question parser a little more answer-number-agnostic
 
 todo should you be using ignore for the constructors? What could you document about them that would be at all helpful?
@@ -99,10 +95,4 @@ todo I feel like question component has to know a little too much from game comp
 
 todo could generate own ID for teams based on name + number
 
-Checked the difference if you were to send two indices instead of the answer string - difference in average byte amount
-was about 7 or so bytes. Wasn't terribly worth it. In theory the byte difference should be a little greater than this.
-The greatest increase in byte amount was brought about by the addition of a token to every answerCheck request. However,
-bandwidth at this point is really not a concern, especially when requests average under a kilobyte. Since there are 200
-questions and 5 answers per question, this averages to around 1 megabyte per game session. This is minuscule.
-
-size of vq before upgrade - 7.2 mb after - 1.3
+todo consider moving the server folder inside the src folder

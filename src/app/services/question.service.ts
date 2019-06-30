@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { handleError, httpOptionsJSON, URI } from '../constants';
+import { handleError, URI } from '../constants';
 import { Question } from '../models/question';
 import { TeamService } from './team.service';
 
@@ -12,37 +12,35 @@ import { TeamService } from './team.service';
   providedIn: 'root'
 })
 export class QuestionService {
-
+  httpOptionsWithAuth: {};
   /** @ignore */
-  constructor(private http: HttpClient, private teamService: TeamService) { }
+  constructor(private http: HttpClient, private teamService: TeamService) {
+    const headers = { 'Content-Type': 'application/json',  authorization: this.teamService.getToken() };
+    this.httpOptionsWithAuth = { headers: new HttpHeaders(headers) };
+  }
 
   /** Retrieves questions from the server */
   getQuestions(): Observable<Question[]> {
     if (this.teamService.getPractice()) {
-      return this.http.get<Question[]>(URI.PRACTICE_QUESTIONS.GET).pipe(
+      return this.http.get<Question[]>(URI.PRACTICE_QUESTIONS.GET, this.httpOptionsWithAuth).pipe(
         catchError(handleError)
       );
     } else {
-      return this.http.get<Question[]>(URI.QUESTIONS.GET).pipe(
+      return this.http.get<Question[]>(URI.QUESTIONS.GET, this.httpOptionsWithAuth).pipe(
         catchError(handleError)
       );
     }
   }
 
-  /**
-   * Checks whether the selected answer is the correct one
-   * @param answer
-   *  The selected answer
-   * @param index
-   *  The index of the current question
-   */
-  checkAnswer(answer: string, index: number): Observable<boolean> {
+  /** Checks whether the selected answer is the correct one */
+  checkAnswer(answerIndex: number, questionIndex: number): Observable<boolean> {
+    const body = { answerIndex, questionIndex };
     if (this.teamService.getPractice()) {
-      return this.http.put<boolean>(URI.PRACTICE_QUESTIONS.CHECK, {answer, index}, httpOptionsJSON).pipe(
+      return this.http.put<boolean>(URI.PRACTICE_QUESTIONS.CHECK, body, this.httpOptionsWithAuth).pipe(
         catchError(handleError)
       );
     } else {
-      return this.http.put<boolean>(URI.ANSWER.CHECK, {answer, index}, httpOptionsJSON).pipe(
+      return this.http.put<boolean>(URI.ANSWER.CHECK, body, this.httpOptionsWithAuth).pipe(
         catchError(handleError)
       );
     }

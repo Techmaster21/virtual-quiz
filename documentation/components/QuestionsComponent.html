@@ -137,9 +137,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#currentQuestion">currentQuestion</a>
-                            </li>
-                            <li>
                                 <a href="#state">state</a>
                             </li>
                         </ul>
@@ -176,6 +173,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#currentQuestion">currentQuestion</a>
+                            </li>
+                            <li>
                                 <a href="#finished">finished</a>
                             </li>
                             <li>
@@ -183,9 +183,6 @@
                             </li>
                             <li>
                                 <a href="#pointsGained">pointsGained</a>
-                            </li>
-                            <li>
-                                <a href="#question">question</a>
                             </li>
                         </ul>
                     </td>
@@ -208,20 +205,6 @@
 
 
 
-                    <tr>
-                        <td class="col-md-4">
-                            <h6><b>Accessors</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <ul class="index-list">
-                                <li>
-                                    <a href="#question">question</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
         </tbody>
     </table>
 </section>
@@ -229,6 +212,33 @@
 
     <section>
     <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentQuestion"></a>
+                        <b>currentQuestion</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Question.html" target="_self" >Question</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/questions/questions.component.ts:37</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The current question </p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -298,27 +308,6 @@
                 </tr>
             </tbody>
         </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="question"></a>
-                        <b>question</b>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/questions/questions.component.ts:37</a></div>
-                            </td>
-                        </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>The current question (used in part to facilitate animations) </p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
 </section>
     <section>
     <h3 id="outputs">Outputs</h3>
@@ -379,8 +368,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/app/components/questions/questions.component.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/components/questions/questions.component.ts:45</a></div>
                 </td>
             </tr>
 
@@ -420,15 +409,15 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">src/app/components/questions/questions.component.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/components/questions/questions.component.ts:66</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Called when there is a change in the variable <a href="#finished">finished</a> </p>
+                    <div class="io-description"><p>Called when there is a change in <a href="#finished">finished</a> or <a href="#currentQuestion">currentQuestion</a> </p>
 </div>
 
                     <div class="io-description">
@@ -485,15 +474,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>onClick(answer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, answerIndex: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>onClick(answerIndex: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">src/app/components/questions/questions.component.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/app/components/questions/questions.component.ts:78</a></div>
                 </td>
             </tr>
 
@@ -515,18 +504,6 @@ or &#39;incorrect&#39; and changes the answer object&#39;s state so that it is p
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>answer</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
                                 <tr>
                                     <td>answerIndex</td>
                                     <td>
@@ -565,39 +542,6 @@ or &#39;incorrect&#39; and changes the answer object&#39;s state so that it is p
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="currentQuestion"></a>
-                        <span class="name">
-                            <b>
-                            currentQuestion</b>
-                            <a href="#currentQuestion"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../classes/Question.html" target="_self" >Question</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/questions/questions.component.ts:42</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>The current question </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
                         <a name="state"></a>
                         <span class="name">
                             <b>
@@ -614,7 +558,7 @@ or &#39;incorrect&#39; and changes the answer object&#39;s state so that it is p
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/questions/questions.component.ts:44</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/questions/questions.component.ts:39</a></div>
                             </td>
                         </tr>
 
@@ -629,68 +573,6 @@ or &#39;incorrect&#39; and changes the answer object&#39;s state so that it is p
         </table>
 </section>
 
-    <section>
-    <h3 id="accessors">
-        Accessors
-    </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="question"></a>
-                        <span class="name"><b>question</b><a href="#question"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                        <span class="accessor"><b>set</b><code>question(given)</code></span>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/questions/questions.component.ts:37</a></div>
-                                </td>
-                            </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-description"><p>The current question (used in part to facilitate animations) </p>
-</div>
-
-                                <div class="io-description">
-                                        <b>Parameters :</b>
-                                        <table class="params">
-                                            <thead>
-                                                <tr>
-                                                    <td>Name</td>
-                                                    <td>Optional</td>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                    <tr>
-                                                            <td>given</td>
-                                                    
-                                                    
-                                                        <td>
-                                                                No
-                                                        </td>
-                                                        
-                                                    </tr>
-                                            </tbody>
-                                        </table>
-                                </div>
-                                <div>
-                                </div>
-                                <div class="io-description">
-                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                                </div>
-                        </td>
-                    </tr>
-            </tbody>
-        </table>
-</section>
 </div>
 
 
@@ -730,13 +612,8 @@ export class QuestionsComponent implements OnChanges {
   @Input() pointsGained;
   /** Event that fires when an answer is clicked */
   @Output() answerClicked &#x3D; new EventEmitter&lt;string&gt;();
-  /** The current question (used in part to facilitate animations) */
-  @Input() set question(given: Question) {
-    this.state &#x3D; new Array(given.answers.length).fill(&#x27;inactive&#x27;); // todo should do instead with lifecycle hooks
-    this.currentQuestion &#x3D; given;
-  }
   /** The current question */
-  currentQuestion: Question;
+  @Input() currentQuestion: Question;
   /** The state of each answer, used for animations */
   state: Array&lt;string&gt;;
 
@@ -748,7 +625,7 @@ export class QuestionsComponent implements OnChanges {
     // todo more efficient (less requests) but kinda confusing
     const [answers, indices] &#x3D; this.currentQuestion.answers.reduce((result, answer, i) &#x3D;&gt; {
       if (this.state[i] &#x3D;&#x3D;&#x3D; &#x27;inactive&#x27;) {
-        result[0].push(this.questionService.checkAnswer(answer, this.index));
+        result[0].push(this.questionService.checkAnswer(i, this.index));
         result[1].push(i);
       }
       return result;
@@ -764,10 +641,12 @@ export class QuestionsComponent implements OnChanges {
     );
   }
 
-  /** Called when there is a change in the variable [finished]{@link #finished} */
+  /** Called when there is a change in [finished]{@link #finished} or [currentQuestion]{@link #currentQuestion} */
   ngOnChanges(changes: SimpleChanges) {
     if (changes.finished &amp;&amp; changes.finished.currentValue &#x3D;&#x3D;&#x3D; true) {
       this.finishAnimation();
+    } else if (changes.currentQuestion) {
+      this.state &#x3D; new Array(this.currentQuestion.answers.length).fill(&#x27;inactive&#x27;);
     }
   }
 
@@ -775,9 +654,9 @@ export class QuestionsComponent implements OnChanges {
    * Called when an answer is clicked. Emits an event which contains a string saying whether the answer was &#x27;correct&#x27;
    * or &#x27;incorrect&#x27; and changes the answer object&#x27;s state so that it is properly animated
    */
-  onClick(answer: string, answerIndex: number) {
+  onClick(answerIndex: number) {
     if (!this.finished) {
-      this.questionService.checkAnswer(answer, this.index)
+      this.questionService.checkAnswer(answerIndex, this.index)
         .subscribe(result &#x3D;&gt; {
           if (result) {
             this.answerClicked.emit(&#x27;correct&#x27;);
@@ -802,7 +681,7 @@ export class QuestionsComponent implements OnChanges {
   &lt;div&gt;
     &lt;button mat-raised-button
             *ngFor&#x3D;&quot;let answer of currentQuestion.answers; let i &#x3D; index&quot;
-            (click)&#x3D;&quot;onClick(answer, i)&quot;
+            (click)&#x3D;&quot;onClick(i)&quot;
             [style.pointerEvents]&#x3D;&quot;state[i] !&#x3D; &#x27;inactive&#x27; ? &#x27;none&#x27; : &#x27;&#x27;&quot;
             [@answerState]&#x3D;&quot;state[i]&quot;&gt;
       {{answer}} &lt;span *ngIf&#x3D;&quot;state[i] &#x3D;&#x3D; &#x27;correct&#x27;&quot;&gt;+{{pointsGained}}&lt;/span&gt;
@@ -851,7 +730,7 @@ button:hover {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div *ngIf="currentQuestion">  Category: {{currentQuestion.category}}  <mat-card>    <h5>{{currentQuestion.question}}</h5>  </mat-card>  <div>    <button mat-raised-button            *ngFor="let answer of currentQuestion.answers; let i = index"            (click)="onClick(answer, i)"            [style.pointerEvents]="state[i] != \'inactive\' ? \'none\' : \'\'"            [@answerState]="state[i]">      {{answer}} <span *ngIf="state[i] == \'correct\'">+{{pointsGained}}</span>    </button>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="currentQuestion">  Category: {{currentQuestion.category}}  <mat-card>    <h5>{{currentQuestion.question}}</h5>  </mat-card>  <div>    <button mat-raised-button            *ngFor="let answer of currentQuestion.answers; let i = index"            (click)="onClick(i)"            [style.pointerEvents]="state[i] != \'inactive\' ? \'none\' : \'\'"            [@answerState]="state[i]">      {{answer}} <span *ngIf="state[i] == \'correct\'">+{{pointsGained}}</span>    </button>  </div></div></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'GameComponent', 'selector': 'app-game'},{'name': 'GameOverComponent', 'selector': 'app-game-over'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TimerComponent', 'selector': 'app-timer'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'QuestionsComponent'};

@@ -4,15 +4,15 @@ import { verify as jwtVerify, VerifyErrors } from 'jsonwebtoken';
 
 import { Application, NextFunction, Request, Response } from 'express';
 import { Db, MongoClient, MongoError } from 'mongodb';
-import { dbURL, Path, secret } from './constants';
+import { clientPath, dbURL, secret } from './constants';
 import { router as apiRouter } from './api';
 import { router as userRoutes } from './user-api';
 import { router as adminRoutes } from './admin-api';
 
+// todo comment out before commit
 // const requestStats = require('request-stats');
-//
-// let reqbytes = [];
-// let resbytes = [];
+// const reqbytes = [];
+// const resbytes = [];
 
 export function checkToken(req: Request, res: Response, next: NextFunction) {
   const token = req.headers.authorization as string;
@@ -32,7 +32,7 @@ export function checkToken(req: Request, res: Response, next: NextFunction) {
 
 const app: Application = express()
   .use( bodyParserJSON( {limit: '10mb'} ), bodyParserText({ type: 'text/csv', limit: '10mb'}) )
-  .use( express.static(Path.client) ) // Allows the client access to any files located in /../dist without having to explicitly declare so.
+  .use( express.static(clientPath) ) // Allows the client access to any files located in /../dist without having to explicitly declare so.
   .use( apiRouter )
   // all routes after this are protected by token
   .use( userRoutes )
@@ -40,7 +40,7 @@ const app: Application = express()
   // Redirects all other paths that dont begin with /api to the base index html file. Angular handles the routing from there.
   // Must be the last thing - express handles this sequentially.
   .all(/^(?!.*\/api.*).*$/, (req, res) => {
-    res.sendFile(Path.client + '/index.html');
+    res.sendFile(clientPath + '/index.html');
   });
 
 export let database: Db;
@@ -58,15 +58,19 @@ MongoClient.connect(dbURL, { useNewUrlParser: true }, (err: MongoError, client: 
   const server = app.listen(port, () => {
     console.log('Virtual Quiz app listening on port ' + port);
   });
-
+  // todo comment out before commit
+  // let count = 0;
   // requestStats(server, stats => {
+  //   count += 1;
   //   // this function will be called every time a request to the server completes
-  //   reqbytes.push(stats.req.bytes);
-  //   if (stats.res.bytes < 10000) {
-  //     resbytes.push(stats.res.bytes);
+  //   if (count > 10) {
+  //     reqbytes.push(stats.req.bytes);
+  //     if (stats.res.bytes < 10000) {
+  //       resbytes.push(stats.res.bytes);
+  //     }
+  //     console.log('average req bytes: ' + reqbytes.reduce((prev, current) => prev + current) / reqbytes.length);
+  //     console.log('average res bytes: ' + resbytes.reduce((prev, current) => prev + current) / resbytes.length);
   //   }
-  //   console.log('average req bytes: ' + reqbytes.reduce( (prev, current) => prev + current) / reqbytes.length);
-  //   console.log('average res bytes: ' + resbytes.reduce( (prev, current) => prev + current) / resbytes.length);
   // });
 });
 
