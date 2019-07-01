@@ -162,8 +162,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">src/app/services/admin.service.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/services/admin.service.ts:60</a></div>
                 </td>
             </tr>
 
@@ -321,7 +321,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>login(password)</code>
+<code>login(password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -345,12 +345,16 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>password</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
 
                                     <td>
                                         No
@@ -364,7 +368,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+                        <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -464,8 +468,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/app/services/admin.service.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/app/services/admin.service.ts:50</a></div>
                 </td>
             </tr>
 
@@ -601,8 +605,8 @@ import {
   HttpRequest
 } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
-import { catchError, map } from &#x27;rxjs/operators&#x27;;
-import { handleError, httpOptionsJSON, URI } from &#x27;../constants&#x27;;
+import { catchError, map, tap } from &#x27;rxjs/operators&#x27;;
+import { handleError, httpOptionsJSON, httpOptionsText, URI } from &#x27;../constants&#x27;;
 
 /** Provides functionality relevant to administrators */
 @Injectable({
@@ -635,9 +639,8 @@ export class AdminService {
   }
 
   /** Logs the user in using the provided password */
-  login(password): Observable&lt;any&gt; {
-    // TODO find a better way to do this - can&#x27;t handle strings for some reason
-    return this.http.post&lt;any&gt;(URI.ADMIN.LOGIN, {password}, httpOptionsJSON).pipe(
+  login(password: string): Observable&lt;string&gt; {
+    return this.http.post&lt;string&gt;(URI.ADMIN.LOGIN, password, {... httpOptionsText, responseType: &#x27;text&#x27; as &#x27;json&#x27;}).pipe(
       catchError(handleError)
     );
   }

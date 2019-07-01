@@ -18,8 +18,8 @@
     "compodoc": "npx compodoc -p src/tsconfig.app.json"
   },
   "engines": {
-    "node": "^10.15.3",
-    "npm": "^6.4.1"
+    "node": "^10.16.0",
+    "npm": "^6.9.2"
   },
   "private": true,
   "dependencies": {

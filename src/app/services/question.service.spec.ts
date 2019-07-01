@@ -14,7 +14,7 @@ describe('QuestionService', () => {
   let http: HttpTestingController;
 
   beforeEach(() => {
-    const spy = jasmine.createSpyObj('TeamService', ['getPractice']);
+    const spy = jasmine.createSpyObj('TeamService', ['getPractice', 'getToken']);
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
 
     TestBed.configureTestingModule({
@@ -34,6 +34,7 @@ describe('QuestionService', () => {
   it('#getQuestions should return practice questions when getPractice returns true', () => {
     const expectedQuestions: Question[] = [{question: 'Why?', category: 'Questions', answers: ['because', 'because']}];
     teamServiceSpy.getPractice.and.returnValue(true);
+    teamServiceSpy.getToken.and.returnValue('');
     httpClientSpy.get.and.returnValue(asyncData(expectedQuestions));
 
     questionService.getQuestions().subscribe(
@@ -47,6 +48,7 @@ describe('QuestionService', () => {
   it('#getQuestions should return questions when getPractice returns false', () => {
     const expectedQuestions: Question[] = [{question: 'Why?', category: 'Questions', answers: ['because', 'because']}];
     teamServiceSpy.getPractice.and.returnValue(false);
+    teamServiceSpy.getToken.and.returnValue('');
     httpClientSpy.get.and.returnValue(asyncData(expectedQuestions));
 
     questionService.getQuestions().subscribe(

@@ -31,7 +31,8 @@ export function checkToken(req: Request, res: Response, next: NextFunction) {
 }
 
 const app: Application = express()
-  .use( bodyParserJSON( {limit: '10mb'} ), bodyParserText({ type: 'text/csv', limit: '10mb'}) )
+  .use( bodyParserJSON( {limit: '10mb'} ),
+        bodyParserText( { type: ['text/csv', 'text/plain'], limit: '10mb'}) )
   .use( express.static(clientPath) ) // Allows the client access to any files located in /../dist without having to explicitly declare so.
   .use( apiRouter )
   // all routes after this are protected by token

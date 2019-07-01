@@ -31,7 +31,7 @@ router.post(URI.QUESTIONS.SAVE, adminAuthorization, async (req: Request, res: Re
     setAnswers(givenAnswers);
     res.end();
   } catch (err) {
-    console.log('An error occurred while saving or parsing questions.csv: ' + err.message);
+    console.log(`An error occurred while saving or parsing questions.csv: ${err.message}`);
     res.status(500).end();
   }
 });

@@ -6,8 +6,8 @@ import {
   HttpRequest
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
-import { handleError, httpOptionsJSON, URI } from '../constants';
+import { catchError, map, tap } from 'rxjs/operators';
+import { handleError, httpOptionsJSON, httpOptionsText, URI } from '../constants';
 
 /** Provides functionality relevant to administrators */
 @Injectable({
@@ -40,9 +40,8 @@ export class AdminService {
   }
 
   /** Logs the user in using the provided password */
-  login(password): Observable<any> {
-    // TODO find a better way to do this - can't handle strings for some reason
-    return this.http.post<any>(URI.ADMIN.LOGIN, {password}, httpOptionsJSON).pipe(
+  login(password: string): Observable<string> {
+    return this.http.post<string>(URI.ADMIN.LOGIN, password, {... httpOptionsText, responseType: 'text' as 'json'}).pipe(
       catchError(handleError)
     );
   }

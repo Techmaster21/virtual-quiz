@@ -11,7 +11,7 @@ import { TimerComponent } from '../../components/timer/timer.component';
 
 @Component({selector: 'app-questions', template: ''})
 class QuestionsStubComponent {
-  @Input() finished; @Input() question; @Input() index; @Input() pointsGained;
+  @Input() finished; @Input() currentQuestion; @Input() index; @Input() pointsGained;
 }
 
 @Component({selector: 'app-timer', template: '',

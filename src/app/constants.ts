@@ -37,3 +37,8 @@ export function handleError(error: HttpErrorResponse) {
 export const httpOptionsJSON = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
+
+/** Default text headers for put and post requests */
+export const httpOptionsText = {
+  headers: new HttpHeaders({ 'Content-Type': 'text/plain' })
+};

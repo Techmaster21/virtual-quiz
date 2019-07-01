@@ -493,7 +493,7 @@ export class AdminComponent {
   onSubmit() {
     this.adminService.login(this.password).subscribe( token &#x3D;&gt; {
       if (token !&#x3D;&#x3D; &#x27;err&#x27;) {
-        this.adminService.setToken(token.token);
+        this.adminService.setToken(token);
       } else {
         // todo incorrect password state somewhere
       }

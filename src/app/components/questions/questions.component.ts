@@ -31,10 +31,10 @@ export class QuestionsComponent implements OnChanges {
   @Input() index;
   /** The number of points gained from this question */
   @Input() pointsGained;
-  /** Event that fires when an answer is clicked */
-  @Output() answerClicked = new EventEmitter<string>();
   /** The current question */
   @Input() currentQuestion: Question;
+  /** Event that fires when an answer is clicked */
+  @Output() answerClicked = new EventEmitter<string>();
   /** The state of each answer, used for animations */
   state: Array<string>;
 

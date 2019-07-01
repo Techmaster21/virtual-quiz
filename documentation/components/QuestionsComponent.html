@@ -228,7 +228,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/questions/questions.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/questions/questions.component.ts:35</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -327,7 +327,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/questions/questions.component.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/questions/questions.component.ts:37</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -610,10 +610,10 @@ export class QuestionsComponent implements OnChanges {
   @Input() index;
   /** The number of points gained from this question */
   @Input() pointsGained;
-  /** Event that fires when an answer is clicked */
-  @Output() answerClicked &#x3D; new EventEmitter&lt;string&gt;();
   /** The current question */
   @Input() currentQuestion: Question;
+  /** Event that fires when an answer is clicked */
+  @Output() answerClicked &#x3D; new EventEmitter&lt;string&gt;();
   /** The state of each answer, used for animations */
   state: Array&lt;string&gt;;
 

@@ -30,7 +30,7 @@ export class AdminComponent {
   onSubmit() {
     this.adminService.login(this.password).subscribe( token => {
       if (token !== 'err') {
-        this.adminService.setToken(token.token);
+        this.adminService.setToken(token);
       } else {
         // todo incorrect password state somewhere
       }

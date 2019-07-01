@@ -423,8 +423,8 @@ occur after roughly 1/3 of the total questions are completed (but only twice)</p
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">src/app/pages/game/game.component.ts:99</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">src/app/pages/game/game.component.ts:96</a></div>
                 </td>
             </tr>
 
@@ -464,8 +464,8 @@ occur after roughly 1/3 of the total questions are completed (but only twice)</p
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="117"
-                            class="link-to-prism">src/app/pages/game/game.component.ts:117</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="114"
+                            class="link-to-prism">src/app/pages/game/game.component.ts:114</a></div>
                 </td>
             </tr>
 
@@ -541,15 +541,15 @@ occur after roughly 1/3 of the total questions are completed (but only twice)</p
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="144"
-                            class="link-to-prism">src/app/pages/game/game.component.ts:144</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="141"
+                            class="link-to-prism">src/app/pages/game/game.component.ts:141</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Called when the current breakStarted ends by the user pressing the End Break button </p>
+                    <div class="io-description"><p>Called when the current break ends by the user pressing the End Break button </p>
 </div>
 
                     <div class="io-description">
@@ -582,8 +582,8 @@ occur after roughly 1/3 of the total questions are completed (but only twice)</p
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="154"
-                            class="link-to-prism">src/app/pages/game/game.component.ts:154</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">src/app/pages/game/game.component.ts:151</a></div>
                 </td>
             </tr>
 
@@ -626,8 +626,8 @@ before it&#39;s counted as an automatic wrong guess</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="171"
-                            class="link-to-prism">src/app/pages/game/game.component.ts:171</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="174"
+                            class="link-to-prism">src/app/pages/game/game.component.ts:174</a></div>
                 </td>
             </tr>
 
@@ -667,8 +667,8 @@ before it&#39;s counted as an automatic wrong guess</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="168"
-                            class="link-to-prism">src/app/pages/game/game.component.ts:168</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="165"
+                            class="link-to-prism">src/app/pages/game/game.component.ts:165</a></div>
                 </td>
             </tr>
 
@@ -1169,9 +1169,6 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
   /** Starts the timer */
   ngAfterViewInit() {
-    // sets up the seconds() method to actually get the time from the TimerComponent
-    // Dubious if this should actually be in AfterViewInit()
-    setTimeout(() &#x3D;&gt; this.seconds &#x3D; () &#x3D;&gt; this.timer.milliseconds / 1000, 0);
     this.timer.start();
   }
   /** Perform various actions necessary to start up the game */
@@ -1219,7 +1216,7 @@ export class GameComponent implements OnInit, AfterViewInit {
       }
     }
   }
-  /** Called when the current breakStarted ends by the user pressing the End Break button */
+  /** Called when the current break ends by the user pressing the End Break button */
   onBreakEnd() {
     clearTimeout(this.breakEnd);
     this.breakEnd &#x3D; undefined;
@@ -1244,7 +1241,13 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
 
   /** The current number of seconds on the timer */
-  seconds() { return 0; }
+  seconds() {
+    if (this.timer) {
+      return this.timer.milliseconds / 1000;
+    } else {
+      return 0;
+    }
+  }
 
   /** A little helper that loads the next question */
   private questionHelper() {

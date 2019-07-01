@@ -90,9 +90,6 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
   /** Starts the timer */
   ngAfterViewInit() {
-    // sets up the seconds() method to actually get the time from the TimerComponent
-    // Dubious if this should actually be in AfterViewInit()
-    setTimeout(() => this.seconds = () => this.timer.milliseconds / 1000, 0);
     this.timer.start();
   }
   /** Perform various actions necessary to start up the game */
@@ -140,7 +137,7 @@ export class GameComponent implements OnInit, AfterViewInit {
       }
     }
   }
-  /** Called when the current breakStarted ends by the user pressing the End Break button */
+  /** Called when the current break ends by the user pressing the End Break button */
   onBreakEnd() {
     clearTimeout(this.breakEnd);
     this.breakEnd = undefined;
@@ -165,7 +162,13 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
 
   /** The current number of seconds on the timer */
-  seconds() { return 0; }
+  seconds() {
+    if (this.timer) {
+      return this.timer.milliseconds / 1000;
+    } else {
+      return 0;
+    }
+  }
 
   /** A little helper that loads the next question */
   private questionHelper() {
