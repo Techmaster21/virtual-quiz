@@ -11,7 +11,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class TimeService {
 
-  /** @ignore */
+  /** Time service constructor */
   constructor(private http: HttpClient) { }
 
   /** Find out if we can start the game using the competition questions (as opposed to the practice ones) */

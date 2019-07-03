@@ -132,6 +132,56 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/admin.service.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Admin service constructor </p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -605,8 +655,8 @@ import {
   HttpRequest
 } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
-import { catchError, map, tap } from &#x27;rxjs/operators&#x27;;
-import { handleError, httpOptionsJSON, httpOptionsText, URI } from &#x27;../constants&#x27;;
+import { catchError, map } from &#x27;rxjs/operators&#x27;;
+import { handleError, httpOptionsText, URI } from &#x27;../constants&#x27;;
 
 /** Provides functionality relevant to administrators */
 @Injectable({
@@ -614,7 +664,7 @@ import { handleError, httpOptionsJSON, httpOptionsText, URI } from &#x27;../cons
 })
 export class AdminService {
 
-  /** @ignore */
+  /** Admin service constructor */
   constructor(private http: HttpClient) { }
 
   /** Whether this client is authorized to access the content on this page */

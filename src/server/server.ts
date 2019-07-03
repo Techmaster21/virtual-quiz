@@ -1,11 +1,11 @@
 import * as express from 'express';
 import { json as bodyParserJSON, text as bodyParserText } from 'body-parser';
 import { verify as jwtVerify, VerifyErrors } from 'jsonwebtoken';
-
 import { Application, NextFunction, Request, Response } from 'express';
 import { Db, MongoClient, MongoError } from 'mongodb';
+
 import { clientPath, dbURL, secret } from './constants';
-import { router as apiRouter } from './api';
+import { router as apiRoutes } from './api';
 import { router as userRoutes } from './user-api';
 import { router as adminRoutes } from './admin-api';
 
@@ -14,6 +14,7 @@ import { router as adminRoutes } from './admin-api';
 // const reqbytes = [];
 // const resbytes = [];
 
+/** Checks that the token given is valid. Used by other middleware in order to get decoded information from the token */
 export function checkToken(req: Request, res: Response, next: NextFunction) {
   const token = req.headers.authorization as string;
   if (token) {
@@ -30,11 +31,12 @@ export function checkToken(req: Request, res: Response, next: NextFunction) {
   }
 }
 
+/** The Express server */
 const app: Application = express()
   .use( bodyParserJSON( {limit: '10mb'} ),
         bodyParserText( { type: ['text/csv', 'text/plain'], limit: '10mb'}) )
   .use( express.static(clientPath) ) // Allows the client access to any files located in /../dist without having to explicitly declare so.
-  .use( apiRouter )
+  .use( apiRoutes )
   // all routes after this are protected by token
   .use( userRoutes )
   .use( adminRoutes )
@@ -44,6 +46,7 @@ const app: Application = express()
     res.sendFile(clientPath + '/index.html');
   });
 
+/** A reference to the Mongo database */
 export let database: Db;
 
 MongoClient.connect(dbURL, { useNewUrlParser: true }, (err: MongoError, client: MongoClient) => {

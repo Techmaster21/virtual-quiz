@@ -4,8 +4,10 @@ import { setAnswers, setQuestions } from './api';
 import { QuestionPreparer } from './question-preparer';
 import { checkToken, database } from './server';
 
+/** The admin-api router */
 export const router: Router = Router();
 
+/** A middleware function used to authenticate admins before they are allowed to access endpoints in this file */
 function adminAuthorization(req: Request, res: Response, next: NextFunction) {
   checkToken(req, res, () => {
     if (req.headers.authorization === 'admin') {

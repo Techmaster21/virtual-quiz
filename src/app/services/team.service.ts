@@ -12,7 +12,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class TeamService {
 
-  /** @ignore */
+  /** Team service constructor */
   constructor(private http: HttpClient) { }
 
   /** The Team object which contains identifying information about the user */

@@ -30,28 +30,27 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<p>Fixes and tweaks
-  TODO Beautification
-  TODO Conform totally with style guide guidelines
-Non-essential, Long term:
-  TODO Error handling and testing
-  TODO Offline version in case of emergencies?
-  TODO Categories before loading of question?
-  TODO would be nice to have an offline version for testing purposes - this mostly refers to database.
-  todo add unit tests. (why though? what can unit tests tell you here?)
-  todo add integration tests.
-TODO The progress bar shows questions completed. Should there also be a question # on to avoid confusion?
-TODO need to account for internet failures and outages. Continue sending save requests.
-TODO Develop vq prescribed distribution (distribution of questions that is, so that we dont end up with a million pop
-  culture or chemistry questions)
-TODO Keep backlog of questions in google drive
-TODO Keep backlog of useful statistics on questions
-TODO Automatically generate useful statistics on current questions</p>
+<p>Fixes and tweaks</p>
+<p>  TODO Beautification</p>
+<p>  TODO Conform totally with style guide guidelines</p>
+<p>Non-essential, Long term:</p>
+<p>  TODO Error handling and testing</p>
+<p>  TODO Offline version in case of emergencies?</p>
+<p>  TODO Categories before loading of question?</p>
+<p>  TODO would be nice to have an offline version for testing purposes - this mostly refers to database.</p>
+<p>  todo add unit tests. (why though? what can unit tests tell you here?)</p>
+<p>  todo add integration tests.</p>
+<p>TODO The progress bar shows questions completed. Should there also be a question # on to avoid confusion?</p>
+<p>TODO need to account for internet failures and outages. Continue sending save requests.</p>
+<p>TODO Develop vq prescribed distribution (distribution of questions that is, so that we dont end up with a million pop
+  culture or chemistry questions)</p>
+<p>TODO Keep backlog of questions in google drive</p>
+<p>TODO Keep backlog of useful statistics on questions</p>
+<p>TODO Automatically generate useful statistics on current questions</p>
 <p>TODO improve readme</p>
-<p>TODO add compodoc for documentation</p>
-<p>TODO make it so that teams actually need a code or something to play?
-TODO thoroughly test new features
-TODO create admin interface that has the following functionality:
+<p>TODO make it so that teams actually need a code or something to play?</p>
+<p>TODO thoroughly test new features</p>
+<p>TODO create admin interface that has the following functionality:
   Button to download/view error logging
   Built in documentation
     - common potential issues with csv parsing; caveats; etc.
@@ -73,10 +72,8 @@ TODO create admin interface that has the following functionality:
 <p>todo could make one command to do it all: pipe output away to focus on errors (syntax works on DOS)</p>
 <p>todo look into morgan for logging on server side</p>
 <p>todo inform people not to sign up until ready to play (and include faq in admin to say this too and how to fix it) (tokens
-  may expire)</p>
-<p>todo slight problem with reexporting URI in ts - it isn&#39;t watched by ng serve so if a new thing is changed or added you
-  have to restart ng for it to recognize it</p>
-<p>todo in order for the routes&#39; middleware to be separate, the namespaces have to be separate: https://expressjs.com/en/4x/api.html#router
+  may expire)
+todo in order for the routes&#39; middleware to be separate, the namespaces have to be separate: https://expressjs.com/en/4x/api.html#router
    fixed by instead providing middleware that authorizes user to every endpoint that requires it. May be a better solution</p>
 <p>todo encryption for admin password -- also need to use https</p>
 <p>todo it appears that formBuilders are now the standard way to do forms in angular. Might be worth converting.</p>
@@ -84,11 +81,10 @@ TODO create admin interface that has the following functionality:
  -- look at timers built in angular</p>
 <p>todo exponential backoff for api requests perhaps? https://angular.io/guide/practical-observable-usage#exponential-backoff</p>
 <p>todo read https://angular.io/guide/router#milestone-4-crisis-center-feature</p>
-<p>todo download endpoints from server via config? This may help with the reexporting URI stuff - or it might not</p>
+<p>todo download endpoints from server via config?</p>
 <p>todo add error handlers for http requests (res =&gt; {}, err =&gt; {})</p>
 <p>todo make sure app automatically restarts</p>
 <p>todo maybe make question parser a little more answer-number-agnostic</p>
-<p>todo should you be using ignore for the constructors? What could you document about them that would be at all helpful?</p>
 <p>todo if team service wasn&#39;t injected as much as it is, would it lose access to the team object? Should probably have a single
   method that returns the cached team if it is available, and gets it from the server if not (but how can it get it without
   knowing which team it is?).</p>
@@ -96,7 +92,11 @@ TODO create admin interface that has the following functionality:
 <p>todo I feel like question component has to know a little too much from game component -&gt; maybe it shouldn&#39;t be separate,
   or it should somehow reduce its dependency on game component</p>
 <p>todo could generate own ID for teams based on name + number</p>
-<p>todo consider moving the server folder inside the src folder</p>
+<p>todo consider making the server&#39;s (api.ts) questions, answers, practice questions, and related functions part of their own
+ class</p>
+<p>moved the server folder inside the src folder -- creates some compodoc weirdness.
+decided to include constructor documentation in jsdocs as even though the descriptions are largely useless, the automatically
+generated information is too potentially useful to not include.</p>
 
 
 

@@ -7,23 +7,30 @@ import { database } from './server';
 import { Moment, tz } from 'moment-timezone';
 import { start, secret, adminPassword } from './constants';
 
+/** The api router */
 export const router: Router = Router();
 
-/** The date and time of the start of the competition. Before this time, users can only play with practiceQuestions. */
+/** The date and time of the start of the competition. Before this time, users can only play with practice questions. */
 export const startDate: Moment = tz(start, 'MM-DD-YYYY hhA', 'America/Chicago');
 
+/** The stored practice questions */
 export let practiceQuestions;
+/** The stored answers */
 export let answers;
+/** The stored questions */
 export let questions;
 
+/** Sets the answers */
 export function setAnswers(givenAnswers) {
   answers = givenAnswers;
 }
 
+/** Sets the questions */
 export function setQuestions(givenQuestions) {
   questions = givenQuestions;
 }
 
+/** Sets the values of practice questions, answers, and questions to values from the database */
 async function setJSONValues() {
   try {
     if (!practiceQuestions) {

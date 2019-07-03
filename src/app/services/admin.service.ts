@@ -6,8 +6,8 @@ import {
   HttpRequest
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-import { handleError, httpOptionsJSON, httpOptionsText, URI } from '../constants';
+import { catchError, map } from 'rxjs/operators';
+import { handleError, httpOptionsText, URI } from '../constants';
 
 /** Provides functionality relevant to administrators */
 @Injectable({
@@ -15,7 +15,7 @@ import { handleError, httpOptionsJSON, httpOptionsText, URI } from '../constants
 })
 export class AdminService {
 
-  /** @ignore */
+  /** Admin service constructor */
   constructor(private http: HttpClient) { }
 
   /** Whether this client is authorized to access the content on this page */

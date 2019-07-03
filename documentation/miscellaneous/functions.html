@@ -57,13 +57,31 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#adminAuthorization" title="src/server/admin-api.ts"><b>adminAuthorization</b>&nbsp;&nbsp;&nbsp;(src/.../admin-api.ts)</a>
+                        </li>
+                        <li>
                             <a href="#asyncData" title="src/testing/async-observable-helpers.ts"><b>asyncData</b>&nbsp;&nbsp;&nbsp;(src/.../async-observable-helpers.ts)</a>
                         </li>
                         <li>
                             <a href="#asyncError" title="src/testing/async-observable-helpers.ts"><b>asyncError</b>&nbsp;&nbsp;&nbsp;(src/.../async-observable-helpers.ts)</a>
                         </li>
                         <li>
+                            <a href="#checkToken" title="src/server/server.ts"><b>checkToken</b>&nbsp;&nbsp;&nbsp;(src/.../server.ts)</a>
+                        </li>
+                        <li>
                             <a href="#handleError" title="src/app/constants.ts"><b>handleError</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#setAnswers" title="src/server/api.ts"><b>setAnswers</b>&nbsp;&nbsp;&nbsp;(src/.../api.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#setJSONValues" title="src/server/api.ts"><b>setJSONValues</b>&nbsp;&nbsp;&nbsp;(src/.../api.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#setQuestions" title="src/server/api.ts"><b>setQuestions</b>&nbsp;&nbsp;&nbsp;(src/.../api.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#userAuthorization" title="src/server/user-api.ts"><b>userAuthorization</b>&nbsp;&nbsp;&nbsp;(src/.../user-api.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -72,7 +90,82 @@
     </table>
 </section>
 
-    <h3>src/testing/async-observable-helpers.ts</h3>
+    <h3>src/server/admin-api.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="adminAuthorization"></a>
+                    <span class="name">
+                        <b>
+                            adminAuthorization
+                        </b>
+                        <a href="#adminAuthorization"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>adminAuthorization(req, res, next)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A middleware function used to authenticate admins before they are allowed to access endpoints in this file </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>req</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>res</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>next</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/testing/async-observable-helpers.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -188,6 +281,81 @@
             </tr>
         </tbody>
     </table>
+</section>    <h3>src/server/server.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkToken"></a>
+                    <span class="name">
+                        <b>
+                            checkToken
+                        </b>
+                        <a href="#checkToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkToken(req, res, next)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Checks that the token given is valid. Used by other middleware in order to get decoded information from the token </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>req</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>res</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>next</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    <h3>src/app/constants.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -229,6 +397,224 @@
                             <tbody>
                                 <tr>
                                     <td>error</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/server/api.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setAnswers"></a>
+                    <span class="name">
+                        <b>
+                            setAnswers
+                        </b>
+                        <a href="#setAnswers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setAnswers(givenAnswers)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Sets the answers </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>givenAnswers</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setJSONValues"></a>
+                    <span class="name">
+                        <b>
+                            setJSONValues
+                        </b>
+                        <a href="#setJSONValues"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setJSONValues()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Sets the values of practice questions, answers, and questions to values from the database </p>
+</div>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setQuestions"></a>
+                    <span class="name">
+                        <b>
+                            setQuestions
+                        </b>
+                        <a href="#setQuestions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setQuestions(givenQuestions)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Sets the questions </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>givenQuestions</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/server/user-api.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userAuthorization"></a>
+                    <span class="name">
+                        <b>
+                            userAuthorization
+                        </b>
+                        <a href="#userAuthorization"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>userAuthorization(req, res, next)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A middleware function used to authenticate users before they are allowed to access endpoints in this file </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>req</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>res</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>next</td>
 
                                     <td>
                                         No

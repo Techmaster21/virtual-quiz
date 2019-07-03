@@ -2,7 +2,7 @@
 export const URI = {
   PRACTICE_QUESTIONS: {
     GET: '/api/practiceQuestions/get',
-    CHECK: '/api/practice/check'
+    CHECK: '/api/practice/check',
   },
   QUESTIONS: {
     GET: '/api/questions/get',

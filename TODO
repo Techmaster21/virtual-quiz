@@ -1,27 +1,42 @@
 Fixes and tweaks
+
   TODO Beautification
+
   TODO Conform totally with style guide guidelines
+
 Non-essential, Long term:
+
   TODO Error handling and testing
+
   TODO Offline version in case of emergencies?
+
   TODO Categories before loading of question?
+
   TODO would be nice to have an offline version for testing purposes - this mostly refers to database.
+
   todo add unit tests. (why though? what can unit tests tell you here?)
+
   todo add integration tests.
+
 TODO The progress bar shows questions completed. Should there also be a question # on to avoid confusion?
+
 TODO need to account for internet failures and outages. Continue sending save requests.
+
 TODO Develop vq prescribed distribution (distribution of questions that is, so that we dont end up with a million pop
   culture or chemistry questions)
+
 TODO Keep backlog of questions in google drive
+
 TODO Keep backlog of useful statistics on questions
+
 TODO Automatically generate useful statistics on current questions
 
 TODO improve readme
 
-TODO add compodoc for documentation
-
 TODO make it so that teams actually need a code or something to play?
+
 TODO thoroughly test new features
+
 TODO create admin interface that has the following functionality:
   Button to download/view error logging
   Built in documentation
@@ -44,8 +59,6 @@ TODO finish converting server side to typescript
     Add types
     maybe make async? Look at https://developer.okta.com/blog/2018/10/30/basic-crud-angular-and-node or possibly newer examples
 
-TODO maybe some issues with strings and weird stuff in services in angular can fix with res.send() instead of res.json
-
 todo may want to look into using webpack to package backend into a single file (be sure to minify). Last time tried though
   there was an issue with the code not using the proper directory to look for things (specifically the practice questions)
   this may not be an issue now that you have eliminated file io in favor of database transactions
@@ -56,14 +69,10 @@ todo look into morgan for logging on server side
 
 todo inform people not to sign up until ready to play (and include faq in admin to say this too and how to fix it) (tokens
   may expire)
-
-todo slight problem with reexporting URI in ts - it isn't watched by ng serve so if a new thing is changed or added you
-  have to restart ng for it to recognize it
-
 todo in order for the routes' middleware to be separate, the namespaces have to be separate: https://expressjs.com/en/4x/api.html#router
    fixed by instead providing middleware that authorizes user to every endpoint that requires it. May be a better solution
 
-todo encryption for admin password
+todo encryption for admin password -- also need to use https
 
 todo it appears that formBuilders are now the standard way to do forms in angular. Might be worth converting.
 
@@ -74,15 +83,13 @@ todo exponential backoff for api requests perhaps? https://angular.io/guide/prac
 
 todo read https://angular.io/guide/router#milestone-4-crisis-center-feature
 
-todo download endpoints from server via config? This may help with the reexporting URI stuff - or it might not
+todo download endpoints from server via config?
 
 todo add error handlers for http requests (res => {}, err => {})
 
 todo make sure app automatically restarts
 
 todo maybe make question parser a little more answer-number-agnostic
-
-todo should you be using ignore for the constructors? What could you document about them that would be at all helpful?
 
 todo if team service wasn't injected as much as it is, would it lose access to the team object? Should probably have a single
   method that returns the cached team if it is available, and gets it from the server if not (but how can it get it without
@@ -95,4 +102,13 @@ todo I feel like question component has to know a little too much from game comp
 
 todo could generate own ID for teams based on name + number
 
-todo consider moving the server folder inside the src folder
+todo consider making the server's (api.ts) questions, answers, practice questions, and related functions part of their own
+ class
+ in general - consider "classifying" the server side functions and variables to make compodoc documentation of them more sensible.
+ Additionally, find a way to re-export the question model in the server. Or perhaps move models to the server folder, or
+ some shared folder within src. The latter will require webpack implementation server side to work properly.
+
+todo webpack initially failed when it tried to bundle everything from node into it - this apparently has to do with binary
+  dependencies from express and mongo according to https://jlongster.com/Backend-Apps-with-Webpack--Part-I
+  using the methods in the article, the app now builds and runs. However, the path resolution for serving is incorrect.
+  This probably has to do with clientPath.

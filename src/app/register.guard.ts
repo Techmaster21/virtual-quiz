@@ -9,7 +9,7 @@ import { TeamService } from './services/team.service';
 })
 export class RegisterGuard implements CanActivate {
 
-  /** @ignore */
+  /** Register guard constructor */
   constructor(private teamService: TeamService, private router: Router) {
   }
 

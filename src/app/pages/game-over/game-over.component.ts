@@ -15,7 +15,7 @@ export class GameOverComponent implements OnInit {
   /** Whether or not we are in the process of saving data to the server */
   saving: boolean;
 
-  /** @ignore */
+  /** Game over component constructor */
   constructor(private teamService: TeamService) { }
 
   /** Converts milliseconds to human readable time */

@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
   /** Whether or not the form has been successfully submitted */
   submitted = false;
 
-  /** @ignore */
+  /** Signup component constructor */
   constructor(private router: Router,
               private teamService: TeamService,
               private timeService: TimeService

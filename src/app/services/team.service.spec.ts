@@ -1,10 +1,9 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { TeamService } from './team.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { Question } from '../models/question';
 import { asyncData } from '../../testing/async-observable-helpers';
-import { URI } from '../../../server/uri';
+import { URI } from '../constants';
 import { Team } from '../models/team';
 import { HttpRequest } from '@angular/common/http';
 

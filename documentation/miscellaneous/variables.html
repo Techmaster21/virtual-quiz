@@ -57,19 +57,37 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#adminPassword" title="src/server/constants.ts"><b>adminPassword</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#answers" title="src/server/api.ts"><b>answers</b>&nbsp;&nbsp;&nbsp;(src/.../api.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#app" title="src/server/server.ts"><b>app</b>&nbsp;&nbsp;&nbsp;(src/.../server.ts)</a>
+                        </li>
+                        <li>
                             <a href="#autoWrongGuess" title="src/app/constants.ts"><b>autoWrongGuess</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
                         </li>
                         <li>
                             <a href="#breakTime" title="src/app/constants.ts"><b>breakTime</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
                         </li>
                         <li>
+                            <a href="#clientPath" title="src/server/constants.ts"><b>clientPath</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
+                        </li>
+                        <li>
                             <a href="#correctColor" title="src/app/constants.ts"><b>correctColor</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
                         </li>
                         <li>
-                            <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
+                            <a href="#database" title="src/server/server.ts"><b>database</b>&nbsp;&nbsp;&nbsp;(src/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#dbURL" title="src/server/constants.ts"><b>dbURL</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
                         </li>
                         <li>
                             <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
                         </li>
                         <li>
                             <a href="#httpOptionsJSON" title="src/app/constants.ts"><b>httpOptionsJSON</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
@@ -84,7 +102,34 @@
                             <a href="#modules" title="src/app/components/material/material.module.ts"><b>modules</b>&nbsp;&nbsp;&nbsp;(src/.../material.module.ts)</a>
                         </li>
                         <li>
+                            <a href="#practiceQuestions" title="src/server/api.ts"><b>practiceQuestions</b>&nbsp;&nbsp;&nbsp;(src/.../api.ts)</a>
+                        </li>
+                        <li>
                             <a href="#questionLoadDelay" title="src/app/constants.ts"><b>questionLoadDelay</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#questions" title="src/server/api.ts"><b>questions</b>&nbsp;&nbsp;&nbsp;(src/.../api.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="src/server/api.ts"><b>router</b>&nbsp;&nbsp;&nbsp;(src/.../api.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="src/server/admin-api.ts"><b>router</b>&nbsp;&nbsp;&nbsp;(src/.../admin-api.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="src/server/user-api.ts"><b>router</b>&nbsp;&nbsp;&nbsp;(src/.../user-api.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#secret" title="src/server/constants.ts"><b>secret</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#start" title="src/server/constants.ts"><b>start</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#startDate" title="src/server/api.ts"><b>startDate</b>&nbsp;&nbsp;&nbsp;(src/.../api.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#URI" title="src/server/uri.ts"><b>URI</b>&nbsp;&nbsp;&nbsp;(src/.../uri.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -93,6 +138,362 @@
     </table>
 </section>
 
+    <h3>src/server/constants.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="adminPassword"></a>
+                        <span class="name">
+                            <b>
+                            adminPassword</b>
+                            <a href="#adminPassword"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>process.env.ADMIN_PASSWORD || &#x27;password&#x27;</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The password used to access the admin interface </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clientPath"></a>
+                        <span class="name">
+                            <b>
+                            clientPath</b>
+                            <a href="#clientPath"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>join(__dirname, &#x27;/../virtual-quiz&#x27;)</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The absolute path to the client </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dbURL"></a>
+                        <span class="name">
+                            <b>
+                            dbURL</b>
+                            <a href="#dbURL"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;mongodb://heroku_whlj8cct:i2k7ued2lj5duem2trvtbievf7@ds253918.mlab.com:53918/heroku_whlj8cct&#x27;</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Database URL </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="secret"></a>
+                        <span class="name">
+                            <b>
+                            secret</b>
+                            <a href="#secret"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>process.env.SECRET || &#x27;test secret&#x27;</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The secret used to sign all the javascript web tokens </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="start"></a>
+                        <span class="name">
+                            <b>
+                            start</b>
+                            <a href="#start"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>process.env.START_DATE  || &#x27;12/31/1969 7pm&#x27; || &#x27;12/12/2020 8pm&#x27;</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The start of the competition. Pulls from environment variable or compares against the start of unix time (in CST and
+mostly for fun)</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/server/api.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="answers"></a>
+                        <span class="name">
+                            <b>
+                            answers</b>
+                            <a href="#answers"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The stored answers </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="practiceQuestions"></a>
+                        <span class="name">
+                            <b>
+                            practiceQuestions</b>
+                            <a href="#practiceQuestions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The stored practice questions </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="questions"></a>
+                        <span class="name">
+                            <b>
+                            questions</b>
+                            <a href="#questions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The stored questions </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="router"></a>
+                        <span class="name">
+                            <b>
+                            router</b>
+                            <a href="#router"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Router()</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The api router </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="startDate"></a>
+                        <span class="name">
+                            <b>
+                            startDate</b>
+                            <a href="#startDate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Moment</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>tz(start, &#x27;MM-DD-YYYY hhA&#x27;, &#x27;America/Chicago&#x27;)</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The date and time of the start of the competition. Before this time, users can only play with practice questions. </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/server/server.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="app"></a>
+                        <span class="name">
+                            <b>
+                            app</b>
+                            <a href="#app"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Application</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>express()
+  .use( bodyParserJSON( {limit: &#x27;10mb&#x27;} ),
+        bodyParserText( { type: [&#x27;text/csv&#x27;, &#x27;text/plain&#x27;], limit: &#x27;10mb&#x27;}) )
+  .use( express.static(clientPath) ) // Allows the client access to any files located in /../dist without having to explicitly declare so.
+  .use( apiRoutes )
+  // all routes after this are protected by token
+  .use( userRoutes )
+  .use( adminRoutes )
+  // Redirects all other paths that dont begin with /api to the base index html file. Angular handles the routing from there.
+  // Must be the last thing - express handles this sequentially.
+  .all(/^(?!.*\/api.*).*$/, (req, res) &#x3D;&gt; {
+    res.sendFile(clientPath + &#x27;/index.html&#x27;);
+  })</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The Express server </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="database"></a>
+                        <span class="name">
+                            <b>
+                            database</b>
+                            <a href="#database"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Db</code>
+
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>A reference to the Mongo database </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
     <h3>src/app/constants.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -313,44 +714,6 @@
             </tbody>
         </table>
 </section>
-    <h3>src/environments/environment.prod.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="environment"></a>
-                        <span class="name">
-                            <b>
-                            environment</b>
-                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{
-  production: true
-}</code>
-                        </td>
-                    </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Production environment </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-</section>
     <h3>src/environments/environment.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -382,6 +745,44 @@
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Development environment </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/environments/environment.prod.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="environment"></a>
+                        <span class="name">
+                            <b>
+                            environment</b>
+                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  production: true
+}</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Production environment </p>
 </div>
                     </td>
                 </tr>
@@ -427,6 +828,142 @@
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Material modules to include </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/server/admin-api.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="router"></a>
+                        <span class="name">
+                            <b>
+                            router</b>
+                            <a href="#router"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Router()</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The admin-api router </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/server/user-api.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="router"></a>
+                        <span class="name">
+                            <b>
+                            router</b>
+                            <a href="#router"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Router()</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The user-api router </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/server/uri.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="URI"></a>
+                        <span class="name">
+                            <b>
+                            URI</b>
+                            <a href="#URI"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  PRACTICE_QUESTIONS: {
+    GET: &#x27;/api/practiceQuestions/get&#x27;,
+    CHECK: &#x27;/api/practice/check&#x27;,
+  },
+  QUESTIONS: {
+    GET: &#x27;/api/questions/get&#x27;,
+    SAVE: &#x27;/api/questions/save&#x27;,
+    DELETE: &#x27;/api/questions/delete&#x27;
+  },
+  ANSWER: {
+    CHECK: &#x27;/api/answer/check&#x27;
+  },
+  TEAM: {
+    GET: &#x27;/api/team/get&#x27;,
+    SAVE: &#x27;/api/team/save&#x27;
+  },
+  DATE: {
+    NOW: &#x27;/api/date/now&#x27;,
+    START: &#x27;/api/date/start&#x27;,
+    CAN_START: &#x27;/api/date/canStart&#x27;
+  },
+  ADMIN: {
+    LOGIN: &#x27;/api/admin/login&#x27;
+  },
+  STATS: {
+    QUESTIONS: &#x27;/api/stats/questions&#x27;
+  }
+}</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The URIs for all the various http requests. Used by both the server and the client </p>
 </div>
                     </td>
                 </tr>

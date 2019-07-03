@@ -38,7 +38,7 @@ export class QuestionsComponent implements OnChanges {
   /** The state of each answer, used for animations */
   state: Array<string>;
 
-  /** @ignore */
+  /** Questions component constructor */
   constructor(private questionService: QuestionService) { }
 
   /** Sets all answers to their respective colors once a user's tries have been exhausted */

@@ -3,8 +3,10 @@ import { URI } from './uri';
 import { answers, questions } from './api';
 import { checkToken } from './server';
 
+/** The user-api router */
 export const router: Router = Router();
 
+/** A middleware function used to authenticate users before they are allowed to access endpoints in this file */
 function userAuthorization(req: Request, res: Response, next: NextFunction) {
   checkToken(req, res, () => {
     if (req.headers.authorization === 'user' || req.headers.authorization === 'admin') {

@@ -12,7 +12,7 @@ export class AdminComponent {
   /** Output to show to the user */
   consoleOutput = ''; // should be a class that with an add() method
 
-  /** @ignore */
+  /** Admin component constructor */
   constructor(private adminService: AdminService) { }
 
   /** Some weird auto-sizing stuff */

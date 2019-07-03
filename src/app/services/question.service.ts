@@ -12,8 +12,9 @@ import { TeamService } from './team.service';
   providedIn: 'root'
 })
 export class QuestionService {
+  /** Holds headers for JSON objects, along with an authorization token */
   httpOptionsWithAuth: {};
-  /** @ignore */
+  /** Question service constructor */
   constructor(private http: HttpClient, private teamService: TeamService) {
     const headers = { 'Content-Type': 'application/json',  authorization: this.teamService.getToken() };
     this.httpOptionsWithAuth = { headers: new HttpHeaders(headers) };

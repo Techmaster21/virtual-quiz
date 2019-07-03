@@ -2,11 +2,11 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "outDir": "../dist/server",
+    "outDir": "../../dist/server",
     "rootDir": "./",
+    "sourceMap": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "removeComments": true
+    "emitDecoratorMetadata": true
   },
   "include": [
     "./*.ts"

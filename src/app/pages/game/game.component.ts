@@ -41,7 +41,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   /** How many points the user gained from this question */
   pointsGained = 0;
 
-  /** @ignore */
+  /** Game component constructor */
   constructor(private router: Router,
               private questionService: QuestionService,
               private teamService: TeamService) { }

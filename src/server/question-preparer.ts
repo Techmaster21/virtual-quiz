@@ -5,15 +5,28 @@
 // The lines containing a quote character(") have not been properly escaped by the csv exporter (should look like "")
 import { parse as papaparse } from 'papaparse';
 
+
+/** Holds a single question */
 // todo should probably import but this messes up dist folder
 class Question {
+  /**
+   * Constructs a Question
+   * @param question
+   *  The actual question
+   * @param category
+   *  The category that the question falls into
+   * @param answers
+   *  The choices for potential answers to the question
+   */
   constructor(public question: string,
               public category: string,
               public answers: string[]
   ) {}
 }
 
+/** A class that contains methods to prepare questions for use by the app */
 export class QuestionPreparer {
+  /** The main method that transforms the given csv into a tuple of questions and answers in the form of javascript objects */
   static prepare(csv: string): [Question[], any[]] {
     // todo check errors from papa
     const parsed = papaparse(csv, {skipEmptyLines: true});
@@ -35,6 +48,7 @@ export class QuestionPreparer {
     return [questions, answers];
   }
 
+  /** A helper method that randomly shuffles the given array */
   private static shuffle(array: any[]) {
     for ( let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -42,6 +56,7 @@ export class QuestionPreparer {
     }
   }
 
+  /** A helper method that processes the given row into a question, answer tuple. */
   private static processRow(row: string[]): [Question, any] {
     const correctAnswer = row[3 + row[8].charCodeAt(0) - 65]; // assigns the string corresponding to the correct answer
     const indices = [3, 4, 5, 6, 7];
