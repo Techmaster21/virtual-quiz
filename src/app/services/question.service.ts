@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { handleError, URI } from '../constants';
-import { Question } from '../models/question';
+import { Question } from '../../shared/question';
 import { TeamService } from './team.service';
 
 /** Provides functionality related to the question class */

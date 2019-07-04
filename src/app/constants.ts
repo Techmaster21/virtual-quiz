@@ -14,7 +14,7 @@ export const correctColor = '#009900';
 export const incorrectColor = '#e50000';
 
 // reexports HTTP request URIs
-export { URI } from '../server/uri';
+export { URI } from '../shared/uri';
 
 /** The default error handling method for HTTP requests */
 export function handleError(error: HttpErrorResponse) {

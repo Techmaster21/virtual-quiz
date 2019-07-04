@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild  } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { questionLoadDelay, autoWrongGuess, breakTime } from '../../constants';
-import { Question } from '../../models/question';
+import { Question } from '../../../shared/question';
 import { QuestionService } from '../../services/question.service';
 import { Team } from '../../models/team';
 import { TeamService } from '../../services/team.service';

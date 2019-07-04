@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import { URI } from './uri';
 import { answers, questions } from './api';
 import { checkToken } from './server';
+import { URI } from '../shared/uri';
 
 /** The user-api router */
 export const router: Router = Router();

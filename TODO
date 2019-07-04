@@ -105,10 +105,8 @@ todo could generate own ID for teams based on name + number
 todo consider making the server's (api.ts) questions, answers, practice questions, and related functions part of their own
  class
  in general - consider "classifying" the server side functions and variables to make compodoc documentation of them more sensible.
- Additionally, find a way to re-export the question model in the server. Or perhaps move models to the server folder, or
- some shared folder within src. The latter will require webpack implementation server side to work properly.
 
-todo webpack initially failed when it tried to bundle everything from node into it - this apparently has to do with binary
-  dependencies from express and mongo according to https://jlongster.com/Backend-Apps-with-Webpack--Part-I
-  using the methods in the article, the app now builds and runs. However, the path resolution for serving is incorrect.
-  This probably has to do with clientPath.
+todo It is still set to target es6 (since it wont work otherwise), it may be a good idea to transpile it, though it also
+  might not be necessary since it is the backend
+Info about backend-apps with webpack:
+https://jlongster.com/Backend-Apps-with-Webpack--Part-I

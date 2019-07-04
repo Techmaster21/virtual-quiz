@@ -5,7 +5,7 @@ import { TeamService } from './team.service';
 import { URI } from '../constants';
 import { asyncData } from '../../testing/async-observable-helpers';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { Question } from '../models/question';
+import { Question } from '../../shared/question';
 
 describe('QuestionService', () => {
   let questionService: QuestionService;

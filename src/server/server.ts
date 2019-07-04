@@ -14,30 +14,13 @@ import { router as adminRoutes } from './admin-api';
 // const reqbytes = [];
 // const resbytes = [];
 
-/** Checks that the token given is valid. Used by other middleware in order to get decoded information from the token */
-export function checkToken(req: Request, res: Response, next: NextFunction) {
-  const token = req.headers.authorization as string;
-  if (token) {
-    jwtVerify(token, secret, (err: VerifyErrors, decoded: any) => { // adding type would break decoded.type
-      if (err) {
-        return res.json('invalid token');
-      } else {
-        req.headers.authorization = decoded.type;
-        next();
-      }
-    });
-  } else {
-    res.set(403).json('403 Forbidden');
-  }
-}
-
 /** The Express server */
 const app: Application = express()
-  .use( bodyParserJSON( {limit: '10mb'} ),
+  .use( bodyParserJSON( { limit: '10mb' } ),
         bodyParserText( { type: ['text/csv', 'text/plain'], limit: '10mb'}) )
   .use( express.static(clientPath) ) // Allows the client access to any files located in /../dist without having to explicitly declare so.
   .use( apiRoutes )
-  // all routes after this are protected by token
+  // all routes after this comment are protected by token
   .use( userRoutes )
   .use( adminRoutes )
   // Redirects all other paths that dont begin with /api to the base index html file. Angular handles the routing from there.

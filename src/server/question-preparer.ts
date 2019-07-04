@@ -4,25 +4,8 @@
 // Most common errors:
 // The lines containing a quote character(") have not been properly escaped by the csv exporter (should look like "")
 import { parse as papaparse } from 'papaparse';
+import { Question } from '../shared/question';
 
-
-/** Holds a single question */
-// todo should probably import but this messes up dist folder
-class Question {
-  /**
-   * Constructs a Question
-   * @param question
-   *  The actual question
-   * @param category
-   *  The category that the question falls into
-   * @param answers
-   *  The choices for potential answers to the question
-   */
-  constructor(public question: string,
-              public category: string,
-              public answers: string[]
-  ) {}
-}
 
 /** A class that contains methods to prepare questions for use by the app */
 export class QuestionPreparer {

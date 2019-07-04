@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 import { correctColor, incorrectColor } from '../../constants';
-import { Question } from '../../models/question';
+import { Question } from '../../../shared/question';
 import { QuestionService } from '../../services/question.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { forkJoin } from 'rxjs';
