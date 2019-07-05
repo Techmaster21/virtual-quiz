@@ -102,11 +102,11 @@ todo I feel like question component has to know a little too much from game comp
 
 todo could generate own ID for teams based on name + number
 
-todo consider making the server's (api.ts) questions, answers, practice questions, and related functions part of their own
- class
- in general - consider "classifying" the server side functions and variables to make compodoc documentation of them more sensible.
-
 todo It is still set to target es6 (since it wont work otherwise), it may be a good idea to transpile it, though it also
   might not be necessary since it is the backend
+
+todo app (animations in particular) is sluggish on safari compared to chrome
+todo store token so user doesnt have to perfectly spell name again?
+todo should test build on windows
 Info about backend-apps with webpack:
 https://jlongster.com/Backend-Apps-with-Webpack--Part-I

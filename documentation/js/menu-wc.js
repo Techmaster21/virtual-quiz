@@ -115,13 +115,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse" ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
+                                <a href="classes/Authorization.html" data-type="entity-link">Authorization</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/Question.html" data-type="entity-link">Question</a>
                             </li>
                             <li class="link">
-                                <a href="classes/Question-1.html" data-type="entity-link">Question</a>
+                                <a href="classes/QuestionPreparer.html" data-type="entity-link">QuestionPreparer</a>
                             </li>
                             <li class="link">
-                                <a href="classes/QuestionPreparer.html" data-type="entity-link">QuestionPreparer</a>
+                                <a href="classes/QuestionStore.html" data-type="entity-link">QuestionStore</a>
                             </li>
                             <li class="link">
                                 <a href="classes/Team.html" data-type="entity-link">Team</a>
@@ -160,6 +163,22 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse" ${ isNormalMode ? 'id="guards-links"' : 'id="xs-guards-links"' }>
                             <li class="link">
                                 <a href="guards/RegisterGuard.html" data-type="entity-link">RegisterGuard</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#interfaces-links"' :
+                            'data-target="#xs-interfaces-links"' }>
+                            <span class="icon ion-md-information-circle-outline"></span>
+                            <span>Interfaces</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse" ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
+                            <li class="link">
+                                <a href="interfaces/Answer.html" data-type="entity-link">Answer</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/PracticeQuestion.html" data-type="entity-link">PracticeQuestion</a>
                             </li>
                         </ul>
                     </li>

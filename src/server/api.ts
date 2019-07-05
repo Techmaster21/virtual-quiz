@@ -4,7 +4,7 @@ import { ObjectId } from 'mongodb';
 import { Moment, tz } from 'moment-timezone';
 
 import { URI } from '../shared/uri';
-import { database } from './server';
+import { database, questionStore } from './server';
 import { start, secret, adminPassword } from './constants';
 
 /** The api router */
@@ -13,53 +13,15 @@ export const router: Router = Router();
 /** The date and time of the start of the competition. Before this time, users can only play with practice questions. */
 export const startDate: Moment = tz(start, 'MM-DD-YYYY hhA', 'America/Chicago');
 
-/** The stored practice questions */
-export let practiceQuestions;
-/** The stored answers */
-export let answers;
-/** The stored questions */
-export let questions;
-
-/** Sets the answers */
-export function setAnswers(givenAnswers) {
-  answers = givenAnswers;
-}
-
-/** Sets the questions */
-export function setQuestions(givenQuestions) {
-  questions = givenQuestions;
-}
-
-/** Sets the values of practice questions, answers, and questions to values from the database */
-async function setJSONValues() {
-  try {
-    if (!practiceQuestions) {
-      const collection = database.collection('practiceQuestions');
-      const result = await collection.findOne({});
-      practiceQuestions = result.questions;
-    }
-    if (!questions) {
-      const collection = database.collection('questions');
-      const result = await collection.findOne({});
-      questions = result.questions;
-    }
-    if (!answers) {
-      const collection = database.collection('answers');
-      const result = await collection.findOne({});
-      answers = result.answers;
-    }
-  } catch (err) {
-    console.log(`An error occurred while getting questions/answers/practiceQuestions: ${err.message}`);
-  }
-}
-
-router.get(URI.PRACTICE_QUESTIONS.GET, (req: Request, res: Response) => {
-  res.json(practiceQuestions);
+router.get(URI.PRACTICE_QUESTIONS.GET, async (req: Request, res: Response) => {
+  const questions = await questionStore.practiceQuestions;
+  res.json(questions);
 });
 
-router.put(URI.PRACTICE_QUESTIONS.CHECK, (req: Request, res: Response) => {
+router.put(URI.PRACTICE_QUESTIONS.CHECK, async (req: Request, res: Response) => {
   // if (practiceQuestions[req.body.index].correctAnswer.trim() === req.body.answer.trim()) {
-  const question = practiceQuestions[req.body.questionIndex];
+  const questions = await questionStore.practiceQuestions;
+  const question = questions[req.body.questionIndex];
   if (question.correctAnswer === question.answers[req.body.answerIndex]) {
     res.json(true);
   } else {
@@ -69,8 +31,8 @@ router.put(URI.PRACTICE_QUESTIONS.CHECK, (req: Request, res: Response) => {
 
 router.get(URI.DATE.CAN_START, async (req: Request, res: Response) => {
   try {
-    // makes sure that we currently have a set of answers and questions.
-    await setJSONValues();
+    const answers = await questionStore.answers;
+    const questions = await questionStore.questions;
     if (answers && questions) { // if answers and questions exist
       res.json(new Date() >= startDate.toDate());
     } else {

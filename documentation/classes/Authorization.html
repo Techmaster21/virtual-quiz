@@ -42,7 +42,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>QuestionPreparer</li>
+  <li>Authorization</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,14 +60,14 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/server/question-preparer.ts</code>
+            <code>src/server/authorization.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>A class that contains methods to prepare questions for use by the app </p>
+                <p>Contains static methods relating to authenticating users </p>
 
             </p>
 
@@ -89,17 +89,16 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#prepare">prepare</a>
+                                <a href="#admin">admin</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Static</span>
-                                <a href="#processRow">processRow</a>
+                                <a href="#checkToken">checkToken</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
                                     <span class="modifier">Static</span>
-                                <a href="#shuffle">shuffle</a>
+                                <a href="#user">user</a>
                             </li>
                         </ul>
                     </td>
@@ -124,35 +123,35 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="prepare"></a>
+                    <a name="admin"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Static</span>
-                            prepare
+                            admin
                         </b>
-                        <a href="#prepare"><span class="icon ion-ios-link"></span></a>
+                        <a href="#admin"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>prepare(csv: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>admin(req: <a href="https://angular.io/api/http/Request" target="_blank">Request</a>, res: <a href="https://angular.io/api/http/Response" target="_blank">Response</a>, next: NextFunction)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/server/question-preparer.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/server/authorization.ts:25</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The main method that transforms the given csv into a tuple of questions and answers in the form of javascript objects </p>
+                    <div class="io-description"><p>A middleware function used to authenticate admins before they are allowed to access endpoints in this file </p>
 </div>
 
                     <div class="io-description">
@@ -167,9 +166,33 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>csv</td>
+                                    <td>req</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="https://angular.io/api/http/Request" target="_blank" >Request</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>res</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/http/Response" target="_blank" >Response</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>next</td>
+                                    <td>
+                                            <code>NextFunction</code>
                                     </td>
 
                                     <td>
@@ -183,6 +206,13 @@
                     </div>
                     <div>
                     </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
                 </td>
             </tr>
         </tbody>
@@ -191,36 +221,36 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="processRow"></a>
+                    <a name="checkToken"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Private</span>
                             <span class="modifier">Static</span>
-                            processRow
+                            checkToken
                         </b>
-                        <a href="#processRow"><span class="icon ion-ios-link"></span></a>
+                        <a href="#checkToken"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>processRow(row: string[])</code>
+                    <code>checkToken(req: <a href="https://angular.io/api/http/Request" target="_blank">Request</a>, res: <a href="https://angular.io/api/http/Response" target="_blank">Response</a>, next: NextFunction)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/server/question-preparer.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">src/server/authorization.ts:8</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>A helper method that processes the given row into a question, answer tuple. </p>
+                    <div class="io-description"><p>Checks that the token given is valid. Used by other middleware in order to get decoded information from the token </p>
 </div>
 
                     <div class="io-description">
@@ -235,9 +265,33 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>row</td>
+                                    <td>req</td>
                                     <td>
-                                            <code>string[]</code>
+                                                <code><a href="https://angular.io/api/http/Request" target="_blank" >Request</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>res</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/http/Response" target="_blank" >Response</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>next</td>
+                                    <td>
+                                            <code>NextFunction</code>
                                     </td>
 
                                     <td>
@@ -251,6 +305,13 @@
                     </div>
                     <div>
                     </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
                 </td>
             </tr>
         </tbody>
@@ -259,36 +320,35 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="shuffle"></a>
+                    <a name="user"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Private</span>
                             <span class="modifier">Static</span>
-                            shuffle
+                            user
                         </b>
-                        <a href="#shuffle"><span class="icon ion-ios-link"></span></a>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>shuffle(array: any[])</code>
+                    <code>user(req: <a href="https://angular.io/api/http/Request" target="_blank">Request</a>, res: <a href="https://angular.io/api/http/Response" target="_blank">Response</a>, next: NextFunction)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/server/question-preparer.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/server/authorization.ts:36</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>A helper method that randomly shuffles the given array </p>
+                    <div class="io-description"><p>A middleware function used to authenticate users before they are allowed to access endpoints in this file </p>
 </div>
 
                     <div class="io-description">
@@ -303,9 +363,33 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>array</td>
+                                    <td>req</td>
                                     <td>
-                                            <code>any[]</code>
+                                                <code><a href="https://angular.io/api/http/Request" target="_blank" >Request</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>res</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/http/Response" target="_blank" >Response</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>next</td>
+                                    <td>
+                                            <code>NextFunction</code>
                                     </td>
 
                                     <td>
@@ -340,50 +424,49 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { parse as papaparse } from &#x27;papaparse&#x27;;
-import { Question } from &#x27;../shared/question&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { verify as jwtVerify, VerifyErrors } from &#x27;jsonwebtoken&#x27;;
+import { NextFunction, Request, Response } from &#x27;express&#x27;;
+import { secret } from &#x27;./constants&#x27;;
 
-
-/** A class that contains methods to prepare questions for use by the app */
-export class QuestionPreparer {
-  /** The main method that transforms the given csv into a tuple of questions and answers in the form of javascript objects */
-  static prepare(csv: string): [Question[], any[]] {
-    // todo check errors from papa
-    const parsed &#x3D; papaparse(csv, {skipEmptyLines: true});
-    const errors &#x3D; parsed.errors;
-    if (errors.length) {
-      console.log(errors);
+/** Contains static methods relating to authenticating users */
+export class Authorization {
+  /** Checks that the token given is valid. Used by other middleware in order to get decoded information from the token */
+  private static checkToken(req: Request, res: Response, next: NextFunction) {
+    const token &#x3D; req.headers.authorization as string;
+    if (token) {
+      jwtVerify(token, secret, (err: VerifyErrors, decoded: any) &#x3D;&gt; { // adding type would break decoded.type
+        if (err) {
+          return res.json(&#x27;invalid token&#x27;);
+        } else {
+          req.headers.authorization &#x3D; decoded.type;
+          next();
+        }
+      });
+    } else {
+      res.set(403).json(&#x27;403 Forbidden&#x27;);
     }
-    const rows &#x3D; parsed.data
-      .slice(1); // remove header
-    const indices &#x3D; Array.from(Array(rows.length).keys()); // creates list of rows.length numbers 0 to rows.length
-    this.shuffle(indices);
-    const questions &#x3D; Array();
-    const answers &#x3D; Array();
-    indices.forEach(index &#x3D;&gt; {
-      const [question, answer] &#x3D; this.processRow(rows[index]);
-      questions.push(question);
-      answers.push(answer);
+  }
+
+  /** A middleware function used to authenticate admins before they are allowed to access endpoints in this file */
+  public static admin(req: Request, res: Response, next: NextFunction) {
+    Authorization.checkToken(req, res, () &#x3D;&gt; {
+      if (req.headers.authorization &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
+        next();
+      } else {
+        res.set(403).json(&#x27;403 Forbidden&#x27;);
+      }
     });
-    return [questions, answers];
   }
 
-  /** A helper method that randomly shuffles the given array */
-  private static shuffle(array: any[]) {
-    for ( let i &#x3D; array.length - 1; i &gt; 0; i--) {
-      const j &#x3D; Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] &#x3D; [array[j], array[i]];
-    }
-  }
-
-  /** A helper method that processes the given row into a question, answer tuple. */
-  private static processRow(row: string[]): [Question, any] {
-    const correctAnswer &#x3D; row[3 + row[8].charCodeAt(0) - 65]; // assigns the string corresponding to the correct answer
-    const indices &#x3D; [3, 4, 5, 6, 7];
-    this.shuffle(indices);
-    // create questions as TS object
-    return [ new Question(row[1], row[2], indices.map(index &#x3D;&gt; row[index])),
-      { correctAnswer }];
+  /** A middleware function used to authenticate users before they are allowed to access endpoints in this file */
+  public static user(req: Request, res: Response, next: NextFunction) {
+    Authorization.checkToken(req, res, () &#x3D;&gt; {
+      if (req.headers.authorization &#x3D;&#x3D;&#x3D; &#x27;user&#x27; || req.headers.authorization &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
+        next();
+      } else {
+        res.set(403).json(&#x27;403 Forbidden&#x27;);
+      }
+    });
   }
 }
 </code></pre>
@@ -413,7 +496,7 @@ export class QuestionPreparer {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'QuestionPreparer.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'Authorization.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

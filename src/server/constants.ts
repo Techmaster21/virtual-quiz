@@ -4,7 +4,7 @@ import { join } from 'path';
  * The start of the competition. Pulls from environment variable or compares against the start of unix time (in CST and
  * mostly for fun)
  */
-export const start = process.env.START_DATE  || '12/31/1969 7pm' || '12/12/2020 8pm';
+export const start = process.env.START_DATE || '12/31/1969 7pm' || '12/12/2020 8pm';
 
 // __dirname is the path to the directory in which this file is located.
 /** The absolute path to the client */

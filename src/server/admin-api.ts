@@ -1,36 +1,26 @@
-import { NextFunction, Request, Response, Router } from 'express';
-import { URI } from './uri';
-import { setAnswers, setQuestions } from './api';
+import { Request, Response, Router } from 'express';
+
+import { URI } from '../shared/uri';
 import { QuestionPreparer } from './question-preparer';
-import { checkToken, database } from './server';
+import { database, questionStore } from './server';
+import { Authorization } from './authorization';
 
 /** The admin-api router */
 export const router: Router = Router();
 
-/** A middleware function used to authenticate admins before they are allowed to access endpoints in this file */
-function adminAuthorization(req: Request, res: Response, next: NextFunction) {
-  checkToken(req, res, () => {
-    if (req.headers.authorization === 'admin') {
-      next();
-    } else {
-      res.set(403).json('403 Forbidden');
-    }
-  });
-}
-
-router.post(URI.QUESTIONS.SAVE, adminAuthorization, async (req: Request, res: Response) => {
+router.post(URI.QUESTIONS.SAVE, Authorization.admin, async (req: Request, res: Response) => {
   try {
     // todo return some console output
-    const [givenQuestions, givenAnswers] = QuestionPreparer.prepare(req.body);
+    const [questions, answers] = QuestionPreparer.prepare(req.body);
     let collection = database.collection('questions');
     // todo handle errors better
     await collection.findOneAndDelete({});
-    await collection.insertOne({ questions: givenQuestions });
+    await collection.insertOne({ questions });
     collection = database.collection('answers');
     await collection.findOneAndDelete({});
-    await collection.insertOne({ answers: givenAnswers });
-    setQuestions(givenQuestions);
-    setAnswers(givenAnswers);
+    await collection.insertOne({ answers });
+    questionStore.questions = Promise.resolve(questions);
+    questionStore.answers = Promise.resolve(answers);
     res.end();
   } catch (err) {
     console.log(`An error occurred while saving or parsing questions.csv: ${err.message}`);

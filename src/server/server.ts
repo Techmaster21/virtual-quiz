@@ -1,13 +1,13 @@
 import * as express from 'express';
 import { json as bodyParserJSON, text as bodyParserText } from 'body-parser';
-import { verify as jwtVerify, VerifyErrors } from 'jsonwebtoken';
-import { Application, NextFunction, Request, Response } from 'express';
+import { Application } from 'express';
 import { Db, MongoClient, MongoError } from 'mongodb';
 
-import { clientPath, dbURL, secret } from './constants';
+import { clientPath, dbURL } from './constants';
 import { router as apiRoutes } from './api';
 import { router as userRoutes } from './user-api';
 import { router as adminRoutes } from './admin-api';
+import { QuestionStore } from './question-store';
 
 // todo comment out before commit
 // const requestStats = require('request-stats');
@@ -31,6 +31,8 @@ const app: Application = express()
 
 /** A reference to the Mongo database */
 export let database: Db;
+/** A reference to the question store */
+export const questionStore = new QuestionStore();
 
 MongoClient.connect(dbURL, { useNewUrlParser: true }, (err: MongoError, client: MongoClient) => {
   if (err) {
