@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { TimeService } from '../../services/time.service';
 import { TeamService } from '../../services/team.service';
 import { Team } from '../../models/team';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 /** Page on which users sign up and initiate game play */
 @Component({
@@ -12,6 +13,11 @@ import { Team } from '../../models/team';
   styleUrls: ['signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  /** The signup form that contains the school name and team number */
+  signupForm = new FormGroup({
+    schoolName: new FormControl('', Validators.required),
+    teamNumber: new FormControl('', Validators.required)
+  });
   /** Whether or not users are allowed to register */
   registrationAllowed = false;
   /** The Team object which contains identifying information about the user */
@@ -49,6 +55,8 @@ export class SignupComponent implements OnInit {
 
   /** Called on submission of the form */
   onSubmit() {
+    this.team.schoolName = this.signupForm.value.schoolName;
+    this.team.teamNumber = this.signupForm.value.teamNumber;
     this.teamService.getTeamFromServer(this.team).subscribe(
       team => {
         if (team._id == null) {

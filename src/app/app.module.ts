@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -30,10 +30,10 @@ import { AdminComponent } from './pages/admin/admin.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

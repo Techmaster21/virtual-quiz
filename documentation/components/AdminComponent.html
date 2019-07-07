@@ -131,13 +131,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#autosize">autosize</a>
-                            </li>
-                            <li>
                                 <a href="#consoleOutput">consoleOutput</a>
                             </li>
                             <li>
-                                <a href="#password">password</a>
+                                <a href="#loginForm">loginForm</a>
                             </li>
                         </ul>
                     </td>
@@ -265,8 +262,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/app/pages/admin/admin.component.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/pages/admin/admin.component.ts:43</a></div>
                 </td>
             </tr>
 
@@ -333,8 +330,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/pages/admin/admin.component.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/pages/admin/admin.component.ts:29</a></div>
                 </td>
             </tr>
 
@@ -358,48 +355,6 @@
         <h3 id="inputs">
             Properties
         </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="autosize"></a>
-                        <span class="name">
-                            <b>
-                            autosize</b>
-                            <a href="#autosize"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>CdkTextareaAutosize</code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @ViewChild(&#x27;autosize&#x27;, {static: false})<br />
-                            </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/admin/admin.component.ts:19</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Some weird auto-sizing stuff </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -442,29 +397,30 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="password"></a>
+                        <a name="loginForm"></a>
                         <span class="name">
                             <b>
-                            password</b>
-                            <a href="#password"><span class="icon ion-ios-link"></span></a>
+                            loginForm</b>
+                            <a href="#loginForm"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
+                            <i>Default value : </i><code>new FormGroup({
+    password: new FormControl(&#x27;&#x27;)
+  })</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/admin/admin.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/admin/admin.component.ts:24</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>the password that the user has entered </p>
+                        <div class="io-description"><p>The login form containing the password </p>
 </div>
                     </td>
                 </tr>
@@ -493,7 +449,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/admin/admin.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/admin/admin.component.ts:19</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -511,9 +467,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
 import { AdminService } from &#x27;../../services/admin.service&#x27;;
-import { CdkTextareaAutosize } from &#x27;@angular/cdk/text-field&#x27;;
+import { FormControl, FormGroup } from &#x27;@angular/forms&#x27;;
 
 /** Page concerned with admin functionality */
 @Component({
@@ -528,20 +484,19 @@ export class AdminComponent {
   /** Admin component constructor */
   constructor(private adminService: AdminService) { }
 
-  /** Some weird auto-sizing stuff */
-  @ViewChild(&#x27;autosize&#x27;, { static: false }) autosize: CdkTextareaAutosize;
-
   /** Returns the admin service. Used by html to avoid violating private access */
   get admin() {
     return this.adminService;
   }
 
-  /** the password that the user has entered */
-  password: string;
+  /** The login form containing the password */
+  loginForm &#x3D; new FormGroup({
+    password: new FormControl(&#x27;&#x27;)
+  });
 
   /** Called when the user attempts to log in */
   onSubmit() {
-    this.adminService.login(this.password).subscribe( token &#x3D;&gt; {
+    this.adminService.login(this.loginForm.value.password).subscribe( token &#x3D;&gt; {
       if (token !&#x3D;&#x3D; &#x27;err&#x27;) {
         this.adminService.setToken(token);
       } else {
@@ -573,7 +528,7 @@ export class AdminComponent {
     &lt;div&gt;
       &lt;label for&#x3D;&quot;fileUpload&quot;&gt;Upload the csv file containing the questions&lt;/label&gt;
       &lt;div&gt;
-        &lt;button type&#x3D;&quot;button&quot; id&#x3D;&quot;fileUpload&quot; mat-raised-button color&#x3D;&quot;accent&quot; (click)&#x3D;&quot;fileInput.click()&quot;&gt;
+        &lt;button mat-raised-button type&#x3D;&quot;button&quot; id&#x3D;&quot;fileUpload&quot; color&#x3D;&quot;accent&quot; (click)&#x3D;&quot;fileInput.click()&quot;&gt;
           Choose File
         &lt;/button&gt;
         &lt;input #fileInput
@@ -587,23 +542,19 @@ export class AdminComponent {
   &lt;/mat-card&gt;
   &lt;mat-card&gt;
     &lt;div&gt;
-      &lt;textarea cdkTextareaAutosize
-                #autosize&#x3D;&quot;cdkTextareaAutosize&quot;
-                cdkAutosizeMinRows&#x3D;&quot;3&quot;
-                cdkAutosizeMaxRows&#x3D;&quot;3&quot;
-                readonly&gt;{{consoleOutput}}&lt;/textarea&gt;
+      &lt;textarea rows&#x3D;&quot;10&quot; readonly&gt;{{consoleOutput}}&lt;/textarea&gt;
     &lt;/div&gt;
     &lt;button mat-raised-button color&#x3D;&quot;accent&quot; (click)&#x3D;&quot;consoleOutput &#x3D; &#x27;&#x27;&quot;&gt;Clear Output&lt;/button&gt;
   &lt;/mat-card&gt;
 &lt;/div&gt;
 &lt;div *ngIf&#x3D;&quot;!admin.loggedIn()&quot;&gt;
   &lt;mat-card&gt;
-    &lt;form (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
+    &lt;form [formGroup]&#x3D;&quot;loginForm&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
       &lt;mat-form-field&gt;
-        &lt;input matInput type&#x3D;&quot;text&quot; id&#x3D;&quot;password&quot; required
-        [(ngModel)]&#x3D;&quot;password&quot; name&#x3D;&quot;password&quot; placeholder&#x3D;&quot;Password&quot;&gt;
+        &lt;input matInput type&#x3D;&quot;password&quot; id&#x3D;&quot;password&quot; required
+        formControlName&#x3D;&quot;password&quot; name&#x3D;&quot;password&quot; placeholder&#x3D;&quot;Password&quot;&gt;
       &lt;/mat-form-field&gt;
-      &lt;button color&#x3D;&quot;accent&quot; mat-raised-button type&#x3D;&quot;submit&quot;&gt;Login&lt;/button&gt;
+      &lt;button mat-raised-button color&#x3D;&quot;accent&quot; type&#x3D;&quot;submit&quot;&gt;Login&lt;/button&gt;
     &lt;/form&gt;
   &lt;/mat-card&gt;
 &lt;/div&gt;
@@ -653,7 +604,7 @@ textarea {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div *ngIf="admin.loggedIn()">  <mat-card>    <div>      <label for="fileUpload">Upload the csv file containing the questions</label>      <div>        <button type="button" id="fileUpload" mat-raised-button color="accent" (click)="fileInput.click()">          Choose File        </button>        <input #fileInput               hidden               type="file"               name="File Upload"               (change)="fileUpload($event)"               accept=".csv"/>      </div>    </div>  </mat-card>  <mat-card>    <div>      <textarea cdkTextareaAutosize                #autosize="cdkTextareaAutosize"                cdkAutosizeMinRows="3"                cdkAutosizeMaxRows="3"                readonly>{{consoleOutput}}</textarea>    </div>    <button mat-raised-button color="accent" (click)="consoleOutput = \'\'">Clear Output</button>  </mat-card></div><div *ngIf="!admin.loggedIn()">  <mat-card>    <form (ngSubmit)="onSubmit()">      <mat-form-field>        <input matInput type="text" id="password" required        [(ngModel)]="password" name="password" placeholder="Password">      </mat-form-field>      <button color="accent" mat-raised-button type="submit">Login</button>    </form>  </mat-card></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="admin.loggedIn()">  <mat-card>    <div>      <label for="fileUpload">Upload the csv file containing the questions</label>      <div>        <button mat-raised-button type="button" id="fileUpload" color="accent" (click)="fileInput.click()">          Choose File        </button>        <input #fileInput               hidden               type="file"               name="File Upload"               (change)="fileUpload($event)"               accept=".csv"/>      </div>    </div>  </mat-card>  <mat-card>    <div>      <textarea rows="10" readonly>{{consoleOutput}}</textarea>    </div>    <button mat-raised-button color="accent" (click)="consoleOutput = \'\'">Clear Output</button>  </mat-card></div><div *ngIf="!admin.loggedIn()">  <mat-card>    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">      <mat-form-field>        <input matInput type="password" id="password" required        formControlName="password" name="password" placeholder="Password">      </mat-form-field>      <button mat-raised-button color="accent" type="submit">Login</button>    </form>  </mat-card></div></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'GameComponent', 'selector': 'app-game'},{'name': 'GameOverComponent', 'selector': 'app-game-over'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TimerComponent', 'selector': 'app-timer'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AdminComponent'};

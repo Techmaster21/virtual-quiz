@@ -300,7 +300,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
 import { NgModule } from &#x27;@angular/core&#x27;;
 import { HttpClientModule } from &#x27;@angular/common/http&#x27;;
-import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
 import { BrowserAnimationsModule } from &#x27;@angular/platform-browser/animations&#x27;;
 
 
@@ -329,11 +329,11 @@ import { AdminComponent } from &#x27;./pages/admin/admin.component&#x27;;
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
 </code></pre>

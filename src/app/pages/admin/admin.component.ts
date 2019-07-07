@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { AdminService } from '../../services/admin.service';
-import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+import { FormControl, FormGroup } from '@angular/forms';
 
 /** Page concerned with admin functionality */
 @Component({
@@ -15,20 +15,19 @@ export class AdminComponent {
   /** Admin component constructor */
   constructor(private adminService: AdminService) { }
 
-  /** Some weird auto-sizing stuff */
-  @ViewChild('autosize', { static: false }) autosize: CdkTextareaAutosize;
-
   /** Returns the admin service. Used by html to avoid violating private access */
   get admin() {
     return this.adminService;
   }
 
-  /** the password that the user has entered */
-  password: string;
+  /** The login form containing the password */
+  loginForm = new FormGroup({
+    password: new FormControl('')
+  });
 
   /** Called when the user attempts to log in */
   onSubmit() {
-    this.adminService.login(this.password).subscribe( token => {
+    this.adminService.login(this.loginForm.value.password).subscribe( token => {
       if (token !== 'err') {
         this.adminService.setToken(token);
       } else {

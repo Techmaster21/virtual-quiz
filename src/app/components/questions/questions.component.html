@@ -9,7 +9,7 @@
             (click)="onClick(i)"
             [style.pointerEvents]="state[i] != 'inactive' ? 'none' : ''"
             [@answerState]="state[i]">
-      {{answer}} <span *ngIf="state[i] == 'correct'">+{{pointsGained}}</span>
+      {{answer}} <span *ngIf="state[i] === 'correct'">+{{pointsGained}}</span>
     </button>
   </div>
 </div>

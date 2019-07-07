@@ -734,7 +734,7 @@ export class QuestionsComponent implements OnChanges {
             (click)&#x3D;&quot;onClick(i)&quot;
             [style.pointerEvents]&#x3D;&quot;state[i] !&#x3D; &#x27;inactive&#x27; ? &#x27;none&#x27; : &#x27;&#x27;&quot;
             [@answerState]&#x3D;&quot;state[i]&quot;&gt;
-      {{answer}} &lt;span *ngIf&#x3D;&quot;state[i] &#x3D;&#x3D; &#x27;correct&#x27;&quot;&gt;+{{pointsGained}}&lt;/span&gt;
+      {{answer}} &lt;span *ngIf&#x3D;&quot;state[i] &#x3D;&#x3D;&#x3D; &#x27;correct&#x27;&quot;&gt;+{{pointsGained}}&lt;/span&gt;
     &lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -780,7 +780,7 @@ button:hover {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div *ngIf="currentQuestion">  Category: {{currentQuestion.category}}  <mat-card>    <h5>{{currentQuestion.question}}</h5>  </mat-card>  <div>    <button mat-raised-button            *ngFor="let answer of currentQuestion.answers; let i = index"            (click)="onClick(i)"            [style.pointerEvents]="state[i] != \'inactive\' ? \'none\' : \'\'"            [@answerState]="state[i]">      {{answer}} <span *ngIf="state[i] == \'correct\'">+{{pointsGained}}</span>    </button>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="currentQuestion">  Category: {{currentQuestion.category}}  <mat-card>    <h5>{{currentQuestion.question}}</h5>  </mat-card>  <div>    <button mat-raised-button            *ngFor="let answer of currentQuestion.answers; let i = index"            (click)="onClick(i)"            [style.pointerEvents]="state[i] != \'inactive\' ? \'none\' : \'\'"            [@answerState]="state[i]">      {{answer}} <span *ngIf="state[i] === \'correct\'">+{{pointsGained}}</span>    </button>  </div></div></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'GameComponent', 'selector': 'app-game'},{'name': 'GameOverComponent', 'selector': 'app-game-over'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TimerComponent', 'selector': 'app-timer'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'QuestionsComponent'};

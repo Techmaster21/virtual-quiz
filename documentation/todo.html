@@ -66,9 +66,6 @@
 <p>TODO finish converting server side to typescript
     Add types
     maybe make async? Look at https://developer.okta.com/blog/2018/10/30/basic-crud-angular-and-node or possibly newer examples</p>
-<p>todo may want to look into using webpack to package backend into a single file (be sure to minify). Last time tried though
-  there was an issue with the code not using the proper directory to look for things (specifically the practice questions)
-  this may not be an issue now that you have eliminated file io in favor of database transactions</p>
 <p>todo could make one command to do it all: pipe output away to focus on errors (syntax works on DOS)</p>
 <p>todo look into morgan for logging on server side</p>
 <p>todo inform people not to sign up until ready to play (and include faq in admin to say this too and how to fix it) (tokens
@@ -76,7 +73,6 @@
 todo in order for the routes&#39; middleware to be separate, the namespaces have to be separate: https://expressjs.com/en/4x/api.html#router
    fixed by instead providing middleware that authorizes user to every endpoint that requires it. May be a better solution</p>
 <p>todo encryption for admin password -- also need to use https</p>
-<p>todo it appears that formBuilders are now the standard way to do forms in angular. Might be worth converting.</p>
 <p>todo observable based timer component? Or just look at timer component to see if good practices
  -- look at timers built in angular</p>
 <p>todo exponential backoff for api requests perhaps? https://angular.io/guide/practical-observable-usage#exponential-backoff</p>
@@ -92,14 +88,11 @@ todo in order for the routes&#39; middleware to be separate, the namespaces have
 <p>todo I feel like question component has to know a little too much from game component -&gt; maybe it shouldn&#39;t be separate,
   or it should somehow reduce its dependency on game component</p>
 <p>todo could generate own ID for teams based on name + number</p>
-<p>todo consider making the server&#39;s (api.ts) questions, answers, practice questions, and related functions part of their own
- class
- in general - consider &quot;classifying&quot; the server side functions and variables to make compodoc documentation of them more sensible.</p>
 <p>todo It is still set to target es6 (since it wont work otherwise), it may be a good idea to transpile it, though it also
   might not be necessary since it is the backend</p>
-<p>todo check readme and update before commit
-todo app (animations in particular) is sluggish on safari compared to chrome
+<p>todo app (animations in particular) is sluggish on safari compared to chrome
 todo store token so user doesnt have to perfectly spell name again?
+todo should test build on windows
 Info about backend-apps with webpack:
 https://jlongster.com/Backend-Apps-with-Webpack--Part-I</p>
 

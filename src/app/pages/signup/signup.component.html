@@ -37,25 +37,25 @@
 </mat-expansion-panel>
 <mat-card *ngIf="registrationAllowed">
       <h2>Signup</h2>
-      <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
           <input matInput type="text" id="name" [disabled]="submitted"
-                 required
-                 [(ngModel)]="team.schoolName" name="name" placeholder="School Name">
+                 formControlName="schoolName"
+                 name="name" placeholder="School Name" required>
         </mat-form-field>
         <mat-form-field>
           <input matInput type="number" id="team" [disabled]="submitted"
-                 required
-                 [(ngModel)]="team.teamNumber" name="team" placeholder="Team Number">
+                 formControlName="teamNumber"
+                 name="team" placeholder="Team Number" required>
         </mat-form-field>
         <div [hidden]="!teamExists">
           <p>School name and team already registered</p>
         </div>
-        <button color="accent" mat-raised-button type="submit"
-                [disabled]="!signupForm.form.valid || submitted">Submit</button>
+        <button mat-raised-button color="accent" type="submit"
+                [disabled]="!signupForm.valid || submitted">Submit</button>
       </form>
       <div [hidden]="!submitted">
-        <button color="accent" mat-raised-button (click)="onClick()">Start Game</button>
+        <button mat-raised-button color="accent" (click)="onClick()">Start Game</button>
       </div>
 </mat-card>
 <mat-card *ngIf="!registrationAllowed">
@@ -63,5 +63,5 @@
   <p>
     Sorry, Registration is not available at this time, however, feel free to play a practice set
   </p>
-  <button color="accent" mat-raised-button (click)="onClickPractice()">Play practice set</button>
+  <button mat-raised-button color="accent" (click)="onClickPractice()">Play practice set</button>
 </mat-card>

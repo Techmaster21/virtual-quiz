@@ -59,10 +59,6 @@ TODO finish converting server side to typescript
     Add types
     maybe make async? Look at https://developer.okta.com/blog/2018/10/30/basic-crud-angular-and-node or possibly newer examples
 
-todo may want to look into using webpack to package backend into a single file (be sure to minify). Last time tried though
-  there was an issue with the code not using the proper directory to look for things (specifically the practice questions)
-  this may not be an issue now that you have eliminated file io in favor of database transactions
-
 todo could make one command to do it all: pipe output away to focus on errors (syntax works on DOS)
 
 todo look into morgan for logging on server side
@@ -73,8 +69,6 @@ todo in order for the routes' middleware to be separate, the namespaces have to 
    fixed by instead providing middleware that authorizes user to every endpoint that requires it. May be a better solution
 
 todo encryption for admin password -- also need to use https
-
-todo it appears that formBuilders are now the standard way to do forms in angular. Might be worth converting.
 
 todo observable based timer component? Or just look at timer component to see if good practices
  -- look at timers built in angular
