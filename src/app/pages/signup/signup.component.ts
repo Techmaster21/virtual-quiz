@@ -55,12 +55,16 @@ export class SignupComponent implements OnInit {
 
   /** Called on submission of the form */
   onSubmit() {
-    this.team.schoolName = this.signupForm.value.schoolName;
-    this.team.teamNumber = this.signupForm.value.teamNumber;
+    const schoolNameControl = this.signupForm.get('schoolName');
+    const teamNumberControl = this.signupForm.get('teamNumber');
+    this.team.schoolName = schoolNameControl.value;
+    this.team.teamNumber = teamNumberControl.value;
     this.teamService.getTeamFromServer(this.team).subscribe(
       team => {
         if (team._id == null) {
           this.submitted = true;
+          schoolNameControl.disable();
+          teamNumberControl.disable();
           this.teamService.save(this.team).subscribe(
             newTeam => {
               this.team = newTeam;
@@ -71,6 +75,8 @@ export class SignupComponent implements OnInit {
           this.submitted = false;
         } else {
           this.submitted = true;
+          schoolNameControl.disable();
+          teamNumberControl.disable();
           this.team = team;
           this.teamService.setTeam(this.team);
         }

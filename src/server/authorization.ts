@@ -17,7 +17,7 @@ export class Authorization {
         }
       });
     } else {
-      res.set(403).json('403 Forbidden');
+      res.status(403).json('403 Forbidden');
     }
   }
 
@@ -27,7 +27,7 @@ export class Authorization {
       if (req.headers.authorization === 'admin') {
         next();
       } else {
-        res.set(403).json('403 Forbidden');
+        res.status(403).json('403 Forbidden');
       }
     });
   }
@@ -38,7 +38,7 @@ export class Authorization {
       if (req.headers.authorization === 'user' || req.headers.authorization === 'admin') {
         next();
       } else {
-        res.set(403).json('403 Forbidden');
+        res.status(403).json('403 Forbidden');
       }
     });
   }

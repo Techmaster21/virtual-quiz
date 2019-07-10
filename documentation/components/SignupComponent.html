@@ -673,12 +673,16 @@ export class SignupComponent implements OnInit {
 
   /** Called on submission of the form */
   onSubmit() {
-    this.team.schoolName &#x3D; this.signupForm.value.schoolName;
-    this.team.teamNumber &#x3D; this.signupForm.value.teamNumber;
+    const schoolNameControl &#x3D; this.signupForm.get(&#x27;schoolName&#x27;);
+    const teamNumberControl &#x3D; this.signupForm.get(&#x27;teamNumber&#x27;);
+    this.team.schoolName &#x3D; schoolNameControl.value;
+    this.team.teamNumber &#x3D; teamNumberControl.value;
     this.teamService.getTeamFromServer(this.team).subscribe(
       team &#x3D;&gt; {
         if (team._id &#x3D;&#x3D; null) {
           this.submitted &#x3D; true;
+          schoolNameControl.disable();
+          teamNumberControl.disable();
           this.teamService.save(this.team).subscribe(
             newTeam &#x3D;&gt; {
               this.team &#x3D; newTeam;
@@ -689,6 +693,8 @@ export class SignupComponent implements OnInit {
           this.submitted &#x3D; false;
         } else {
           this.submitted &#x3D; true;
+          schoolNameControl.disable();
+          teamNumberControl.disable();
           this.team &#x3D; team;
           this.teamService.setTeam(this.team);
         }
@@ -741,12 +747,12 @@ export class SignupComponent implements OnInit {
       &lt;h2&gt;Signup&lt;/h2&gt;
       &lt;form [formGroup]&#x3D;&quot;signupForm&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
         &lt;mat-form-field&gt;
-          &lt;input matInput type&#x3D;&quot;text&quot; id&#x3D;&quot;name&quot; [disabled]&#x3D;&quot;submitted&quot;
+          &lt;input matInput type&#x3D;&quot;text&quot; id&#x3D;&quot;name&quot;
                  formControlName&#x3D;&quot;schoolName&quot;
                  name&#x3D;&quot;name&quot; placeholder&#x3D;&quot;School Name&quot; required&gt;
         &lt;/mat-form-field&gt;
         &lt;mat-form-field&gt;
-          &lt;input matInput type&#x3D;&quot;number&quot; id&#x3D;&quot;team&quot; [disabled]&#x3D;&quot;submitted&quot;
+          &lt;input matInput type&#x3D;&quot;number&quot; id&#x3D;&quot;team&quot;
                  formControlName&#x3D;&quot;teamNumber&quot;
                  name&#x3D;&quot;team&quot; placeholder&#x3D;&quot;Team Number&quot; required&gt;
         &lt;/mat-form-field&gt;
@@ -802,7 +808,7 @@ export class SignupComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-expansion-panel>  <mat-expansion-panel-header>    <mat-panel-title>      Instructions    </mat-panel-title>  </mat-expansion-panel-header>  <mat-expansion-panel>    <mat-expansion-panel-header>      <mat-panel-title >        Game Instructions      </mat-panel-title>    </mat-expansion-panel-header>    <p>The game will consist of 200 questions. Each question has a time limit of 60 seconds for the first guess, and if    that guess isn\'t correct, another 60 seconds for the second. Guesses are scored based on how long it takes the team to    answer them and whether or not this is their first guess:    </p>    <ul>      <li>Under 8 seconds: 4 points</li>      <li>Between 8 and 15 seconds: 3 points</li>      <li>Over 15 seconds: 2 points</li>      <li>On a second guess: 1 point</li>    </ul>    <p>There will also be a break of 5 minutes once roughly a third of the questions have been completed.      And then another after the next third. Teams can choose to end this break early if they wish to keep playing.</p>  </mat-expansion-panel>  <mat-expansion-panel>    <mat-expansion-panel-header>      <mat-panel-title >        Signup Instructions      </mat-panel-title>    </mat-expansion-panel-header>    <p>Signup is simple. Once you have registered to play and sent in your payment, you are essentially done! You don\'t    need to do anything else until the time of the competition. At the time of the competition, simply have each of your    teams enter in the name of their school, and a unique number to that team. For example, if you have two teams competing,    you might have one team enter 1 as their number, and the other team enter 2.</p>  </mat-expansion-panel></mat-expansion-panel><mat-card *ngIf="registrationAllowed">      <h2>Signup</h2>      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">        <mat-form-field>          <input matInput type="text" id="name" [disabled]="submitted"                 formControlName="schoolName"                 name="name" placeholder="School Name" required>        </mat-form-field>        <mat-form-field>          <input matInput type="number" id="team" [disabled]="submitted"                 formControlName="teamNumber"                 name="team" placeholder="Team Number" required>        </mat-form-field>        <div [hidden]="!teamExists">          <p>School name and team already registered</p>        </div>        <button mat-raised-button color="accent" type="submit"                [disabled]="!signupForm.valid || submitted">Submit</button>      </form>      <div [hidden]="!submitted">        <button mat-raised-button color="accent" (click)="onClick()">Start Game</button>      </div></mat-card><mat-card *ngIf="!registrationAllowed">  <h2>Signup</h2>  <p>    Sorry, Registration is not available at this time, however, feel free to play a practice set  </p>  <button mat-raised-button color="accent" (click)="onClickPractice()">Play practice set</button></mat-card></div>'
+        var COMPONENT_TEMPLATE = '<div><mat-expansion-panel>  <mat-expansion-panel-header>    <mat-panel-title>      Instructions    </mat-panel-title>  </mat-expansion-panel-header>  <mat-expansion-panel>    <mat-expansion-panel-header>      <mat-panel-title >        Game Instructions      </mat-panel-title>    </mat-expansion-panel-header>    <p>The game will consist of 200 questions. Each question has a time limit of 60 seconds for the first guess, and if    that guess isn\'t correct, another 60 seconds for the second. Guesses are scored based on how long it takes the team to    answer them and whether or not this is their first guess:    </p>    <ul>      <li>Under 8 seconds: 4 points</li>      <li>Between 8 and 15 seconds: 3 points</li>      <li>Over 15 seconds: 2 points</li>      <li>On a second guess: 1 point</li>    </ul>    <p>There will also be a break of 5 minutes once roughly a third of the questions have been completed.      And then another after the next third. Teams can choose to end this break early if they wish to keep playing.</p>  </mat-expansion-panel>  <mat-expansion-panel>    <mat-expansion-panel-header>      <mat-panel-title >        Signup Instructions      </mat-panel-title>    </mat-expansion-panel-header>    <p>Signup is simple. Once you have registered to play and sent in your payment, you are essentially done! You don\'t    need to do anything else until the time of the competition. At the time of the competition, simply have each of your    teams enter in the name of their school, and a unique number to that team. For example, if you have two teams competing,    you might have one team enter 1 as their number, and the other team enter 2.</p>  </mat-expansion-panel></mat-expansion-panel><mat-card *ngIf="registrationAllowed">      <h2>Signup</h2>      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">        <mat-form-field>          <input matInput type="text" id="name"                 formControlName="schoolName"                 name="name" placeholder="School Name" required>        </mat-form-field>        <mat-form-field>          <input matInput type="number" id="team"                 formControlName="teamNumber"                 name="team" placeholder="Team Number" required>        </mat-form-field>        <div [hidden]="!teamExists">          <p>School name and team already registered</p>        </div>        <button mat-raised-button color="accent" type="submit"                [disabled]="!signupForm.valid || submitted">Submit</button>      </form>      <div [hidden]="!submitted">        <button mat-raised-button color="accent" (click)="onClick()">Start Game</button>      </div></mat-card><mat-card *ngIf="!registrationAllowed">  <h2>Signup</h2>  <p>    Sorry, Registration is not available at this time, however, feel free to play a practice set  </p>  <button mat-raised-button color="accent" (click)="onClickPractice()">Play practice set</button></mat-card></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'GameComponent', 'selector': 'app-game'},{'name': 'GameOverComponent', 'selector': 'app-game-over'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TimerComponent', 'selector': 'app-timer'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SignupComponent'};

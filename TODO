@@ -102,5 +102,9 @@ todo It is still set to target es6 (since it wont work otherwise), it may be a g
 todo app (animations in particular) is sluggish on safari compared to chrome
 todo store token so user doesnt have to perfectly spell name again?
 todo should test build on windows
+todo not every team has a non null time ended - why?
+
+todo can you move mongodb-memory-server to dev-dependencies? If not, how can you make it so you can?
+todo for stats
 Info about backend-apps with webpack:
 https://jlongster.com/Backend-Apps-with-Webpack--Part-I

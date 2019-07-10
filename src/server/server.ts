@@ -1,18 +1,15 @@
 import * as express from 'express';
 import { json as bodyParserJSON, text as bodyParserText } from 'body-parser';
 import { Application } from 'express';
-import { Db, MongoClient, MongoError } from 'mongodb';
+import { Db, MongoClient } from 'mongodb';
+import { MongoMemoryServer } from 'mongodb-memory-server';
 
-import { clientPath, dbURL } from './constants';
+import { clientPath, dbPassword, dbUser } from './constants';
 import { router as apiRoutes } from './api';
 import { router as userRoutes } from './user-api';
 import { router as adminRoutes } from './admin-api';
 import { QuestionStore } from './question-store';
-
-// todo comment out before commit
-// const requestStats = require('request-stats');
-// const reqbytes = [];
-// const resbytes = [];
+import { practiceQuestions } from './practiceQuestions';
 
 /** The Express server */
 const app: Application = express()
@@ -33,34 +30,34 @@ const app: Application = express()
 export let database: Db;
 /** A reference to the question store */
 export const questionStore = new QuestionStore();
+/** Database URL */
+let dbURL: string;
 
-MongoClient.connect(dbURL, { useNewUrlParser: true }, (err: MongoError, client: MongoClient) => {
-  if (err) {
-    console.log('Failed to connect to server: ' + err);
-    return;
+/** Sets dbURL based on whether we are using the production database or a local development version */
+async function setDbURL() {
+  if (!dbUser || !dbPassword) {
+    const mongod = new MongoMemoryServer();
+    dbURL = await mongod.getUri();
+  } else {
+    dbURL = `mongodb://${dbUser}:${dbPassword}@ds253918.mlab.com:53918/${dbUser}`;
   }
-  console.log('Connected successfully to server');
-  database = client.db('heroku_whlj8cct'); // if db changes, this will need to change
+}
 
-  // Starts express server
-  const port: number = +process.env.PORT || 8080;
-  const server = app.listen(port, () => {
-    console.log('Virtual Quiz app listening on port ' + port);
-  });
-  // todo comment out before commit
-  // let count = 0;
-  // requestStats(server, stats => {
-  //   count += 1;
-  //   // this function will be called every time a request to the server completes
-  //   if (count > 10) {
-  //     reqbytes.push(stats.req.bytes);
-  //     if (stats.res.bytes < 10000) {
-  //       resbytes.push(stats.res.bytes);
-  //     }
-  //     console.log('average req bytes: ' + reqbytes.reduce((prev, current) => prev + current) / reqbytes.length);
-  //     console.log('average res bytes: ' + resbytes.reduce((prev, current) => prev + current) / resbytes.length);
-  //   }
-  // });
+setDbURL().then(async () => {
+  try {
+    database = (await MongoClient.connect(dbURL, {useNewUrlParser: true})).db();
+    if (!dbUser || !dbPassword) {
+      await database.collection('answers').insertOne({ answers: practiceQuestions });
+      await database.collection('questions').insertOne({ questions: practiceQuestions });
+      await database.collection('practiceQuestions').insertOne({ practiceQuestions });
+    }
+    // Starts express server
+    const port: number = +process.env.PORT || 8080;
+    app.listen(port, () => {
+      console.log(`Virtual Quiz app listening on port ${port}`);
+    });
+  } catch (err) {
+    console.log(`There was an error while starting the server: ${err}`);
+  }
 });
-
 

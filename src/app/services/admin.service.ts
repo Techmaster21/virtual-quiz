@@ -6,8 +6,9 @@ import {
   HttpRequest
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { handleError, httpOptionsText, URI } from '../constants';
+import { Team } from '../models/team';
 
 /** Provides functionality relevant to administrators */
 @Injectable({
@@ -21,7 +22,7 @@ export class AdminService {
   /** Whether this client is authorized to access the content on this page */
   private authorized = false;
   /** The token for the admin user */
-  private token: string;
+  private token = '';
 
   /** Whether or not the admin is logged in */
   loggedIn() {
@@ -42,6 +43,14 @@ export class AdminService {
   /** Logs the user in using the provided password */
   login(password: string): Observable<string> {
     return this.http.post<string>(URI.ADMIN.LOGIN, password, {... httpOptionsText, responseType: 'text' as 'json'}).pipe(
+      catchError(handleError)
+    );
+  }
+
+  /** Gets all of the teams from the server */
+  getTeams(): Observable<Team[]> {
+    const httpOptions = { headers: new HttpHeaders({ authorization: this.getToken() }) };
+    return this.http.get<Team[]>(URI.TEAM.GET_ALL, httpOptions).pipe(
       catchError(handleError)
     );
   }

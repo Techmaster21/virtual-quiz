@@ -41,7 +41,7 @@ router.get(URI.DATE.CAN_START, async (req: Request, res: Response) => {
     }
   } catch (err) {
     console.log(`An error occurred while getting questions/answers/practiceQuestions: ${err.message}`);
-    res.set(500).end();
+    res.status(500).end();
   }
 });
 
@@ -58,7 +58,7 @@ router.post(URI.TEAM.SAVE, async (req: Request, res: Response) => {
     res.json(result.ops[0]);
   } catch (err) {
     console.log(`An error occurred while updating a team: ${err.message}`);
-    res.set(500).end();
+    res.status(500).end();
   }
 });
 
@@ -77,7 +77,7 @@ router.put(URI.TEAM.SAVE, async (req: Request, res: Response) => {
     res.json(team);
   } catch (err) {
     console.log(`An error occurred while saving a team: ${err.message}`);
-    res.set(500).end();
+    res.status(500).end();
   }
 });
 
@@ -95,7 +95,7 @@ router.put(URI.TEAM.GET, async (req: Request, res: Response) => {
     }
   } catch (err) {
     console.log(`An error occurred while getting a team: ${err.message}`);
-    res.set(500).end();
+    res.status(500).end();
   }
 });
 
@@ -107,7 +107,7 @@ router.post(URI.ADMIN.LOGIN, (req: Request, res: Response) => {
     const token = jwtSign(payload, secret, options);
     res.send(token);
   } else {
-    res.set(403).end();
+    res.status(403).end();
   }
 });
 

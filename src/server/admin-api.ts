@@ -27,3 +27,18 @@ router.post(URI.QUESTIONS.SAVE, Authorization.admin, async (req: Request, res: R
     res.status(500).end();
   }
 });
+
+router.get(URI.TEAM.GET_ALL, Authorization.admin, async (req: Request, res: Response) => {
+  try {
+    const collection = database.collection('teams');
+    const results = await collection.find().toArray();
+    if (results === null) { // not sure if this is possible, or if in this case the promise would be rejected. Requires testing
+      res.json({});
+    } else {
+      res.json(results);
+    }
+  } catch (err) {
+    console.log(`An error occurred while getting the teams: ${err.message}`);
+    res.status(500).end();
+  }
+});

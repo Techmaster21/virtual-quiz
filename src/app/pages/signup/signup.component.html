@@ -39,12 +39,12 @@
       <h2>Signup</h2>
       <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
-          <input matInput type="text" id="name" [disabled]="submitted"
+          <input matInput type="text" id="name"
                  formControlName="schoolName"
                  name="name" placeholder="School Name" required>
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="number" id="team" [disabled]="submitted"
+          <input matInput type="number" id="team"
                  formControlName="teamNumber"
                  name="team" placeholder="Team Number" required>
         </mat-form-field>

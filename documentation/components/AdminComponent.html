@@ -134,6 +134,9 @@
                                 <a href="#consoleOutput">consoleOutput</a>
                             </li>
                             <li>
+                                <a href="#file">file</a>
+                            </li>
+                            <li>
                                 <a href="#loginForm">loginForm</a>
                             </li>
                         </ul>
@@ -150,6 +153,9 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#fileUpload">fileUpload</a>
+                            </li>
+                            <li>
+                                <a href="#getTeams">getTeams</a>
                             </li>
                             <li>
                                 <a href="#onSubmit">onSubmit</a>
@@ -186,12 +192,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(adminService: <a href="../injectables/AdminService.html">AdminService</a>)</code>
+<code>constructor(adminService: <a href="../injectables/AdminService.html">AdminService</a>, sanitizer: <a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank">DomSanitizer</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/pages/admin/admin.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/admin/admin.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -215,6 +221,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/AdminService.html" target="_self" >AdminService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sanitizer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank" >DomSanitizer</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -255,15 +273,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>fileUpload($event)</code>
+<code>fileUpload(file: HTMLInputElement)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/app/pages/admin/admin.component.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/app/pages/admin/admin.component.ts:69</a></div>
                 </td>
             </tr>
 
@@ -279,12 +297,88 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>$event</td>
+                                    <td>file</td>
+                                    <td>
+                                            <code>HTMLInputElement</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTeams"></a>
+                    <span class="name">
+                        <b>
+                            getTeams
+                        </b>
+                        <a href="#getTeams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTeams(link: HTMLAnchorElement)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/pages/admin/admin.component.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets the teams from the server, sorts them by points, and outputs in a nice csv format </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>link</td>
+                                    <td>
+                                            <code>HTMLAnchorElement</code>
+                                    </td>
 
                                     <td>
                                         No
@@ -330,8 +424,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/app/pages/admin/admin.component.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/pages/admin/admin.component.ts:32</a></div>
                 </td>
             </tr>
 
@@ -380,13 +474,40 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/pages/admin/admin.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/admin/admin.component.ts:16</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Output to show to the user </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="file"></a>
+                        <span class="name">
+                            <b>
+                            file</b>
+                            <a href="#file"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/admin/admin.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The link to the team CSV file </p>
 </div>
                     </td>
                 </tr>
@@ -414,7 +535,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/admin/admin.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/admin/admin.component.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -449,7 +570,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/admin/admin.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/admin/admin.component.ts:22</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -470,6 +591,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
 import { AdminService } from &#x27;../../services/admin.service&#x27;;
 import { FormControl, FormGroup } from &#x27;@angular/forms&#x27;;
+import { DomSanitizer } from &#x27;@angular/platform-browser&#x27;;
 
 /** Page concerned with admin functionality */
 @Component({
@@ -478,11 +600,13 @@ import { FormControl, FormGroup } from &#x27;@angular/forms&#x27;;
   styleUrls: [&#x27;./admin.component.css&#x27;]
 })
 export class AdminComponent {
+  /** The link to the team CSV file */
+  file;
   /** Output to show to the user */
   consoleOutput &#x3D; &#x27;&#x27;; // should be a class that with an add() method
 
   /** Admin component constructor */
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private sanitizer: DomSanitizer) { }
 
   /** Returns the admin service. Used by html to avoid violating private access */
   get admin() {
@@ -505,13 +629,35 @@ export class AdminComponent {
     });
   }
 
+  /** Gets the teams from the server, sorts them by points, and outputs in a nice csv format */
+  getTeams(link: HTMLAnchorElement) {
+    this.adminService.getTeams().subscribe(teams &#x3D;&gt; {
+      const data &#x3D; teams
+        .filter(team &#x3D;&gt; team.points) // remove teams with no points
+        .sort((a, b) &#x3D;&gt; a.points - b.points) // sort teams according to points in ascending order
+        .map(team &#x3D;&gt; &#x60;${team.schoolName},${team.teamNumber},${team.points}&#x60;) // map to strings
+        .concat([&#x27;School,Team Number,Points&#x27;]) // add header
+        .reverse() // change to descending order
+        .join(&#x27;\n&#x27;);
+      const blob &#x3D; new Blob([data], {type: &#x27;text/csv&#x27;});
+      const url &#x3D; window.URL.createObjectURL(blob);
+      this.file &#x3D; this.sanitizer.bypassSecurityTrustUrl(url);
+      // todo this would be funny if it weren&#x27;t so sad (i have no idea why this is needed but it fails with
+      //   &#x27;Failed - no file&#x27; on chrome on the first click if this isn&#x27;t here soooo)
+      // i thought it might have something to do with href not getting set fast enough but console.log doesn&#x27;t support
+      // this - works on safari just fine
+      // everything here should be synchronous so the file should exist by the time the link is clicked
+      // unless link isn&#x27;t actually a reference, but rather a copied value. console.log doesnt support this.
+      link.href &#x3D; url;
+      link.click();
+      window.URL.revokeObjectURL(url);
+    });
+
+  }
+
   /** Upload the questions to the server */
-  // todo rewrite as template reference variable as better practice
-  //  https://angular.io/guide/user-input#get-user-input-from-a-template-reference-variable
-  //   if possible (not sure that it is)
-  fileUpload($event): void {
-    const input &#x3D; $event.target;
-    this.adminService.uploadQuestions(input.files[0]).subscribe(
+  fileUpload(file: HTMLInputElement): void {
+    this.adminService.uploadQuestions(file.files[0]).subscribe(
       res &#x3D;&gt;  {
         this.consoleOutput +&#x3D; res + &#x27;\n&#x27;;
       }, err &#x3D;&gt; {
@@ -535,10 +681,14 @@ export class AdminComponent {
                hidden
                type&#x3D;&quot;file&quot;
                name&#x3D;&quot;File Upload&quot;
-               (change)&#x3D;&quot;fileUpload($event)&quot;
+               (change)&#x3D;&quot;fileUpload(fileInput)&quot;
                accept&#x3D;&quot;.csv&quot;/&gt;
       &lt;/div&gt;
     &lt;/div&gt;
+  &lt;/mat-card&gt;
+  &lt;mat-card&gt;
+    &lt;a #downloader [href]&#x3D;&quot;file&quot; hidden download&#x3D;&quot;teams.csv&quot;&gt;&lt;/a&gt;
+    &lt;button mat-raised-button type&#x3D;&quot;button&quot; color&#x3D;&quot;accent&quot; (click)&#x3D;&quot;getTeams(downloader)&quot;&gt; Get teams as CSV &lt;/button&gt;
   &lt;/mat-card&gt;
   &lt;mat-card&gt;
     &lt;div&gt;
@@ -604,7 +754,7 @@ textarea {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div *ngIf="admin.loggedIn()">  <mat-card>    <div>      <label for="fileUpload">Upload the csv file containing the questions</label>      <div>        <button mat-raised-button type="button" id="fileUpload" color="accent" (click)="fileInput.click()">          Choose File        </button>        <input #fileInput               hidden               type="file"               name="File Upload"               (change)="fileUpload($event)"               accept=".csv"/>      </div>    </div>  </mat-card>  <mat-card>    <div>      <textarea rows="10" readonly>{{consoleOutput}}</textarea>    </div>    <button mat-raised-button color="accent" (click)="consoleOutput = \'\'">Clear Output</button>  </mat-card></div><div *ngIf="!admin.loggedIn()">  <mat-card>    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">      <mat-form-field>        <input matInput type="password" id="password" required        formControlName="password" name="password" placeholder="Password">      </mat-form-field>      <button mat-raised-button color="accent" type="submit">Login</button>    </form>  </mat-card></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="admin.loggedIn()">  <mat-card>    <div>      <label for="fileUpload">Upload the csv file containing the questions</label>      <div>        <button mat-raised-button type="button" id="fileUpload" color="accent" (click)="fileInput.click()">          Choose File        </button>        <input #fileInput               hidden               type="file"               name="File Upload"               (change)="fileUpload(fileInput)"               accept=".csv"/>      </div>    </div>  </mat-card>  <mat-card>    <a #downloader [href]="file" hidden download="teams.csv"></a>    <button mat-raised-button type="button" color="accent" (click)="getTeams(downloader)"> Get teams as CSV </button>  </mat-card>  <mat-card>    <div>      <textarea rows="10" readonly>{{consoleOutput}}</textarea>    </div>    <button mat-raised-button color="accent" (click)="consoleOutput = \'\'">Clear Output</button>  </mat-card></div><div *ngIf="!admin.loggedIn()">  <mat-card>    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">      <mat-form-field>        <input matInput type="password" id="password" required        formControlName="password" name="password" placeholder="Password">      </mat-form-field>      <button mat-raised-button color="accent" type="submit">Login</button>    </form>  </mat-card></div></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'GameComponent', 'selector': 'app-game'},{'name': 'GameOverComponent', 'selector': 'app-game-over'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TimerComponent', 'selector': 'app-timer'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AdminComponent'};

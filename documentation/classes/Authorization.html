@@ -443,7 +443,7 @@ export class Authorization {
         }
       });
     } else {
-      res.set(403).json(&#x27;403 Forbidden&#x27;);
+      res.status(403).json(&#x27;403 Forbidden&#x27;);
     }
   }
 
@@ -453,7 +453,7 @@ export class Authorization {
       if (req.headers.authorization &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
         next();
       } else {
-        res.set(403).json(&#x27;403 Forbidden&#x27;);
+        res.status(403).json(&#x27;403 Forbidden&#x27;);
       }
     });
   }
@@ -464,7 +464,7 @@ export class Authorization {
       if (req.headers.authorization &#x3D;&#x3D;&#x3D; &#x27;user&#x27; || req.headers.authorization &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
         next();
       } else {
-        res.set(403).json(&#x27;403 Forbidden&#x27;);
+        res.status(403).json(&#x27;403 Forbidden&#x27;);
       }
     });
   }

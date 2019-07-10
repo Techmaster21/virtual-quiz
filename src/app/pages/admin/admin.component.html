@@ -10,10 +10,14 @@
                hidden
                type="file"
                name="File Upload"
-               (change)="fileUpload($event)"
+               (change)="fileUpload(fileInput)"
                accept=".csv"/>
       </div>
     </div>
+  </mat-card>
+  <mat-card>
+    <a #downloader [href]="file" hidden download="teams.csv"></a>
+    <button mat-raised-button type="button" color="accent" (click)="getTeams(downloader)"> Get teams as CSV </button>
   </mat-card>
   <mat-card>
     <div>

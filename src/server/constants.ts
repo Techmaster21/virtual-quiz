@@ -10,8 +10,10 @@ export const start = process.env.START_DATE || '12/31/1969 7pm' || '12/12/2020 8
 /** The absolute path to the client */
 export const clientPath = join(__dirname, '/../virtual-quiz');
 
-/** Database URL */
-export const dbURL = 'mongodb://heroku_whlj8cct:i2k7ued2lj5duem2trvtbievf7@ds253918.mlab.com:53918/heroku_whlj8cct';
+/** Database username */
+export const dbUser = process.env.MONGODB_USER;
+/** Database password */
+export const dbPassword = process.env.MONGODB_PASSWORD;
 
 /** The secret used to sign all the javascript web tokens */
 export const secret = process.env.SECRET || 'test secret';

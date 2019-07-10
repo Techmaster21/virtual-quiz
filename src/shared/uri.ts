@@ -14,6 +14,7 @@ export const URI = {
   },
   TEAM: {
     GET: '/api/team/get',
+    GET_ALL: '/api/team/get_all',
     SAVE: '/api/team/save'
   },
   DATE: {

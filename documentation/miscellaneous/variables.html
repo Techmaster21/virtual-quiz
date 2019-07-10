@@ -78,13 +78,19 @@
                             <a href="#database" title="src/server/server.ts"><b>database</b>&nbsp;&nbsp;&nbsp;(src/.../server.ts)</a>
                         </li>
                         <li>
-                            <a href="#dbURL" title="src/server/constants.ts"><b>dbURL</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
+                            <a href="#dbPassword" title="src/server/constants.ts"><b>dbPassword</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
                         </li>
                         <li>
-                            <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                            <a href="#dbURL" title="src/server/server.ts"><b>dbURL</b>&nbsp;&nbsp;&nbsp;(src/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#dbUser" title="src/server/constants.ts"><b>dbUser</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
                         </li>
                         <li>
                             <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
                         </li>
                         <li>
                             <a href="#httpOptionsJSON" title="src/app/constants.ts"><b>httpOptionsJSON</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
@@ -97,6 +103,9 @@
                         </li>
                         <li>
                             <a href="#modules" title="src/app/components/material/material.module.ts"><b>modules</b>&nbsp;&nbsp;&nbsp;(src/.../material.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#practiceQuestions" title="src/server/practiceQuestions.ts"><b>practiceQuestions</b>&nbsp;&nbsp;&nbsp;(src/.../practiceQuestions.ts)</a>
                         </li>
                         <li>
                             <a href="#questionLoadDelay" title="src/app/constants.ts"><b>questionLoadDelay</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
@@ -192,29 +201,50 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="dbURL"></a>
+                        <a name="dbPassword"></a>
                         <span class="name">
                             <b>
-                            dbURL</b>
-                            <a href="#dbURL"><span class="icon ion-ios-link"></span></a>
+                            dbPassword</b>
+                            <a href="#dbPassword"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;mongodb://heroku_whlj8cct:i2k7ued2lj5duem2trvtbievf7@ds253918.mlab.com:53918/heroku_whlj8cct&#x27;</code>
+                            <i>Default value : </i><code>process.env.MONGODB_PASSWORD</code>
                         </td>
                     </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Database URL </p>
+                        <div class="io-description"><p>Database password </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dbUser"></a>
+                        <span class="name">
+                            <b>
+                            dbUser</b>
+                            <a href="#dbUser"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>process.env.MONGODB_USER</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Database username </p>
 </div>
                     </td>
                 </tr>
@@ -346,6 +376,34 @@ mostly for fun)</p>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>A reference to the Mongo database </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dbURL"></a>
+                        <span class="name">
+                            <b>
+                            dbURL</b>
+                            <a href="#dbURL"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Database URL </p>
 </div>
                     </td>
                 </tr>
@@ -600,44 +658,6 @@ mostly for fun)</p>
             </tbody>
         </table>
 </section>
-    <h3>src/environments/environment.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="environment"></a>
-                        <span class="name">
-                            <b>
-                            environment</b>
-                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{
-  production: false
-}</code>
-                        </td>
-                    </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Development environment </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-</section>
     <h3>src/environments/environment.prod.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -669,6 +689,44 @@ mostly for fun)</p>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Production environment </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/environments/environment.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="environment"></a>
+                        <span class="name">
+                            <b>
+                            environment</b>
+                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  production: false
+}</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Development environment </p>
 </div>
                     </td>
                 </tr>
@@ -714,6 +772,168 @@ mostly for fun)</p>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Material modules to include </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/server/practiceQuestions.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="practiceQuestions"></a>
+                        <span class="name">
+                            <b>
+                            practiceQuestions</b>
+                            <a href="#practiceQuestions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+  {
+    question: &#x27;By area, which country is the considered the second largest in the world, to Russia?&#x27;,
+    category: &#x27;Geography&#x27;,
+    answers: [
+      &#x27;Azerbaijan&#x27;,
+      &#x27;Canada&#x27;,
+      &#x27;United States&#x27;,
+      &#x27;Russia&#x27;,
+      &#x27;China&#x27;
+    ],
+    correctAnswer: &#x27;Canada&#x27;
+  },
+  {
+    question: &#x27;The characteristic color of a shiny coffee thermos is designed to prevent heat loss by which of the following processes?&#x27;,
+    category: &#x27;Heat Exchange&#x27;,
+    answers: [
+      &#x27;Convection&#x27;,
+      &#x27;Radiation&#x27;,
+      &#x27;Slow Diffusion&#x27;,
+      &#x27;Conduction&#x27;,
+      &#x27;Circulation&#x27;
+    ],
+    correctAnswer: &#x27;Radiation&#x27;
+  },
+  {
+    question: &#x27;Which native Denakk\u2019e name for the Alaskan peak Mount McKinley means \u201cThe High One?\u201d&#x27;,
+    category: &#x27;Location, Location&#x27;,
+    answers: [
+      &#x27;Yukon&#x27;,
+      &#x27;Kenai&#x27;,
+      &#x27;Denali&#x27;,
+      &#x27;Kuyokuk&#x27;,
+      &#x27;Whittier&#x27;
+    ],
+    correctAnswer: &#x27;Denali&#x27;
+  },
+  {
+    question: &#x27;While humans have recently accelerated the greenhouse effect, which mostly non-human created gas &#x27; +
+      &#x27;contributes most to this process?&#x27;,
+    category: &#x27;Got Some Gas&#x27;,
+    answers: [
+      &#x27;Water vapor&#x27;,
+      &#x27;Ozone&#x27;,
+      &#x27;Carbon Dioxide&#x27;,
+      &#x27;Nitrous Oxide&#x27;,
+      &#x27;Chlorofluorocarbons&#x27;
+    ],
+    correctAnswer: &#x27;Water vapor&#x27;
+  },
+  {
+    question: &#x27;The largest object in our asteroid belt, named after the Roman goddess of agriculture, is the namesake &#x27; +
+      &#x27;of which chemical element?&#x27;,
+    category: &#x27;Astronomy, Chemistry, and Mythology&#x27;,
+    answers: [
+      &#x27;Cerium&#x27;,
+      &#x27;Iridium&#x27;,
+      &#x27;Plutonium&#x27;,
+      &#x27;Samarium&#x27;,
+      &#x27;Palladium&#x27;
+    ],
+    correctAnswer: &#x27;Cerium&#x27;
+  },
+  {
+    question: &#x27;This modern crop is a domesticated teosinte developed by early Mesoamericans which can be found in foods &#x27; +
+      &#x27;such as nshima, chicha, and angu\u2026&#x27;,
+    category: &#x27;Monocots&#x27;,
+    answers: [
+      &#x27;Rice&#x27;,
+      &#x27;Sugarcane&#x27;,
+      &#x27;Maize&#x27;,
+      &#x27;Wheat&#x27;,
+      &#x27;Millet&#x27;
+    ],
+    correctAnswer: &#x27;Maize&#x27;
+  },
+  {
+    question: &#x27;Which city-state, located on the west bank of the Tiber River, is renowned for its basilica and obelisk?&#x27;,
+    category: &#x27;Autonomy&#x27;,
+    answers: [
+      &#x27;Monaco&#x27;,
+      &#x27;Qatar&#x27;,
+      &#x27;Liechtenstein&#x27;,
+      &#x27;Vatican City&#x27;,
+      &#x27;Kuwait&#x27;
+    ],
+    correctAnswer: &#x27;Vatican City&#x27;
+  },
+  {
+    question: &#x27;Which opera by Gioachino Rossini features Figaro, a tonsorial artist who resides in one of Spain\u2019s &#x27; +
+      &#x27;largest cities?&#x27;,
+    category: &#x27;Figaro! Figaro! Figaro!&#x27;,
+    answers: [
+      &#x27;Carmen&#x27;,
+      &#x27;The Marriage of Figaro&#x27;,
+      &#x27;The Magic Flute&#x27;,
+      &#x27;Don Giovanni&#x27;,
+      &#x27;The Barber of Seville&#x27;
+    ],
+    correctAnswer: &#x27;The Barber of Seville&#x27;
+  },
+  {
+    question: &#x27;The architectural period developed during and named after the reign of an iconic royal figure of the late&#x27; +
+      &#x27; 19th century is\u2026&#x27;,
+    category: &#x27;Architecture&#x27;,
+    answers: [
+      &#x27;Georgian&#x27;,
+      &#x27;Art deco&#x27;,
+      &#x27;Victorian&#x27;,
+      &#x27;Edwardian&#x27;,
+      &#x27;Federal&#x27;
+    ],
+    correctAnswer: &#x27;Victorian&#x27;
+  },
+  {
+    question: &#x27;This Newbery Medal winner is a bildungsroman about a boy and an abused dog who form a bond in West Virginia\u2026&#x27;,
+    category: &#x27;A Bildungsroman&#x27;,
+    answers: [
+      &#x27;Bud, Not Buddy&#x27;,
+      &#x27;The Giver&#x27;,
+      &#x27;The Whipping Boy&#x27;,
+      &#x27;Shiloh&#x27;,
+      &#x27;Holes&#x27;
+    ],
+    correctAnswer: &#x27;Shiloh&#x27;
+  }
+]</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The questions that will form the basis of practiceQuestions, questions, and answers during development. </p>
 </div>
                     </td>
                 </tr>
@@ -899,6 +1119,7 @@ mostly for fun)</p>
   },
   TEAM: {
     GET: &#x27;/api/team/get&#x27;,
+    GET_ALL: &#x27;/api/team/get_all&#x27;,
     SAVE: &#x27;/api/team/save&#x27;
   },
   DATE: {

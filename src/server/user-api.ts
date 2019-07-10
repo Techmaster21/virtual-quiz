@@ -27,6 +27,6 @@ router.get(URI.QUESTIONS.GET, Authorization.user, async (req: Request, res: Resp
   if (questions) {
     res.json(questions);
   } else {
-    res.set(500).end();
+    res.status(500).end();
   }
 });
