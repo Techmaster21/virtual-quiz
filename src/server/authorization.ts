@@ -1,4 +1,4 @@
-import { verify as jwtVerify, VerifyErrors } from 'jsonwebtoken';
+import { TokenExpiredError, verify as jwtVerify, VerifyErrors } from 'jsonwebtoken';
 import { NextFunction, Request, Response } from 'express';
 import { secret } from './constants';
 
@@ -10,9 +10,18 @@ export class Authorization {
     if (token) {
       jwtVerify(token, secret, (err: VerifyErrors, decoded: any) => { // adding type would break decoded.type
         if (err) {
-          return res.json('invalid token');
+          if (err instanceof TokenExpiredError) {
+            return res.status(403).json('Expired token');
+          } else {
+            return res.status(403).json('Invalid token');
+          }
         } else {
-          req.headers.authorization = decoded.type;
+          // todo not sure why this worked without the safety check before
+          if (decoded.team) {
+            req.headers.authorization = [decoded.type, decoded.team.schoolName, decoded.team.teamNumber];
+          } else {
+            req.headers.authorization = [decoded.type, null, null];
+          }
           next();
         }
       });
@@ -24,7 +33,7 @@ export class Authorization {
   /** A middleware function used to authenticate admins before they are allowed to access endpoints in this file */
   public static admin(req: Request, res: Response, next: NextFunction) {
     Authorization.checkToken(req, res, () => {
-      if (req.headers.authorization === 'admin') {
+      if (req.headers.authorization[0] === 'admin') {
         next();
       } else {
         res.status(403).json('403 Forbidden');
@@ -35,7 +44,7 @@ export class Authorization {
   /** A middleware function used to authenticate users before they are allowed to access endpoints in this file */
   public static user(req: Request, res: Response, next: NextFunction) {
     Authorization.checkToken(req, res, () => {
-      if (req.headers.authorization === 'user' || req.headers.authorization === 'admin') {
+      if (req.headers.authorization[0] === 'user' || req.headers.authorization[0] === 'admin') {
         next();
       } else {
         res.status(403).json('403 Forbidden');

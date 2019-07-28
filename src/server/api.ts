@@ -6,6 +6,7 @@ import { Moment, tz } from 'moment-timezone';
 import { URI } from '../shared/uri';
 import { database, questionStore } from './server';
 import { start, secret, adminPassword } from './constants';
+import { Authorization } from './authorization';
 
 /** The api router */
 export const router: Router = Router();
@@ -50,12 +51,12 @@ router.post(URI.TEAM.SAVE, async (req: Request, res: Response) => {
     // Get the results collection
     const collection = database.collection('teams');
     const team = req.body;
-    const payload = { type: 'user', check:  true };
-    const options: SignOptions = { expiresIn: 14400 }; // expires in 10 days
-    team.token = jwtSign(payload, secret, options);
+    const payload = { team: { schoolName: team.schoolName, teamNumber: team.teamNumber }, type: 'user', check:  true };
+    const options: SignOptions = { expiresIn: '10 days' };
     // Add a Result
-    const result = await collection.insertOne(team);
-    res.json(result.ops[0]);
+    const result = (await collection.insertOne(team)).ops[0];
+    const token = jwtSign(payload, secret, options);
+    res.json([result, token]);
   } catch (err) {
     console.log(`An error occurred while updating a team: ${err.message}`);
     res.status(500).end();
@@ -71,7 +72,7 @@ router.put(URI.TEAM.SAVE, async (req: Request, res: Response) => {
     // TODO can use object here?
     const result = await collection.updateOne({_id: new ObjectId(team._id)}, {
       $set: { teamNumber: team.teamNumber, schoolName: team.schoolName, points: team.points,
-        currentQuestion: team.currentQuestion, timeStarted: team.timeStarted, timeEnded: team.timeEnded, token: team.token
+        currentQuestion: team.currentQuestion, timeStarted: team.timeStarted, timeEnded: team.timeEnded
       }
     });
     res.json(team);
@@ -88,11 +89,19 @@ router.put(URI.TEAM.GET, async (req: Request, res: Response) => {
     const team = req.body;
     // Add a Result
     const result = await collection.findOne({schoolName: team.schoolName, teamNumber: team.teamNumber});
-    if (result === null) { // not sure if this is possible, or if in this case the promise would be rejected. Requires testing
-      res.json({});
-    } else {
-      res.json(result);
-    }
+    res.json(result);
+  } catch (err) {
+    console.log(`An error occurred while getting a team: ${err.message}`);
+    res.status(500).end();
+  }
+});
+
+router.get(URI.TEAM.GET, Authorization.user, async (req: Request, res: Response) => {
+  try {
+    const collection = database.collection('teams');
+    const [schoolName, teamNumber] = req.headers.authorization.slice(1);
+    const result = await collection.findOne({schoolName, teamNumber});
+    res.json(result);
   } catch (err) {
     console.log(`An error occurred while getting a team: ${err.message}`);
     res.status(500).end();
@@ -103,7 +112,7 @@ router.post(URI.ADMIN.LOGIN, (req: Request, res: Response) => {
   const password = req.body;
   if (password === adminPassword) {
     const payload = { type: 'admin', check:  true };
-    const options: SignOptions = { expiresIn: 1440 }; // expires in 24 hours
+    const options: SignOptions = { expiresIn: '1 day' };
     const token = jwtSign(payload, secret, options);
     res.send(token);
   } else {

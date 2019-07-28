@@ -1203,7 +1203,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   gameOver() {
     this.team.points &#x3D; this.points;
     this.team.timeEnded &#x3D; Date.now();
-    this.teamService.setTeam(this.team);
+    this.teamService.team &#x3D; this.team;
     this.router.navigate([&#x27;/gameover&#x27;]);
   }
   /** Retrieves the questions */
@@ -1247,7 +1247,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
   /** Perform various actions necessary to start up the game */
   ngOnInit() {
-    this.team &#x3D; this.teamService.getTeam();
+    this.team &#x3D; this.teamService.team;
     if (!this.team.timeStarted) {
       this.team.timeStarted &#x3D; Date.now();
     }

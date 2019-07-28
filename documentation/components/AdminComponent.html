@@ -73,6 +73,12 @@
     </p>
 
 
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
 
 
 <section>
@@ -156,6 +162,9 @@
                             </li>
                             <li>
                                 <a href="#getTeams">getTeams</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
                             </li>
                             <li>
                                 <a href="#onSubmit">onSubmit</a>
@@ -280,8 +289,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">src/app/pages/admin/admin.component.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">src/app/pages/admin/admin.component.ts:80</a></div>
                 </td>
             </tr>
 
@@ -352,8 +361,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/app/pages/admin/admin.component.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/app/pages/admin/admin.component.ts:50</a></div>
                 </td>
             </tr>
 
@@ -406,6 +415,47 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/pages/admin/admin.component.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Checks if token is valid on page init </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="onSubmit"></a>
                     <span class="name">
                         <b>
@@ -424,8 +474,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/app/pages/admin/admin.component.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/pages/admin/admin.component.ts:39</a></div>
                 </td>
             </tr>
 
@@ -535,7 +585,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/admin/admin.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/admin/admin.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -570,7 +620,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/admin/admin.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/admin/admin.component.ts:29</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -588,7 +638,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { AdminService } from &#x27;../../services/admin.service&#x27;;
 import { FormControl, FormGroup } from &#x27;@angular/forms&#x27;;
 import { DomSanitizer } from &#x27;@angular/platform-browser&#x27;;
@@ -599,7 +649,7 @@ import { DomSanitizer } from &#x27;@angular/platform-browser&#x27;;
   templateUrl: &#x27;./admin.component.html&#x27;,
   styleUrls: [&#x27;./admin.component.css&#x27;]
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
   /** The link to the team CSV file */
   file;
   /** Output to show to the user */
@@ -607,6 +657,13 @@ export class AdminComponent {
 
   /** Admin component constructor */
   constructor(private adminService: AdminService, private sanitizer: DomSanitizer) { }
+
+  /** Checks if token is valid on page init */
+  ngOnInit() {
+    if (this.adminService.loggedIn()) {
+      this.adminService.checkToken().subscribe();
+    }
+  }
 
   /** Returns the admin service. Used by html to avoid violating private access */
   get admin() {
@@ -622,7 +679,7 @@ export class AdminComponent {
   onSubmit() {
     this.adminService.login(this.loginForm.value.password).subscribe( token &#x3D;&gt; {
       if (token !&#x3D;&#x3D; &#x27;err&#x27;) {
-        this.adminService.setToken(token);
+        this.adminService.token &#x3D; token;
       } else {
         // todo incorrect password state somewhere
       }
@@ -632,6 +689,10 @@ export class AdminComponent {
   /** Gets the teams from the server, sorts them by points, and outputs in a nice csv format */
   getTeams(link: HTMLAnchorElement) {
     this.adminService.getTeams().subscribe(teams &#x3D;&gt; {
+      console.log(teams);
+      if (!teams) {
+        return;
+      }
       const data &#x3D; teams
         .filter(team &#x3D;&gt; team.points) // remove teams with no points
         .sort((a, b) &#x3D;&gt; a.points - b.points) // sort teams according to points in ascending order

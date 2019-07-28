@@ -50,7 +50,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   gameOver() {
     this.team.points = this.points;
     this.team.timeEnded = Date.now();
-    this.teamService.setTeam(this.team);
+    this.teamService.team = this.team;
     this.router.navigate(['/gameover']);
   }
   /** Retrieves the questions */
@@ -94,7 +94,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
   /** Perform various actions necessary to start up the game */
   ngOnInit() {
-    this.team = this.teamService.getTeam();
+    this.team = this.teamService.team;
     if (!this.team.timeStarted) {
       this.team.timeStarted = Date.now();
     }

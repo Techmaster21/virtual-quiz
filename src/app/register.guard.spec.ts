@@ -8,7 +8,7 @@ describe('RegisterGuard', () => {
   let teamServiceSpy: jasmine.SpyObj<TeamService>;
   let routerSpy: jasmine.SpyObj<Router>;
   beforeEach(() => {
-    const teamSpy = jasmine.createSpyObj('TeamService', ['save', 'getTeam', 'setTeam']);
+    const teamSpy = jasmine.createSpyObj('TeamService', ['save']);
     const router = jasmine.createSpyObj('Router', ['navigate']);
     TestBed.configureTestingModule({
       providers: [

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../../services/admin.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -9,7 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
   /** The link to the team CSV file */
   file;
   /** Output to show to the user */
@@ -17,6 +17,13 @@ export class AdminComponent {
 
   /** Admin component constructor */
   constructor(private adminService: AdminService, private sanitizer: DomSanitizer) { }
+
+  /** Checks if token is valid on page init */
+  ngOnInit() {
+    if (this.adminService.loggedIn()) {
+      this.adminService.checkToken().subscribe();
+    }
+  }
 
   /** Returns the admin service. Used by html to avoid violating private access */
   get admin() {
@@ -32,7 +39,7 @@ export class AdminComponent {
   onSubmit() {
     this.adminService.login(this.loginForm.value.password).subscribe( token => {
       if (token !== 'err') {
-        this.adminService.setToken(token);
+        this.adminService.token = token;
       } else {
         // todo incorrect password state somewhere
       }
@@ -42,6 +49,10 @@ export class AdminComponent {
   /** Gets the teams from the server, sorts them by points, and outputs in a nice csv format */
   getTeams(link: HTMLAnchorElement) {
     this.adminService.getTeams().subscribe(teams => {
+      console.log(teams);
+      if (!teams) {
+        return;
+      }
       const data = teams
         .filter(team => team.points) // remove teams with no points
         .sort((a, b) => a.points - b.points) // sort teams according to points in ascending order

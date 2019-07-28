@@ -370,13 +370,13 @@ export class QuestionService {
   httpOptionsWithAuth: {};
   /** Question service constructor */
   constructor(private http: HttpClient, private teamService: TeamService) {
-    const headers &#x3D; { &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,  authorization: this.teamService.getToken() };
+    const headers &#x3D; { &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,  authorization: this.teamService.token };
     this.httpOptionsWithAuth &#x3D; { headers: new HttpHeaders(headers) };
   }
 
   /** Retrieves questions from the server */
   getQuestions(): Observable&lt;Question[]&gt; {
-    if (this.teamService.getPractice()) {
+    if (this.teamService.practice) {
       return this.http.get&lt;Question[]&gt;(URI.PRACTICE_QUESTIONS.GET, this.httpOptionsWithAuth).pipe(
         catchError(handleError)
       );
@@ -390,7 +390,7 @@ export class QuestionService {
   /** Checks whether the selected answer is the correct one */
   checkAnswer(answerIndex: number, questionIndex: number): Observable&lt;boolean&gt; {
     const body &#x3D; { answerIndex, questionIndex };
-    if (this.teamService.getPractice()) {
+    if (this.teamService.practice) {
       return this.http.put&lt;boolean&gt;(URI.PRACTICE_QUESTIONS.CHECK, body, this.httpOptionsWithAuth).pipe(
         catchError(handleError)
       );

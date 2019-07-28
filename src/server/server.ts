@@ -38,6 +38,8 @@ async function setDbURL() {
   if (!dbUser || !dbPassword) {
     const mongod = new MongoMemoryServer();
     dbURL = await mongod.getUri();
+    console.log(`Running database in development mode (no MONGODB_USER or MONGODB_PASSWORD environment variable found).
+You can connect to the development database at: ${dbURL}`);
   } else {
     dbURL = `mongodb://${dbUser}:${dbPassword}@ds253918.mlab.com:53918/${dbUser}`;
   }

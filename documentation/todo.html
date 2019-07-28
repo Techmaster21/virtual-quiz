@@ -37,10 +37,8 @@
 <p>  TODO Error handling and testing</p>
 <p>  TODO Offline version in case of emergencies?</p>
 <p>  TODO Categories before loading of question?</p>
-<p>  TODO would be nice to have an offline version for testing purposes - this mostly refers to database.</p>
-<p>  todo add unit tests. (why though? what can unit tests tell you here?)</p>
+<p>  todo add unit tests.</p>
 <p>  todo add integration tests.</p>
-<p>TODO The progress bar shows questions completed. Should there also be a question # on to avoid confusion?</p>
 <p>TODO need to account for internet failures and outages. Continue sending save requests.</p>
 <p>TODO Develop vq prescribed distribution (distribution of questions that is, so that we dont end up with a million pop
   culture or chemistry questions)</p>
@@ -50,29 +48,14 @@
 <p>TODO improve readme</p>
 <p>TODO make it so that teams actually need a code or something to play?</p>
 <p>TODO thoroughly test new features</p>
-<p>TODO create admin interface that has the following functionality:
-  Button to download/view error logging
-  Built in documentation
-    - common potential issues with csv parsing; caveats; etc.
-  Store token in localStorage?</p>
 <p>TODO There are a lot of new ways to do things that might be worth looking in to</p>
-<p>todo only send one question at a time, and only allow each user to see each question once. If already seen,
-    and not currently looking at in game, then dont accept answers or new requests for it from that user. (would also fix
-    back button issue)
-     - this of course can still be exploited by creating a different user to look at the questions
-  - Can you use route guards to help secure api?</p>
 <p>TODO make sure admin console always auto scrolls to bottom when new input comes in</p>
-<p>todo what if connection to db fails?</p>
-<p>TODO finish converting server side to typescript
-    Add types
-    maybe make async? Look at https://developer.okta.com/blog/2018/10/30/basic-crud-angular-and-node or possibly newer examples</p>
+<p>todo what if connection to db fails? - could start up in memory database, use that and periodically check if database is up,
+  and if it&#39;s up, transfer the teams and stats data.</p>
 <p>todo could make one command to do it all: pipe output away to focus on errors (syntax works on DOS)</p>
 <p>todo look into morgan for logging on server side</p>
-<p>todo inform people not to sign up until ready to play (and include faq in admin to say this too and how to fix it) (tokens
-  may expire)
-todo in order for the routes&#39; middleware to be separate, the namespaces have to be separate: https://expressjs.com/en/4x/api.html#router
+<p>todo in order for the routes&#39; middleware to be separate, the namespaces have to be separate: https://expressjs.com/en/4x/api.html#router
    fixed by instead providing middleware that authorizes user to every endpoint that requires it. May be a better solution</p>
-<p>todo encryption for admin password -- also need to use https</p>
 <p>todo observable based timer component? Or just look at timer component to see if good practices
  -- look at timers built in angular</p>
 <p>todo exponential backoff for api requests perhaps? https://angular.io/guide/practical-observable-usage#exponential-backoff</p>
@@ -90,19 +73,37 @@ todo in order for the routes&#39; middleware to be separate, the namespaces have
 <p>todo could generate own ID for teams based on name + number</p>
 <p>todo It is still set to target es6 (since it wont work otherwise), it may be a good idea to transpile it, though it also
   might not be necessary since it is the backend</p>
-<p>todo app (animations in particular) is sluggish on safari compared to chrome
-todo store token so user doesnt have to perfectly spell name again?
-todo should test build on windows
-todo not every team has a non null time ended - why?</p>
 <p>todo can you move mongodb-memory-server to dev-dependencies? If not, how can you make it so you can?
-todo for stats
 Info about backend-apps with webpack:
 https://jlongster.com/Backend-Apps-with-Webpack--Part-I</p>
-<p>Rewrote event reference in admin page to use template reference variable instead, as is best practice.
-Added admin functionality to download teamName, number, and points ordered by points as csv.
-Removed disabled attributes on some reactive inputs, instead using a method, as is best practice.
-Added an in memory version of mongodb that runs when the app is not running on heroku, in order to allow more fine control
-  over the database and to avoid using production database during development.</p>
+<p>Priority for finishing:
+todo app (animations in particular) is sluggish on safari compared to chrome
+  animations on edge are wonky - flashy and whatnot
+  Make sure to state that chrome is most supported browser - if any issues move to chrome. However, other browsers will usually work.
+todo finish stats module
+todo not every team has a non null time ended - why? -- see if you can replicate
+todo hash for admin password - SHA3 -- also need to use https
+TODO create admin interface that has the following functionality:
+  Built in documentation - hobby vs free dyno
+    - common potential issues with csv parsing; caveats; etc.
+todo look into only sending one question at a time, and only allowing each user to see each question once. If already seen,
+    and not currently looking at in game, then dont accept answers or new requests for it from that user. (would also fix
+    back button issue)
+     - this of course can still be exploited by creating a different user to look at the questions
+  - Can you use route guards to help secure api?
+todo use some less gross colors for animations - maybe a gradient or something, or something that gives it depth. something
+  that doesn&#39;t hurt my eyes would be a good start.
+todo inform people not to sign up until ready to play (and include faq in admin to say this too and how to fix it) (tokens
+  may expire)</p>
+<p>CURRENT BUILD:
+Admin service now stores token in localstorage.
+Expired tokens now handled - Refreshes page since it is left in incorrect state after expired tokens are deleted
+Checks validity of admin token on page load.
+Converted some basic getters and setters into public variables
+Loads teams using token in localstorage and populate fields but don&#39;t submit - in case of multiple teams on same machine.
+User tokens now store identifying team information, rather than teams storing tokens.
+Notifies user whether team already exists and has begun game, or if team already exists and has finished the game (and
+in the latter case, disallows play)</p>
 
 
 

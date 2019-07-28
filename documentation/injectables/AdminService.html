@@ -83,11 +83,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#authorized">authorized</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#token">token</a>
+                                <a href="#_token">_token</a>
                             </li>
                         </ul>
                     </td>
@@ -102,6 +98,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#checkToken">checkToken</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                 <a href="#getEventMessage">getEventMessage</a>
                             </li>
@@ -109,16 +108,14 @@
                                 <a href="#getTeams">getTeams</a>
                             </li>
                             <li>
-                                <a href="#getToken">getToken</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleErrorAdmin">handleErrorAdmin</a>
                             </li>
                             <li>
                                 <a href="#loggedIn">loggedIn</a>
                             </li>
                             <li>
                                 <a href="#login">login</a>
-                            </li>
-                            <li>
-                                <a href="#setToken">setToken</a>
                             </li>
                             <li>
                                 <a href="#uploadQuestions">uploadQuestions</a>
@@ -131,6 +128,20 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#token">token</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -195,6 +206,47 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="checkToken"></a>
+                    <span class="name">
+                        <b>
+                            checkToken
+                        </b>
+                        <a href="#checkToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkToken()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/services/admin.service.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Checks that the current admin token is valid </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getEventMessage"></a>
                     <span class="name">
                         <b>
@@ -215,8 +267,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">src/app/services/admin.service.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/app/services/admin.service.ts:79</a></div>
                 </td>
             </tr>
 
@@ -299,8 +351,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/app/services/admin.service.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/services/admin.service.ts:53</a></div>
                 </td>
             </tr>
 
@@ -322,38 +374,71 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getToken"></a>
+                    <a name="handleErrorAdmin"></a>
                     <span class="name">
                         <b>
-                            getToken
+                            <span class="modifier">Private</span>
+                            handleErrorAdmin
                         </b>
-                        <a href="#getToken"><span class="icon ion-ios-link"></span></a>
+                        <a href="#handleErrorAdmin"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getToken()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleErrorAdmin(error: <a href="https://angular.io/api/common/http/HttpErrorResponse" target="_blank">HttpErrorResponse</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/services/admin.service.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/services/admin.service.ts:97</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Gets the value of the <a href="#token">token</a> </p>
+                    <div class="io-description"><p>Handles expired tokens </p>
 </div>
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>error</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/common/http/HttpErrorResponse" target="_blank" >HttpErrorResponse</a></code>
+                                    </td>
 
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -381,8 +466,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/app/services/admin.service.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/services/admin.service.ts:41</a></div>
                 </td>
             </tr>
 
@@ -422,8 +507,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/app/services/admin.service.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/services/admin.service.ts:46</a></div>
                 </td>
             </tr>
 
@@ -476,74 +561,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="setToken"></a>
-                    <span class="name">
-                        <b>
-                            setToken
-                        </b>
-                        <a href="#setToken"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>setToken(givenToken)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">src/app/services/admin.service.ts:33</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Sets the value of the <a href="#token">token</a> </p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>givenToken</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="uploadQuestions"></a>
                     <span class="name">
                         <b>
@@ -562,8 +579,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/app/services/admin.service.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">src/app/services/admin.service.ts:61</a></div>
                 </td>
             </tr>
 
@@ -622,45 +639,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="authorized"></a>
+                        <a name="_token"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
-                            authorized</b>
-                            <a href="#authorized"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>false</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/services/admin.service.ts:23</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Whether this client is authorized to access the content on this page </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="token"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            token</b>
-                            <a href="#token"><span class="icon ion-ios-link"></span></a>
+                            _token</b>
+                            <a href="#_token"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -677,7 +661,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/services/admin.service.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/services/admin.service.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -692,19 +676,102 @@
         </table>
 </section>
 
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="token"></a>
+                        <span class="name"><b>token</b><a href="#token"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>token()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/services/admin.service.ts:26</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the value of the <a href="#_token">token</a> </p>
+</div>
+
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>token(givenToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/services/admin.service.ts:35</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Sets the value of the <a href="#_token">token</a> </p>
+</div>
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>givenToken</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import {
-  HttpClient,
+  HttpClient, HttpErrorResponse,
   HttpEvent,
   HttpEventType, HttpHeaders,
   HttpRequest
 } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
-import { catchError, map, tap } from &#x27;rxjs/operators&#x27;;
+import { catchError, map } from &#x27;rxjs/operators&#x27;;
 import { handleError, httpOptionsText, URI } from &#x27;../constants&#x27;;
 import { Team } from &#x27;../models/team&#x27;;
 
@@ -717,49 +784,59 @@ export class AdminService {
   /** Admin service constructor */
   constructor(private http: HttpClient) { }
 
-  /** Whether this client is authorized to access the content on this page */
-  private authorized &#x3D; false;
   /** The token for the admin user */
-  private token &#x3D; &#x27;&#x27;;
+  private _token &#x3D; &#x27;&#x27;;
+
+  /** Gets the value of the [token]{@link #_token} */
+  get token() {
+    const token &#x3D; localStorage.getItem(&#x27;adminToken&#x27;);
+    if (token) {
+      this._token &#x3D; token;
+    }
+    return this._token;
+  }
+
+  /** Sets the value of the [token]{@link #_token} */
+  set token(givenToken: string) {
+    localStorage.setItem(&#x27;adminToken&#x27;, givenToken);
+    this._token &#x3D; givenToken;
+  }
 
   /** Whether or not the admin is logged in */
   loggedIn() {
-    return this.authorized;
-  }
-
-  /** Sets the value of the [token]{@link #token} */
-  setToken(givenToken) {
-    this.token &#x3D; givenToken;
-    this.authorized &#x3D; true;
-  }
-
-  /** Gets the value of the [token]{@link #token} */
-  getToken() {
-    return this.token;
+    return this.token !&#x3D;&#x3D; &#x27;&#x27;;
   }
 
   /** Logs the user in using the provided password */
   login(password: string): Observable&lt;string&gt; {
     return this.http.post&lt;string&gt;(URI.ADMIN.LOGIN, password, {... httpOptionsText, responseType: &#x27;text&#x27; as &#x27;json&#x27;}).pipe(
-      catchError(handleError)
+      catchError(this.handleErrorAdmin)
     );
   }
 
   /** Gets all of the teams from the server */
   getTeams(): Observable&lt;Team[]&gt; {
-    const httpOptions &#x3D; { headers: new HttpHeaders({ authorization: this.getToken() }) };
+    const httpOptions &#x3D; { headers: new HttpHeaders({ authorization: this.token }) };
     return this.http.get&lt;Team[]&gt;(URI.TEAM.GET_ALL, httpOptions).pipe(
-      catchError(handleError)
+      catchError(this.handleErrorAdmin)
     );
   }
 
   /** Uploads questions to the server */
   uploadQuestions(questions: File) {
-    const httpOptions &#x3D; { reportProgress: true, headers: new HttpHeaders({ authorization: this.getToken() })  };
+    const httpOptions &#x3D; { reportProgress: true, headers: new HttpHeaders({ authorization: this.token })  };
     const req &#x3D; new HttpRequest(&#x27;POST&#x27;, URI.QUESTIONS.SAVE, questions, httpOptions);
     return this.http.request(req).pipe(
       map(event &#x3D;&gt; this.getEventMessage(event, questions)),
-      catchError(handleError)
+      catchError(this.handleErrorAdmin)
+    );
+  }
+
+  /** Checks that the current admin token is valid */
+  checkToken() {
+    const httpOptions &#x3D; { headers: new HttpHeaders({ authorization: this.token }) };
+    return this.http.get&lt;boolean&gt;(URI.ADMIN.CHECK_TOKEN, httpOptions).pipe(
+      catchError(this.handleErrorAdmin)
     );
   }
 
@@ -780,6 +857,15 @@ export class AdminService {
       default:
         return &#x60;File &quot;${file.name}&quot; surprising upload event: ${event}.&#x60;;
     }
+  }
+  /** Handles expired tokens */
+  private handleErrorAdmin(error: HttpErrorResponse) {
+    if (error.error &#x3D;&#x3D;&#x3D; &#x27;Expired token&#x27;) {
+      localStorage.removeItem(&#x27;adminToken&#x27;);
+      this._token &#x3D; &#x27;&#x27;;
+      location.reload();
+    }
+    return handleError(error);
   }
 }
 </code></pre>

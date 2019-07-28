@@ -428,11 +428,11 @@ export class GameOverComponent implements OnInit {
   /** Saves the team */
   ngOnInit() {
     this.saving &#x3D; true;
-    this.team &#x3D; this.teamService.getTeam();
+    this.team &#x3D; this.teamService.team;
     this.teamService.save(this.team).subscribe(
       // Wipes out copy of team in teamService to prevent user from playing again and modifying their results
       () &#x3D;&gt; {
-        this.teamService.setTeam(undefined);
+        this.teamService.team &#x3D; undefined;
         this.saving &#x3D; false;
       }
     );

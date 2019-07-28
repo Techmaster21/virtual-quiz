@@ -48,12 +48,17 @@
                  formControlName="teamNumber"
                  name="team" placeholder="Team Number" required>
         </mat-form-field>
-        <div [hidden]="!teamExists">
-          <p>School name and team already registered</p>
-        </div>
         <button mat-raised-button color="accent" type="submit"
                 [disabled]="!signupForm.valid || submitted">Submit</button>
       </form>
+      <div *ngIf="teamExists">
+        <!--          <div [hidden]="!submitted">-->
+        <p *ngIf="!team.timeEnded && team.timeStarted">That team has already registered. Resume game?</p>
+        <!--          </div>-->
+        <!--          <div [hidden]="team.timeEnded">-->
+        <p *ngIf="team.timeEnded">That team has already registered and finished the game.</p>
+        <!--          </div>-->
+      </div>
       <div [hidden]="!submitted">
         <button mat-raised-button color="accent" (click)="onClick()">Start Game</button>
       </div>

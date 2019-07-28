@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminComponent } from './admin.component';
 import { MaterialModule } from '../../components/material/material.module';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AdminService } from '../../services/admin.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -15,7 +15,7 @@ describe('AdminComponent', () => {
     const adminSpy = jasmine.createSpyObj('AdminService', ['login', 'uploadQuestions', 'loggedIn']);
 
     TestBed.configureTestingModule({
-      imports: [ MaterialModule, FormsModule, BrowserAnimationsModule ],
+      imports: [ MaterialModule, ReactiveFormsModule, BrowserAnimationsModule ],
       declarations: [ AdminComponent ],
       providers: [{provide: AdminService, useValue: adminSpy}]
     })

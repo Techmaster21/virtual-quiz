@@ -36,6 +36,17 @@ export class SignupComponent implements OnInit {
   /** Checks to see if the user is allowed to compete yet */
   ngOnInit() {
     this.timeService.getCanStart().subscribe(canStart => this.registrationAllowed = canStart);
+    if (this.teamService.token !== '') {
+      this.teamService.getTeamFromServer().subscribe(team => {
+        if (team) {
+          const schoolNameControl = this.signupForm.get('schoolName');
+          const teamNumberControl = this.signupForm.get('teamNumber');
+          schoolNameControl.setValue(team.schoolName);
+          teamNumberControl.setValue(team.teamNumber);
+          this.team = team;
+        }
+      });
+    }
   }
 
   /** Called when Start Game button is pressed */
@@ -48,8 +59,8 @@ export class SignupComponent implements OnInit {
     this.team.schoolName = 'School of practice';
     this.team.teamNumber = 1337;
     this.team._id = 'practice';
-    this.teamService.setPractice(true);
-    this.teamService.setTeam(this.team);
+    this.teamService.practice = true;
+    this.teamService.team = this.team;
     this.router.navigate(['/game']);
   }
 
@@ -61,24 +72,26 @@ export class SignupComponent implements OnInit {
     this.team.teamNumber = teamNumberControl.value;
     this.teamService.getTeamFromServer(this.team).subscribe(
       team => {
-        if (team._id == null) {
+        if (!team) {
           this.submitted = true;
           schoolNameControl.disable();
           teamNumberControl.disable();
           this.teamService.save(this.team).subscribe(
             newTeam => {
               this.team = newTeam;
-              this.teamService.setTeam(newTeam);
+              this.teamService.team = newTeam;
             }
           );
         } else if (team.timeEnded) {
           this.submitted = false;
+          this.teamExists = true;
         } else {
           this.submitted = true;
+          this.teamExists = true;
           schoolNameControl.disable();
           teamNumberControl.disable();
           this.team = team;
-          this.teamService.setTeam(this.team);
+          this.teamService.team = this.team;
         }
       }
     );

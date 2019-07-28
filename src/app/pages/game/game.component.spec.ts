@@ -8,6 +8,7 @@ import { QuestionService } from '../../services/question.service';
 import { Router } from '@angular/router';
 import { asyncData } from '../../../testing/async-observable-helpers';
 import { TimerComponent } from '../../components/timer/timer.component';
+import { Team } from '../../models/team';
 
 @Component({selector: 'app-questions', template: ''})
 class QuestionsStubComponent {
@@ -29,7 +30,7 @@ describe('GameComponent', () => {
   let routerSpy: jasmine.SpyObj<Router>;
 
   beforeEach(async(() => {
-    const teamSpy = jasmine.createSpyObj('TeamService', ['save', 'getTeam', 'setTeam']);
+    const teamSpy = jasmine.createSpyObj('TeamService', ['save']);
     const questionSpy = jasmine.createSpyObj('QuestionService', ['getQuestions']);
     const router = jasmine.createSpyObj('Router', ['navigate']);
     TestBed.configureTestingModule({
@@ -44,9 +45,8 @@ describe('GameComponent', () => {
     teamServiceSpy = TestBed.get(TeamService);
     questionServiceSpy = TestBed.get(QuestionService);
     routerSpy = TestBed.get(Router);
-    teamServiceSpy.getTeam.and.returnValue({}); // doesn't seem to realize without this that getTeam will
-    // return a team synchronously.
     questionServiceSpy.getQuestions.and.returnValue(asyncData({})); // ditto but observable
+    teamServiceSpy.team = new Team('', 1);
   }));
 
   beforeEach(() => {

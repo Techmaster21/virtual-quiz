@@ -42,3 +42,5 @@ router.get(URI.TEAM.GET_ALL, Authorization.admin, async (req: Request, res: Resp
     res.status(500).end();
   }
 });
+
+router.get(URI.ADMIN.CHECK_TOKEN, Authorization.admin);

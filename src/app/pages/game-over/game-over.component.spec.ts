@@ -11,7 +11,7 @@ describe('GameOverComponent', () => {
   let teamServiceSpy: jasmine.SpyObj<TeamService>;
 
   beforeEach(async(() => {
-    const teamSpy = jasmine.createSpyObj('TeamService', ['save', 'getTeam', 'setTeam']);
+    const teamSpy = jasmine.createSpyObj('TeamService', ['save']);
     TestBed.configureTestingModule({
       imports: [ MaterialModule ],
       declarations: [ GameOverComponent ],

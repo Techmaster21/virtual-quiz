@@ -15,7 +15,7 @@ export class RegisterGuard implements CanActivate {
 
   /** Whether or not the user is allowed to activate this route */
   canActivate(): boolean {
-    if (this.teamService.getTeam() === undefined) {
+    if (this.teamService.team === undefined) {
       this.router.navigate(['/signup']);
       return false;
     } else {

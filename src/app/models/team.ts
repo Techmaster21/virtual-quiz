@@ -14,8 +14,6 @@ export class Team {
    *  The number of points the team has earned
    * @param currentQuestion
    *  The question that the team is currently on
-   * @param token
-   *  The authorization token for the team
    * @param _id
    *  The ID given by the database for the team
    */
@@ -26,7 +24,6 @@ export class Team {
     public timeEnded?: number,
     public points?: number,
     public currentQuestion?: number,
-    public token?: string,
     public _id?: string
   ) {  }
 }

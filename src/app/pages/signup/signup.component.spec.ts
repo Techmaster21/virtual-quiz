@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SignupComponent } from './signup.component';
 import { MaterialModule } from '../../components/material/material.module';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TeamService } from '../../services/team.service';
 import { TimeService } from '../../services/time.service';
@@ -19,10 +19,10 @@ describe('SignupComponent', () => {
 
   beforeEach(async(() => {
     const router = jasmine.createSpyObj('Router', ['navigate']);
-    const teamSpy = jasmine.createSpyObj('TeamService', ['navigate']);
+    const teamSpy = jasmine.createSpyObj('TeamService', ['getTeamFromServer']);
     const timeSpy = jasmine.createSpyObj('TimeService', ['getCanStart']);
     TestBed.configureTestingModule({
-      imports: [ MaterialModule, FormsModule, BrowserAnimationsModule ],
+      imports: [ MaterialModule, ReactiveFormsModule, BrowserAnimationsModule ],
       declarations: [ SignupComponent ],
       providers: [
         {provide: Router, useValue: router},
@@ -34,6 +34,7 @@ describe('SignupComponent', () => {
     routerSpy = TestBed.get(Router);
     teamServiceSpy = TestBed.get(TeamService);
     timeServiceSpy = TestBed.get(TimeService);
+    teamServiceSpy.getTeamFromServer.and.returnValue(asyncData({})); // ditto as below
     timeServiceSpy.getCanStart.and.returnValue(asyncData(true));
     // required for test to realise is real value not undefined
     // obviously not ideal

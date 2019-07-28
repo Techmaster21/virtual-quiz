@@ -83,10 +83,14 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
+                                <a href="#_token">_token</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#practice">practice</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Public</span>
                                 <a href="#team">team</a>
                             </li>
                         </ul>
@@ -102,16 +106,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getPractice">getPractice</a>
-                            </li>
-                            <li>
-                                <a href="#getTeam">getTeam</a>
-                            </li>
-                            <li>
                                 <a href="#getTeamFromServer">getTeamFromServer</a>
                             </li>
                             <li>
-                                <a href="#getToken">getToken</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleErrorUser">handleErrorUser</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -124,12 +123,6 @@
                             <li>
                                 <a href="#save">save</a>
                             </li>
-                            <li>
-                                <a href="#setPractice">setPractice</a>
-                            </li>
-                            <li>
-                                <a href="#setTeam">setTeam</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -138,6 +131,20 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#token">token</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -202,88 +209,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getPractice"></a>
-                    <span class="name">
-                        <b>
-                            getPractice
-                        </b>
-                        <a href="#getPractice"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getPractice()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/services/team.service.ts:39</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the value of the <a href="#practice">practice</a> variable. </p>
-</div>
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getTeam"></a>
-                    <span class="name">
-                        <b>
-                            getTeam
-                        </b>
-                        <a href="#getTeam"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getTeam()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/app/services/team.service.ts:29</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the <a href="#team">team</a> from storage </p>
-</div>
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Team.html" target="_self" >Team</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="getTeamFromServer"></a>
                     <span class="name">
                         <b>
@@ -295,15 +220,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getTeamFromServer(team: <a href="../classes/Team.html">Team</a>)</code>
+<code>getTeamFromServer(team?: <a href="../classes/Team.html">Team</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="86"
-                            class="link-to-prism">src/app/services/team.service.ts:86</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/services/team.service.ts:71</a></div>
                 </td>
             </tr>
 
@@ -331,7 +256,7 @@
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
 
@@ -356,44 +281,71 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getToken"></a>
+                    <a name="handleErrorUser"></a>
                     <span class="name">
                         <b>
-                            getToken
+                            <span class="modifier">Private</span>
+                            handleErrorUser
                         </b>
-                        <a href="#getToken"><span class="icon ion-ios-link"></span></a>
+                        <a href="#handleErrorUser"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getToken()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleErrorUser(error: <a href="https://angular.io/api/common/http/HttpErrorResponse" target="_blank">HttpErrorResponse</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/app/services/team.service.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/app/services/team.service.ts:84</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Gets the value of the authorization token from the currently loaded team</p>
+                    <div class="io-description"><p>Handles expired tokens </p>
 </div>
 
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>error</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/common/http/HttpErrorResponse" target="_blank" >HttpErrorResponse</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
-                        <p>The token if it exists; otherwise an empty string</p>
-
+                        
                     </div>
                 </td>
             </tr>
@@ -423,8 +375,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">src/app/services/team.service.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/services/team.service.ts:45</a></div>
                 </td>
             </tr>
 
@@ -498,8 +450,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">src/app/services/team.service.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/app/services/team.service.ts:54</a></div>
                 </td>
             </tr>
 
@@ -570,8 +522,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">src/app/services/team.service.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/services/team.service.ts:60</a></div>
                 </td>
             </tr>
 
@@ -620,150 +572,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="setPractice"></a>
-                    <span class="name">
-                        <b>
-                            setPractice
-                        </b>
-                        <a href="#setPractice"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>setPractice(practice: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/services/team.service.ts:34</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Sets the value of the <a href="#practice">practice</a> variable </p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>practice</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="setTeam"></a>
-                    <span class="name">
-                        <b>
-                            setTeam
-                        </b>
-                        <a href="#setTeam"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>setTeam(team: <a href="../classes/Team.html">Team</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/services/team.service.ts:24</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Sets the <a href="#team">team</a> </p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>team</td>
-                                    <td>
-                                                <code><a href="../classes/Team.html" target="_self" >Team</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
             <section>
     
@@ -774,10 +582,49 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="practice"></a>
+                        <a name="_token"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
+                            _token</b>
+                            <a href="#_token"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/services/team.service.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The token for the user </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="practice"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
                             practice</b>
                             <a href="#practice"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -811,7 +658,7 @@
                         <a name="team"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Private</span>
+                                <span class="modifier">Public</span>
                             team</b>
                             <a href="#team"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -840,17 +687,100 @@
         </table>
 </section>
 
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="token"></a>
+                        <span class="name"><b>token</b><a href="#token"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>token()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/services/team.service.ts:26</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the value of the <a href="#_token">token</a> </p>
+</div>
+
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>token(givenToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/services/team.service.ts:35</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Sets the value of the <a href="#_token">token</a> </p>
+</div>
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>givenToken</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { HttpClient, HttpErrorResponse, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 
 import { handleError, httpOptionsJSON, URI } from &#x27;../constants&#x27;;
 import { Team } from &#x27;../models/team&#x27;;
 import { Observable, of } from &#x27;rxjs&#x27;;
-import { catchError } from &#x27;rxjs/operators&#x27;;
+import { catchError, map, tap } from &#x27;rxjs/operators&#x27;;
 
 /** Provides server functionality related to the team class */
 @Injectable({
@@ -862,42 +792,25 @@ export class TeamService {
   constructor(private http: HttpClient) { }
 
   /** The Team object which contains identifying information about the user */
-  private team: Team;
+  public team: Team;
   /** Whether or not this is a practice game */
-  private practice: boolean;
+  public practice: boolean;
+  /** The token for the user */
+  private _token &#x3D; &#x27;&#x27;;
 
-  /** Sets the [team]{@link #team} */
-  setTeam(team: Team) {
-    this.team &#x3D; team;
-  }
-
-  /** Gets the [team]{@link #team} from storage */
-  getTeam(): Team {
-    return this.team;
-  }
-
-  /** Sets the value of the [practice]{@link #practice} variable */
-  setPractice(practice: boolean) {
-    this.practice &#x3D; practice;
-  }
-
-  /** Gets the value of the [practice]{@link #practice} variable. */
-  getPractice(): boolean {
-    return this.practice;
-  }
-
-  /**
-   * Gets the value of the authorization token from the currently loaded team
-   * @returns
-   *  The token if it exists; otherwise an empty string
-   */
-  getToken(): string {
-    const token &#x3D; this.team.token;
+  /** Gets the value of the [token]{@link #_token} */
+  get token() {
+    const token &#x3D; localStorage.getItem(&#x27;userToken&#x27;);
     if (token) {
-      return token;
-    } else {
-      return &#x27;&#x27;;
+      this._token &#x3D; token;
     }
+    return this._token;
+  }
+
+  /** Sets the value of the [token]{@link #_token} */
+  set token(givenToken: string) {
+    localStorage.setItem(&#x27;userToken&#x27;, givenToken);
+    this._token &#x3D; givenToken;
   }
 
   /**
@@ -906,15 +819,17 @@ export class TeamService {
    *  The team with a new _id
    */
   private post(team: Team): Observable&lt;Team&gt; {
-    return this.http.post&lt;Team&gt;(URI.TEAM.SAVE, team, httpOptionsJSON).pipe(
-      catchError(handleError)
+    return this.http.post&lt;[Team, string]&gt;(URI.TEAM.SAVE, team, httpOptionsJSON).pipe(
+      tap(result &#x3D;&gt; this.token &#x3D; result[1]),
+      map(result &#x3D;&gt; result[0]),
+      catchError(this.handleErrorUser)
     );
   }
 
   /** Requests the server to update a team */
   private put(team: Team): Observable&lt;Team&gt; {
     return this.http.put&lt;Team&gt;(URI.TEAM.SAVE, team, httpOptionsJSON).pipe(
-      catchError(handleError)
+      catchError(this.handleErrorUser)
     );
   }
   /** Requests the server to save team data */
@@ -929,10 +844,26 @@ export class TeamService {
   }
 
   /** Retrieves the team from the server */
-  getTeamFromServer(team: Team): Observable&lt;Team&gt; {
-    return this.http.put&lt;Team&gt;(URI.TEAM.GET, team, httpOptionsJSON).pipe(
-      catchError(handleError)
-    );
+  getTeamFromServer(team?: Team): Observable&lt;Team&gt; {
+    if (team) {
+      return this.http.put&lt;Team&gt;(URI.TEAM.GET, team, httpOptionsJSON).pipe(
+        catchError(this.handleErrorUser)
+      );
+    } else {
+      const httpOptions &#x3D; { headers: new HttpHeaders({ authorization: this.token }) };
+      return this.http.get&lt;Team&gt;(URI.TEAM.GET, httpOptions).pipe(
+        catchError(this.handleErrorUser)
+      );
+    }
+  }
+  /** Handles expired tokens */
+  private handleErrorUser(error: HttpErrorResponse) {
+    if (error.error &#x3D;&#x3D;&#x3D; &#x27;Expired token&#x27;) {
+      localStorage.removeItem(&#x27;userToken&#x27;);
+      this._token &#x3D; &#x27;&#x27;;
+      location.reload();
+    }
+    return handleError(error);
   }
 }
 </code></pre>

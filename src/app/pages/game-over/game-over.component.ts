@@ -34,11 +34,11 @@ export class GameOverComponent implements OnInit {
   /** Saves the team */
   ngOnInit() {
     this.saving = true;
-    this.team = this.teamService.getTeam();
+    this.team = this.teamService.team;
     this.teamService.save(this.team).subscribe(
       // Wipes out copy of team in teamService to prevent user from playing again and modifying their results
       () => {
-        this.teamService.setTeam(undefined);
+        this.teamService.team = undefined;
         this.saving = false;
       }
     );

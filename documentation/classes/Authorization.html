@@ -143,8 +143,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/server/authorization.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/server/authorization.ts:34</a></div>
                 </td>
             </tr>
 
@@ -340,8 +340,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/server/authorization.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/server/authorization.ts:45</a></div>
                 </td>
             </tr>
 
@@ -424,7 +424,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { verify as jwtVerify, VerifyErrors } from &#x27;jsonwebtoken&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TokenExpiredError, verify as jwtVerify, VerifyErrors } from &#x27;jsonwebtoken&#x27;;
 import { NextFunction, Request, Response } from &#x27;express&#x27;;
 import { secret } from &#x27;./constants&#x27;;
 
@@ -436,9 +436,18 @@ export class Authorization {
     if (token) {
       jwtVerify(token, secret, (err: VerifyErrors, decoded: any) &#x3D;&gt; { // adding type would break decoded.type
         if (err) {
-          return res.json(&#x27;invalid token&#x27;);
+          if (err instanceof TokenExpiredError) {
+            return res.status(403).json(&#x27;Expired token&#x27;);
+          } else {
+            return res.status(403).json(&#x27;Invalid token&#x27;);
+          }
         } else {
-          req.headers.authorization &#x3D; decoded.type;
+          // todo not sure why this worked without the safety check before
+          if (decoded.team) {
+            req.headers.authorization &#x3D; [decoded.type, decoded.team.schoolName, decoded.team.teamNumber];
+          } else {
+            req.headers.authorization &#x3D; [decoded.type, null, null];
+          }
           next();
         }
       });
@@ -450,7 +459,7 @@ export class Authorization {
   /** A middleware function used to authenticate admins before they are allowed to access endpoints in this file */
   public static admin(req: Request, res: Response, next: NextFunction) {
     Authorization.checkToken(req, res, () &#x3D;&gt; {
-      if (req.headers.authorization &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
+      if (req.headers.authorization[0] &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
         next();
       } else {
         res.status(403).json(&#x27;403 Forbidden&#x27;);
@@ -461,7 +470,7 @@ export class Authorization {
   /** A middleware function used to authenticate users before they are allowed to access endpoints in this file */
   public static user(req: Request, res: Response, next: NextFunction) {
     Authorization.checkToken(req, res, () &#x3D;&gt; {
-      if (req.headers.authorization &#x3D;&#x3D;&#x3D; &#x27;user&#x27; || req.headers.authorization &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
+      if (req.headers.authorization[0] &#x3D;&#x3D;&#x3D; &#x27;user&#x27; || req.headers.authorization[0] &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
         next();
       } else {
         res.status(403).json(&#x27;403 Forbidden&#x27;);

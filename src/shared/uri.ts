@@ -20,10 +20,11 @@ export const URI = {
   DATE: {
     NOW: '/api/date/now',
     START: '/api/date/start',
-    CAN_START: '/api/date/canStart'
+    CAN_START: '/api/date/can_start'
   },
   ADMIN: {
-    LOGIN: '/api/admin/login'
+    LOGIN: '/api/admin/login',
+    CHECK_TOKEN: '/api/admin/check_token'
   },
   STATS: {
     QUESTIONS: '/api/stats/questions'
