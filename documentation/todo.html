@@ -54,12 +54,12 @@
   and if it&#39;s up, transfer the teams and stats data.</p>
 <p>todo could make one command to do it all: pipe output away to focus on errors (syntax works on DOS)</p>
 <p>todo look into morgan for logging on server side</p>
-<p>todo in order for the routes&#39; middleware to be separate, the namespaces have to be separate: https://expressjs.com/en/4x/api.html#router
+<p>todo in order for the routes&#39; middleware to be separate, the namespaces have to be separate: <a href="https://expressjs.com/en/4x/api.html#router">https://expressjs.com/en/4x/api.html#router</a>
    fixed by instead providing middleware that authorizes user to every endpoint that requires it. May be a better solution</p>
 <p>todo observable based timer component? Or just look at timer component to see if good practices
  -- look at timers built in angular</p>
-<p>todo exponential backoff for api requests perhaps? https://angular.io/guide/practical-observable-usage#exponential-backoff</p>
-<p>todo read https://angular.io/guide/router#milestone-4-crisis-center-feature</p>
+<p>todo exponential backoff for api requests perhaps? <a href="https://angular.io/guide/practical-observable-usage#exponential-backoff">https://angular.io/guide/practical-observable-usage#exponential-backoff</a></p>
+<p>todo read <a href="https://angular.io/guide/router#milestone-4-crisis-center-feature">https://angular.io/guide/router#milestone-4-crisis-center-feature</a></p>
 <p>todo download endpoints from server via config?</p>
 <p>todo add error handlers for http requests (res =&gt; {}, err =&gt; {})</p>
 <p>todo make sure app automatically restarts</p>
@@ -75,35 +75,30 @@
   might not be necessary since it is the backend</p>
 <p>todo can you move mongodb-memory-server to dev-dependencies? If not, how can you make it so you can?
 Info about backend-apps with webpack:
-https://jlongster.com/Backend-Apps-with-Webpack--Part-I</p>
+<a href="https://jlongster.com/Backend-Apps-with-Webpack--Part-I">https://jlongster.com/Backend-Apps-with-Webpack--Part-I</a></p>
 <p>Priority for finishing:
 todo app (animations in particular) is sluggish on safari compared to chrome
   animations on edge are wonky - flashy and whatnot
   Make sure to state that chrome is most supported browser - if any issues move to chrome. However, other browsers will usually work.
+    -- might be worth retrying, safari seems fine now.
 todo finish stats module
 todo not every team has a non null time ended - why? -- see if you can replicate
-todo hash for admin password - SHA3 -- also need to use https
 TODO create admin interface that has the following functionality:
-  Built in documentation - hobby vs free dyno
+  Built in documentation
+    - hobby vs free dyno
     - common potential issues with csv parsing; caveats; etc.
 todo look into only sending one question at a time, and only allowing each user to see each question once. If already seen,
     and not currently looking at in game, then dont accept answers or new requests for it from that user. (would also fix
     back button issue)
-     - this of course can still be exploited by creating a different user to look at the questions
-  - Can you use route guards to help secure api?
+     - this of course can still be exploited by creating a different user to look at the questions</p>
+<ul>
+<li>Can you use route guards to help secure api?
 todo use some less gross colors for animations - maybe a gradient or something, or something that gives it depth. something
-  that doesn&#39;t hurt my eyes would be a good start.
+that doesn&#39;t hurt my eyes would be a good start.
 todo inform people not to sign up until ready to play (and include faq in admin to say this too and how to fix it) (tokens
-  may expire)</p>
-<p>CURRENT BUILD:
-Admin service now stores token in localstorage.
-Expired tokens now handled - Refreshes page since it is left in incorrect state after expired tokens are deleted
-Checks validity of admin token on page load.
-Converted some basic getters and setters into public variables
-Loads teams using token in localstorage and populate fields but don&#39;t submit - in case of multiple teams on same machine.
-User tokens now store identifying team information, rather than teams storing tokens.
-Notifies user whether team already exists and has begun game, or if team already exists and has finished the game (and
-in the latter case, disallows play)</p>
+may expire)
+todo what happens when user token expires? Why does it need to expire? if it is mainly just used to fill in login info<div><pre class="line-numbers"><code class="language-none">it is also used to authorize though, and a non expiring token is dangerous</code></pre></div></li>
+</ul>
 
 
 
@@ -118,6 +113,7 @@ in the latter case, disallows play)</p>
 
 
 
+                   
 
 
 

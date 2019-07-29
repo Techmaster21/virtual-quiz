@@ -7,6 +7,7 @@ import { URI } from '../shared/uri';
 import { database, questionStore } from './server';
 import { start, secret, adminPassword } from './constants';
 import { Authorization } from './authorization';
+import { WordArray } from 'crypto-js';
 
 /** The api router */
 export const router: Router = Router();
@@ -109,8 +110,8 @@ router.get(URI.TEAM.GET, Authorization.user, async (req: Request, res: Response)
 });
 
 router.post(URI.ADMIN.LOGIN, (req: Request, res: Response) => {
-  const password = req.body;
-  if (password === adminPassword) {
+  const hashedPassword: string = req.body;
+  if (hashedPassword === adminPassword) {
     const payload = { type: 'admin', check:  true };
     const options: SignOptions = { expiresIn: '1 day' };
     const token = jwtSign(payload, secret, options);

@@ -1,4 +1,5 @@
 import { join } from 'path';
+import { SHA3, WordArray } from 'crypto-js';
 
 /**
  * The start of the competition. Pulls from environment variable or compares against the start of unix time (in CST and
@@ -18,4 +19,4 @@ export const dbPassword = process.env.MONGODB_PASSWORD;
 /** The secret used to sign all the javascript web tokens */
 export const secret = process.env.SECRET || 'test secret';
 /** The password used to access the admin interface */
-export const adminPassword = process.env.ADMIN_PASSWORD || 'password';
+export const adminPassword = SHA3(process.env.ADMIN_PASSWORD || 'password').toString();

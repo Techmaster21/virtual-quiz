@@ -43,6 +43,7 @@
 
 
 
+                   
 
 <ol class="breadcrumb">
   <li>Miscellaneous</li>
@@ -114,10 +115,10 @@
                             <a href="#questionStore" title="src/server/server.ts"><b>questionStore</b>&nbsp;&nbsp;&nbsp;(src/.../server.ts)</a>
                         </li>
                         <li>
-                            <a href="#router" title="src/server/api.ts"><b>router</b>&nbsp;&nbsp;&nbsp;(src/.../api.ts)</a>
+                            <a href="#router" title="src/server/admin-api.ts"><b>router</b>&nbsp;&nbsp;&nbsp;(src/.../admin-api.ts)</a>
                         </li>
                         <li>
-                            <a href="#router" title="src/server/admin-api.ts"><b>router</b>&nbsp;&nbsp;&nbsp;(src/.../admin-api.ts)</a>
+                            <a href="#router" title="src/server/api.ts"><b>router</b>&nbsp;&nbsp;&nbsp;(src/.../api.ts)</a>
                         </li>
                         <li>
                             <a href="#router" title="src/server/user-api.ts"><b>router</b>&nbsp;&nbsp;&nbsp;(src/.../user-api.ts)</a>
@@ -157,7 +158,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>process.env.ADMIN_PASSWORD || &#x27;password&#x27;</code>
+                            <i>Default value : </i><code>SHA3(process.env.ADMIN_PASSWORD || &#x27;password&#x27;).toString()</code>
                         </td>
                     </tr>
 
@@ -941,6 +942,42 @@ mostly for fun)</p>
             </tbody>
         </table>
 </section>
+    <h3>src/server/admin-api.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="router"></a>
+                        <span class="name">
+                            <b>
+                            router</b>
+                            <a href="#router"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Router()</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The admin-api router </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
     <h3>src/server/api.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -1003,42 +1040,6 @@ mostly for fun)</p>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>The date and time of the start of the competition. Before this time, users can only play with practice questions. </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-</section>
-    <h3>src/server/admin-api.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="router"></a>
-                        <span class="name">
-                            <b>
-                            router</b>
-                            <a href="#router"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>Router()</code>
-                        </td>
-                    </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>The admin-api router </p>
 </div>
                     </td>
                 </tr>

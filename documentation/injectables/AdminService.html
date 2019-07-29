@@ -157,7 +157,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/admin.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/admin.service.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -224,8 +224,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">src/app/services/admin.service.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/app/services/admin.service.ts:73</a></div>
                 </td>
             </tr>
 
@@ -267,8 +267,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="79"
-                            class="link-to-prism">src/app/services/admin.service.ts:79</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/app/services/admin.service.ts:81</a></div>
                 </td>
             </tr>
 
@@ -351,8 +351,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">src/app/services/admin.service.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/services/admin.service.ts:55</a></div>
                 </td>
             </tr>
 
@@ -394,8 +394,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">src/app/services/admin.service.ts:97</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">src/app/services/admin.service.ts:99</a></div>
                 </td>
             </tr>
 
@@ -466,8 +466,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/app/services/admin.service.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/services/admin.service.ts:43</a></div>
                 </td>
             </tr>
 
@@ -507,8 +507,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">src/app/services/admin.service.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/app/services/admin.service.ts:48</a></div>
                 </td>
             </tr>
 
@@ -579,8 +579,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">src/app/services/admin.service.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/services/admin.service.ts:63</a></div>
                 </td>
             </tr>
 
@@ -661,7 +661,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/services/admin.service.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/services/admin.service.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -696,7 +696,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/services/admin.service.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/services/admin.service.ts:28</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -714,7 +714,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/services/admin.service.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/services/admin.service.ts:37</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -772,6 +772,8 @@ import {
 } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { catchError, map } from &#x27;rxjs/operators&#x27;;
+import { SHA3 } from &#x27;crypto-js&#x27;;
+
 import { handleError, httpOptionsText, URI } from &#x27;../constants&#x27;;
 import { Team } from &#x27;../models/team&#x27;;
 
@@ -809,7 +811,7 @@ export class AdminService {
 
   /** Logs the user in using the provided password */
   login(password: string): Observable&lt;string&gt; {
-    return this.http.post&lt;string&gt;(URI.ADMIN.LOGIN, password, {... httpOptionsText, responseType: &#x27;text&#x27; as &#x27;json&#x27;}).pipe(
+    return this.http.post&lt;string&gt;(URI.ADMIN.LOGIN, SHA3(password).toString(), {... httpOptionsText, responseType: &#x27;text&#x27; as &#x27;json&#x27;}).pipe(
       catchError(this.handleErrorAdmin)
     );
   }
@@ -879,6 +881,7 @@ export class AdminService {
 
 
 
+                   
 
 
 
