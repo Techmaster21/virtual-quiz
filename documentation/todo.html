@@ -83,10 +83,7 @@ todo app (animations in particular) is sluggish on safari compared to chrome
     -- might be worth retrying, safari seems fine now.
 todo finish stats module
 todo not every team has a non null time ended - why? -- see if you can replicate
-TODO create admin interface that has the following functionality:
-  Built in documentation
-    - hobby vs free dyno
-    - common potential issues with csv parsing; caveats; etc.
+TODO add more info to admin interface: perhaps info about how to access mongodb
 todo look into only sending one question at a time, and only allowing each user to see each question once. If already seen,
     and not currently looking at in game, then dont accept answers or new requests for it from that user. (would also fix
     back button issue)
@@ -97,7 +94,12 @@ todo use some less gross colors for animations - maybe a gradient or something, 
 that doesn&#39;t hurt my eyes would be a good start.
 todo inform people not to sign up until ready to play (and include faq in admin to say this too and how to fix it) (tokens
 may expire)
-todo what happens when user token expires? Why does it need to expire? if it is mainly just used to fill in login info<div><pre class="line-numbers"><code class="language-none">it is also used to authorize though, and a non expiring token is dangerous</code></pre></div></li>
+todo what happens when user token expires? Why does it need to expire? if it is mainly just used to fill in login info<div><pre class="line-numbers"><code class="language-none">it is also used to authorize though, and a non expiring token is dangerous</code></pre></div>todo could probably use free dynos now since it just sleeps instead of shutting down. It takes it a little longer to start up
+but other than that there seems to be no major difference. May want to check the other benefits of hobby dynos first.
+todo turns out console.log lies sometimes when printing objects - it will provide a live view unless you use
+  console.log(JSON.parse(JSON.stringify(obj)));
+  and it turns out this was behind the mystery of the download failed no file issue in the admin interface - it is true
+  that link has not properly been set by the time that link.click() is called. workshop solutions.</li>
 </ul>
 
 

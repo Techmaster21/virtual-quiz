@@ -1,5 +1,5 @@
 // This program assumes that the csv file is in the following form:
-// Date and time, Category, _question, answer A, B, C, D, E, Correct answer Letter, Initials, Witty comment
+// Date and time, Category, question, answer A, B, C, D, E, Correct answer Letter, Initials, Witty comment
 // Most importantly, it assumes that it has a header, that is, a row before the rows containing data.
 // Most common errors:
 // The lines containing a quote character(") have not been properly escaped by the csv exporter (should look like "")
@@ -15,7 +15,7 @@ export class QuestionPreparer {
     const parsed = papaparse(csv, {skipEmptyLines: true});
     const errors = parsed.errors;
     if (errors.length) {
-      console.log(errors);
+      console.error(errors);
     }
     const rows = parsed.data
       .slice(1); // remove header

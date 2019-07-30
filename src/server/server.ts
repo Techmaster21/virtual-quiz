@@ -38,7 +38,7 @@ async function setDbURL() {
   if (!dbUser || !dbPassword) {
     const mongod = new MongoMemoryServer();
     dbURL = await mongod.getUri();
-    console.log(`Running database in development mode (no MONGODB_USER or MONGODB_PASSWORD environment variable found).
+    console.error(`Running database in development mode (no MONGODB_USER or MONGODB_PASSWORD environment variable found).
 You can connect to the development database at: ${dbURL}`);
   } else {
     dbURL = `mongodb://${dbUser}:${dbPassword}@ds253918.mlab.com:53918/${dbUser}`;
@@ -59,7 +59,7 @@ setDbURL().then(async () => {
       console.log(`Virtual Quiz app listening on port ${port}`);
     });
   } catch (err) {
-    console.log(`There was an error while starting the server: ${err}`);
+    console.error(`There was an error while starting the server: ${err}`);
   }
 });
 

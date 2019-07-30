@@ -206,7 +206,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/admin/admin.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/admin/admin.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -289,8 +289,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">src/app/pages/admin/admin.component.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/app/pages/admin/admin.component.ts:73</a></div>
                 </td>
             </tr>
 
@@ -361,8 +361,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/app/pages/admin/admin.component.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/pages/admin/admin.component.ts:49</a></div>
                 </td>
             </tr>
 
@@ -433,8 +433,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/pages/admin/admin.component.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/pages/admin/admin.component.ts:31</a></div>
                 </td>
             </tr>
 
@@ -474,8 +474,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/pages/admin/admin.component.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/pages/admin/admin.component.ts:38</a></div>
                 </td>
             </tr>
 
@@ -585,7 +585,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/admin/admin.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/admin/admin.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -620,7 +620,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/admin/admin.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/admin/admin.component.ts:23</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -653,7 +653,16 @@ export class AdminComponent implements OnInit {
   /** The link to the team CSV file */
   file;
   /** Output to show to the user */
-  consoleOutput &#x3D; &#x27;&#x27;; // should be a class that with an add() method
+  consoleOutput &#x3D; &#x27;&#x27;; // should be a class with an add() method
+  /** The login form containing the password */
+  loginForm &#x3D; new FormGroup({
+    password: new FormControl(&#x27;&#x27;)
+  });
+
+  /** Returns the admin service. Used by html to avoid violating private access */
+  get admin() {
+    return this.adminService;
+  }
 
   /** Admin component constructor */
   constructor(private adminService: AdminService, private sanitizer: DomSanitizer) { }
@@ -664,16 +673,6 @@ export class AdminComponent implements OnInit {
       this.adminService.checkToken().subscribe();
     }
   }
-
-  /** Returns the admin service. Used by html to avoid violating private access */
-  get admin() {
-    return this.adminService;
-  }
-
-  /** The login form containing the password */
-  loginForm &#x3D; new FormGroup({
-    password: new FormControl(&#x27;&#x27;)
-  });
 
   /** Called when the user attempts to log in */
   onSubmit() {
@@ -689,7 +688,6 @@ export class AdminComponent implements OnInit {
   /** Gets the teams from the server, sorts them by points, and outputs in a nice csv format */
   getTeams(link: HTMLAnchorElement) {
     this.adminService.getTeams().subscribe(teams &#x3D;&gt; {
-      console.log(teams);
       if (!teams) {
         return;
       }
@@ -703,12 +701,7 @@ export class AdminComponent implements OnInit {
       const blob &#x3D; new Blob([data], {type: &#x27;text/csv&#x27;});
       const url &#x3D; window.URL.createObjectURL(blob);
       this.file &#x3D; this.sanitizer.bypassSecurityTrustUrl(url);
-      // todo this would be funny if it weren&#x27;t so sad (i have no idea why this is needed but it fails with
-      //   &#x27;Failed - no file&#x27; on chrome on the first click if this isn&#x27;t here soooo)
-      // i thought it might have something to do with href not getting set fast enough but console.log doesn&#x27;t support
-      // this - works on safari just fine
-      // everything here should be synchronous so the file should exist by the time the link is clicked
-      // unless link isn&#x27;t actually a reference, but rather a copied value. console.log doesnt support this.
+      // in case it doesn&#x27;t get set in time (which it often doesn&#x27;t)
       link.href &#x3D; url;
       link.click();
       window.URL.revokeObjectURL(url);
@@ -731,6 +724,53 @@ export class AdminComponent implements OnInit {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;admin.loggedIn()&quot;&gt;
+  &lt;mat-expansion-panel&gt;
+    &lt;mat-expansion-panel-header&gt;
+      &lt;mat-panel-title&gt;
+        Information
+      &lt;/mat-panel-title&gt;
+    &lt;/mat-expansion-panel-header&gt;
+    &lt;mat-expansion-panel&gt;
+      &lt;mat-expansion-panel-header&gt;
+        &lt;mat-panel-title &gt;
+          Starting the server
+        &lt;/mat-panel-title&gt;
+      &lt;/mat-expansion-panel-header&gt;
+      &lt;p&gt;
+        Once you have installed the heroku CLI
+        &lt;a href&#x3D;&quot;https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up&quot;&gt;here&lt;/a&gt;, then you are ready
+        to start the server.&lt;/p&gt;
+      &lt;p&gt;
+        The next thing to check is whether or not the heroku server is set to use a hobby dyno or
+        a free dyno. This can be checked at the main heroku page for the project
+        &lt;a href&#x3D;&quot;https://dashboard.heroku.com/apps/virtual-quiz&quot;&gt;here&lt;/a&gt;. It should be set to a hobby dyno for the period
+        of the competition, and a free dyno at all other times. This is because a free dyno will automatically sleep
+        after 30 minutes, which we don&#x27;t want.
+      &lt;/p&gt;
+      &lt;p&gt;
+        Finally, log in to heroku using &#x27;heroku login&#x27; on the command line and then type &#x27;heroku ps:scale web&#x3D;1&#x27; to
+        start the server, or &#x27;heroku ps:scale web&#x3D;0&#x27; to stop it.
+      &lt;/p&gt;
+    &lt;/mat-expansion-panel&gt;
+    &lt;mat-expansion-panel&gt;
+      &lt;mat-expansion-panel-header&gt;
+        &lt;mat-panel-title &gt;
+          Potential issues with uploading questions
+        &lt;/mat-panel-title&gt;
+      &lt;/mat-expansion-panel-header&gt;
+      &lt;p&gt;
+        The most important thing about the format of the csv file you upload to be the new questions via the admin
+        interface, is to make sure the format of the columns is correct. The columns should be in the following order:
+        Date and time, Category, Question, answer A, B, C, D, E, Correct answer (as a letter A-E). There may be more
+        columns, but they will not be used. Also it&#x27;s important that the csv file contain a header row, that is, a row
+        before the rows containing data.
+      &lt;/p&gt;
+      &lt;p&gt;
+        Another potential issue could be that the lines containing a quote character(&quot;) have not been properly escaped
+        by the csv exporter (should look like &quot;&quot;)
+      &lt;/p&gt;
+    &lt;/mat-expansion-panel&gt;
+  &lt;/mat-expansion-panel&gt;
   &lt;mat-card&gt;
     &lt;div&gt;
       &lt;label for&#x3D;&quot;fileUpload&quot;&gt;Upload the csv file containing the questions&lt;/label&gt;
@@ -815,7 +855,7 @@ textarea {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div *ngIf="admin.loggedIn()">  <mat-card>    <div>      <label for="fileUpload">Upload the csv file containing the questions</label>      <div>        <button mat-raised-button type="button" id="fileUpload" color="accent" (click)="fileInput.click()">          Choose File        </button>        <input #fileInput               hidden               type="file"               name="File Upload"               (change)="fileUpload(fileInput)"               accept=".csv"/>      </div>    </div>  </mat-card>  <mat-card>    <a #downloader [href]="file" hidden download="teams.csv"></a>    <button mat-raised-button type="button" color="accent" (click)="getTeams(downloader)"> Get teams as CSV </button>  </mat-card>  <mat-card>    <div>      <textarea rows="10" readonly>{{consoleOutput}}</textarea>    </div>    <button mat-raised-button color="accent" (click)="consoleOutput = \'\'">Clear Output</button>  </mat-card></div><div *ngIf="!admin.loggedIn()">  <mat-card>    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">      <mat-form-field>        <input matInput type="password" id="password" required        formControlName="password" name="password" placeholder="Password">      </mat-form-field>      <button mat-raised-button color="accent" type="submit">Login</button>    </form>  </mat-card></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="admin.loggedIn()">  <mat-expansion-panel>    <mat-expansion-panel-header>      <mat-panel-title>        Information      </mat-panel-title>    </mat-expansion-panel-header>    <mat-expansion-panel>      <mat-expansion-panel-header>        <mat-panel-title >          Starting the server        </mat-panel-title>      </mat-expansion-panel-header>      <p>        Once you have installed the heroku CLI        <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up">here</a>, then you are ready        to start the server.</p>      <p>        The next thing to check is whether or not the heroku server is set to use a hobby dyno or        a free dyno. This can be checked at the main heroku page for the project        <a href="https://dashboard.heroku.com/apps/virtual-quiz">here</a>. It should be set to a hobby dyno for the period        of the competition, and a free dyno at all other times. This is because a free dyno will automatically sleep        after 30 minutes, which we don\'t want.      </p>      <p>        Finally, log in to heroku using \'heroku login\' on the command line and then type \'heroku ps:scale web=1\' to        start the server, or \'heroku ps:scale web=0\' to stop it.      </p>    </mat-expansion-panel>    <mat-expansion-panel>      <mat-expansion-panel-header>        <mat-panel-title >          Potential issues with uploading questions        </mat-panel-title>      </mat-expansion-panel-header>      <p>        The most important thing about the format of the csv file you upload to be the new questions via the admin        interface, is to make sure the format of the columns is correct. The columns should be in the following order:        Date and time, Category, Question, answer A, B, C, D, E, Correct answer (as a letter A-E). There may be more        columns, but they will not be used. Also it\'s important that the csv file contain a header row, that is, a row        before the rows containing data.      </p>      <p>        Another potential issue could be that the lines containing a quote character(") have not been properly escaped        by the csv exporter (should look like "")      </p>    </mat-expansion-panel>  </mat-expansion-panel>  <mat-card>    <div>      <label for="fileUpload">Upload the csv file containing the questions</label>      <div>        <button mat-raised-button type="button" id="fileUpload" color="accent" (click)="fileInput.click()">          Choose File        </button>        <input #fileInput               hidden               type="file"               name="File Upload"               (change)="fileUpload(fileInput)"               accept=".csv"/>      </div>    </div>  </mat-card>  <mat-card>    <a #downloader [href]="file" hidden download="teams.csv"></a>    <button mat-raised-button type="button" color="accent" (click)="getTeams(downloader)"> Get teams as CSV </button>  </mat-card>  <mat-card>    <div>      <textarea rows="10" readonly>{{consoleOutput}}</textarea>    </div>    <button mat-raised-button color="accent" (click)="consoleOutput = \'\'">Clear Output</button>  </mat-card></div><div *ngIf="!admin.loggedIn()">  <mat-card>    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">      <mat-form-field>        <input matInput type="password" id="password" required        formControlName="password" name="password" placeholder="Password">      </mat-form-field>      <button mat-raised-button color="accent" type="submit">Login</button>    </form>  </mat-card></div></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'GameComponent', 'selector': 'app-game'},{'name': 'GameOverComponent', 'selector': 'app-game-over'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TimerComponent', 'selector': 'app-timer'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AdminComponent'};

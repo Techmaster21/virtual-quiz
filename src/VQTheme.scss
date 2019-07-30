@@ -67,8 +67,8 @@ $md-isucardinal: (
   )
 );
 
-$primary: mat-palette($md-isucardinal,500);
-$accent: mat-palette($md-isugold,500);
+$primary: mat-palette($md-isucardinal, 500);
+$accent: mat-palette($md-isugold, 500);
 
 $theme: mat-light-theme($primary, $accent);
 

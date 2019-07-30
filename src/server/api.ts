@@ -42,7 +42,7 @@ router.get(URI.DATE.CAN_START, async (req: Request, res: Response) => {
       res.json(false);
     }
   } catch (err) {
-    console.log(`An error occurred while getting questions/answers/practiceQuestions: ${err.message}`);
+    console.error(`An error occurred while getting questions/answers/practiceQuestions: ${err.message}`);
     res.status(500).end();
   }
 });
@@ -59,7 +59,7 @@ router.post(URI.TEAM.SAVE, async (req: Request, res: Response) => {
     const token = jwtSign(payload, secret, options);
     res.json([result, token]);
   } catch (err) {
-    console.log(`An error occurred while updating a team: ${err.message}`);
+    console.error(`An error occurred while updating a team: ${err.message}`);
     res.status(500).end();
   }
 });
@@ -78,7 +78,7 @@ router.put(URI.TEAM.SAVE, async (req: Request, res: Response) => {
     });
     res.json(team);
   } catch (err) {
-    console.log(`An error occurred while saving a team: ${err.message}`);
+    console.error(`An error occurred while saving a team: ${err.message}`);
     res.status(500).end();
   }
 });
@@ -92,7 +92,7 @@ router.put(URI.TEAM.GET, async (req: Request, res: Response) => {
     const result = await collection.findOne({schoolName: team.schoolName, teamNumber: team.teamNumber});
     res.json(result);
   } catch (err) {
-    console.log(`An error occurred while getting a team: ${err.message}`);
+    console.error(`An error occurred while getting a team: ${err.message}`);
     res.status(500).end();
   }
 });
@@ -104,7 +104,7 @@ router.get(URI.TEAM.GET, Authorization.user, async (req: Request, res: Response)
     const result = await collection.findOne({schoolName, teamNumber});
     res.json(result);
   } catch (err) {
-    console.log(`An error occurred while getting a team: ${err.message}`);
+    console.error(`An error occurred while getting a team: ${err.message}`);
     res.status(500).end();
   }
 });

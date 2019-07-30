@@ -216,7 +216,7 @@ export class QuestionStore {
       const result &#x3D; await collection.findOne({});
       return result[name];
     } catch (err) {
-      console.log(&#x60;An error occurred while getting ${name}: ${err.message}&#x60;);
+      console.error(&#x60;An error occurred while getting ${name}: ${err.message}&#x60;);
     }
   }
 }

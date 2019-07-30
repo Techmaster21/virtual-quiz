@@ -9,9 +9,9 @@ export const breakTime = 300 * 1000;
 /** The amount of time before no answer is counted as an automatic incorrect guess, in milliseconds */
 export const autoWrongGuess = 60 * 1000;
 /** The color of a correct answer */
-export const correctColor = '#009900';
+export const correctColor = '#009000';
 /** The color of an incorrect answer */
-export const incorrectColor = '#e50000';
+export const incorrectColor = '#D00000';
 
 // reexports HTTP request URIs
 export { URI } from '../shared/uri';
@@ -29,8 +29,7 @@ export function handleError(error: HttpErrorResponse) {
       `body was: ${error.error}`);
   }
   // return an observable with a user-facing error message
-  return throwError(
-    'Something bad happened; please try again later.');
+  return throwError('Something bad happened; please try again later.');
 }
 
 /** Default json headers for put and post requests */

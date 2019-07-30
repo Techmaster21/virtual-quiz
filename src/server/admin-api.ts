@@ -23,7 +23,7 @@ router.post(URI.QUESTIONS.SAVE, Authorization.admin, async (req: Request, res: R
     questionStore.answers = Promise.resolve(answers);
     res.end();
   } catch (err) {
-    console.log(`An error occurred while saving or parsing questions.csv: ${err.message}`);
+    console.error(`An error occurred while saving or parsing questions.csv: ${err.message}`);
     res.status(500).end();
   }
 });
@@ -38,9 +38,11 @@ router.get(URI.TEAM.GET_ALL, Authorization.admin, async (req: Request, res: Resp
       res.json(results);
     }
   } catch (err) {
-    console.log(`An error occurred while getting the teams: ${err.message}`);
+    console.error(`An error occurred while getting the teams: ${err.message}`);
     res.status(500).end();
   }
 });
 
-router.get(URI.ADMIN.CHECK_TOKEN, Authorization.admin);
+router.get(URI.ADMIN.CHECK_TOKEN, Authorization.admin, (req: Request, res: Response) => {
+  res.json(true);
+});

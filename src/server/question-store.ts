@@ -69,7 +69,7 @@ export class QuestionStore {
       const result = await collection.findOne({});
       return result[name];
     } catch (err) {
-      console.log(`An error occurred while getting ${name}: ${err.message}`);
+      console.error(`An error occurred while getting ${name}: ${err.message}`);
     }
   }
 }

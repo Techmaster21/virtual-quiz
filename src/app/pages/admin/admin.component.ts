@@ -13,7 +13,16 @@ export class AdminComponent implements OnInit {
   /** The link to the team CSV file */
   file;
   /** Output to show to the user */
-  consoleOutput = ''; // should be a class that with an add() method
+  consoleOutput = ''; // should be a class with an add() method
+  /** The login form containing the password */
+  loginForm = new FormGroup({
+    password: new FormControl('')
+  });
+
+  /** Returns the admin service. Used by html to avoid violating private access */
+  get admin() {
+    return this.adminService;
+  }
 
   /** Admin component constructor */
   constructor(private adminService: AdminService, private sanitizer: DomSanitizer) { }
@@ -24,16 +33,6 @@ export class AdminComponent implements OnInit {
       this.adminService.checkToken().subscribe();
     }
   }
-
-  /** Returns the admin service. Used by html to avoid violating private access */
-  get admin() {
-    return this.adminService;
-  }
-
-  /** The login form containing the password */
-  loginForm = new FormGroup({
-    password: new FormControl('')
-  });
 
   /** Called when the user attempts to log in */
   onSubmit() {
@@ -49,7 +48,6 @@ export class AdminComponent implements OnInit {
   /** Gets the teams from the server, sorts them by points, and outputs in a nice csv format */
   getTeams(link: HTMLAnchorElement) {
     this.adminService.getTeams().subscribe(teams => {
-      console.log(teams);
       if (!teams) {
         return;
       }
@@ -63,12 +61,7 @@ export class AdminComponent implements OnInit {
       const blob = new Blob([data], {type: 'text/csv'});
       const url = window.URL.createObjectURL(blob);
       this.file = this.sanitizer.bypassSecurityTrustUrl(url);
-      // todo this would be funny if it weren't so sad (i have no idea why this is needed but it fails with
-      //   'Failed - no file' on chrome on the first click if this isn't here soooo)
-      // i thought it might have something to do with href not getting set fast enough but console.log doesn't support
-      // this - works on safari just fine
-      // everything here should be synchronous so the file should exist by the time the link is clicked
-      // unless link isn't actually a reference, but rather a copied value. console.log doesnt support this.
+      // in case it doesn't get set in time (which it often doesn't)
       link.href = url;
       link.click();
       window.URL.revokeObjectURL(url);
