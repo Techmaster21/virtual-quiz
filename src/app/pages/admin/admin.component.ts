@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../../services/admin.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
 
 /** Page concerned with admin functionality */
 @Component({
@@ -10,8 +9,6 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  /** The link to the team CSV file */
-  file;
   /** Output to show to the user */
   consoleOutput = ''; // should be a class with an add() method
   /** The login form containing the password */
@@ -25,7 +22,7 @@ export class AdminComponent implements OnInit {
   }
 
   /** Admin component constructor */
-  constructor(private adminService: AdminService, private sanitizer: DomSanitizer) { }
+  constructor(private adminService: AdminService) { }
 
   /** Checks if token is valid on page init */
   ngOnInit() {
@@ -60,13 +57,10 @@ export class AdminComponent implements OnInit {
         .join('\n');
       const blob = new Blob([data], {type: 'text/csv'});
       const url = window.URL.createObjectURL(blob);
-      this.file = this.sanitizer.bypassSecurityTrustUrl(url);
-      // in case it doesn't get set in time (which it often doesn't)
       link.href = url;
       link.click();
       window.URL.revokeObjectURL(url);
     });
-
   }
 
   /** Upload the questions to the server */

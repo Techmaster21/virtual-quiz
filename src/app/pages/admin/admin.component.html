@@ -12,19 +12,36 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <p>
-        Once you have installed the heroku CLI
-        <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up">here</a>, then you are ready
-        to start the server.</p>
-      <p>
-        The next thing to check is whether or not the heroku server is set to use a hobby dyno or
+        The first thing to check is whether or not the heroku server is set to use a hobby dyno or
         a free dyno. This can be checked at the main heroku page for the project
-        <a href="https://dashboard.heroku.com/apps/virtual-quiz">here</a>. It should be set to a hobby dyno for the period
-        of the competition, and a free dyno at all other times. This is because a free dyno will automatically sleep
-        after 30 minutes, which we don't want.
+        <a href="https://dashboard.heroku.com/apps/virtual-quiz" target="_blank">here</a>. It should be set to a hobby
+        dyno for the period of the competition, and a free dyno at all other times. This is because a free dyno will
+        automatically sleep after 30 minutes, which we don't want.
       </p>
       <p>
-        Finally, log in to heroku using 'heroku login' on the command line and then type 'heroku ps:scale web=1' to
-        start the server, or 'heroku ps:scale web=0' to stop it.
+        You can also turn the app on or off on this page by clicking the pencil next to the switch to the right of
+        "web node dist/server/server.js", clicking on the switch, and then clicking confirm. If it is to the left, it is
+        off, and if it is to the right, it is on. This can of course be easily confirmed by checking the website,
+        although if you just turned it on, be sure to give it enough time to start up.
+      </p>
+      <p>
+        Don't forget to change the dyno back to free after the competition, otherwise it will continue to bill us for
+        the time it is running!
+      </p>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title >
+          Important configuration
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>
+        There are a couple important configuration options for you to be aware of, which you can find in the "Config Vars"
+        portion of the settings section on Heroku, <a href="https://dashboard.heroku.com/apps/virtual-quiz/settings"
+                                                      target="_blank">here</a>. Here you can find the admin password,
+        should you ever forget it, as well as the start date, that is, the time before which only practice play is allowed.
+        The start date is in the format "Month/Day/Year Houram". am may also be pm. The time is CST/CDT. The rest of the
+        variables are only interesting for developers, and are necessary for the proper functioning of the application.
       </p>
     </mat-expansion-panel>
     <mat-expansion-panel>
@@ -43,6 +60,14 @@
       <p>
         Another potential issue could be that the lines containing a quote character(") have not been properly escaped
         by the csv exporter (should look like "")
+      </p>
+      <p>
+        Always check the final form of the questions read by the program by going to the app's
+        <a href="https://dashboard.heroku.com/apps/virtual-quiz" target="_blank">main heroku page</a>, clicking on
+        "mLab MongoDB" under "Installed add-ons" and then clicking "questions" under "Collections." This should display
+        the questions you uploaded in a different format and order than you uploaded them, but they should be otherwise
+        be the same with the following exception: quote characters(") will be escaped in some circumstances (appearing as
+        \"). This is normal and important to the proper functioning of the program.
       </p>
     </mat-expansion-panel>
   </mat-expansion-panel>
@@ -63,7 +88,7 @@
     </div>
   </mat-card>
   <mat-card>
-    <a #downloader [href]="file" hidden download="teams.csv"></a>
+    <a #downloader hidden download="teams.csv"></a>
     <button mat-raised-button type="button" color="accent" (click)="getTeams(downloader)"> Get teams as CSV </button>
   </mat-card>
   <mat-card>

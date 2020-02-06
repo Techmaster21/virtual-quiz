@@ -2,7 +2,7 @@ import { Request, Response, Router } from 'express';
 
 import { URI } from '../shared/uri';
 import { Authorization } from './authorization';
-import { questionStore } from './server';
+import { database, questionStore } from './server';
 
 /** The user-api router */
 export const router: Router = Router();
@@ -29,4 +29,8 @@ router.get(URI.QUESTIONS.GET, Authorization.user, async (req: Request, res: Resp
   } else {
     res.status(500).end();
   }
+});
+
+router.put(URI.STATS.QUESTIONS, Authorization.user, async (req: Request, res: Response) => {
+  const stats = database.collection('stats');
 });

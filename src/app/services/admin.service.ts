@@ -97,7 +97,7 @@ export class AdminService {
   }
   /** Handles expired tokens */
   private handleErrorAdmin(error: HttpErrorResponse) {
-    if (error.error === 'Expired token') {
+    if (error.error === 'Expired token' || error.error === 'Invalid token') {
       localStorage.removeItem('adminToken');
       this._token = '';
       location.reload();

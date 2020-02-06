@@ -7,7 +7,6 @@ import { URI } from '../shared/uri';
 import { database, questionStore } from './server';
 import { start, secret, adminPassword } from './constants';
 import { Authorization } from './authorization';
-import { WordArray } from 'crypto-js';
 
 /** The api router */
 export const router: Router = Router();

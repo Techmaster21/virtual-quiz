@@ -65,7 +65,7 @@ export class GameComponent implements OnInit, AfterViewInit {
    * occur after roughly 1/3 of the total questions are completed (but only twice)
    */
   loadQuestion() {
-    // save result
+    // save team
     this.pointsGained = 0;
     this.team.currentQuestion = this.index + 1;
     this.team.points = this.points;
