@@ -32,6 +32,55 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title >
+          Before the competition
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>
+        Before the competition, be sure to remove all teams from the last year to avoid spoiling the results. You can do
+        this by going to the <a href="https://dashboard.heroku.com/apps/virtual-quiz" target="_blank">main heroku page</a>,
+        clicking on "mLab MongoDB" under "Installed add-ons" and then clicking "teams" under "Collections." You can remove
+        all the teams by clicking the button labeled "delete all documents in this collection."
+      </p>
+      <p>
+        Always check the final form of the questions read by the program by going to the app's
+        <a href="https://dashboard.heroku.com/apps/virtual-quiz" target="_blank">main heroku page</a>, clicking on
+        "mLab MongoDB" under "Installed add-ons" and then clicking "questions" under "Collections," as well as "answers"
+        under "Collections." This should display the questions (or answers, respectively) you uploaded in a different
+        format and order than you uploaded them, but they should be otherwise be the same with the following exception:
+        quote characters(") will be escaped in some circumstances (appearing as \"). This is normal and important to the
+        proper functioning of the program.
+      </p>
+      <p>
+        Also, don't forget to set the time the competition starts (the process is described below under "Important
+        Configuration") before you remove teams from last year and before you upload the new questions! Otherwise,
+        someone could play before the competition starts and see all the questions in advance.
+      </p>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title >
+          Before the competition
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>
+        After the competition you can return to this admin page and click "Get teams as CSV" to download the results in
+        a nice CSV format, ordered by points, which can be opened by any spreadsheet program like Microsoft Excel or
+        Google Sheets.
+      </p>
+      <p>
+        You can also view the teams manually by going to the <a href="https://dashboard.heroku.com/apps/virtual-quiz"
+                                                                target="_blank">main heroku page</a>,
+        clicking on "mLab MongoDB" under "Installed add-ons" and then clicking "teams" under "Collections." You can view
+        some more data that isn't relevant to the results, but could be necessary for other purposes. Note that the times
+        under team results (e.g. timeStarted) are recorded in UNIX time. There are several online converters allowing you
+        to easily change this string of numbers into a more human-readable time format. However, make sure the converter
+        supports UNIX time in milliseconds, otherwise you'll get a crazy result! Alternatively, you can divide the number
+        you have by 1000 to obtain the UNIX time in seconds.
+      </p>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title >
           Important configuration
         </mat-panel-title>
       </mat-expansion-panel-header>
@@ -60,14 +109,6 @@
       <p>
         Another potential issue could be that the lines containing a quote character(") have not been properly escaped
         by the csv exporter (should look like "")
-      </p>
-      <p>
-        Always check the final form of the questions read by the program by going to the app's
-        <a href="https://dashboard.heroku.com/apps/virtual-quiz" target="_blank">main heroku page</a>, clicking on
-        "mLab MongoDB" under "Installed add-ons" and then clicking "questions" under "Collections." This should display
-        the questions you uploaded in a different format and order than you uploaded them, but they should be otherwise
-        be the same with the following exception: quote characters(") will be escaped in some circumstances (appearing as
-        \"). This is normal and important to the proper functioning of the program.
       </p>
     </mat-expansion-panel>
   </mat-expansion-panel>
