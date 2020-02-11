@@ -34,7 +34,7 @@ export class QuestionsComponent implements OnChanges {
   /** The current question */
   @Input() currentQuestion: Question;
   /** Event that fires when an answer is clicked */
-  @Output() answerClicked = new EventEmitter<string>();
+  @Output() answerClicked = new EventEmitter<[string, number]>();
   /** The state of each answer, used for animations */
   state: Array<string>;
 
@@ -80,10 +80,10 @@ export class QuestionsComponent implements OnChanges {
       this.questionService.checkAnswer(answerIndex, this.index)
         .subscribe(result => {
           if (result) {
-            this.answerClicked.emit('correct');
+            this.answerClicked.emit(['correct', answerIndex]);
             this.state[answerIndex] = 'correct';
           } else {
-            this.answerClicked.emit('incorrect');
+            this.answerClicked.emit(['incorrect', answerIndex]);
             this.state[answerIndex] = 'incorrect';
           }
         });

@@ -61,6 +61,7 @@
       </div>
       <div [hidden]="!submitted">
         <button mat-raised-button color="accent" (click)="onClick()">Start Game</button>
+        <button mat-raised-button color="accent" (click)="onClickClear()">Clear Submission</button>
       </div>
 </mat-card>
 <mat-card *ngIf="!registrationAllowed">

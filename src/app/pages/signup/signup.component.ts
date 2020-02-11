@@ -44,6 +44,7 @@ export class SignupComponent implements OnInit {
           schoolNameControl.setValue(team.schoolName);
           teamNumberControl.setValue(team.teamNumber);
           this.team = team;
+          this.team._id = undefined;
         }
       });
     }
@@ -62,6 +63,17 @@ export class SignupComponent implements OnInit {
     this.teamService.practice = true;
     this.teamService.team = this.team;
     this.router.navigate(['/game']);
+  }
+
+  /** Called when the Clear Submission button is pressed */
+  onClickClear() {
+    const schoolNameControl = this.signupForm.get('schoolName');
+    const teamNumberControl = this.signupForm.get('teamNumber');
+    this.team = new Team('', undefined);
+    this.submitted = false;
+    this.teamExists = false;
+    schoolNameControl.enable();
+    teamNumberControl.enable();
   }
 
   /** Called on submission of the form */
@@ -85,6 +97,7 @@ export class SignupComponent implements OnInit {
         } else if (team.timeEnded) {
           this.submitted = false;
           this.teamExists = true;
+          this.team = team;
         } else {
           this.submitted = true;
           this.teamExists = true;

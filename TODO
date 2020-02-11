@@ -81,7 +81,6 @@ todo app (animations in particular) is sluggish on safari compared to chrome
   animations on edge are wonky - flashy and whatnot
   Make sure to state that chrome is most supported browser - if any issues move to chrome. However, other browsers will usually work.
     -- might be worth retrying, safari seems fine now.
-todo finish stats module
 todo not every team has a non null time ended - why? -- see if you can replicate (perhaps add it immediately after final question)
 TODO add more info to admin interface: perhaps info about how to access mongodb + token expiration and how to fix
 todo look into only sending one question at a time, and only allowing each user to see each question once. If already seen,
@@ -106,7 +105,3 @@ todo turns out console.log lies sometimes when printing objects - it will provid
 todo maybe make an option for using assigned team names instead of free form (e.g. as env var) - would have a form in the admin interface
     to add team name and number, and would check the token against this (would have to make sure that the schools are aware
     they must be accurate in their spelling), but ignore capitalization of course.
-
-CURRENT BUILD
-Simplified the way that downloading team csv works based on new knowledge
-Admin interface handles invalid tokens as well as expired ones

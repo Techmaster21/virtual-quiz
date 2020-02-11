@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild  } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit, ViewChild  } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { questionLoadDelay, autoWrongGuess, breakTime } from '../../constants';
@@ -7,6 +7,7 @@ import { QuestionService } from '../../services/question.service';
 import { Team } from '../../models/team';
 import { TeamService } from '../../services/team.service';
 import { TimerComponent } from '../../components/timer/timer.component';
+import { StatsService } from '../../services/stats.service';
 
 /** The main page of the game. Contains the game logic */
 @Component({
@@ -40,14 +41,24 @@ export class GameComponent implements OnInit, AfterViewInit {
   secondTryAllowed = true;
   /** How many points the user gained from this question */
   pointsGained = 0;
+  /** How long it took to answer for the first try */
+  firstTryIndex = null;
+  /** How long it took to answer for the second try */
+  secondTryIndex = null;
+  /** How long it took to answer for the first try */
+  firstTryTime = null;
+  /** How long it took to answer for the second try */
+  secondTryTime = null;
 
   /** Game component constructor */
   constructor(private router: Router,
               private questionService: QuestionService,
-              private teamService: TeamService) { }
+              private teamService: TeamService,
+              private statsService: StatsService) { }
 
   /** Called when there are no more questions to serve, i.e. when the game is over */
   gameOver() {
+    this.timer.clearInterval();
     this.team.points = this.points;
     this.team.timeEnded = Date.now();
     this.teamService.team = this.team;
@@ -57,7 +68,11 @@ export class GameComponent implements OnInit, AfterViewInit {
   getQuestions() {
     this.questionService.getQuestions().subscribe(questions => {
         this.questions = questions;
-        this.currentQuestion = this.questions[this.index];
+        if (this.index < this.questions.length) {
+          this.currentQuestion = this.questions[this.index];
+        } else {
+          this.gameOver();
+        }
       });
   }
   /**
@@ -65,13 +80,18 @@ export class GameComponent implements OnInit, AfterViewInit {
    * occur after roughly 1/3 of the total questions are completed (but only twice)
    */
   loadQuestion() {
+    // save stats and reset values
+    this.statsService.saveStats(this.index, this.firstTryIndex, this.firstTryTime, this.secondTryIndex,
+      this.secondTryTime, this.pointsGained).subscribe();
+    // todo i'd like a nicer looking way to do this
+    [this.firstTryIndex, this.secondTryIndex, this.firstTryTime, this.secondTryTime] = [null, null, null, null];
     // save team
     this.pointsGained = 0;
     this.team.currentQuestion = this.index + 1;
     this.team.points = this.points;
     this.teamService.save(this.team).subscribe();
     ++this.index;
-    if (this.questions[this.index]) {
+    if (this.index < this.questions.length && this.questions[this.index]) {
       if (this.index % Math.floor(this.questions.length / 3) === 0 && this.index !== Math.floor(this.questions.length / 3) * 3 ) {
         this.breakStarted = true;
         this.timer.restart();
@@ -111,7 +131,15 @@ export class GameComponent implements OnInit, AfterViewInit {
    * @param result
    *  Whether or not the clicked answer was 'correct' or 'incorrect'
    */
-  onAnswerClicked(result: string) {
+  onAnswerClicked([result, answerIndex]: [string, number]) {
+    // if this is first try
+    if (this.secondTryAllowed) {
+      this.firstTryIndex = answerIndex;
+      this.firstTryTime = this.seconds();
+    } else {
+      this.secondTryIndex = answerIndex;
+      this.secondTryTime = this.seconds();
+    }
     if (result === 'correct') {
       this.finished = true;
       this.timer.stop();
@@ -144,6 +172,16 @@ export class GameComponent implements OnInit, AfterViewInit {
     this.breakStarted = false;
     this.questionHelper();
   }
+
+  /** Called when the back button or forward button is pressed */
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event) {
+    // back button will force an advance to the next question and will not save stats to avoid cheating and spoiled stats
+    this.team.currentQuestion = this.index + 1;
+    this.teamService.save(this.team).subscribe();
+    this.timer.clearInterval();
+  }
+
   /**
    * Method that runs when the Timer is started. Sets a limit as defined in constants as the maximum time one can take
    * before it's counted as an automatic wrong guess

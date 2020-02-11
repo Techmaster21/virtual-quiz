@@ -28,7 +28,7 @@ export class GameOverComponent implements OnInit {
     const mins = s % 60;
     const hrs = (s - mins) / 60;
 
-    return hrs + ':' + mins + ':' + secs + '.' + ms;
+    return hrs + 'h:' + mins + 'm:' + secs + '.' + ms + 's';
   }
 
   /** Saves the team */
@@ -38,6 +38,7 @@ export class GameOverComponent implements OnInit {
     this.teamService.save(this.team).subscribe(
       // Wipes out copy of team in teamService to prevent user from playing again and modifying their results
       () => {
+        this.teamService.token = '';
         this.teamService.team = undefined;
         this.saving = false;
       }

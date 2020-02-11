@@ -31,6 +31,22 @@ router.get(URI.QUESTIONS.GET, Authorization.user, async (req: Request, res: Resp
   }
 });
 
-router.put(URI.STATS.QUESTIONS, Authorization.user, async (req: Request, res: Response) => {
-  const stats = database.collection('stats');
+router.put(URI.STATS.SAVE, Authorization.user, async (req: Request, res: Response) => {
+  try {
+    const collection = database.collection('statistics');
+    // JSON serializer doesn't serialize undefined apparently - since if the object contains undefined for a key,
+    // it simply omits the key. null works fine, however.
+    // todo type checking
+    const { questionIndex, ...stats } = req.body;
+    // should null be inserted? - yes, makes sure every array is correct length
+    await collection.updateOne(
+      { questionIndex },
+      { $push: stats },
+      { upsert: true }
+      );
+    res.json(true);
+  } catch (err) {
+    console.error(`An error occurred while saving statistics: ${err.message}`);
+    res.status(500).end();
+  }
 });

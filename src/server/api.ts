@@ -51,7 +51,7 @@ router.post(URI.TEAM.SAVE, async (req: Request, res: Response) => {
     // Get the results collection
     const collection = database.collection('teams');
     const team = req.body;
-    const payload = { team: { schoolName: team.schoolName, teamNumber: team.teamNumber }, type: 'user', check:  true };
+    const payload = { team: { schoolName: team.schoolName, teamNumber: team.teamNumber }, type: 'user', check: true };
     const options: SignOptions = { expiresIn: '10 days' };
     // Add a Result
     const result = (await collection.insertOne(team)).ops[0];
@@ -67,14 +67,14 @@ router.put(URI.TEAM.SAVE, async (req: Request, res: Response) => {
   try {
     // Get the teams collection
     const collection = database.collection('teams');
-    const team = req.body;
+    // todo type checking
+    const { _id, ...team } = req.body;
     // Update a Team
-    // TODO can use object here?
-    const result = await collection.updateOne({_id: new ObjectId(team._id)}, {
-      $set: { teamNumber: team.teamNumber, schoolName: team.schoolName, points: team.points,
-        currentQuestion: team.currentQuestion, timeStarted: team.timeStarted, timeEnded: team.timeEnded
-      }
-    });
+    await collection.updateOne(
+      { _id: new ObjectId(_id) },
+      { $set: team }
+      );
+    team._id = _id;
     res.json(team);
   } catch (err) {
     console.error(`An error occurred while saving a team: ${err.message}`);
@@ -86,9 +86,10 @@ router.put(URI.TEAM.GET, async (req: Request, res: Response) => {
   try {
     // Get the results collection
     const collection = database.collection('teams');
-    const team = req.body;
+    // todo type checking
+    const { schoolName, teamNumber } = req.body;
     // Add a Result
-    const result = await collection.findOne({schoolName: team.schoolName, teamNumber: team.teamNumber});
+    const result = await collection.findOne({ schoolName, teamNumber });
     res.json(result);
   } catch (err) {
     console.error(`An error occurred while getting a team: ${err.message}`);
@@ -100,7 +101,7 @@ router.get(URI.TEAM.GET, Authorization.user, async (req: Request, res: Response)
   try {
     const collection = database.collection('teams');
     const [schoolName, teamNumber] = req.headers.authorization.slice(1);
-    const result = await collection.findOne({schoolName, teamNumber});
+    const result = await collection.findOne({ schoolName, teamNumber });
     res.json(result);
   } catch (err) {
     console.error(`An error occurred while getting a team: ${err.message}`);
