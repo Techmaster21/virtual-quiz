@@ -100,7 +100,7 @@ router.put(URI.TEAM.GET, async (req: Request, res: Response) => {
 router.get(URI.TEAM.GET, Authorization.user, async (req: Request, res: Response) => {
   try {
     const collection = database.collection('teams');
-    const [schoolName, teamNumber] = req.headers.authorization.slice(1);
+    const [schoolName, teamNumber] = req.headers['set-cookie'].slice(1);
     const result = await collection.findOne({ schoolName, teamNumber });
     res.json(result);
   } catch (err) {

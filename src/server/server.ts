@@ -13,8 +13,8 @@ import { practiceQuestions } from './practiceQuestions';
 
 /** The Express server */
 const app: Application = express()
-  .use( bodyParserJSON( { limit: '10mb' } ),
-        bodyParserText( { type: ['text/csv', 'text/plain'], limit: '10mb'}) )
+  .use( express.json( { limit: '10mb' } ),
+        express.text( { type: ['text/csv', 'text/plain'], limit: '10mb'}) )
   .use( express.static(clientPath) ) // Allows the client access to any files located in /../dist without having to explicitly declare so.
   .use( apiRoutes )
   // all routes after this comment are protected by token

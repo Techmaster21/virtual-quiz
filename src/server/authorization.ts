@@ -6,7 +6,7 @@ import { secret } from './constants';
 export class Authorization {
   /** Checks that the token given is valid. Used by other middleware in order to get decoded information from the token */
   private static checkToken(req: Request, res: Response, next: NextFunction) {
-    const token = req.headers.authorization as string;
+    const token = req.headers.authorization;
     if (token) {
       jwtVerify(token, secret, (err: VerifyErrors, decoded: any) => { // adding type would break decoded.type
         if (err) {
@@ -17,10 +17,12 @@ export class Authorization {
           }
         } else {
           // todo not sure why this worked without the safety check before
+          // todo now instead of abusing 'req.header.authorization' (because they added more accurate types),
+          //  it abuses set cookie. I hope there are no unintended consequences.
           if (decoded.team) {
-            req.headers.authorization = [decoded.type, decoded.team.schoolName, decoded.team.teamNumber];
+            req.headers['set-cookie'] = [decoded.type, decoded.team.schoolName, decoded.team.teamNumber];
           } else {
-            req.headers.authorization = [decoded.type, null, null];
+            req.headers['set-cookie'] = [decoded.type, null, null];
           }
           next();
         }
@@ -33,7 +35,7 @@ export class Authorization {
   /** A middleware function used to authenticate admins before they are allowed to access endpoints in this file */
   public static admin(req: Request, res: Response, next: NextFunction) {
     Authorization.checkToken(req, res, () => {
-      if (req.headers.authorization[0] === 'admin') {
+      if (req.headers['set-cookie'][0] === 'admin') {
         next();
       } else {
         res.status(403).json('403 Forbidden');
@@ -44,7 +46,7 @@ export class Authorization {
   /** A middleware function used to authenticate users before they are allowed to access endpoints in this file */
   public static user(req: Request, res: Response, next: NextFunction) {
     Authorization.checkToken(req, res, () => {
-      if (req.headers.authorization[0] === 'user' || req.headers.authorization[0] === 'admin') {
+      if (req.headers['set-cookie'][0] === 'user' || req.headers['set-cookie'][0] === 'admin') {
         next();
       } else {
         res.status(403).json('403 Forbidden');

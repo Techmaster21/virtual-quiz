@@ -16,6 +16,10 @@ Non-essential, Long term:
 
   todo add integration tests.
 
+  todo testing is screwy. It doesn't work properly when you change TestBed.get to TestBed.inject. However, the example
+    under "Service Tests" in https://angular.io/guide/testing#service-tests also doesn't work with TestBed.inject, so something is
+    wrong there on the angular side. Leaving it as TestBed.get for the while until this is sorted.
+
 TODO need to account for internet failures and outages. Continue sending save requests.
 
 TODO Develop vq prescribed distribution (distribution of questions that is, so that we dont end up with a million pop

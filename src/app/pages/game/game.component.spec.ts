@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 import { asyncData } from '../../../testing/async-observable-helpers';
 import { TimerComponent } from '../../components/timer/timer.component';
 import { Team } from '../../models/team';
+import { Question } from '../../../shared/question';
+import { StatsService } from '../../services/stats.service';
 
 @Component({selector: 'app-questions', template: ''})
 class QuestionsStubComponent {
@@ -27,11 +29,13 @@ describe('GameComponent', () => {
 
   let teamServiceSpy: jasmine.SpyObj<TeamService>;
   let questionServiceSpy: jasmine.SpyObj<QuestionService>;
+  let statsServiceSpy: jasmine.SpyObj<QuestionService>;
   let routerSpy: jasmine.SpyObj<Router>;
 
   beforeEach(async(() => {
     const teamSpy = jasmine.createSpyObj('TeamService', ['save']);
     const questionSpy = jasmine.createSpyObj('QuestionService', ['getQuestions']);
+    const statsSpy = jasmine.createSpyObj('StatsService', ['saveStats']);
     const router = jasmine.createSpyObj('Router', ['navigate']);
     TestBed.configureTestingModule({
       imports: [ MaterialModule ],
@@ -39,13 +43,15 @@ describe('GameComponent', () => {
       providers: [
         {provide: TeamService, useValue: teamSpy},
         {provide: QuestionService, useValue: questionSpy},
+        {provide: StatsService, useValue: statsSpy},
         {provide: Router, useValue: router}]
     })
     .compileComponents();
     teamServiceSpy = TestBed.get(TeamService);
     questionServiceSpy = TestBed.get(QuestionService);
+    statsServiceSpy = TestBed.get(StatsService);
     routerSpy = TestBed.get(Router);
-    questionServiceSpy.getQuestions.and.returnValue(asyncData({})); // ditto but observable
+    questionServiceSpy.getQuestions.and.returnValue(asyncData({} as Question[])); // ditto but observable
     teamServiceSpy.team = new Team('', 1);
   }));
 

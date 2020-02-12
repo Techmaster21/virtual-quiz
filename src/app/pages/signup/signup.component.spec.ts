@@ -8,6 +8,7 @@ import { TeamService } from '../../services/team.service';
 import { TimeService } from '../../services/time.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { asyncData } from '../../../testing/async-observable-helpers';
+import { Team } from '../../models/team';
 
 describe('SignupComponent', () => {
   let component: SignupComponent;
@@ -34,7 +35,7 @@ describe('SignupComponent', () => {
     routerSpy = TestBed.get(Router);
     teamServiceSpy = TestBed.get(TeamService);
     timeServiceSpy = TestBed.get(TimeService);
-    teamServiceSpy.getTeamFromServer.and.returnValue(asyncData({})); // ditto as below
+    teamServiceSpy.getTeamFromServer.and.returnValue(asyncData({} as Team)); // ditto as below
     timeServiceSpy.getCanStart.and.returnValue(asyncData(true));
     // required for test to realise is real value not undefined
     // obviously not ideal
