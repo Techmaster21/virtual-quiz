@@ -35,9 +35,13 @@ export class StatsService {
 
   saveStats(questionIndex: number, firstTryIndex: number, firstTryTime: number, secondTryIndex: number, secondTryTime: number,
             points: number): Observable<any> {
-    const body = { questionIndex, firstTryIndex, firstTryTime, secondTryIndex, secondTryTime, points };
-    return this.http.put<boolean>(URI.STATS.SAVE, body, this.httpOptionsWithAuth).pipe(
-      catchError(handleError)
-    );
+    if (this.teamService.practice) {
+      return of(true);
+    } else {
+      const body = { questionIndex, firstTryIndex, firstTryTime, secondTryIndex, secondTryTime, points };
+      return this.http.put<boolean>(URI.STATS.SAVE, body, this.httpOptionsWithAuth).pipe(
+        catchError(handleError)
+      );
+    }
   }
 }
