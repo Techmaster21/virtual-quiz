@@ -53,10 +53,10 @@
       </form>
       <div *ngIf="teamExists">
         <!--          <div [hidden]="!submitted">-->
-        <p *ngIf="!team.timeEnded && team.timeStarted">That team has already registered. Resume game?</p>
+        <p *ngIf="!this.team.timeEnded && this.team.timeStarted">That team has already registered. Resume game?</p>
         <!--          </div>-->
         <!--          <div [hidden]="team.timeEnded">-->
-        <p *ngIf="team.timeEnded">That team has already registered and finished the game.</p>
+        <p *ngIf="this.team.timeEnded">That team has already registered and finished the game.</p>
         <!--          </div>-->
       </div>
       <div [hidden]="!submitted">

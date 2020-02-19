@@ -18,10 +18,19 @@ export class SignupComponent implements OnInit {
     schoolName: new FormControl('', Validators.required),
     teamNumber: new FormControl('', Validators.required)
   });
+  get schoolName() {
+    return this.signupForm.get('schoolName');
+  }
+  get teamNumber() {
+    return this.signupForm.get('teamNumber');
+  }
+  get team() {
+    return this.teamService.team;
+  }
   /** Whether or not users are allowed to register */
   registrationAllowed = false;
   /** The Team object which contains identifying information about the user */
-  team: Team = new Team('', undefined);
+  // team: Team = new Team('', undefined);
   /** Whether or not the given team already exists */
   teamExists = false;
   /** Whether or not the form has been successfully submitted */
@@ -38,13 +47,10 @@ export class SignupComponent implements OnInit {
     this.timeService.getCanStart().subscribe(canStart => this.registrationAllowed = canStart);
     if (this.teamService.token !== '') {
       this.teamService.getTeamFromServer().subscribe(team => {
+        // if the team in the token exists on the server, set the values of the form. Otherwise, ignore it.
         if (team) {
-          const schoolNameControl = this.signupForm.get('schoolName');
-          const teamNumberControl = this.signupForm.get('teamNumber');
-          schoolNameControl.setValue(team.schoolName);
-          teamNumberControl.setValue(team.teamNumber);
-          this.team = team;
-          this.team._id = undefined;
+          this.schoolName.setValue(team.schoolName);
+          this.teamNumber.setValue(team.teamNumber);
         }
       });
     }
@@ -57,54 +63,47 @@ export class SignupComponent implements OnInit {
 
   /** Called when Play Practice Set button is pressed */
   onClickPractice() {
-    this.team.schoolName = 'School of practice';
-    this.team.teamNumber = 1337;
-    this.team._id = 'practice';
+    const practiceTeam = new Team('School of Practice', 1337);
     this.teamService.practice = true;
-    this.teamService.team = this.team;
+    this.teamService.team = practiceTeam;
     this.router.navigate(['/game']);
   }
 
   /** Called when the Clear Submission button is pressed */
   onClickClear() {
-    const schoolNameControl = this.signupForm.get('schoolName');
-    const teamNumberControl = this.signupForm.get('teamNumber');
-    this.team = new Team('', undefined);
     this.submitted = false;
     this.teamExists = false;
-    schoolNameControl.enable();
-    teamNumberControl.enable();
+    this.schoolName.enable();
+    this.teamNumber.enable();
   }
 
   /** Called on submission of the form */
   onSubmit() {
-    const schoolNameControl = this.signupForm.get('schoolName');
-    const teamNumberControl = this.signupForm.get('teamNumber');
-    this.team.schoolName = schoolNameControl.value;
-    this.team.teamNumber = teamNumberControl.value;
-    this.teamService.getTeamFromServer(this.team).subscribe(
-      team => {
-        if (!team) {
+    const team = new Team(this.schoolName.value, this.teamNumber.value);
+    this.teamService.getTeamFromServer(team).subscribe(
+      serverTeam => {
+        if (!serverTeam) {
+          // if a team with such a name and number does not exist on the server currently, save it
           this.submitted = true;
-          schoolNameControl.disable();
-          teamNumberControl.disable();
-          this.teamService.save(this.team).subscribe(
+          this.schoolName.disable();
+          this.teamNumber.disable();
+          this.teamService.save(team).subscribe(
             newTeam => {
-              this.team = newTeam;
               this.teamService.team = newTeam;
             }
           );
-        } else if (team.timeEnded) {
+        } else if (serverTeam.timeEnded) {
+          // else if it exists but has completed the game already
           this.submitted = false;
           this.teamExists = true;
-          this.team = team;
+          this.teamService.team = serverTeam;
         } else {
+          // else it exists and has not completed the game yet
           this.submitted = true;
           this.teamExists = true;
-          schoolNameControl.disable();
-          teamNumberControl.disable();
-          this.team = team;
-          this.teamService.team = this.team;
+          this.schoolName.disable();
+          this.teamNumber.disable();
+          this.teamService.team = serverTeam;
         }
       }
     );
