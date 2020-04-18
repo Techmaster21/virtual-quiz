@@ -4,7 +4,7 @@ import { Application } from 'express';
 import { Db, MongoClient } from 'mongodb';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 
-import { clientPath, dbPassword, dbUser } from './constants';
+import { clientPath, dbURI } from './constants';
 import { router as apiRoutes } from './api';
 import { router as userRoutes } from './user-api';
 import { router as adminRoutes } from './admin-api';
@@ -35,20 +35,20 @@ let dbURL: string;
 
 /** Sets dbURL based on whether we are using the production database or a local development version */
 async function setDbURL() {
-  if (!dbUser || !dbPassword) {
+  if (!dbURI) {
     const mongod = new MongoMemoryServer();
     dbURL = await mongod.getUri();
     console.error(`Running database in development mode (no MONGODB_USER or MONGODB_PASSWORD environment variable found).
 You can connect to the development database at: ${dbURL}`);
   } else {
-    dbURL = `mongodb://${dbUser}:${dbPassword}@ds253918.mlab.com:53918/${dbUser}`;
+    dbURL = dbURI;
   }
 }
 
 setDbURL().then(async () => {
   try {
     database = (await MongoClient.connect(dbURL, {useNewUrlParser: true})).db();
-    if (!dbUser || !dbPassword) {
+    if (!dbURI) {
       await database.collection('answers').insertOne({ answers: practiceQuestions });
       await database.collection('questions').insertOne({ questions: practiceQuestions });
       await database.collection('practiceQuestions').insertOne({ practiceQuestions });
