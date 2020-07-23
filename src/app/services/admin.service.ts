@@ -5,7 +5,7 @@ import {
   HttpEventType, HttpHeaders,
   HttpRequest
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { SHA3 } from 'crypto-js';
 
@@ -60,13 +60,32 @@ export class AdminService {
   }
 
   /** Uploads questions to the server */
-  uploadQuestions(questions: File) {
-    const httpOptions = { reportProgress: true, headers: new HttpHeaders({ authorization: this.token })  };
-    const req = new HttpRequest('POST', URI.QUESTIONS.SAVE, questions, httpOptions);
-    return this.http.request(req).pipe(
+  uploadQuestions(questions: File): Observable<string> {
+    const reader: FileReader = new FileReader();
+
+    const observable = new Subject<string>();
+    // TODO is there a better way to do this that doesnt involve making a whole new observable, subscribing to the http request and just reemiting the values it already emitted?
+    // https://stackoverflow.com/questions/42237909/angular2-return-inner-observable-of-nested-observables
+    // https://stackoverflow.com/questions/46326446/return-observable-from-inside-nested-callbacks-functions
+    reader.onloadend = (e: ProgressEvent<FileReader>) => {
+      const csv: string = e.target.result as string;
+      const httpOptions = { reportProgress: true, headers: new HttpHeaders({ Authorization: this.token, 'Content-Type': 'text/csv' }) };
+      const req = new HttpRequest('POST', URI.QUESTIONS.SAVE, csv, httpOptions);
+      this.http.request(req).pipe(
       map(event => this.getEventMessage(event, questions)),
       catchError(this.handleErrorAdmin)
-    );
+      ).subscribe(s => {
+        observable.next(s);
+      }, err => {
+        observable.error(err);
+      }, () => {
+        observable.complete();
+      });
+    };
+
+    reader.readAsText(questions);
+
+    return observable;
   }
 
   /** Checks that the current admin token is valid */

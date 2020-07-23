@@ -6,7 +6,6 @@
 import { parse as papaparse } from 'papaparse';
 import { Question } from '../shared/question';
 
-
 /** A class that contains methods to prepare questions for use by the app */
 export class QuestionPreparer {
   /** The main method that transforms the given csv into a tuple of questions and answers in the form of javascript objects */
@@ -15,7 +14,7 @@ export class QuestionPreparer {
     const parsed = papaparse(csv, {skipEmptyLines: true});
     const errors = parsed.errors;
     if (errors.length) {
-      console.error(errors);
+      console.error(`A PapaParse error occurred: ${errors}`);
     }
     const rows = parsed.data
       .slice(1); // remove header

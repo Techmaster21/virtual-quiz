@@ -119,12 +119,7 @@
         <button mat-raised-button type="button" id="fileUpload" color="accent" (click)="fileInput.click()">
           Choose File
         </button>
-        <input #fileInput
-               hidden
-               type="file"
-               name="File Upload"
-               (change)="fileUpload(fileInput)"
-               accept=".csv"/>
+        <input #fileInput hidden type="file" name="File Upload" (change)="fileUpload(fileInput)" accept=".csv" />
       </div>
     </div>
   </mat-card>

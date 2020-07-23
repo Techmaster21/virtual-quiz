@@ -63,13 +63,17 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  /** Upload the questions to the server */
+  /** Upload the csv file to the server */
   fileUpload(file: HTMLInputElement): void {
-    this.adminService.uploadQuestions(file.files[0]).subscribe(
+    const csv: File = file.files[0];
+    this.adminService.uploadQuestions(csv).subscribe(
       res =>  {
         this.consoleOutput += res + '\n';
       }, err => {
         this.consoleOutput += err + '\n';
+      }, () => {
+        file.value = ''; // reset value so that a new upload can be done
+        this.consoleOutput += 'Upload is complete' + '\n';
       });
   }
 }

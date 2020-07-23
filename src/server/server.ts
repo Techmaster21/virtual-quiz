@@ -1,5 +1,4 @@
 import * as express from 'express';
-import { json as bodyParserJSON, text as bodyParserText } from 'body-parser';
 import { Application } from 'express';
 import { Db, MongoClient } from 'mongodb';
 import { MongoMemoryServer } from 'mongodb-memory-server';
