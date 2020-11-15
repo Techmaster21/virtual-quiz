@@ -37,7 +37,7 @@ async function setDbURL() {
   if (!dbURI) {
     const mongod = new MongoMemoryServer();
     dbURL = await mongod.getUri();
-    console.error(`Running database in development mode (no MONGODB_USER or MONGODB_PASSWORD environment variable found).
+    console.log(`Running database in development mode (no MONGODB_URI environment variable found).
 You can connect to the development database at: ${dbURL}`);
   } else {
     dbURL = dbURI;
