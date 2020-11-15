@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AdminComponent } from './admin.component';
 import { MaterialModule } from '../../components/material/material.module';
@@ -11,7 +11,7 @@ describe('AdminComponent', () => {
   let fixture: ComponentFixture<AdminComponent>;
   let adminServiceSpy: jasmine.SpyObj<AdminService>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     const adminSpy = jasmine.createSpyObj('AdminService', ['login', 'uploadQuestions', 'loggedIn']);
 
     TestBed.configureTestingModule({

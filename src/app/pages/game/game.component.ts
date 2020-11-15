@@ -179,6 +179,8 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
 
   /** Called when the back button or forward button is pressed */
+  // TODO should be same behavior on refresh. Adding @HostListener('window:beforeunload', ['$event'])\
+  //  almost works, but also registers when router is redirecting to new page.
   @HostListener('window:popstate', ['$event'])
   onPopState(event: PopStateEvent) {
     // back button will force an advance to the next question and will not save stats to avoid cheating and spoiled stats

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { GameOverComponent } from './game-over.component';
 import { MaterialModule } from '../../components/material/material.module';
@@ -11,7 +11,7 @@ describe('GameOverComponent', () => {
   let fixture: ComponentFixture<GameOverComponent>;
   let teamServiceSpy: jasmine.SpyObj<TeamService>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     const teamSpy = jasmine.createSpyObj('TeamService', ['save']);
     TestBed.configureTestingModule({
       imports: [ MaterialModule ],
