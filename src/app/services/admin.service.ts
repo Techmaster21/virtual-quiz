@@ -44,25 +44,23 @@ export class AdminService {
     return this.token !== '';
   }
 
-  /** Logs the user in using the provided password */
+  /** Logs the user in using the provided password. Returns the assigned token */
   login(password: string): Observable<string> {
     return this.http.post<string>(URI.ADMIN.LOGIN, SHA3(password).toString(), {... httpOptionsText, responseType: 'text' as 'json'}).pipe(
-      catchError(this.handleErrorAdmin)
+      catchError(this.handleErrorAdmin(this))
     );
   }
 
   /** Gets all of the teams from the server */
   getTeams(): Observable<Team[]> {
-    const httpOptions = { headers: new HttpHeaders({ authorization: this.token }) };
+    const httpOptions = { headers: new HttpHeaders({ Authorization: this.token }) };
     return this.http.get<Team[]>(URI.TEAM.GET_ALL, httpOptions).pipe(
-      catchError(this.handleErrorAdmin)
+      catchError(this.handleErrorAdmin(this))
     );
   }
 
   /** Uploads questions to the server */
-  uploadQuestions(questions: File): Observable<string> {
-    const reader: FileReader = new FileReader();
-
+  uploadQuestions(questions: File, reader = new FileReader()): Observable<string> {
     const observable = new Subject<string>();
     // TODO is there a better way to do this that doesnt involve making a whole new observable, subscribing to the http request and just reemiting the values it already emitted?
     // https://stackoverflow.com/questions/42237909/angular2-return-inner-observable-of-nested-observables
@@ -72,8 +70,8 @@ export class AdminService {
       const httpOptions = { reportProgress: true, headers: new HttpHeaders({ Authorization: this.token, 'Content-Type': 'text/csv' }) };
       const req = new HttpRequest('POST', URI.QUESTIONS.SAVE, csv, httpOptions);
       this.http.request(req).pipe(
-      map(event => this.getEventMessage(event, questions)),
-      catchError(this.handleErrorAdmin)
+        map(event => this.getEventMessage(event, questions)),
+        catchError(this.handleErrorAdmin(this))
       ).subscribe(s => {
         observable.next(s);
       }, err => {
@@ -90,10 +88,14 @@ export class AdminService {
 
   /** Checks that the current admin token is valid */
   checkToken() {
-    const httpOptions = { headers: new HttpHeaders({ authorization: this.token }) };
+    const httpOptions = { headers: new HttpHeaders({ Authorization: this.token }) };
     return this.http.get<boolean>(URI.ADMIN.CHECK_TOKEN, httpOptions).pipe(
-      catchError(this.handleErrorAdmin)
+      catchError(this.handleErrorAdmin(this))
     );
+  }
+
+  reloadWindow() {
+    location.reload();
   }
 
   /** Return distinct message for sent, upload progress, & response events */
@@ -114,13 +116,16 @@ export class AdminService {
         return `File "${file.name}" surprising upload event: ${event}.`;
     }
   }
+
   /** Handles expired tokens */
-  private handleErrorAdmin(error: HttpErrorResponse) {
-    if (error.error === 'Expired token' || error.error === 'Invalid token') {
-      localStorage.removeItem('adminToken');
-      this._token = '';
-      location.reload();
-    }
-    return handleError(error);
+  private handleErrorAdmin(adminService: AdminService) {
+    return (error: HttpErrorResponse) => {
+      if (error.error === 'Expired token' || error.error === 'Invalid token') {
+        adminService.token = '';
+        localStorage.removeItem('adminToken');
+        adminService.reloadWindow();
+      }
+      return handleError(error);
+    };
   }
 }

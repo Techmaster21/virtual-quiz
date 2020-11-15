@@ -29,8 +29,6 @@ export class SignupComponent implements OnInit {
   }
   /** Whether or not users are allowed to register */
   registrationAllowed = false;
-  /** The Team object which contains identifying information about the user */
-  // team: Team = new Team('', undefined);
   /** Whether or not the given team already exists */
   teamExists = false;
   /** Whether or not the form has been successfully submitted */
@@ -46,7 +44,7 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.timeService.getCanStart().subscribe(canStart => this.registrationAllowed = canStart);
     if (this.teamService.token !== '') {
-      this.teamService.getTeamFromServer().subscribe(team => {
+      this.teamService.getTeam().subscribe(team => {
         // if the team in the token exists on the server, set the values of the form. Otherwise, ignore it.
         if (team) {
           this.schoolName.setValue(team.schoolName);
@@ -80,7 +78,7 @@ export class SignupComponent implements OnInit {
   /** Called on submission of the form */
   onSubmit() {
     const team = new Team(this.schoolName.value, this.teamNumber.value);
-    this.teamService.getTeamFromServer(team).subscribe(
+    this.teamService.getTeam(team).subscribe(
       serverTeam => {
         if (!serverTeam) {
           // if a team with such a name and number does not exist on the server currently, save it

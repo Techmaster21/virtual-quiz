@@ -1,0 +1,7 @@
+{
+    "search.exclude": {
+        "**/coverage": true,
+        "**/documentation": true
+    },
+    "typescript.tsdk": "node_modules\\typescript\\lib"
+}

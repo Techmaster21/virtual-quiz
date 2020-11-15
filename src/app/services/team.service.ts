@@ -45,20 +45,23 @@ export class TeamService {
   private post(team: Team): Observable<Team> {
     return this.http.post<[Team, string]>(URI.TEAM.SAVE, team, httpOptionsJSON).pipe(
       tap(result => this.token = result[1]),
-      map(result => result[0]),
-      catchError(this.handleErrorUser)
+      map(result => this.team = result[0]),
+      catchError(this.handleErrorUser(this))
     );
   }
 
   /** Requests the server to update a team */
   private put(team: Team): Observable<Team> {
     return this.http.put<Team>(URI.TEAM.SAVE, team, httpOptionsJSON).pipe(
-      catchError(this.handleErrorUser)
+      tap(result => this.team = result),
+      catchError(this.handleErrorUser(this))
     );
   }
-  /** Requests the server to save team data */
+
+  /** Saves team data */
   save(team: Team): Observable<Team>  {
     if (this.practice) {
+      this.team = team;
       return of(team);
     }
     if (team._id) {
@@ -67,26 +70,39 @@ export class TeamService {
     return this.post(team);
   }
 
-  /** Retrieves the team from the server */
-  getTeamFromServer(team?: Team): Observable<Team> {
-    if (team) {
+  /** Retrieves current team */
+  getTeam(team?: {schoolName: string, teamNumber: number}): Observable<Team> {
+    if (this.practice) {
+      if (team) {
+        return this.save(team);
+      } else {
+        return of(this.team);
+      }
+    } else if (team) {
       return this.http.put<Team>(URI.TEAM.GET, team, httpOptionsJSON).pipe(
-        catchError(this.handleErrorUser)
+        catchError(this.handleErrorUser(this))
       );
     } else {
       const httpOptions = { headers: new HttpHeaders({ authorization: this.token }) };
       return this.http.get<Team>(URI.TEAM.GET, httpOptions).pipe(
-        catchError(this.handleErrorUser)
+        catchError(this.handleErrorUser(this))
       );
     }
   }
+
+  reloadWindow() {
+    location.reload();
+  }
+
   /** Handles expired tokens */
-  private handleErrorUser(error: HttpErrorResponse) {
-    if (error.error === 'Expired token') {
-      localStorage.removeItem('userToken');
-      this._token = '';
-      location.reload();
-    }
-    return handleError(error);
+  private handleErrorUser(teamService: TeamService) {
+    return (error: HttpErrorResponse) => {
+      if (error.error === 'Expired token' || error.error === 'Invalid token') {
+        teamService.token = '';
+        localStorage.removeItem('userToken');
+        teamService.reloadWindow();
+      }
+      return handleError(error);
+    };
   }
 }

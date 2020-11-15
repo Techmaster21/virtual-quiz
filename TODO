@@ -12,11 +12,11 @@ Non-essential, Long term:
 
   TODO Categories before loading of question?
 
-  todo add unit tests.
+  TODO add unit tests.
 
-  todo add integration tests.
+  TODO add integration tests.
 
-  todo testing is screwy. It doesn't work properly when you change TestBed.get to TestBed.inject. However, the example
+  TODO testing is screwy. It doesn't work properly when you change TestBed.get to TestBed.inject. However, the example
     under "Service Tests" in https://angular.io/guide/testing#service-tests also doesn't work with TestBed.inject, so something is
     wrong there on the angular side. Leaving it as TestBed.get for the while until this is sorted.
 
@@ -37,68 +37,68 @@ TODO There are a lot of new ways to do things that might be worth looking in to
 
 TODO make sure admin console always auto scrolls to bottom when new input comes in
 
-todo what if connection to db fails? - could start up in memory database, use that and periodically check if database is up,
+TODO what if connection to db fails? - could start up in memory database, use that and periodically check if database is up,
   and if it's up, transfer the teams and stats data.
 
-todo could make one command to do it all: pipe output away to focus on errors (syntax works on DOS)
+TODO could make one command to do it all: pipe output away to focus on errors (syntax works on DOS)
 
-todo look into morgan for logging on server side
+TODO look into morgan for logging on server side
 
-todo in order for the routes' middleware to be separate, the namespaces have to be separate: https://expressjs.com/en/4x/api.html#router
+TODO in order for the routes' middleware to be separate, the namespaces have to be separate: https://expressjs.com/en/4x/api.html#router
    fixed by instead providing middleware that authorizes user to every endpoint that requires it. May be a better solution
 
-todo observable based timer component? Or just look at timer component to see if good practices
+TODO observable based timer component? Or just look at timer component to see if good practices
  -- look at timers built in angular
 
-todo exponential backoff for api requests perhaps? https://angular.io/guide/practical-observable-usage#exponential-backoff
+TODO exponential backoff for api requests perhaps? https://angular.io/guide/practical-observable-usage#exponential-backoff
 
-todo read https://angular.io/guide/router#milestone-4-crisis-center-feature
+TODO read https://angular.io/guide/router#milestone-4-crisis-center-feature
 
-todo download endpoints from server via config?
+TODO download endpoints from server via config?
 
-todo add error handlers for http requests (res => {}, err => {})
+TODO add error handlers for http requests (res => {}, err => {})
+ 
+TODO make sure app automatically restarts
 
-todo make sure app automatically restarts
+TODO maybe make question parser a little more answer-number-agnostic
 
-todo maybe make question parser a little more answer-number-agnostic
-
-todo if team service wasn't injected as much as it is, would it lose access to the team object? Should probably have a single
+TODO if team service wasn't injected as much as it is, would it lose access to the team object? Should probably have a single
   method that returns the cached team if it is available, and gets it from the server if not (but how can it get it without
   knowing which team it is?).
 
-todo consider adding minutes to the timer for use for breaks
+TODO consider adding minutes to the timer for use for breaks
 
-todo I feel like question component has to know a little too much from game component -> maybe it shouldn't be separate,
+TODO I feel like question component has to know a little too much from game component -> maybe it shouldn't be separate,
   or it should somehow reduce its dependency on game component
 
-todo could generate own ID for teams based on name + number
+TODO could generate own ID for teams based on name + number
 
-todo It is still set to target es6 (since it wont work otherwise), it may be a good idea to transpile it, though it also
+TODO It is still set to target es6 (since it wont work otherwise), it may be a good idea to transpile it, though it also
   might not be necessary since it is the backend
 
-todo can you move mongodb-memory-server to dev-dependencies? If not, how can you make it so you can?
+TODO can you move mongodb-memory-server to dev-dependencies? If not, how can you make it so you can?
 Info about backend-apps with webpack:
 https://jlongster.com/Backend-Apps-with-Webpack--Part-I
 
 Priority for finishing:
-todo app (animations in particular) is sluggish on safari compared to chrome
+TODO app (animations in particular) is sluggish on safari compared to chrome
   animations on edge are wonky - flashy and whatnot
   Make sure to state that chrome is most supported browser - if any issues move to chrome. However, other browsers will usually work.
     -- might be worth retrying, safari seems fine now.
-todo not every team has a non null time ended - why? -- see if you can replicate (perhaps add it immediately after final question)
+TODO not every team has a non null time ended - why? -- see if you can replicate (perhaps add it immediately after final question)
 TODO add more info to admin interface: perhaps info about how to access mongodb + token expiration and how to fix
-todo look into only sending one question at a time, and only allowing each user to see each question once. If already seen,
+TODO look into only sending one question at a time, and only allowing each user to see each question once. If already seen,
     and not currently looking at in game, then dont accept answers or new requests for it from that user. (would also fix
     back button issue)
     - to accomplish, switch current question tracking to server, that way you can trust it, and also ensure it only sends
         question once
      - this of course can still be exploited by creating a different user to look at the questions
   - Can you use route guards to help secure api?
-todo use some less gross colors for animations - maybe a gradient or something, or something that gives it depth. something
+TODO use some less gross colors for animations - maybe a gradient or something, or something that gives it depth. something
   that doesn't hurt my eyes would be a good start.
-todo could probably use free dynos now since it just sleeps instead of shutting down. It takes it a little longer to start up
+TODO could probably use free dynos now since it just sleeps instead of shutting down. It takes it a little longer to start up
     but other than that there seems to be no major difference. May want to check the other benefits of hobby dynos first.
-todo turns out console.log lies sometimes when printing objects - it will provide a live view unless you use
+TODO turns out console.log lies sometimes when printing objects - it will provide a live view unless you use
       console.log(JSON.parse(JSON.stringify(obj)));
       and it turns out this was behind the mystery of the download failed no file issue in the admin interface - it is true
       that link has not properly been set by the time that link.click() is called. workshop solutions.
@@ -106,6 +106,15 @@ todo turns out console.log lies sometimes when printing objects - it will provid
       obviously not true soooo who knows for sure) - maybe this is due to the ngif somehow - link is nothing according to
       json stringify, however, link.href is something when it should be. - firefox doesnt do the live update so everything
       makes sense there.
-todo maybe make an option for using assigned team names instead of free form (e.g. as env var) - would have a form in the admin interface
+TODO maybe make an option for using assigned team names instead of free form (e.g. as env var) - would have a form in the admin interface
     to add team name and number, and would check the token against this (would have to make sure that the schools are aware
-    they must be accurate in their spelling), but ignore capitalization of course.
+    they must be accurate in their spelling), but ignore capitalization of course. - using a unique token might be better
+
+TODO why does admin login on server side not JSON the token?
+TODO instead of 403, should be sending 401 in many cases - if the identity is not known to the server.
+TODO really shouldnt be reloading the window using location.reload - consider using router instead.
+TODO if your admin password is wrong it does not tell you
+TODO should be a clearTeam function
+TODO team variable in team service should not be set by components, but by teamservice itself using methods
+TODO Does there need to be a difference between invalid and expired tokens?
+TODO add mathjax?

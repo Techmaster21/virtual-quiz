@@ -4,7 +4,7 @@ import { correctColor, incorrectColor } from '../../constants';
 import { Question } from '../../../shared/question';
 import { QuestionService } from '../../services/question.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 
 /** Component used to display the questions and answers and to animate them */
 @Component({
@@ -44,7 +44,7 @@ export class QuestionsComponent implements OnChanges {
   /** Sets all answers to their respective colors once a user's tries have been exhausted */
   finishAnimation() {
     // todo more efficient (less requests) but kinda confusing
-    const [answers, indices] = this.currentQuestion.answers.reduce((result, answer, i) => {
+    const [answers, indices] = this.currentQuestion.answers.reduce((result: [Array<Observable<boolean>>, Array<number>], answer, i) => {
       if (this.state[i] === 'inactive') {
         result[0].push(this.questionService.checkAnswer(i, this.index));
         result[1].push(i);
