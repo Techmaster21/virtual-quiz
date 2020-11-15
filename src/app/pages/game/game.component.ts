@@ -132,6 +132,10 @@ export class GameComponent implements OnInit, AfterViewInit {
    *  Whether or not the clicked answer was 'correct' or 'incorrect'
    */
   onAnswerClicked([result, answerIndex]: [string, number]) {
+    // if we have already finished, ignore new clicks
+    if (this.finished) {
+      return;
+    }
     // if this is first try
     if (this.secondTryAllowed) {
       this.firstTryIndex = answerIndex;
@@ -165,6 +169,7 @@ export class GameComponent implements OnInit, AfterViewInit {
       }
     }
   }
+
   /** Called when the current break ends by the user pressing the End Break button */
   onBreakEnd() {
     clearTimeout(this.breakEnd);
@@ -175,7 +180,7 @@ export class GameComponent implements OnInit, AfterViewInit {
 
   /** Called when the back button or forward button is pressed */
   @HostListener('window:popstate', ['$event'])
-  onPopState(event) {
+  onPopState(event: PopStateEvent) {
     // back button will force an advance to the next question and will not save stats to avoid cheating and spoiled stats
     this.team.currentQuestion = this.index + 1;
     this.teamService.save(this.team).subscribe();
