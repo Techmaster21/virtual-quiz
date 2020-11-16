@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { SHA3 } from 'crypto-js';
+import jsSHA from 'jssha';
 
 import { handleError, httpOptionsText, URI } from '../constants';
 import { Team } from '../models/team';
@@ -46,7 +46,9 @@ export class AdminService {
 
   /** Logs the user in using the provided password. Returns the assigned token */
   login(password: string): Observable<string> {
-    return this.http.post<string>(URI.ADMIN.LOGIN, SHA3(password).toString(), {... httpOptionsText, responseType: 'text' as 'json'}).pipe(
+    const hash = new jsSHA('SHA3-512', 'TEXT');
+    hash.update(password);
+    return this.http.post<string>(URI.ADMIN.LOGIN, hash.getHash('B64'), {... httpOptionsText, responseType: 'text' as 'json'}).pipe(
       catchError(this.handleErrorAdmin(this))
     );
   }

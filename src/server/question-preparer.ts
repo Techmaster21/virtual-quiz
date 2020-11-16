@@ -11,7 +11,7 @@ export class QuestionPreparer {
   /** The main method that transforms the given csv into a tuple of questions and answers in the form of javascript objects */
   static prepare(csv: string): [Question[], any[]] {
     // todo check errors from papa
-    const parsed = papaparse(csv, {skipEmptyLines: true});
+    const parsed = papaparse<string[]>(csv, {skipEmptyLines: true});
     const errors = parsed.errors;
     if (errors.length) {
       console.error(`A PapaParse error occurred: ${errors}`);

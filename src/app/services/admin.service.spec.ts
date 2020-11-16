@@ -2,10 +2,10 @@ import { HttpEventType, HttpUploadProgressEvent, HttpDownloadProgressEvent, Http
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { SHA3 } from 'crypto-js';
 import { URI } from '../constants';
 import { Team } from '../models/team';
 import { AdminService } from './admin.service';
+import jsSHA from 'jssha';
 
 describe('AdminService', () => {
   let adminService: AdminService;
@@ -70,7 +70,7 @@ describe('AdminService', () => {
       expect(adminService.loggedIn()).toBe(false);
     });
 
-    it('#login should login', () => {
+    it('#login should login when given correct password', () => {
       const testAdminToken = 'testAdminToken';
       const testPassword = 'testPassword';
       adminService.login(testPassword).subscribe(
@@ -81,10 +81,35 @@ describe('AdminService', () => {
       expect(req.request.method).toBe('POST');
       expect(req.request.headers.get('Content-Type')).toBe('text/plain');
       expect(req.request.responseType).toBe('text');
-      expect(req.request.body).toBe(SHA3(testPassword).toString());
+      const hash = new jsSHA('SHA3-512', 'TEXT');
+      hash.update(testPassword);
+      expect(req.request.body).toBe(hash.getHash('B64'));
 
       // Respond with the mock token
       req.flush(testAdminToken);
+    });
+
+    it('#login should return 403 when given password does not match stored password', () => {
+      const forbidden = '403 Forbidden';
+      const forbiddenError = { status: 403, statusText: 'Forbidden' };
+      const expectedConsoleError = `Backend returned code ${forbiddenError.status}, body was: ${forbidden}`;
+      const expectedObservableErrorMessage = 'Something bad happened; please try again later.';
+      const testAdminToken = 'testAdminToken';
+      const testPassword = 'testPassword';
+      adminService.login('wrongPassword').subscribe(
+        token => fail,
+        error => expect(error).toBe(expectedObservableErrorMessage)
+      );
+      const req = httpTestingController.expectOne(URI.ADMIN.LOGIN);
+      expect(req.request.method).toBe('POST');
+      expect(req.request.headers.get('Content-Type')).toBe('text/plain');
+      expect(req.request.responseType).toBe('text');
+      const hash = new jsSHA('SHA3-512', 'TEXT');
+      hash.update(testPassword);
+      expect(req.request.body).not.toBe(hash.getHash('B64'));
+
+      req.flush(forbidden, forbiddenError);
+      expect(console.error).toHaveBeenCalledWith(expectedConsoleError);
     });
 
     describe('all methods that require authorization should return an error', () => {

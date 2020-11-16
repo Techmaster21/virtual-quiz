@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { SHA3, WordArray } from 'crypto-js';
+import jsSHA from 'jssha';
 
 /**
  * The start of the competition. Pulls from environment variable or compares against the start of unix time (in CST and
@@ -16,5 +16,8 @@ export const dbURI = process.env.MONGODB_URI;
 
 /** The secret used to sign all the javascript web tokens */
 export const secret = process.env.SECRET || 'test secret';
-/** The password used to access the admin interface */
-export const adminPassword = SHA3(process.env.ADMIN_PASSWORD || 'password').toString();
+
+const hash = new jsSHA('SHA3-512', 'TEXT');
+hash.update(process.env.ADMIN_PASSWORD || 'password');
+/** The password used to access the admin interface, in hashed form */
+export const adminPassword = hash.getHash('B64');
