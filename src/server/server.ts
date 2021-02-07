@@ -33,7 +33,7 @@ export const questionStore = new QuestionStore();
 let dbURL: string;
 
 /** Sets dbURL based on whether we are using the production database or a local development version */
-async function setDbURL() {
+async function setDbURL(): Promise<void> {
   if (!dbURI) {
     const mongod = new MongoMemoryServer();
     dbURL = await mongod.getUri();

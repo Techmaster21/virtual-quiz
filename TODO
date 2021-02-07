@@ -118,3 +118,4 @@ TODO should be a clearTeam function
 TODO team variable in team service should not be set by components, but by teamservice itself using methods
 TODO Does there need to be a difference between invalid and expired tokens?
 TODO add mathjax?
+TODO update admin documentation to account for switch from mLab mongo to Atlas
