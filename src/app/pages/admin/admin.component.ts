@@ -63,6 +63,20 @@ export class AdminComponent implements OnInit {
     });
   }
 
+  getStats(link: HTMLAnchorElement) {
+    this.adminService.getStats().subscribe( stats => {
+      if (!stats) {
+        return;
+      }
+      const blob = new Blob([stats],
+        {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+      const url = window.URL.createObjectURL(blob);
+      link.href = url;
+      link.click();
+      window.URL.revokeObjectURL(url);
+    });
+  }
+
   /** Upload the questions to the server */
   fileUpload(file: HTMLInputElement): void {
     this.adminService.uploadQuestions(file.files[0]).subscribe(

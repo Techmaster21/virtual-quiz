@@ -1,5 +1,4 @@
 import * as express from 'express';
-import { json as bodyParserJSON, text as bodyParserText } from 'body-parser';
 import { Application } from 'express';
 import { Db, MongoClient } from 'mongodb';
 import { MongoMemoryServer } from 'mongodb-memory-server';
@@ -36,7 +35,7 @@ let dbURL: string;
 /** Sets dbURL based on whether we are using the production database or a local development version */
 async function setDbURL() {
   if (!dbUser || !dbPassword) {
-    const mongod = new MongoMemoryServer();
+    const mongod = new MongoMemoryServer({instance: {port: 27017, dbName: 'testing'}});
     dbURL = await mongod.getUri();
     console.error(`Running database in development mode (no MONGODB_USER or MONGODB_PASSWORD environment variable found).
 You can connect to the development database at: ${dbURL}`);

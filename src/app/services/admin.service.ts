@@ -59,6 +59,14 @@ export class AdminService {
     );
   }
 
+  /** Gets all of the statistics from the server */
+  getStats(): Observable<ArrayBuffer> {
+    const httpOptions = { headers: new HttpHeaders({ authorization: this.token }) };
+    return this.http.get(URI.STATS.GET_ALL, {...httpOptions, responseType: 'arraybuffer' }).pipe(
+      catchError(this.handleErrorAdmin)
+    );
+  }
+
   /** Uploads questions to the server */
   uploadQuestions(questions: File) {
     const httpOptions = { reportProgress: true, headers: new HttpHeaders({ authorization: this.token })  };

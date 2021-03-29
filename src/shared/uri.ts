@@ -27,6 +27,7 @@ export const URI = {
     CHECK_TOKEN: '/api/admin/check_token'
   },
   STATS: {
+    GET_ALL: '/api/stats/get_all',
     SAVE: '/api/stats/save'
   }
 };

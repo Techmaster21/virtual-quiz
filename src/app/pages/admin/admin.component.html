@@ -131,6 +131,8 @@
   <mat-card>
     <a #downloader hidden download="teams.csv"></a>
     <button mat-raised-button type="button" color="accent" (click)="getTeams(downloader)"> Get teams as CSV </button>
+    <a #downloader2 hidden download="stats.xlsx"></a>
+    <button mat-raised-button type="button" color="accent" (click)="getStats(downloader2)"> Get stats </button>
   </mat-card>
   <mat-card>
     <div>

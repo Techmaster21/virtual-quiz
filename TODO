@@ -109,3 +109,7 @@ todo turns out console.log lies sometimes when printing objects - it will provid
 todo maybe make an option for using assigned team names instead of free form (e.g. as env var) - would have a form in the admin interface
     to add team name and number, and would check the token against this (would have to make sure that the schools are aware
     they must be accurate in their spelling), but ignore capitalization of course.
+
+immediate: Finish stats spreadsheet
+add notes about stats to admin interface, esp concerning clearing stats collection in database - also text or snap thomas about it
+clean up signup component, add documentation for new methods
